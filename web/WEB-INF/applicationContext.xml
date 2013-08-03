@@ -23,7 +23,15 @@
         <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
                 <property name="dataSource" ref="dataSource"/>
                 <property name="mappingResources">
-                        <list>                              
+                        <list>
+                                <value>com/eboy/po/Catagory.hbm.xml</value>
+                                <value>com/eboy/po/Comment.hbm.xml</value>
+                                <value>com/eboy/po/Delivery.hbm.xml</value>
+                                <value>com/eboy/po/Gallary.hbm.xml</value>
+                                <value>com/eboy/po/Item.hbm.xml</value>
+                                <value>com/eboy/po/ItemTag.hbm.xml</value>
+                                <value>com/eboy/po/Order.hbm.xml</value>
+                                <value>com/eboy/po/Tag.hbm.xml</value>
                         </list>
                 </property>
                 <property name="hibernateProperties">
