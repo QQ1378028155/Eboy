@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-8-3 16:36:09 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.eboy.po.Item" table="Item" catalog="Eboy">
+        <id name="itemId" type="java.lang.Integer">
+            <column name="itemID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="catagory" class="com.eboy.po.Catagory" fetch="select">
+            <column name="catagoryID" not-null="true" />
+        </many-to-one>
+        <property name="itemEbayId" type="string">
+            <column name="itemEbayID" length="30" not-null="true" />
+        </property>
+        <property name="itemTitle" type="string">
+            <column name="itemTitle" not-null="true" />
+        </property>
+        <property name="itemDescription" type="binary">
+            <column name="itemDescription" not-null="true" />
+        </property>
+        <property name="itemQuantity" type="int">
+            <column name="itemQuantity" not-null="true" />
+        </property>
+        <property name="itemTax" type="double">
+            <column name="itemTax" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="itemShippingFee" type="double">
+            <column name="itemShippingFee" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="itemPrice" type="double">
+            <column name="itemPrice" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="itemSortScore" type="double">
+            <column name="itemSortScore" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="itemDiscount" type="double">
+            <column name="itemDiscount" precision="22" scale="0" not-null="true" />
+        </property>
+        <set name="comments" inverse="true">
+            <key>
+                <column name="itemID" not-null="true" />
+            </key>
+            <one-to-many class="com.eboy.po.Comment" />
+        </set>
+        <set name="orders" inverse="true">
+            <key>
+                <column name="itemID" not-null="true" />
+            </key>
+            <one-to-many class="com.eboy.po.Order" />
+        </set>
+        <set name="itemTags" inverse="true">
+            <key>
+                <column name="itemID" not-null="true" />
+            </key>
+            <one-to-many class="com.eboy.po.ItemTag" />
+        </set>
+        <set name="gallaries" inverse="true">
+            <key>
+                <column name="itemID" not-null="true" />
+            </key>
+            <one-to-many class="com.eboy.po.Gallary" />
+        </set>
+    </class>
+</hibernate-mapping>

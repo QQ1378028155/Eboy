@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-8-3 16:36:09 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.eboy.po.Order" table="Order" catalog="Eboy">
+        <id name="orderId" type="java.lang.Integer">
+            <column name="orderID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="item" class="com.eboy.po.Item" fetch="select">
+            <column name="itemID" not-null="true" />
+        </many-to-one>
+        <property name="orderQuantity" type="int">
+            <column name="orderQuantity" not-null="true" />
+        </property>
+        <property name="orderValidate" type="string">
+            <column name="orderValidate" length="10" not-null="true" />
+        </property>
+        <property name="orderPrice" type="int">
+            <column name="orderPrice" not-null="true" />
+        </property>
+        <property name="orderAddress" type="string">
+            <column name="orderAddress" not-null="true" />
+        </property>
+        <property name="orderStatus" type="string">
+            <column name="orderStatus" length="64" not-null="true" />
+        </property>
+        <property name="orderPhone" type="string">
+            <column name="orderPhone" length="32" not-null="true" />
+        </property>
+        <property name="orderReceiver" type="string">
+            <column name="orderReceiver" not-null="true" />
+        </property>
+        <property name="orderEmail" type="string">
+            <column name="orderEmail" not-null="true" />
+        </property>
+        <set name="deliveries" inverse="true">
+            <key>
+                <column name="orderID" not-null="true" />
+            </key>
+            <one-to-many class="com.eboy.po.Delivery" />
+        </set>
+    </class>
+</hibernate-mapping>

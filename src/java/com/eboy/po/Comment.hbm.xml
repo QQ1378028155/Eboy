@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-8-3 16:36:09 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.eboy.po.Comment" table="Comment" catalog="Eboy">
+        <id name="commentId" type="java.lang.Integer">
+            <column name="CommentID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="item" class="com.eboy.po.Item" fetch="select">
+            <column name="itemID" not-null="true" />
+        </many-to-one>
+        <property name="commentUserName" type="string">
+            <column name="commentUserName" />
+        </property>
+        <property name="commentContent" type="string">
+            <column name="commentContent" not-null="true" />
+        </property>
+        <property name="commentRate" type="double">
+            <column name="commentRate" precision="22" scale="0" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

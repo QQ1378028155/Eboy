@@ -7,5 +7,13 @@
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/Eboy</property>
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password">wangjl</property>
+    <mapping resource="com/eboy/po/Delivery.hbm.xml"/>
+    <mapping resource="com/eboy/po/Catagory.hbm.xml"/>
+    <mapping resource="com/eboy/po/Gallary.hbm.xml"/>
+    <mapping resource="com/eboy/po/Item.hbm.xml"/>
+    <mapping resource="com/eboy/po/ItemTag.hbm.xml"/>
+    <mapping resource="com/eboy/po/Comment.hbm.xml"/>
+    <mapping resource="com/eboy/po/Order.hbm.xml"/>
+    <mapping resource="com/eboy/po/Tag.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
