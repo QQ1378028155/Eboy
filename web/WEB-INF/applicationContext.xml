@@ -38,9 +38,20 @@
                         <value>hibernate.dialect=org.hibernate.dialect.MySQLDialect</value>
                 </property>
         </bean>
-        
+       <bean id="tagDao" class="com.eboy.dao.TagDao">
+                <property name="sessionFactory">
+                        <ref bean="sessionFactory"></ref>
+                </property>
+        </bean>
+        <bean id="tagService" class="com.eboy.service.TagServiceImpl">
+                <property name="tagDao">
+                        <ref bean="tagDao"></ref>
+                </property>
+        </bean>
         <bean id="helloAction" class="com.eboy.action.HelloAction">
-                
+                <property name="tagService">
+                        <ref bean="tagService"></ref>
+                </property>
         </bean>
         
 </beans>
