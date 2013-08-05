@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2013-8-3 16:36:09 by Hibernate Tools 3.2.1.GA -->
+<!-- Generated 2013-8-5 17:39:05 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="com.eboy.po.Item" table="Item" catalog="Eboy">
         <id name="itemId" type="java.lang.Integer">
@@ -38,6 +38,9 @@
         <property name="itemDiscount" type="double">
             <column name="itemDiscount" precision="22" scale="0" not-null="true" />
         </property>
+        <property name="itemThumbnailImageUrl" type="string">
+            <column name="itemThumbnailImageURL" not-null="true" />
+        </property>
         <set name="comments" inverse="true">
             <key>
                 <column name="itemID" not-null="true" />
@@ -56,11 +59,11 @@
             </key>
             <one-to-many class="com.eboy.po.ItemTag" />
         </set>
-        <set name="gallaries" inverse="true">
+        <set name="galleries" inverse="true">
             <key>
                 <column name="itemID" not-null="true" />
             </key>
-            <one-to-many class="com.eboy.po.Gallary" />
+            <one-to-many class="com.eboy.po.Gallery" />
         </set>
     </class>
 </hibernate-mapping>

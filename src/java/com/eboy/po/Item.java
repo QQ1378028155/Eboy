@@ -1,5 +1,5 @@
 package com.eboy.po;
-// Generated 2013-8-3 16:36:07 by Hibernate Tools 3.2.1.GA
+// Generated 2013-8-5 17:39:05 by Hibernate Tools 3.2.1.GA
 
 
 import java.util.HashSet;
@@ -22,16 +22,17 @@ public class Item  implements java.io.Serializable {
      private double itemPrice;
      private double itemSortScore;
      private double itemDiscount;
+     private String itemThumbnailImageUrl;
      private Set comments = new HashSet(0);
      private Set orders = new HashSet(0);
      private Set itemTags = new HashSet(0);
-     private Set gallaries = new HashSet(0);
+     private Set galleries = new HashSet(0);
 
     public Item() {
     }
 
 	
-    public Item(Catagory catagory, String itemEbayId, String itemTitle, byte[] itemDescription, int itemQuantity, double itemTax, double itemShippingFee, double itemPrice, double itemSortScore, double itemDiscount) {
+    public Item(Catagory catagory, String itemEbayId, String itemTitle, byte[] itemDescription, int itemQuantity, double itemTax, double itemShippingFee, double itemPrice, double itemSortScore, double itemDiscount, String itemThumbnailImageUrl) {
         this.catagory = catagory;
         this.itemEbayId = itemEbayId;
         this.itemTitle = itemTitle;
@@ -42,8 +43,9 @@ public class Item  implements java.io.Serializable {
         this.itemPrice = itemPrice;
         this.itemSortScore = itemSortScore;
         this.itemDiscount = itemDiscount;
+        this.itemThumbnailImageUrl = itemThumbnailImageUrl;
     }
-    public Item(Catagory catagory, String itemEbayId, String itemTitle, byte[] itemDescription, int itemQuantity, double itemTax, double itemShippingFee, double itemPrice, double itemSortScore, double itemDiscount, Set comments, Set orders, Set itemTags, Set gallaries) {
+    public Item(Catagory catagory, String itemEbayId, String itemTitle, byte[] itemDescription, int itemQuantity, double itemTax, double itemShippingFee, double itemPrice, double itemSortScore, double itemDiscount, String itemThumbnailImageUrl, Set comments, Set orders, Set itemTags, Set galleries) {
        this.catagory = catagory;
        this.itemEbayId = itemEbayId;
        this.itemTitle = itemTitle;
@@ -54,10 +56,11 @@ public class Item  implements java.io.Serializable {
        this.itemPrice = itemPrice;
        this.itemSortScore = itemSortScore;
        this.itemDiscount = itemDiscount;
+       this.itemThumbnailImageUrl = itemThumbnailImageUrl;
        this.comments = comments;
        this.orders = orders;
        this.itemTags = itemTags;
-       this.gallaries = gallaries;
+       this.galleries = galleries;
     }
    
     public Integer getItemId() {
@@ -137,6 +140,13 @@ public class Item  implements java.io.Serializable {
     public void setItemDiscount(double itemDiscount) {
         this.itemDiscount = itemDiscount;
     }
+    public String getItemThumbnailImageUrl() {
+        return this.itemThumbnailImageUrl;
+    }
+    
+    public void setItemThumbnailImageUrl(String itemThumbnailImageUrl) {
+        this.itemThumbnailImageUrl = itemThumbnailImageUrl;
+    }
     public Set getComments() {
         return this.comments;
     }
@@ -158,12 +168,12 @@ public class Item  implements java.io.Serializable {
     public void setItemTags(Set itemTags) {
         this.itemTags = itemTags;
     }
-    public Set getGallaries() {
-        return this.gallaries;
+    public Set getGalleries() {
+        return this.galleries;
     }
     
-    public void setGallaries(Set gallaries) {
-        this.gallaries = gallaries;
+    public void setGalleries(Set galleries) {
+        this.galleries = galleries;
     }
 
 

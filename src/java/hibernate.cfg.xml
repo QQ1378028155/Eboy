@@ -15,5 +15,8 @@
     <mapping resource="com/eboy/po/Comment.hbm.xml"/>
     <mapping resource="com/eboy/po/Order.hbm.xml"/>
     <mapping resource="com/eboy/po/Tag.hbm.xml"/>
+    <mapping/>
+    <mapping/>
+    <mapping resource="com/eboy/po/Gallery.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
