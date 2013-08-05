@@ -27,7 +27,7 @@
                                 <value>com/eboy/po/Catagory.hbm.xml</value>
                                 <value>com/eboy/po/Comment.hbm.xml</value>
                                 <value>com/eboy/po/Delivery.hbm.xml</value>
-                                <value>com/eboy/po/Gallary.hbm.xml</value>
+                                <value>com/eboy/po/Gallery.hbm.xml</value>
                                 <value>com/eboy/po/Item.hbm.xml</value>
                                 <value>com/eboy/po/ItemTag.hbm.xml</value>
                                 <value>com/eboy/po/Order.hbm.xml</value>
@@ -53,5 +53,7 @@
                         <ref bean="tagService"></ref>
                 </property>
         </bean>
-        
+        <bean id="findItemsFromEbayByKeywordsAction" class="com.eboy.action.admin.FindItemsFromEbayByKeywordsAction">
+                
+        </bean>
 </beans>
