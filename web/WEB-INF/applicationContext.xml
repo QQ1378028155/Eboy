@@ -8,52 +8,66 @@
        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd">
 
-        <bean id="propertyConfigurer"
+    <bean id="propertyConfigurer"
           class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
           p:location="/WEB-INF/jdbc.properties"/>
 
-        <bean id="dataSource"
-        class="org.springframework.jdbc.datasource.DriverManagerDataSource"
-        p:driverClassName="${jdbc.driverClassName}"
-        p:url="${jdbc.url}"
-        p:username="${jdbc.username}"
-        p:password="${jdbc.password}"/>
+    <bean id="dataSource"
+          class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+          p:driverClassName="${jdbc.driverClassName}"
+          p:url="${jdbc.url}"
+          p:username="${jdbc.username}"
+          p:password="${jdbc.password}"/>
 
-        <!-- ADD PERSISTENCE SUPPORT HERE (jpa, hibernate, etc) -->
-        <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
-                <property name="dataSource" ref="dataSource"/>
-                <property name="mappingResources">
-                        <list>
-                                <value>com/eboy/po/Catagory.hbm.xml</value>
-                                <value>com/eboy/po/Comment.hbm.xml</value>
-                                <value>com/eboy/po/Delivery.hbm.xml</value>
-                                <value>com/eboy/po/Gallery.hbm.xml</value>
-                                <value>com/eboy/po/Item.hbm.xml</value>
-                                <value>com/eboy/po/ItemTag.hbm.xml</value>
-                                <value>com/eboy/po/Order.hbm.xml</value>
-                                <value>com/eboy/po/Tag.hbm.xml</value>
-                        </list>
-                </property>
-                <property name="hibernateProperties">
-                        <value>hibernate.dialect=org.hibernate.dialect.MySQLDialect</value>
-                </property>
-        </bean>
-       <bean id="tagDao" class="com.eboy.dao.TagDao">
-                <property name="sessionFactory">
-                        <ref bean="sessionFactory"></ref>
-                </property>
-        </bean>
-        <bean id="tagService" class="com.eboy.service.TagServiceImpl">
-                <property name="tagDao">
-                        <ref bean="tagDao"></ref>
-                </property>
-        </bean>
-        <bean id="helloAction" class="com.eboy.action.HelloAction">
-                <property name="tagService">
-                        <ref bean="tagService"></ref>
-                </property>
-        </bean>
-        <bean id="findItemsFromEbayByKeywordsAction" class="com.eboy.action.admin.FindItemsFromEbayByKeywordsAction">
-                
-        </bean>
+    <!-- ADD PERSISTENCE SUPPORT HERE (jpa, hibernate, etc) -->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="mappingResources">
+            <list>
+                <value>com/eboy/po/Catagory.hbm.xml</value>
+                <value>com/eboy/po/Comment.hbm.xml</value>
+                <value>com/eboy/po/Delivery.hbm.xml</value>
+                <value>com/eboy/po/Gallery.hbm.xml</value>
+                <value>com/eboy/po/Item.hbm.xml</value>
+                <value>com/eboy/po/ItemTag.hbm.xml</value>
+                <value>com/eboy/po/Order.hbm.xml</value>
+                <value>com/eboy/po/Tag.hbm.xml</value>
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <value>hibernate.dialect=org.hibernate.dialect.MySQLDialect</value>
+        </property>
+    </bean>
+    <bean id="tagDao" class="com.eboy.dao.TagDao">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory"></ref>
+        </property>
+    </bean>
+    <bean id="orderDao" class="com.eboy.dao.OrderDao">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory"></ref>
+        </property>
+    </bean>
+    <bean id="tagService" class="com.eboy.service.TagServiceImpl">
+        <property name="tagDao">
+            <ref bean="tagDao"></ref>
+        </property>
+    </bean>
+    <bean id="orderService" class="com.eboy.service.OrderServiceImpl">
+        <property name="orderDao">
+            <ref bean="orderDao"></ref>
+        </property>
+    </bean>
+    <bean id="helloAction" class="com.eboy.action.HelloAction">
+        <property name="tagService">
+            <ref bean="tagService"></ref>
+        </property>
+    </bean>
+    <bean id="findItemsFromEbayByKeywordsAction" class="com.eboy.action.admin.FindItemsFromEbayByKeywordsAction">       
+    </bean>
+    <bean id="LookUpOrderAction" class="com.eboy.action.admin.LookUpOrderAction">
+        <property name="orderService">
+            <ref bean="orderService"></ref>
+        </property>
+    </bean>
 </beans>
