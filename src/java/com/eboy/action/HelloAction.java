@@ -22,6 +22,7 @@ public class HelloAction extends ActionSupport{
         public String execute()
         {
                 tagService.addTag(getTagWord());
+                System.out.println("***********************************" + tagWord);
                 List<Tag> tags = tagService.getTags();
                 ActionContext context = ActionContext.getContext();
                 context.put("tagWordRequest", tagWord);

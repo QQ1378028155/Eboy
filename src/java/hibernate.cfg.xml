@@ -18,5 +18,18 @@
     <mapping/>
     <mapping/>
     <mapping resource="com/eboy/po/Gallery.hbm.xml"/>
+    <mapping/>
+    <mapping resource="com/eboy/po/Category.hbm.xml"/>
+    <mapping/>
+    <mapping/>
+    <mapping/>
+    <mapping/>
+    <mapping/>
+    <mapping/>
+    <mapping/>
+    <mapping/>
+    <mapping/>
+    <mapping/>
+    <mapping resource="com/eboy/po/Statistics.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

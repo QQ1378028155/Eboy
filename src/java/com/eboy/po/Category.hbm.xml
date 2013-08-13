@@ -1,19 +1,19 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2013-8-5 17:39:05 by Hibernate Tools 3.2.1.GA -->
+<!-- Generated 2013-8-12 15:15:01 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
-    <class name="com.eboy.po.Catagory" table="Catagory" catalog="Eboy">
-        <id name="catagoryId" type="java.lang.Integer">
-            <column name="catagoryID" />
+    <class name="com.eboy.po.Category" table="Category" catalog="Eboy">
+        <id name="categoryId" type="java.lang.Integer">
+            <column name="categoryID" />
             <generator class="identity" />
         </id>
-        <property name="catagoryName" type="string">
-            <column name="catagoryName" not-null="true" />
+        <property name="categoryName" type="string">
+            <column name="categoryName" not-null="true" />
         </property>
         <set name="items" inverse="true">
             <key>
-                <column name="catagoryID" not-null="true" />
+                <column name="categoryID" not-null="true" />
             </key>
             <one-to-many class="com.eboy.po.Item" />
         </set>

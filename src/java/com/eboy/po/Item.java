@@ -1,5 +1,5 @@
 package com.eboy.po;
-// Generated 2013-8-5 17:39:05 by Hibernate Tools 3.2.1.GA
+// Generated 2013-8-12 15:15:00 by Hibernate Tools 3.2.1.GA
 
 
 import java.util.HashSet;
@@ -12,17 +12,27 @@ public class Item  implements java.io.Serializable {
 
 
      private Integer itemId;
-     private Catagory catagory;
+     private Category category;
      private String itemEbayId;
      private String itemTitle;
      private byte[] itemDescription;
      private int itemQuantity;
-     private double itemTax;
-     private double itemShippingFee;
-     private double itemPrice;
      private double itemSortScore;
      private double itemDiscount;
      private String itemThumbnailImageUrl;
+     private String itemSandboxId;
+     private double itemPrice;
+     private String itemPriceCurrency;
+     private Double itemPackageCost;
+     private String itemPackageCostCurrency;
+     private Double itemImportCost;
+     private String itemImportCostCurrency;
+     private Double itemShippingCost;
+     private String itemShippingCostCurrency;
+     private Double itemInsuranceCost;
+     private String itemInsuranceCostCurrency;
+     private Double itemTaxCost;
+     private String itemTaxCostCurrency;
      private Set comments = new HashSet(0);
      private Set orders = new HashSet(0);
      private Set itemTags = new HashSet(0);
@@ -32,31 +42,41 @@ public class Item  implements java.io.Serializable {
     }
 
 	
-    public Item(Catagory catagory, String itemEbayId, String itemTitle, byte[] itemDescription, int itemQuantity, double itemTax, double itemShippingFee, double itemPrice, double itemSortScore, double itemDiscount, String itemThumbnailImageUrl) {
-        this.catagory = catagory;
+    public Item(Category category, String itemEbayId, String itemTitle, byte[] itemDescription, int itemQuantity, double itemSortScore, double itemDiscount, String itemThumbnailImageUrl, String itemSandboxId, double itemPrice, String itemPriceCurrency) {
+        this.category = category;
         this.itemEbayId = itemEbayId;
         this.itemTitle = itemTitle;
         this.itemDescription = itemDescription;
         this.itemQuantity = itemQuantity;
-        this.itemTax = itemTax;
-        this.itemShippingFee = itemShippingFee;
-        this.itemPrice = itemPrice;
         this.itemSortScore = itemSortScore;
         this.itemDiscount = itemDiscount;
         this.itemThumbnailImageUrl = itemThumbnailImageUrl;
+        this.itemSandboxId = itemSandboxId;
+        this.itemPrice = itemPrice;
+        this.itemPriceCurrency = itemPriceCurrency;
     }
-    public Item(Catagory catagory, String itemEbayId, String itemTitle, byte[] itemDescription, int itemQuantity, double itemTax, double itemShippingFee, double itemPrice, double itemSortScore, double itemDiscount, String itemThumbnailImageUrl, Set comments, Set orders, Set itemTags, Set galleries) {
-       this.catagory = catagory;
+    public Item(Category category, String itemEbayId, String itemTitle, byte[] itemDescription, int itemQuantity, double itemSortScore, double itemDiscount, String itemThumbnailImageUrl, String itemSandboxId, double itemPrice, String itemPriceCurrency, Double itemPackageCost, String itemPackageCostCurrency, Double itemImportCost, String itemImportCostCurrency, Double itemShippingCost, String itemShippingCostCurrency, Double itemInsuranceCost, String itemInsuranceCostCurrency, Double itemTaxCost, String itemTaxCostCurrency, Set comments, Set orders, Set itemTags, Set galleries) {
+       this.category = category;
        this.itemEbayId = itemEbayId;
        this.itemTitle = itemTitle;
        this.itemDescription = itemDescription;
        this.itemQuantity = itemQuantity;
-       this.itemTax = itemTax;
-       this.itemShippingFee = itemShippingFee;
-       this.itemPrice = itemPrice;
        this.itemSortScore = itemSortScore;
        this.itemDiscount = itemDiscount;
        this.itemThumbnailImageUrl = itemThumbnailImageUrl;
+       this.itemSandboxId = itemSandboxId;
+       this.itemPrice = itemPrice;
+       this.itemPriceCurrency = itemPriceCurrency;
+       this.itemPackageCost = itemPackageCost;
+       this.itemPackageCostCurrency = itemPackageCostCurrency;
+       this.itemImportCost = itemImportCost;
+       this.itemImportCostCurrency = itemImportCostCurrency;
+       this.itemShippingCost = itemShippingCost;
+       this.itemShippingCostCurrency = itemShippingCostCurrency;
+       this.itemInsuranceCost = itemInsuranceCost;
+       this.itemInsuranceCostCurrency = itemInsuranceCostCurrency;
+       this.itemTaxCost = itemTaxCost;
+       this.itemTaxCostCurrency = itemTaxCostCurrency;
        this.comments = comments;
        this.orders = orders;
        this.itemTags = itemTags;
@@ -70,12 +90,12 @@ public class Item  implements java.io.Serializable {
     public void setItemId(Integer itemId) {
         this.itemId = itemId;
     }
-    public Catagory getCatagory() {
-        return this.catagory;
+    public Category getCategory() {
+        return this.category;
     }
     
-    public void setCatagory(Catagory catagory) {
-        this.catagory = catagory;
+    public void setCategory(Category category) {
+        this.category = category;
     }
     public String getItemEbayId() {
         return this.itemEbayId;
@@ -105,27 +125,6 @@ public class Item  implements java.io.Serializable {
     public void setItemQuantity(int itemQuantity) {
         this.itemQuantity = itemQuantity;
     }
-    public double getItemTax() {
-        return this.itemTax;
-    }
-    
-    public void setItemTax(double itemTax) {
-        this.itemTax = itemTax;
-    }
-    public double getItemShippingFee() {
-        return this.itemShippingFee;
-    }
-    
-    public void setItemShippingFee(double itemShippingFee) {
-        this.itemShippingFee = itemShippingFee;
-    }
-    public double getItemPrice() {
-        return this.itemPrice;
-    }
-    
-    public void setItemPrice(double itemPrice) {
-        this.itemPrice = itemPrice;
-    }
     public double getItemSortScore() {
         return this.itemSortScore;
     }
@@ -146,6 +145,97 @@ public class Item  implements java.io.Serializable {
     
     public void setItemThumbnailImageUrl(String itemThumbnailImageUrl) {
         this.itemThumbnailImageUrl = itemThumbnailImageUrl;
+    }
+    public String getItemSandboxId() {
+        return this.itemSandboxId;
+    }
+    
+    public void setItemSandboxId(String itemSandboxId) {
+        this.itemSandboxId = itemSandboxId;
+    }
+    public double getItemPrice() {
+        return this.itemPrice;
+    }
+    
+    public void setItemPrice(double itemPrice) {
+        this.itemPrice = itemPrice;
+    }
+    public String getItemPriceCurrency() {
+        return this.itemPriceCurrency;
+    }
+    
+    public void setItemPriceCurrency(String itemPriceCurrency) {
+        this.itemPriceCurrency = itemPriceCurrency;
+    }
+    public Double getItemPackageCost() {
+        return this.itemPackageCost;
+    }
+    
+    public void setItemPackageCost(Double itemPackageCost) {
+        this.itemPackageCost = itemPackageCost;
+    }
+    public String getItemPackageCostCurrency() {
+        return this.itemPackageCostCurrency;
+    }
+    
+    public void setItemPackageCostCurrency(String itemPackageCostCurrency) {
+        this.itemPackageCostCurrency = itemPackageCostCurrency;
+    }
+    public Double getItemImportCost() {
+        return this.itemImportCost;
+    }
+    
+    public void setItemImportCost(Double itemImportCost) {
+        this.itemImportCost = itemImportCost;
+    }
+    public String getItemImportCostCurrency() {
+        return this.itemImportCostCurrency;
+    }
+    
+    public void setItemImportCostCurrency(String itemImportCostCurrency) {
+        this.itemImportCostCurrency = itemImportCostCurrency;
+    }
+    public Double getItemShippingCost() {
+        return this.itemShippingCost;
+    }
+    
+    public void setItemShippingCost(Double itemShippingCost) {
+        this.itemShippingCost = itemShippingCost;
+    }
+    public String getItemShippingCostCurrency() {
+        return this.itemShippingCostCurrency;
+    }
+    
+    public void setItemShippingCostCurrency(String itemShippingCostCurrency) {
+        this.itemShippingCostCurrency = itemShippingCostCurrency;
+    }
+    public Double getItemInsuranceCost() {
+        return this.itemInsuranceCost;
+    }
+    
+    public void setItemInsuranceCost(Double itemInsuranceCost) {
+        this.itemInsuranceCost = itemInsuranceCost;
+    }
+    public String getItemInsuranceCostCurrency() {
+        return this.itemInsuranceCostCurrency;
+    }
+    
+    public void setItemInsuranceCostCurrency(String itemInsuranceCostCurrency) {
+        this.itemInsuranceCostCurrency = itemInsuranceCostCurrency;
+    }
+    public Double getItemTaxCost() {
+        return this.itemTaxCost;
+    }
+    
+    public void setItemTaxCost(Double itemTaxCost) {
+        this.itemTaxCost = itemTaxCost;
+    }
+    public String getItemTaxCostCurrency() {
+        return this.itemTaxCostCurrency;
+    }
+    
+    public void setItemTaxCostCurrency(String itemTaxCostCurrency) {
+        this.itemTaxCostCurrency = itemTaxCostCurrency;
     }
     public Set getComments() {
         return this.comments;

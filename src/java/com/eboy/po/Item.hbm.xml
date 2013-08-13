@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2013-8-5 17:39:05 by Hibernate Tools 3.2.1.GA -->
+<!-- Generated 2013-8-12 15:15:01 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="com.eboy.po.Item" table="Item" catalog="Eboy">
         <id name="itemId" type="java.lang.Integer">
             <column name="itemID" />
             <generator class="identity" />
         </id>
-        <many-to-one name="catagory" class="com.eboy.po.Catagory" fetch="select">
-            <column name="catagoryID" not-null="true" />
+        <many-to-one name="category" class="com.eboy.po.Category" fetch="select">
+            <column name="categoryID" not-null="true" />
         </many-to-one>
         <property name="itemEbayId" type="string">
             <column name="itemEbayID" length="30" not-null="true" />
@@ -23,15 +23,6 @@
         <property name="itemQuantity" type="int">
             <column name="itemQuantity" not-null="true" />
         </property>
-        <property name="itemTax" type="double">
-            <column name="itemTax" precision="22" scale="0" not-null="true" />
-        </property>
-        <property name="itemShippingFee" type="double">
-            <column name="itemShippingFee" precision="22" scale="0" not-null="true" />
-        </property>
-        <property name="itemPrice" type="double">
-            <column name="itemPrice" precision="22" scale="0" not-null="true" />
-        </property>
         <property name="itemSortScore" type="double">
             <column name="itemSortScore" precision="22" scale="0" not-null="true" />
         </property>
@@ -40,6 +31,45 @@
         </property>
         <property name="itemThumbnailImageUrl" type="string">
             <column name="itemThumbnailImageURL" not-null="true" />
+        </property>
+        <property name="itemSandboxId" type="string">
+            <column name="itemSandboxID" length="30" not-null="true" />
+        </property>
+        <property name="itemPrice" type="double">
+            <column name="itemPrice" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="itemPriceCurrency" type="string">
+            <column name="itemPriceCurrency" length="10" not-null="true" />
+        </property>
+        <property name="itemPackageCost" type="java.lang.Double">
+            <column name="itemPackageCost" precision="22" scale="0" />
+        </property>
+        <property name="itemPackageCostCurrency" type="string">
+            <column name="itemPackageCostCurrency" length="10" />
+        </property>
+        <property name="itemImportCost" type="java.lang.Double">
+            <column name="itemImportCost" precision="22" scale="0" />
+        </property>
+        <property name="itemImportCostCurrency" type="string">
+            <column name="itemImportCostCurrency" length="10" />
+        </property>
+        <property name="itemShippingCost" type="java.lang.Double">
+            <column name="itemShippingCost" precision="22" scale="0" />
+        </property>
+        <property name="itemShippingCostCurrency" type="string">
+            <column name="itemShippingCostCurrency" length="10" />
+        </property>
+        <property name="itemInsuranceCost" type="java.lang.Double">
+            <column name="itemInsuranceCost" precision="22" scale="0" />
+        </property>
+        <property name="itemInsuranceCostCurrency" type="string">
+            <column name="itemInsuranceCostCurrency" length="10" />
+        </property>
+        <property name="itemTaxCost" type="java.lang.Double">
+            <column name="itemTaxCost" precision="22" scale="0" />
+        </property>
+        <property name="itemTaxCostCurrency" type="string">
+            <column name="itemTaxCostCurrency" length="10" />
         </property>
         <set name="comments" inverse="true">
             <key>

@@ -16,5 +16,14 @@ and open the template in the editor.
                 <action name="findItemsFromEbayByKeywords" class="findItemsFromEbayByKeywordsAction">
                         <result name="success">/jsp/admin/findItemsByKeywordsResultList.jsp</result>
                 </action>
+                <action name="addCategory" class="addCategoryAction">
+                        <result name="success">/jsp/admin/addCategory.jsp</result>
+                </action>
+                <action name="translateItem" class="translateItemAction">
+                        <result name="success">/jsp/admin/addItem.jsp</result>
+                </action>
+                <action name="addItem" class="addItemAction">
+                        <result name="success">/jsp/admin/addItem.jsp</result>
+                </action>
         </package>
 </struts>
