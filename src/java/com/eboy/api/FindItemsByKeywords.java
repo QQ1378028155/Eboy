@@ -42,7 +42,6 @@ public class FindItemsByKeywords {
                         ItemFilter filter = new ItemFilter();
                         List<String> values = filter.getValue();
                         filter.setName(ItemFilterType.LISTING_TYPE);
-                        values.add("AuctionWithBIN");
                         values.add("FixedPrice");
                         itemFilterList.add(filter);
 

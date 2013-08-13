@@ -24,7 +24,7 @@
         <property name="dataSource" ref="dataSource"/>
         <property name="mappingResources">
             <list>
-                <value>com/eboy/po/Catagory.hbm.xml</value>
+                <value>com/eboy/po/Category.hbm.xml</value>
                 <value>com/eboy/po/Comment.hbm.xml</value>
                 <value>com/eboy/po/Delivery.hbm.xml</value>
                 <value>com/eboy/po/Gallery.hbm.xml</value>
@@ -32,6 +32,8 @@
                 <value>com/eboy/po/ItemTag.hbm.xml</value>
                 <value>com/eboy/po/Order.hbm.xml</value>
                 <value>com/eboy/po/Tag.hbm.xml</value>
+                <value>com/eboy/po/Statistics.hbm.xml</value>
+                                
             </list>
         </property>
         <property name="hibernateProperties">
@@ -43,27 +45,69 @@
             <ref bean="sessionFactory"></ref>
         </property>
     </bean>
+    <bean id="categoryDao" class="com.eboy.dao.CategoryDao">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory"></ref>
+        </property>
+    </bean>
+    <bean id="itemDao" class="com.eboy.dao.ItemDao">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory"></ref>
+        </property>
+    </bean>
+        
     <bean id="orderDao" class="com.eboy.dao.OrderDao">
         <property name="sessionFactory">
             <ref bean="sessionFactory"></ref>
         </property>
     </bean>
+        
     <bean id="tagService" class="com.eboy.service.TagServiceImpl">
         <property name="tagDao">
             <ref bean="tagDao"></ref>
         </property>
     </bean>
+    <bean id="categoryService" class="com.eboy.service.CategoryServiceImpl">
+        <property name="categoryDao">
+            <ref bean="categoryDao"></ref>
+        </property>
+    </bean>        
+    <bean id="itemService" class="com.eboy.service.ItemServiceImpl">
+        <property name="itemDao">
+            <ref bean="itemDao"></ref>
+        </property>
+    </bean>        
     <bean id="orderService" class="com.eboy.service.OrderServiceImpl">
         <property name="orderDao">
             <ref bean="orderDao"></ref>
         </property>
     </bean>
+       
+        
     <bean id="helloAction" class="com.eboy.action.HelloAction">
         <property name="tagService">
             <ref bean="tagService"></ref>
         </property>
     </bean>
-    <bean id="findItemsFromEbayByKeywordsAction" class="com.eboy.action.admin.FindItemsFromEbayByKeywordsAction">       
+    <bean id="addCategoryAction" class="com.eboy.action.admin.AddCategoryAction">
+        <property name="categoryService">
+            <ref bean="categoryService"></ref>
+        </property>
+    </bean>
+    <bean id="addItemAction" class="com.eboy.action.admin.AddItemAction">
+        <property name="itemService">
+            <ref bean="itemService"></ref>
+        </property>
+        <property name="categoryService">
+            <ref bean="categoryService"></ref>
+        </property>
+    </bean>
+    <bean id="translateItemAction" class="com.eboy.action.admin.TranslateItemAction">
+        <property name="categoryService">
+            <ref bean="categoryService"></ref>
+        </property>
+    </bean>
+    <bean id="findItemsFromEbayByKeywordsAction" class="com.eboy.action.admin.FindItemsFromEbayByKeywordsAction">     
     </bean>
     <bean id="LookUpOrderAction" class="com.eboy.action.admin.LookUpOrderAction">
         <property name="orderService">

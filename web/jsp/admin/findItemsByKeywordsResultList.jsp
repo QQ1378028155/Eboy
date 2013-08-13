@@ -18,8 +18,7 @@
                                 <tr>
                                         <td><img src="<s:property value="itemThumbnailImageUrl"/>"/></td>
                                         <td><s:property value="itemTitle"/></td>
-                                        
-                                                
+                                        <td><a href="translateItem.action?itemEbayId=<s:property value="itemEbayId"/>">加入仓库</a></td>                                                
                                 </tr>
                         </s:iterator>
                 </table>
