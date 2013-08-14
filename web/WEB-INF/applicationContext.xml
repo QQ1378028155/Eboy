@@ -109,7 +109,7 @@
     </bean>
     <bean id="findItemsFromEbayByKeywordsAction" class="com.eboy.action.admin.FindItemsFromEbayByKeywordsAction">     
     </bean>
-    <bean id="LookUpOrderAction" class="com.eboy.action.admin.LookUpOrderAction">
+    <bean id="lookUpOrderAction" class="com.eboy.action.admin.LookUpOrderAction">
         <property name="orderService">
             <ref bean="orderService"></ref>
         </property>

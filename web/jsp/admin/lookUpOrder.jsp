@@ -12,6 +12,6 @@
                 <title>LookUpOrder Page</title>
         </head>
         <body>
-                <s:a href="LookUpOrderAction.action">LookUpOrderAction</s:a>
+                <a href="lookUpOrder.action">lookUpOrderAction</a>
         </body>
 </html>

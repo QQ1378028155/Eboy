@@ -25,5 +25,8 @@ and open the template in the editor.
                 <action name="addItem" class="addItemAction">
                         <result name="success">/jsp/admin/addItem.jsp</result>
                 </action>
+                <action name="lookUpOrder" class="lookUpOrderAction">
+                        <result name="success">/jsp/admin/lookUpOrderResultList.jsp</result>
+                </action>
         </package>
 </struts>
