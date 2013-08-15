@@ -15,4 +15,5 @@ import java.util.List;
 public interface DeliveryService {
         void addDelivery(String deliveryLocation, Order order);
         List<Delivery> getDeliveries();
+        List<Delivery> getDeliveriesByOrderId(Integer orderId);
 }

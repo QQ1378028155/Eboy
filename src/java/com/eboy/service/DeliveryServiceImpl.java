@@ -42,4 +42,9 @@ public class DeliveryServiceImpl implements DeliveryService {
         public void setDeliveryDao(DeliveryDao deliveryDao) {
                 this.deliveryDao = deliveryDao;
         }
+
+        @Override
+        public List<Delivery> getDeliveriesByOrderId(Integer orderId) {
+                return this.deliveryDao.getDeliveriesByOrderId(orderId);
+        }
 }

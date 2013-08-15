@@ -5,6 +5,7 @@
 package com.eboy.action.admin;
 
 import com.eboy.po.Order;
+import com.eboy.service.DeliveryService;
 import com.eboy.service.OrderService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -15,6 +16,7 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 public class DeliverOrderAction extends ActionSupport {
         private OrderService orderService;
+        private DeliveryService deliveryService;
         private Integer orderId;
          @Override
         public String execute() {
@@ -41,5 +43,14 @@ public class DeliverOrderAction extends ActionSupport {
         public void setOrderId(Integer orderId) {
                 this.orderId = orderId;
         }
-         
+
+        public DeliveryService getDeliveryService() {
+                return deliveryService;
+        }
+
+        public void setDeliveryService(DeliveryService deliveryService) {
+                this.deliveryService = deliveryService;
+        }
+        
+        
 }

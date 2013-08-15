@@ -4,11 +4,13 @@
  */
 package com.eboy.action.admin;
 
+import com.eboy.po.Delivery;
 import com.eboy.po.Order;
 import com.eboy.service.OrderService;
 import com.eboy.service.DeliveryService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import java.util.List;
 
 /**
  *
@@ -25,8 +27,10 @@ public class AddOrderDeliveryAction extends ActionSupport {
         public String execute() {
                 Order order = orderService.getOrder(orderId);
                 deliveryService.addDelivery(deliveryLocation, order);
+                List<Delivery> deliveries = deliveryService.getDeliveriesByOrderId(orderId);
                 ActionContext context = ActionContext.getContext();
                 context.put("order", order);
+                context.put("deliveries", deliveries);
                 return "success";
         }
 

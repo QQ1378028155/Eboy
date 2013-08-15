@@ -126,6 +126,9 @@
         <property name="orderService">
             <ref bean="orderService"></ref>
         </property>
+        <property name="deliveryService">
+            <ref bean="deliveryService"></ref>
+        </property>
     </bean>
     <bean id="addOrderDeliveryAction" class="com.eboy.action.admin.AddOrderDeliveryAction">
         <property name="orderService">
@@ -138,6 +141,9 @@
     <bean id="deliverOrderAction" class="com.eboy.action.admin.DeliverOrderAction">
         <property name="orderService">
             <ref bean="orderService"></ref>
+        </property>
+        <property name="deliveryService">
+            <ref bean="deliveryService"></ref>
         </property>
     </bean>
 </beans>
