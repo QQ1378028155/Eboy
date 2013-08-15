@@ -22,7 +22,8 @@ public class OrderDao extends HibernateDaoSupport {
                 return (Order) (this.getHibernateTemplate().get(Order.class, orderID));
         }
 
-        public void updateDeliverOrder(Integer orderID) {
+        public void updateDeliverOrder(Order order) {
+                this.getHibernateTemplate().update(order);
         }
 
         public List<Order> getOrders() {

@@ -80,7 +80,17 @@
                         </td>
                 </tr>
         </table>
-        <s:a href="deliverOrderAction.action?orderId=%{orderId}">DeliverOrderAction</s:a>
-        <s:a href="addOrderDeliveryAction.action?orderId=%{orderId}">AddOrderDeliveryAction</s:a>
+        <s:a href="deliverOrder.action?orderId=%{orderId}">DeliverOrderAction</s:a>
+        
+        <h2>Add Order Delivery</h2>
+                        <s:form action="addOrderDelivery">
+                        <input type="text" name="orderId" value="<s:property value="#order.orderId"/>" readonly="true"/>
+                        <br/>
+                        <input type="text" name="deliveryLocation"/>
+                        <s:submit/>
+                </s:form>
+        <s:a href="addOrderDelivery.action?orderId=%{orderId}">AddOrderDeliveryAction</s:a>
+        <h2>Delivery Detail</h2>
+        
 </body>
 </html>

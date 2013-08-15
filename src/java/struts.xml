@@ -37,5 +37,8 @@ and open the template in the editor.
                 <action name="lookUpSingleOrder" class="lookUpSingleOrderAction">
                         <result name="success">/jsp/admin/lookUpSingleOrder.jsp</result>
                 </action>
+                <action name="deliverOrder" class="deliverOrderAction">
+                        <result name="success">/jsp/admin/lookUpSingleOrder.jsp</result>
+                </action>
         </package>
 </struts>

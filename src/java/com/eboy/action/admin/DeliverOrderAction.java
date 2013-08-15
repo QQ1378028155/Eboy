@@ -6,7 +6,6 @@ package com.eboy.action.admin;
 
 import com.eboy.po.Order;
 import com.eboy.service.OrderService;
-import com.eboy.service.DeliveryService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -14,17 +13,14 @@ import com.opensymphony.xwork2.ActionSupport;
  *
  * @author Tongda
  */
-public class AddOrderDeliveryAction extends ActionSupport {
-
+public class DeliverOrderAction extends ActionSupport {
         private OrderService orderService;
-        private DeliveryService deliveryService;
-        private String deliveryLocation;
         private Integer orderId;
-        
-        @Override
+         @Override
         public String execute() {
                 Order order = orderService.getOrder(orderId);
-                deliveryService.addDelivery(deliveryLocation, order);
+                order.setOrderStatus("已发货");
+                orderService.updateDeliverOrder(order);
                 ActionContext context = ActionContext.getContext();
                 context.put("order", order);
                 return "success";
@@ -37,22 +33,6 @@ public class AddOrderDeliveryAction extends ActionSupport {
         public void setOrderService(OrderService orderService) {
                 this.orderService = orderService;
         }
-        
-        public DeliveryService getDeliveryService() {
-                return deliveryService;
-        }
-
-        public void setDeliveryService(DeliveryService deliveryService) {
-                this.deliveryService = deliveryService;
-        }
-
-        public String getDeliveryLocation() {
-                return deliveryLocation;
-        }
-
-        public void setDeliveryLocation(String deliveryLocation) {
-                this.deliveryLocation = deliveryLocation;
-        }
 
         public Integer getOrderId() {
                 return orderId;
@@ -61,5 +41,5 @@ public class AddOrderDeliveryAction extends ActionSupport {
         public void setOrderId(Integer orderId) {
                 this.orderId = orderId;
         }
-
+         
 }

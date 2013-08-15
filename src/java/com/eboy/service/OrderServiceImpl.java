@@ -33,5 +33,10 @@ public class OrderServiceImpl implements OrderService{
         public Order getOrder(Integer orderId) {
                return orderDao.getOrder(orderId);
         }
+
+        @Override
+        public void updateDeliverOrder(Order order) {
+                orderDao.updateDeliverOrder(order);
+        }
         
 }
