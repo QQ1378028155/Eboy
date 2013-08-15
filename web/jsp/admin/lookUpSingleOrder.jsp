@@ -12,83 +12,75 @@
                 <title>LookUpOrderResultList Page</title>
         </head>
         <body>
-                <table>
-                        <tr>
-                                <th>
-                                        orderId
-                                </th>
-                                <th>
-                                        item.itemId
-                                </th>
-                                <th>
-                                        orderQuantity
-                                </th>
-                                <th>
-                                        orderValidate
-                                </th>
-                                <th>
-                                        orderPrice
-                                </th>
-                                <th>
-                                        orderAddress
-                                </th>
-                                <th>
-                                        orderStatus
-                                </th>
-                                <th>
-                                        orderPhone
-                                </th>
-                                <th>
-                                        orderReciver
-                                </th>
-                                <th>
-                                        orderEmail
-                                </th>
-                                DeliverOrderAction
-                                </th>
-                                </th>
-                                DeliverOrderAction
-                                </th>
+                <s:debug></s:debug>
+                        <table>
+                                <tr>
+                                        <th>
+                                                orderId
+                                        </th>
+                                        <th>
+                                                item.itemId
+                                        </th>
+                                        <th>
+                                                orderQuantity
+                                        </th>
+                                        <th>
+                                                orderValidate
+                                        </th>
+                                        <th>
+                                                orderPrice
+                                        </th>
+                                        <th>
+                                                orderAddress
+                                        </th>
+                                        <th>
+                                                orderStatus
+                                        </th>
+                                        <th>
+                                                orderPhone
+                                        </th>
+                                        <th>
+                                                orderReciver
+                                        </th>
+                                        <th>
+                                                orderEmail
+                                        </th>
+                                </tr>
                         </tr>
-                </tr>
-                <tr>
-                        <td>
-                                <s:property value="order.orderId"/>
-                        </td>
-                        <td>
-                                <s:property value="order.item.itemId"/>
-                        </td>
-                        <td>
-                                <s:property value="order.orderQuantity"/>
-                        </td>
-                        <td>
-                                <s:property value="order.orderValidate"/>
-                        </td>
-                        <td>
-                                <s:property value="order.orderPrice"/>
-                        </td>
-                        <td>
-                                <s:property value="order.orderAddress"/>
-                        </td>
-                        <td>
-                                <s:property value="order.orderStatus"/>
-                        </td>
-                        <td>
-                                <s:property value="order.orderPhone"/>
-                        </td>
-                        <td>
-                                <s:property value="order.orderReciver"/>
-                        </td>
-                        <td>
-                                <s:property value="order.orderEmail"/>
-                        </td>
-                        <td>
-                                <s:a href="deliverOrderAction.action?orderId=%{orderId}">DeliverOrderAction</s:a>
-                                </td>
+                        <tr>
                                 <td>
-                                <s:a href="addOrderDeliveryAction.action?orderId=%{orderId}">AddOrderDeliveryAction</s:a>
+                                <s:property value="#order.orderId"/>
+                        </td>
+                        <td>
+                                <s:property value="#order.item.itemId"/>
+                        </td>
+                        <td>
+                                <s:property value="#order.orderQuantity"/>
+                        </td>
+                        <td>
+                                <s:property value="#order.orderValidate"/>
+                        </td>
+                        <td>
+                                <s:property value="#order.orderPrice"/>
+                        </td>
+                        <td>
+                                <s:property value="#order.orderAddress"/>
+                        </td>
+                        <td>
+                                <s:property value="#order.orderStatus"/>
+                        </td>
+                        <td>
+                                <s:property value="#order.orderPhone"/>
+                        </td>
+                        <td>
+                                <s:property value="#order.orderReciver"/>
+                        </td>
+                        <td>
+                                <s:property value="#order.orderEmail"/>
                         </td>
                 </tr>
         </table>
+        <s:a href="deliverOrderAction.action?orderId=%{orderId}">DeliverOrderAction</s:a>
+        <s:a href="addOrderDeliveryAction.action?orderId=%{orderId}">AddOrderDeliveryAction</s:a>
 </body>
 </html>
