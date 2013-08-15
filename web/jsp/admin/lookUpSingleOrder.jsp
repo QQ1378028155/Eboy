@@ -1,6 +1,6 @@
 <%-- 
-    Document   : lookUpOrderResultList
-    Created on : 2013-8-6, 13:36:48
+    Document   : lookUpSingleOrder
+    Created on : 2013-8-15, 12:53:12
     Author     : Tongda
 --%>
 <%@taglib prefix="s" uri="/struts-tags" %>
@@ -51,43 +51,44 @@
                                 </th>
                         </tr>
                 </tr>
-                <s:iterator value="#orders">
-                        <tr>
-                                <td>
-                                        <s:property value="orderId"/>
+                <tr>
+                        <td>
+                                <s:property value="order.orderId"/>
+                        </td>
+                        <td>
+                                <s:property value="order.item.itemId"/>
+                        </td>
+                        <td>
+                                <s:property value="order.orderQuantity"/>
+                        </td>
+                        <td>
+                                <s:property value="order.orderValidate"/>
+                        </td>
+                        <td>
+                                <s:property value="order.orderPrice"/>
+                        </td>
+                        <td>
+                                <s:property value="order.orderAddress"/>
+                        </td>
+                        <td>
+                                <s:property value="order.orderStatus"/>
+                        </td>
+                        <td>
+                                <s:property value="order.orderPhone"/>
+                        </td>
+                        <td>
+                                <s:property value="order.orderReciver"/>
+                        </td>
+                        <td>
+                                <s:property value="order.orderEmail"/>
+                        </td>
+                        <td>
+                                <s:a href="deliverOrderAction.action?orderId=%{orderId}">DeliverOrderAction</s:a>
                                 </td>
                                 <td>
-                                        <s:property value="item.itemId"/>
-                                </td>
-                                <td>
-                                        <s:property value="orderQuantity"/>
-                                </td>
-                                <td>
-                                        <s:property value="orderValidate"/>
-                                </td>
-                                <td>
-                                        <s:property value="orderPrice"/>
-                                </td>
-                                <td>
-                                        <s:property value="orderAddress"/>
-                                </td>
-                                <td>
-                                        <s:property value="orderStatus"/>
-                                </td>
-                                <td>
-                                        <s:property value="orderPhone"/>
-                                </td>
-                                <td>
-                                        <s:property value="orderReciver"/>
-                                </td>
-                                <td>
-                                        <s:property value="orderEmail"/>
-                                </td>
-                                <td>
-                                        <s:a href="lookUpSingleOrderAction.action?orderId=%{orderId}">lookUpSingleOrderAction</s:a>
-                                        </td>
-                                </tr>
-                </s:iterator>
+                                <s:a href="addOrderDeliveryAction.action?orderId=%{orderId}">AddOrderDeliveryAction</s:a>
+                        </td>
+                </tr>
         </table>
 </body>
 </html>

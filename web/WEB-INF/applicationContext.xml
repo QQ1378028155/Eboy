@@ -122,6 +122,11 @@
             <ref bean="orderService"></ref>
         </property>
     </bean>
+    <bean id="lookUpSingleOrderAction" class="com.eboy.action.admin.LookUpSingleOrderAction">
+        <property name="orderService">
+            <ref bean="orderService"></ref>
+        </property>
+    </bean>
     <bean id="addOrderDeliveryAction" class="com.eboy.action.admin.AddOrderDeliveryAction">
         <property name="orderService">
             <ref bean="orderService"></ref>
