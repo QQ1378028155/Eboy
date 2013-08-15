@@ -28,5 +28,12 @@ and open the template in the editor.
                 <action name="lookUpOrder" class="lookUpOrderAction">
                         <result name="success">/jsp/admin/lookUpOrderResultList.jsp</result>
                 </action>
+                <action name="deliverOrder" class="deliverOrderAction">
+                        <result name="success">/jsp/admin/lookUpOrderResultList.jsp</result>
+                </action>
+                <action name="addOrderDelivery" class="lookUpOrderAction">
+                        <result name="success">/jsp/admin/addOrderDelivery.jsp</result>
+                </action>
+                
         </package>
 </struts>

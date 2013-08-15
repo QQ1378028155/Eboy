@@ -55,8 +55,12 @@
             <ref bean="sessionFactory"></ref>
         </property>
     </bean>
-        
     <bean id="orderDao" class="com.eboy.dao.OrderDao">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory"></ref>
+        </property>
+    </bean>
+    <bean id="deliveryDao" class="com.eboy.dao.DeliveryDao">
         <property name="sessionFactory">
             <ref bean="sessionFactory"></ref>
         </property>
@@ -82,7 +86,11 @@
             <ref bean="orderDao"></ref>
         </property>
     </bean>
-       
+    <bean id="deliveryService" class="com.eboy.service.DeliveryServiceImpl">
+        <property name="deliveryDao">
+            <ref bean="deliveryDao"></ref>
+        </property>
+    </bean>  
         
     <bean id="helloAction" class="com.eboy.action.HelloAction">
         <property name="tagService">
@@ -112,6 +120,14 @@
     <bean id="lookUpOrderAction" class="com.eboy.action.admin.LookUpOrderAction">
         <property name="orderService">
             <ref bean="orderService"></ref>
+        </property>
+    </bean>
+    <bean id="addOrderDeliveryAction" class="com.eboy.action.admin.AddOrderDeliveryAction">
+        <property name="orderService">
+            <ref bean="orderService"></ref>
+        </property>
+        <property name="deliveryService">
+            <ref bean="deliveryService"></ref>
         </property>
     </bean>
 </beans>

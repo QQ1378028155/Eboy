@@ -84,10 +84,10 @@
                                         <s:property value="orderEmail"/>
                                 </td>
                                 <td>
-                                        <s:a href="DeliverOrderAction.action?orderId=%{orderId}">DeliverOrderAction</s:a>
+                                        <s:a href="deliverOrderAction.action?orderId=%{orderId}">DeliverOrderAction</s:a>
                                         </td>
                                         <td>
-                                        <s:a href="AddOrderDeliveryAction.action?orderId=%{orderId}">AddOrderDeliveryAction</s:a>
+                                        <s:a href="addOrderDeliveryAction.action?orderId=%{orderId}">AddOrderDeliveryAction</s:a>
                                         </td>
                                 </tr>
                 </s:iterator>

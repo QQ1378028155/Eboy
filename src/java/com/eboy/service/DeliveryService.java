@@ -4,6 +4,7 @@
  */
 package com.eboy.service;
 
+import com.eboy.po.Delivery;
 import com.eboy.po.Order;
 import java.util.List;
 
@@ -11,7 +12,7 @@ import java.util.List;
  *
  * @author Tongda
  */
-public interface OrderService {    
-        List<Order> getOrders();
-        Order getOrder(long orderID);
+public interface DeliveryService {
+        void addDelivery(String deliveryLocation, Order order);
+        List<Delivery> getDeliveries();
 }
