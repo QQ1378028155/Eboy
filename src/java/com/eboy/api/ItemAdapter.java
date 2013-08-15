@@ -20,8 +20,8 @@ public class ItemAdapter
                 item.setItemTitle(itemType.getTitle());
                 item.setItemDescription(itemType.getDescription().getBytes());
                 item.setItemQuantity(itemType.getQuantity());
-                item.setItemPrice(itemType.getSellingStatus().getConvertedCurrentPrice().getValue());
-                item.setItemPriceCurrency(itemType.getSellingStatus().getConvertedCurrentPrice().getCurrencyID().value());                
+                item.setItemPrice(itemType.getSellingStatus().getCurrentPrice().getValue());
+                item.setItemPriceCurrency(itemType.getSellingStatus().getCurrentPrice().getCurrencyID().value());                
                 try
                 {
                         item.setItemThumbnailImageUrl(itemType.getPictureDetails().getGalleryURL());

@@ -11,8 +11,11 @@ import com.ebay.sdk.SdkException;
 import com.ebay.sdk.call.AddItemCall;
 import com.ebay.soap.eBLBaseComponents.BuyerPaymentMethodCodeType;
 import com.ebay.soap.eBLBaseComponents.CategoryType;
+import com.ebay.soap.eBLBaseComponents.CountryCodeType;
+import com.ebay.soap.eBLBaseComponents.CurrencyCodeType;
 import com.ebay.soap.eBLBaseComponents.FeesType;
 import com.ebay.soap.eBLBaseComponents.ItemType;
+import com.ebay.soap.eBLBaseComponents.ListingDurationCodeType;
 import com.ebay.soap.eBLBaseComponents.ListingTypeCodeType;
 import com.ebay.soap.eBLBaseComponents.PaymentDetailsType;
 import com.ebay.soap.eBLBaseComponents.ShippingDetailsType;
@@ -29,7 +32,8 @@ public class AddItem {
                 ApiContext apiContext = new ApiContext();
                 ApiCredential cred = apiContext.getApiCredential();
                 cred.seteBayToken(ApiConfig.authSandboxToken);
-                apiContext.setApiServerUrl(ApiConfig.apiSandboxServerUrl);                
+                apiContext.setApiServerUrl(ApiConfig.apiSandboxServerUrl);    
+                apiContext.setSite(itemType.getSite());
                 AddItemCall api = new AddItemCall();
                 api.setApiContext(apiContext);
                 
@@ -75,13 +79,20 @@ public class AddItem {
                 newItem.setTitle(itemType.getTitle());
                 newItem.setDescription(itemType.getDescription());
                 newItem.setListingType(ListingTypeCodeType.FIXED_PRICE_ITEM);
-                newItem.setStartPrice(itemType.getSellingStatus().getConvertedCurrentPrice());
+                newItem.setStartPrice(itemType.getSellingStatus().getCurrentPrice());
+                
                 newItem.setPictureDetails(itemType.getPictureDetails());
-                newItem.setListingDuration(itemType.getListingDuration());
+                newItem.setListingDuration(ListingDurationCodeType.DAYS_3.value());
+                
+
                 newItem.setCurrency(itemType.getCurrency());
                 newItem.setCountry(itemType.getCountry());
                 newItem.setLocation(itemType.getLocation());
+                newItem.setSite(itemType.getSite());
                 
+                
+                
+                newItem.setAutoPay(false);
                 
                 CategoryType ct = new CategoryType();
                 ct.setCategoryID("171485");
@@ -103,8 +114,6 @@ public class AddItem {
                 newItem.setShippingDetails(itemType.getShippingDetails());
                 newItem.setReturnPolicy(itemType.getReturnPolicy());
                 newItem.setDispatchTimeMax(itemType.getDispatchTimeMax());
-                
-                
                 api.setItem(newItem);
                 
                 api.setEndUserIP("59.78.38.83");
@@ -121,5 +130,10 @@ public class AddItem {
                         Logger.getLogger(GetItem.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 return null;
+        }
+        
+        public static void main(String args[])
+        {
+                AddItem.execute(GetItem.execute("121159663647"));
         }
 }

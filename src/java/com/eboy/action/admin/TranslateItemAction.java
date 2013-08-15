@@ -6,13 +6,19 @@ package com.eboy.action.admin;
 
 import com.ebay.soap.eBLBaseComponents.ItemType;
 import com.eboy.api.GetItem;
+import com.eboy.api.HtmlParser;
+import com.eboy.api.YoudaoTranslate;
 import com.eboy.po.Category;
 import com.eboy.service.CategoryService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
 import org.apache.struts2.ServletActionContext;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
 
 /**
  *
@@ -31,8 +37,27 @@ public class TranslateItemAction extends ActionSupport
                 setItemEbayId(request.getParameter("itemEbayId"));
                 System.out.println("*******************                   itemEbayId=" + itemEbayId);
                 ItemType itemType = GetItem.execute(getItemEbayId());
-                setItemTitle(itemType.getTitle());
-                setItemDescription(itemType.getDescription());
+                try {
+                        setItemTitle(YoudaoTranslate.execute(itemType.getTitle()));
+                } catch (Exception ex) {
+                        Logger.getLogger(TranslateItemAction.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                try {
+                        
+//                        Document document = Jsoup.parse(itemDescription);
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        setItemDescription(HtmlParser.execute(itemType.getDescription()));
+                } catch (Exception ex) {
+                        Logger.getLogger(TranslateItemAction.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 List<Category> categoryList = getCategoryService().getCategorys();
                 
                 ActionContext.getContext().put("categoryList", categoryList);

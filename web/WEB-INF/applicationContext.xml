@@ -62,6 +62,15 @@
         </property>
     </bean>
         
+    <bean id="galleryDao" class="com.eboy.dao.GalleryDao">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory"></ref>
+        </property>
+    </bean>
+         
+        
+        
+        
     <bean id="tagService" class="com.eboy.service.TagServiceImpl">
         <property name="tagDao">
             <ref bean="tagDao"></ref>
@@ -82,7 +91,13 @@
             <ref bean="orderDao"></ref>
         </property>
     </bean>
-       
+    <bean id="galleryService" class="com.eboy.service.GalleryServiceImpl">
+        <property name="galleryDao">
+            <ref bean="galleryDao"></ref>
+        </property>
+    </bean>
+    
+          
         
     <bean id="helloAction" class="com.eboy.action.HelloAction">
         <property name="tagService">
@@ -101,6 +116,10 @@
         <property name="categoryService">
             <ref bean="categoryService"></ref>
         </property>
+        <property name="galleryService">
+            <ref bean="galleryService"></ref>
+        </property>
+        
     </bean>
     <bean id="translateItemAction" class="com.eboy.action.admin.TranslateItemAction">
         <property name="categoryService">

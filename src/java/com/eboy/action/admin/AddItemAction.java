@@ -5,14 +5,17 @@
 package com.eboy.action.admin;
 
 import com.ebay.soap.eBLBaseComponents.ItemType;
+import com.ebay.soap.eBLBaseComponents.PictureDetailsType;
 import com.ebay.soap.eBLBaseComponents.ShippingDetailsType;
 import com.eboy.api.AddItem;
 import com.eboy.api.GetItem;
 import com.eboy.api.GetItemShipping;
 import com.eboy.api.ItemAdapter;
 import com.eboy.po.Category;
+import com.eboy.po.Gallery;
 import com.eboy.po.Item;
 import com.eboy.service.CategoryService;
+import com.eboy.service.GalleryService;
 import com.eboy.service.ItemService;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -24,6 +27,7 @@ public class AddItemAction extends ActionSupport
 {
         private CategoryService categoryService;
         private ItemService itemService;
+        private GalleryService galleryService;
         private String itemEbayId;
         private String itemTitle;
         private String itemDescription;
@@ -31,19 +35,19 @@ public class AddItemAction extends ActionSupport
         @Override
         public String execute()
         {
-                System.out.println("                                                                      " + itemEbayId);
+                System.out.println("                                                                      " + getItemEbayId());
                 ItemType itemType = GetItem.execute(getItemEbayId());
                 String itemSandboxId =  AddItem.execute(itemType);
                 
                 Item item = ItemAdapter.execute(itemType);
-                item.setItemEbayId(itemEbayId);
+                item.setItemEbayId(getItemEbayId());
                 item.setItemTitle(getItemTitle());
                 item.setItemDescription(getItemDescription().getBytes());
                 item.setItemSandboxId(itemSandboxId);
                 Category category = getCategoryService().getCategorys().get(Integer.parseInt(getItemCategoryId()) - 1);
                 item.setCategory(category);
                 
-                ShippingDetailsType sdt = GetItemShipping.execute(itemEbayId);
+                ShippingDetailsType sdt = GetItemShipping.execute(getItemEbayId());
                 try
                 {
                         item.setItemPackageCost(sdt.getCalculatedShippingRate().getPackagingHandlingCosts().getValue());
@@ -93,7 +97,15 @@ public class AddItemAction extends ActionSupport
                 
                 getItemService().addItem(item);
                 
-
+                PictureDetailsType pdt = itemType.getPictureDetails();
+                String[] pictureURL = pdt.getPictureURL();
+                for(int i = 0;i < pictureURL.length;i ++)
+                {
+                        Gallery gallery = new Gallery();
+                        gallery.setItem(item);
+                        gallery.setGalleryUrl(pictureURL[i]);
+                        galleryService.addGallery(gallery);
+                }
                 
                 
                 
@@ -147,6 +159,14 @@ public class AddItemAction extends ActionSupport
 
         public void setItemCategoryId(String itemCategoryId) {
                 this.itemCategoryId = itemCategoryId;
+        }
+
+        public GalleryService getGalleryService() {
+                return galleryService;
+        }
+
+        public void setGalleryService(GalleryService galleryService) {
+                this.galleryService = galleryService;
         }
         
 }
