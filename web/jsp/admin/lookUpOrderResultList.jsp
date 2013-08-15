@@ -1,5 +1,5 @@
 <%-- 
-    Document   : findItemsByKeywords
+    Document   : lookUpOrderResultList
     Created on : 2013-8-6, 13:36:48
     Author     : Tongda
 --%>
@@ -84,10 +84,7 @@
                                         <s:property value="orderEmail"/>
                                 </td>
                                 <td>
-                                        <s:a href="DeliverOrderAction.action?orderId=%{orderId}">DeliverOrderAction</s:a>
-                                        </td>
-                                        <td>
-                                        <s:a href="AddOrderDeliveryAction.action?orderId=%{orderId}">AddOrderDeliveryAction</s:a>
+                                        <s:a href="lookUpSingleOrder.action?orderId=%{orderId}">lookUpSingleOrderAction</s:a>
                                         </td>
                                 </tr>
                 </s:iterator>

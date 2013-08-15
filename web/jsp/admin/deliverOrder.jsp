@@ -1,6 +1,6 @@
 <%-- 
-    Document   : lookUpOrder
-    Created on : 2013-8-6, 13:36:48
+    Document   : findItemsByKeywords
+    Created on : 2013-8-15, 10:14:40
     Author     : Tongda
 --%>
 <%@taglib prefix="s" uri="/struts-tags" %>
@@ -9,9 +9,12 @@
 <html>
         <head>
                 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-                <title>LookUpOrder Page</title>
+                <title>AddOrderDelivery Page</title>
         </head>
         <body>
-                <a href="lookUpOrder.action">lookUpOrderAction</a>
+                <s:form action="addOrderDelivery">
+                        <s:textfield name="orderDelivery"/>
+                        <s:submit/>
+                </s:form>
         </body>
 </html>

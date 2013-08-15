@@ -13,4 +13,6 @@ import java.util.List;
  */
 public interface OrderService {    
         List<Order> getOrders();
+        Order getOrder(Integer orderID);
+        void updateDeliverOrder(Order order);
 }
