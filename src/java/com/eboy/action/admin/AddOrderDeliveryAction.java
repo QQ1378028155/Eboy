@@ -20,11 +20,11 @@ public class AddOrderDeliveryAction extends ActionSupport {
         private OrderService orderService;
         private DeliveryService deliveryService;
         private String deliveryLocation;
-        private long orderID;
+        private Integer orderId;
         
         @Override
         public String execute() {
-                Order order = orderService.getOrder(orderID);
+                Order order = orderService.getOrder(orderId);
                 deliveryService.addDelivery(deliveryLocation, order);
                 ActionContext context = ActionContext.getContext();
                 context.put("order", order);
@@ -46,4 +46,21 @@ public class AddOrderDeliveryAction extends ActionSupport {
         public void setDeliveryService(DeliveryService deliveryService) {
                 this.deliveryService = deliveryService;
         }
+
+        public String getDeliveryLocation() {
+                return deliveryLocation;
+        }
+
+        public void setDeliveryLocation(String deliveryLocation) {
+                this.deliveryLocation = deliveryLocation;
+        }
+
+        public Integer getOrderId() {
+                return orderId;
+        }
+
+        public void setOrderId(Integer orderId) {
+                this.orderId = orderId;
+        }
+
 }

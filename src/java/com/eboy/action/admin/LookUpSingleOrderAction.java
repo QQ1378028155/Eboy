@@ -16,11 +16,12 @@ import com.opensymphony.xwork2.ActionSupport;
 public class LookUpSingleOrderAction extends ActionSupport {
 
         private OrderService orderService;
-        private long orderID;
+        private Integer orderId;
 
         @Override
         public String execute() {
-                Order order = orderService.getOrder(orderID);
+                System.out.println("orderID = "+ orderId);
+                Order order = orderService.getOrder(orderId);
                 ActionContext context = ActionContext.getContext();
                 context.put("order", order);
                 return "success";
@@ -33,4 +34,13 @@ public class LookUpSingleOrderAction extends ActionSupport {
         public void setOrderService(OrderService orderService) {
                 this.orderService = orderService;
         }
+
+        public long getOrderId() {
+                return orderId;
+        }
+
+        public void setOrderId(Integer orderId) {
+                this.orderId = orderId;
+        }
+        
 }

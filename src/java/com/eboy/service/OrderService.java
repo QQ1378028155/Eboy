@@ -13,5 +13,5 @@ import java.util.List;
  */
 public interface OrderService {    
         List<Order> getOrders();
-        Order getOrder(long orderID);
+        Order getOrder(Integer orderID);
 }

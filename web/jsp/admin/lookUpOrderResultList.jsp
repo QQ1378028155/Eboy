@@ -84,7 +84,7 @@
                                         <s:property value="orderEmail"/>
                                 </td>
                                 <td>
-                                        <s:a href="lookUpSingleOrderAction.action?orderId=%{orderId}">lookUpSingleOrderAction</s:a>
+                                        <s:a href="lookUpSingleOrder.action?orderId=%{orderId}">lookUpSingleOrderAction</s:a>
                                         </td>
                                 </tr>
                 </s:iterator>
