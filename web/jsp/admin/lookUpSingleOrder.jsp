@@ -81,16 +81,35 @@
                 </tr>
         </table>
         <s:a href="deliverOrder.action?orderId=%{orderId}">DeliverOrderAction</s:a>
-        
-        <h2>Add Order Delivery</h2>
-                        <s:form action="addOrderDelivery">
-                        <input type="text" name="orderId" value="<s:property value="#order.orderId"/>" readonly="true"/>
-                        <br/>
-                        <input type="text" name="deliveryLocation"/>
-                        <s:submit/>
-                </s:form>
-        <s:a href="addOrderDelivery.action?orderId=%{orderId}">AddOrderDeliveryAction</s:a>
+
+                <h2>Add Order Delivery</h2>
+        <s:form action="addOrderDelivery">
+                <input type="text" name="orderId" value="<s:property value="#order.orderId"/>" readonly="true"/>
+                <br/>
+                <input type="text" name="deliveryLocation"/>
+                <s:submit/>
+        </s:form>
         <h2>Delivery Detail</h2>
-        
+        <table>
+                <tr>
+                        <th>
+                                Index
+                        </th>
+                        <th>
+                                OrderId
+                        </th>
+                        <th>
+                                DeliveryLocation
+                        </th>
+                </tr>
+                <s:iterator value="#deliveries" status="u">
+                        <tr>
+                                <td>
+                                        <s:property value="#u.index+1"/></td><td>
+                                        <s:property value="order.orderId"/></td><td>
+                                        <s:property value="deliveryLocation"/></td>
+                        </tr>
+                </s:iterator> 
+        </table>
 </body>
 </html>

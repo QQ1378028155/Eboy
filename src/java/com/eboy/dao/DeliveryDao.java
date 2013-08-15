@@ -27,6 +27,6 @@ public class DeliveryDao extends HibernateDaoSupport{
         }
         public List<Delivery> getDeliveriesByOrderId(Integer orderId)
         {
-                return (List<Delivery>)(getHibernateTemplate().find("from Delivery where order.orderId=？", orderId));
+                return (List<Delivery>)(getHibernateTemplate().find("from Delivery where order.orderId=?", orderId));
         }
 }

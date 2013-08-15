@@ -22,6 +22,7 @@ public class DeliveryServiceImpl implements DeliveryService {
         @Override
         public void addDelivery(String deliveryLocation, Order order) {
                 Delivery delivery = new Delivery();
+                delivery.setOrder(order);
                 delivery.setDeliveryLocation(deliveryLocation);
                 try {
                         deliveryDao.save(delivery);
