@@ -9,15 +9,15 @@
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd">
 
         <bean id="propertyConfigurer"
-          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
-          p:location="/WEB-INF/jdbc.properties"/>
+              class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
+              p:location="/WEB-INF/jdbc.properties"/>
 
         <bean id="dataSource"
-          class="org.springframework.jdbc.datasource.DriverManagerDataSource"
-          p:driverClassName="${jdbc.driverClassName}"
-          p:url="${jdbc.url}"
-          p:username="${jdbc.username}"
-          p:password="${jdbc.password}"/>
+              class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+              p:driverClassName="${jdbc.driverClassName}"
+              p:url="${jdbc.url}"
+              p:username="${jdbc.username}"
+              p:password="${jdbc.password}"/>
 
         <!-- ADD PERSISTENCE SUPPORT HERE (jpa, hibernate, etc) -->
         <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
@@ -33,7 +33,6 @@
                                 <value>com/eboy/po/Order.hbm.xml</value>
                                 <value>com/eboy/po/Tag.hbm.xml</value>
                                 <value>com/eboy/po/Statistics.hbm.xml</value>
-                                
                         </list>
                 </property>
                 <property name="hibernateProperties">
@@ -76,9 +75,13 @@
                         <ref bean="sessionFactory"></ref>
                 </property>
         </bean>
-        
-        
-        
+        <bean id="commentDao" class="com.eboy.dao.CommentDao">
+                <property name="sessionFactory">
+                        <ref bean="sessionFactory"></ref>
+                </property>
+        </bean> 
+
+
         <bean id="tagService" class="com.eboy.service.TagServiceImpl">
                 <property name="tagDao">
                         <ref bean="tagDao"></ref>
@@ -116,9 +119,13 @@
                         <ref bean="itemTagDao"></ref>
                 </property>
         </bean>
-        
-        
-        
+        <bean id="commentService" class="com.eboy.service.CommentServiceImpl">
+                <property name="commentDao">
+                        <ref bean="commentDao"></ref>
+                </property>
+        </bean>
+
+
         <bean id="addTagAction" class="com.eboy.action.admin.AddTagAction">
                 <property name="tagService">
                         <ref bean="tagService"></ref>
@@ -210,6 +217,24 @@
                 </property>
                 <property name="tagService">
                         <ref bean="tagService"></ref>
+                </property>
+        </bean>
+        <bean id="lookUpCommentAction" class="com.eboy.action.admin.LookUpCommentAction">
+                <property name="commentService">
+                        <ref bean="commentService"></ref>
+                </property>
+        </bean>
+        <bean id="deleteCommentAction" class="com.eboy.action.admin.DeleteCommentAction">
+                <property name="commentService">
+                        <ref bean="commentService"></ref>
+                </property>
+        </bean>
+        <bean id="lookUpDeliveryAction" class="com.eboy.action.user.LookUpDeliveryAction">
+                <property name="orderService">
+                        <ref bean="orderService"></ref>
+                </property>
+                <property name="deliveryService">
+                        <ref bean="deliveryService"></ref>
                 </property>
         </bean>
 </beans>

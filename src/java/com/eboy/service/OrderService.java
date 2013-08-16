@@ -13,6 +13,7 @@ import java.util.List;
  */
 public interface OrderService {    
         List<Order> getOrders();
-        Order getOrder(Integer orderID);
+        Order getOrder(Integer orderId);
         void updateDeliverOrder(Order order);
+        Order getOrderByOrderValidate(String orderValidate);
 }

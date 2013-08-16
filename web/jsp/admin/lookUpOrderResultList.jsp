@@ -44,50 +44,47 @@
                                 <th>
                                         orderEmail
                                 </th>
-                                DeliverOrderAction
-                                </th>
-                                </th>
-                                DeliverOrderAction
+                                <th>
+                                        lookUpSingleOrderAction
                                 </th>
                         </tr>
-                </tr>
-                <s:iterator value="#orders">
-                        <tr>
-                                <td>
-                                        <s:property value="orderId"/>
-                                </td>
-                                <td>
-                                        <s:property value="item.itemId"/>
-                                </td>
-                                <td>
-                                        <s:property value="orderQuantity"/>
-                                </td>
-                                <td>
-                                        <s:property value="orderValidate"/>
-                                </td>
-                                <td>
-                                        <s:property value="orderPrice"/>
-                                </td>
-                                <td>
-                                        <s:property value="orderAddress"/>
-                                </td>
-                                <td>
-                                        <s:property value="orderStatus"/>
-                                </td>
-                                <td>
-                                        <s:property value="orderPhone"/>
-                                </td>
-                                <td>
-                                        <s:property value="orderReciver"/>
-                                </td>
-                                <td>
-                                        <s:property value="orderEmail"/>
-                                </td>
-                                <td>
-                                        <s:a href="lookUpSingleOrder.action?orderId=%{orderId}">lookUpSingleOrderAction</s:a>
+                        <s:iterator value="#orders">
+                                <tr>
+                                        <td>
+                                                <s:property value="orderId"/>
                                         </td>
-                                </tr>
-                </s:iterator>
-        </table>
-</body>
+                                        <td>
+                                                <s:property value="item.itemId"/>
+                                        </td>
+                                        <td>
+                                                <s:property value="orderQuantity"/>
+                                        </td>
+                                        <td>
+                                                <s:property value="orderValidate"/>
+                                        </td>
+                                        <td>
+                                                <s:property value="orderPrice"/>
+                                        </td>
+                                        <td>
+                                                <s:property value="orderAddress"/>
+                                        </td>
+                                        <td>
+                                                <s:property value="orderStatus"/>
+                                        </td>
+                                        <td>
+                                                <s:property value="orderPhone"/>
+                                        </td>
+                                        <td>
+                                                <s:property value="orderReciver"/>
+                                        </td>
+                                        <td>
+                                                <s:property value="orderEmail"/>
+                                        </td>
+                                        <td>
+                                                <s:a href="lookUpSingleOrder.action?orderId=%{orderId}">lookUpSingleOrderAction</s:a>
+                                                </td>
+                                        </tr>
+                        </s:iterator>
+                </table>
+        </body>
 </html>
