@@ -65,13 +65,16 @@
             <ref bean="sessionFactory"></ref>
         </property>
     </bean>
-        
     <bean id="galleryDao" class="com.eboy.dao.GalleryDao">
         <property name="sessionFactory">
             <ref bean="sessionFactory"></ref>
         </property>
     </bean>
-         
+    <bean id="commentDao" class="com.eboy.dao.CommentDao">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory"></ref>
+        </property>
+    </bean> 
         
         
         
@@ -95,18 +98,21 @@
             <ref bean="orderDao"></ref>
         </property>
     </bean>
-    
     <bean id="galleryService" class="com.eboy.service.GalleryServiceImpl">
         <property name="galleryDao">
             <ref bean="galleryDao"></ref>
         </property>
     </bean>
-    
     <bean id="deliveryService" class="com.eboy.service.DeliveryServiceImpl">
         <property name="deliveryDao">
             <ref bean="deliveryDao"></ref>
         </property>
-    </bean>  
+    </bean>
+    <bean id="commentService" class="com.eboy.service.CommentServiceImpl">
+        <property name="commentDao">
+            <ref bean="commentDao"></ref>
+        </property>
+    </bean>
         
     <bean id="helloAction" class="com.eboy.action.HelloAction">
         <property name="tagService">
@@ -164,6 +170,16 @@
         </property>
         <property name="deliveryService">
             <ref bean="deliveryService"></ref>
+        </property>
+    </bean>
+    <bean id="lookUpCommentAction" class="com.eboy.action.admin.LookUpCommentAction">
+        <property name="commentService">
+            <ref bean="commentService"></ref>
+        </property>
+    </bean>
+    <bean id="deleteCommentAction" class="com.eboy.action.admin.DeleteCommentAction">
+        <property name="commentService">
+            <ref bean="commentService"></ref>
         </property>
     </bean>
 </beans>
