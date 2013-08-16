@@ -12,6 +12,7 @@ import java.util.List;
  * @author wjl
  */
 public interface TagService {
-        void addTag(String tagWord);        
+        void addTag(String tagWord);    
+        Tag getTag(int tagId);
         List<Tag> getTags();
 }

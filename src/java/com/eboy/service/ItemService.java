@@ -5,6 +5,7 @@
 package com.eboy.service;
 
 import com.eboy.po.Item;
+import java.util.List;
 
 /**
  *
@@ -12,4 +13,7 @@ import com.eboy.po.Item;
  */
 public interface ItemService {
         void addItem(Item item);
+        Item getItem(int itemId);
+        void updateItem(Item item);
+        List<Item> getItems();
 }

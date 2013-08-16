@@ -6,6 +6,7 @@ package com.eboy.service;
 
 import com.eboy.dao.ItemDao;
 import com.eboy.po.Item;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -31,6 +32,26 @@ public class ItemServiceImpl implements ItemService
 
         public void setItemDao(ItemDao itemDao) {
                 this.itemDao = itemDao;
+        }
+
+        @Override
+        public Item getItem(int itemId) {
+                return itemDao.getItem(itemId);
+        }
+
+        @Override
+        public void updateItem(Item item) {
+                try {
+                        itemDao.update(item);
+                } catch (Exception ex) {
+                        Logger.getLogger(ItemServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+        }
+
+        @Override
+        public List<Item> getItems() {
+                return itemDao.getItems();
         }
         
 }

@@ -17,7 +17,7 @@ public class TagDao extends HibernateDaoSupport{
         {
                 this.getHibernateTemplate().save(tag);
         }
-        public Tag getTag(long tagID)
+        public Tag getTag(int tagID)
         {
                 return (Tag)(this.getHibernateTemplate().get(Tag.class, tagID));
         }

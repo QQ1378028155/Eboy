@@ -13,11 +13,11 @@
         </head>
         <body>
                 <s:form action="addItem">
-                        <input type="text" name="itemEbayId" value="<s:property value="itemEbayId"/>" readonly="true"/>
+                        EbayId:<input type="text" name="itemEbayId" value="<s:property value="itemEbayId"/>" readonly="true"/>
                         <br/>
-                        <input type="text" name="itemTitle" value="<s:property value="itemTitle"/>"/>
+                        商品标题:<input type="text" name="itemTitle" value="<s:property value="itemTitle"/>"/>
                         <br/>
-                        <textarea name="itemDescription"><s:property value="itemDescription"/></textarea>
+                        商品描述:<textarea name="itemDescription"><s:property value="itemDescription"/></textarea>
                         <br/>
                         <select name="itemCategoryId">
                                 <s:iterator value="#categoryList">

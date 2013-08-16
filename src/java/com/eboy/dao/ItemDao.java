@@ -18,12 +18,16 @@ public class ItemDao extends HibernateDaoSupport
         {
                 this.getHibernateTemplate().save(item);
         }
-        public Item getItem(long itemID)
+        public Item getItem(int itemID)
         {
                 return (Item)(this.getHibernateTemplate().get(Item.class, itemID));
         }
         public List<Item> getItems()
         {
                 return (List<Item>)(this.getHibernateTemplate().find("from Item"));
+        }
+        public void update(Item item) throws Exception
+        {
+                this.getHibernateTemplate().update(item);
         }
 }

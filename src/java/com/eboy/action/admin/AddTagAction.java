@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.eboy.action;
+package com.eboy.action.admin;
 
 import com.eboy.po.Tag;
 import com.eboy.service.TagService;
@@ -14,7 +14,7 @@ import java.util.List;
  *
  * @author wjl
  */
-public class HelloAction extends ActionSupport{
+public class AddTagAction extends ActionSupport{
         
         private TagService tagService;
         private String tagWord;
@@ -22,11 +22,6 @@ public class HelloAction extends ActionSupport{
         public String execute()
         {
                 tagService.addTag(getTagWord());
-                System.out.println("***********************************" + tagWord);
-                List<Tag> tags = tagService.getTags();
-                ActionContext context = ActionContext.getContext();
-                context.put("tagWordRequest", tagWord);
-                context.put("tags", tags);
                 return "success";
         }
 

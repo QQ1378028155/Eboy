@@ -10,8 +10,8 @@ and open the template in the editor.
 
 <struts>
         <package name="eboy" extends="struts-default">       
-                <action name="hello" class="helloAction">
-                         <result name="success">/jsp/hello.jsp</result>
+                <action name="addTag" class="addTagAction">
+                         <result name="success">/jsp/admin/addTag.jsp</result>
                 </action>
                 <action name="findItemsFromEbayByKeywords" class="findItemsFromEbayByKeywordsAction">
                         <result name="success">/jsp/admin/findItemsByKeywordsResultList.jsp</result>
@@ -39,6 +39,21 @@ and open the template in the editor.
                 </action>
                 <action name="deliverOrder" class="deliverOrderAction">
                         <result name="success">/jsp/admin/lookUpSingleOrder.jsp</result>
+                </action>
+                <action name="searchItemsFromStore" class="searchItemsFromStoreAction">
+                        <result name="success">/jsp/admin/itemsInStore.jsp</result>
+                </action>
+                <action name="goToTranslationItem" class="goToTranslationItemAction"> 
+                        <result name="success">/jsp/admin/setTranslation.jsp</result>
+                </action>
+                <action name="setTranslation" class="setTranslationAction">
+                        <result name="success">/jsp/admin/setTranslation.jsp</result>
+                </action>
+                <action name="goToTagBinding" class="goToTagBindingAction">
+                        <result name="success">/jsp/admin/bindItem.jsp</result>
+                </action>
+                <action name="bindTagToItem" class="bindTagToItemAction">
+                        <result name="success">/jsp/admin/itemsInStore.jsp</result>
                 </action>
         </package>
 </struts>

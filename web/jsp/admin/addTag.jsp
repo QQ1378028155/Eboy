@@ -11,8 +11,7 @@
         </head>
 
         <body>
-                <a href="hello.action">HelloWorld</a>
-                <s:form action="hello">
+                <s:form action="addTag">
                         <s:textfield name="tagWord"/>
                         <s:submit/>
                 </s:form>
