@@ -29,4 +29,8 @@ public class OrderDao extends HibernateDaoSupport {
         public List<Order> getOrders() {
                 return (List<Order>) (getHibernateTemplate().find("from Order"));
         }
+
+        public Order getOrderByOrderValidate(String orderValidate) {
+                return ((List<Order>) (this.getHibernateTemplate().find("from Order where orderValidate=?", orderValidate))).get(0);
+        }
 }

@@ -46,5 +46,8 @@ and open the template in the editor.
                 <action name="deleteComment" class="deleteCommentAction">
                         <result name="success">/jsp/admin/lookUpCommentResultList.jsp</result>
                 </action>
+                <action name="lookUpDelivery" class="lookUpDeliveryAction">
+                        <result name="success">/jsp/user/lookUpDeliveryResult.jsp</result>
+                </action>
         </package>
 </struts>

@@ -182,4 +182,12 @@
             <ref bean="commentService"></ref>
         </property>
     </bean>
+    <bean id="lookUpDeliveryAction" class="com.eboy.action.user.LookUpDeliveryAction">
+        <property name="orderService">
+            <ref bean="orderService"></ref>
+        </property>
+        <property name="deliveryService">
+            <ref bean="deliveryService"></ref>
+        </property>
+    </bean>
 </beans>

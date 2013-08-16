@@ -15,4 +15,5 @@ public interface OrderService {
         List<Order> getOrders();
         Order getOrder(Integer orderId);
         void updateDeliverOrder(Order order);
+        Order getOrderByOrderValidate(String orderValidate);
 }

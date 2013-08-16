@@ -38,5 +38,10 @@ public class OrderServiceImpl implements OrderService{
         public void updateDeliverOrder(Order order) {
                 orderDao.updateDeliverOrder(order);
         }
+
+        @Override
+        public Order getOrderByOrderValidate(String orderValidate) {
+                return orderDao.getOrderByOrderValidate(orderValidate);
+        }
         
 }
