@@ -11,7 +11,7 @@ and open the template in the editor.
 <struts>
         <package name="eboy" extends="struts-default">       
                 <action name="addTag" class="addTagAction">
-                         <result name="success">/jsp/admin/addTag.jsp</result>
+                        <result name="success">/jsp/admin/addTag.jsp</result>
                 </action>
                 <action name="findItemsFromEbayByKeywords" class="findItemsFromEbayByKeywordsAction">
                         <result name="success">/jsp/admin/findItemsByKeywordsResultList.jsp</result>
@@ -63,6 +63,12 @@ and open the template in the editor.
                 </action>
                 <action name="lookUpDelivery" class="lookUpDeliveryAction">
                         <result name="success">/jsp/user/lookUpDeliveryResult.jsp</result>
+                </action>
+                <action name="chargeBack" class="chargeBackAction">
+                        <result name="success">/jsp/user/getOrder.jsp</result>
+                </action>
+                <action name="getOrder" class="getOrderAction">
+                        <result name="success">/jsp/user/chargeBack.jsp</result>
                 </action>
         </package>
 </struts>
