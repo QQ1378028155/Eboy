@@ -236,6 +236,16 @@
                 <property name="deliveryService">
                         <ref bean="deliveryService"></ref>
                 </property>
+        </bean>      
+        <bean id="getOrderAction" class="com.eboy.action.user.GetOrderAction">
+                <property name="orderService">
+                        <ref bean="orderService"></ref>
+                </property>
+        </bean>
+        <bean id="chargeBackAction" class="com.eboy.action.user.ChargeBackAction">
+                <property name="orderService">
+                        <ref bean="orderService"></ref>
+                </property>
         </bean>
         <bean id="getLatestCommentAction" class="com.eboy.action.user.GetLatestCommentAction">
                 <property name="commentService">
