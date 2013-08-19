@@ -67,5 +67,8 @@ and open the template in the editor.
                 <action name="getLatestComment" class="getLatestCommentAction">
                         <result name="success">/jsp/user/getLatestCommentResultList.jsp</result>
                 </action>
+                <action name="addComment" class="addCommentAction">
+                        <result name="success">/jsp/user/lookUpComment.jsp</result>
+                </action>
         </package>
 </struts>

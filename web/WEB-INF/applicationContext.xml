@@ -242,4 +242,13 @@
                         <ref bean="commentService"></ref>
                 </property>
         </bean>
+        
+        <bean id="addCommentAction" class="com.eboy.action.user.AddCommentAction">
+                <property name="itemService">
+                        <ref bean="itemService"></ref>
+                </property>
+                <property name="commentService">
+                        <ref bean="commentService"></ref>
+                </property>
+        </bean>
 </beans>
