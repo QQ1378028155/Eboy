@@ -237,4 +237,9 @@
                         <ref bean="deliveryService"></ref>
                 </property>
         </bean>
+        <bean id="getLatestCommentAction" class="com.eboy.action.user.GetLatestCommentAction">
+                <property name="commentService">
+                        <ref bean="commentService"></ref>
+                </property>
+        </bean>
 </beans>
