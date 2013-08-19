@@ -6,7 +6,7 @@
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/Eboy?characterEncoding=utf8</property>
     <property name="hibernate.connection.username">root</property>
-    <property name="hibernate.connection.password">wangjl</property>
+    <property name="hibernate.connection.password">root</property>
     <mapping resource="com/eboy/po/Delivery.hbm.xml"/>
     <mapping resource="com/eboy/po/Catagory.hbm.xml"/>
     <mapping resource="com/eboy/po/Gallary.hbm.xml"/>
