@@ -1,5 +1,5 @@
 package com.eboy.po;
-// Generated 2013-8-12 15:15:00 by Hibernate Tools 3.2.1.GA
+// Generated 2013-8-21 0:32:26 by Hibernate Tools 3.2.1.GA
 
 
 import java.util.HashSet;
@@ -15,7 +15,7 @@ public class Order  implements java.io.Serializable {
      private Item item;
      private int orderQuantity;
      private String orderValidate;
-     private int orderPrice;
+     private double orderPrice;
      private String orderAddress;
      private String orderStatus;
      private String orderPhone;
@@ -27,7 +27,7 @@ public class Order  implements java.io.Serializable {
     }
 
 	
-    public Order(Item item, int orderQuantity, String orderValidate, int orderPrice, String orderAddress, String orderStatus, String orderPhone, String orderReceiver, String orderEmail) {
+    public Order(Item item, int orderQuantity, String orderValidate, double orderPrice, String orderAddress, String orderStatus, String orderPhone, String orderReceiver, String orderEmail) {
         this.item = item;
         this.orderQuantity = orderQuantity;
         this.orderValidate = orderValidate;
@@ -38,7 +38,7 @@ public class Order  implements java.io.Serializable {
         this.orderReceiver = orderReceiver;
         this.orderEmail = orderEmail;
     }
-    public Order(Item item, int orderQuantity, String orderValidate, int orderPrice, String orderAddress, String orderStatus, String orderPhone, String orderReceiver, String orderEmail, Set deliveries) {
+    public Order(Item item, int orderQuantity, String orderValidate, double orderPrice, String orderAddress, String orderStatus, String orderPhone, String orderReceiver, String orderEmail, Set deliveries) {
        this.item = item;
        this.orderQuantity = orderQuantity;
        this.orderValidate = orderValidate;
@@ -79,11 +79,11 @@ public class Order  implements java.io.Serializable {
     public void setOrderValidate(String orderValidate) {
         this.orderValidate = orderValidate;
     }
-    public int getOrderPrice() {
+    public double getOrderPrice() {
         return this.orderPrice;
     }
     
-    public void setOrderPrice(int orderPrice) {
+    public void setOrderPrice(double orderPrice) {
         this.orderPrice = orderPrice;
     }
     public String getOrderAddress() {

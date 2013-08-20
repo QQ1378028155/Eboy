@@ -1,3 +1,8 @@
+CREATE TABLE Statistics (
+  statisticsID     int(10) NOT NULL AUTO_INCREMENT, 
+  statisticsIncome double NOT NULL, 
+  statisticsOutpay double NOT NULL, 
+  PRIMARY KEY (statisticsID));
 CREATE TABLE ItemTag (
   itemTagID int(10) NOT NULL AUTO_INCREMENT, 
   tagID     int(10) NOT NULL, 
@@ -32,7 +37,7 @@ CREATE TABLE `Order` (
   orderID       int(10) NOT NULL AUTO_INCREMENT, 
   orderQuantity int(10) NOT NULL, 
   orderValidate varchar(10) NOT NULL, 
-  orderPrice    int(10) NOT NULL, 
+  orderPrice    double NOT NULL, 
   orderAddress  varchar(255) NOT NULL, 
   orderStatus   varchar(64) NOT NULL, 
   orderPhone    varchar(32) NOT NULL, 
@@ -54,21 +59,17 @@ CREATE TABLE Item (
   itemPrice                 double NOT NULL, 
   itemPriceCurrency         varchar(10) NOT NULL, 
   itemPackageCost           double DEFAULT 0, 
-  itemPackageCostCurrency   varchar(10) DEFAULT 'CHY', 
+  itemPackageCostCurrency   varchar(10) DEFAULT 'CNY', 
   itemImportCost            double DEFAULT 0, 
-  itemImportCostCurrency    varchar(10) DEFAULT 'CHY', 
+  itemImportCostCurrency    varchar(10) DEFAULT 'CNY', 
   itemShippingCost          double DEFAULT 0, 
-  itemShippingCostCurrency  varchar(10) DEFAULT 'CHY', 
+  itemShippingCostCurrency  varchar(10) DEFAULT 'CNY', 
   itemInsuranceCost         double DEFAULT 0, 
-  itemInsuranceCostCurrency varchar(10) DEFAULT 'CHY', 
+  itemInsuranceCostCurrency varchar(10) DEFAULT 'CNY', 
   itemTaxCost               double DEFAULT 0, 
-  itemTaxCostCurrency       varchar(10) DEFAULT 'CHY', 
+  itemTaxCostCurrency       varchar(10) DEFAULT 'CNY', 
+  itemSoldQuantity          int(10) DEFAULT 0 NOT NULL, 
   PRIMARY KEY (itemID));
-CREATE TABLE Statistics (
-  statisticsID     int(10) NOT NULL AUTO_INCREMENT, 
-  statisticsIncome double NOT NULL, 
-  statisticsOutpay double NOT NULL, 
-  PRIMARY KEY (statisticsID));
 ALTER TABLE `Order` ADD INDEX FKOrder388381 (itemID), ADD CONSTRAINT FKOrder388381 FOREIGN KEY (itemID) REFERENCES Item (itemID);
 ALTER TABLE Comment ADD INDEX FKComment17490 (itemID), ADD CONSTRAINT FKComment17490 FOREIGN KEY (itemID) REFERENCES Item (itemID);
 ALTER TABLE Gallery ADD INDEX FKGallery697525 (itemID), ADD CONSTRAINT FKGallery697525 FOREIGN KEY (itemID) REFERENCES Item (itemID);

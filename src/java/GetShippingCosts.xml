@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GetShippingCostsRequest xmlns="urn:ebay:apis:eBLBaseComponents">
+        <DestinationCountryCode>CN</DestinationCountryCode>
+        <DestinationPostalCode>201100</DestinationPostalCode>
+        <IncludeDetails>true</IncludeDetails>
+        <ItemID>0</ItemID>
+        <QuantitySold>1</QuantitySold>
+</GetShippingCostsRequest>

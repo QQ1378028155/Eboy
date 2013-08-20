@@ -7,6 +7,8 @@ package com.eboy.service;
 import com.eboy.dao.OrderDao;
 import com.eboy.po.Order;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -42,6 +44,15 @@ public class OrderServiceImpl implements OrderService{
         @Override
         public Order getOrderByOrderValidate(String orderValidate) {
                 return orderDao.getOrderByOrderValidate(orderValidate);
+        }
+
+        @Override
+        public void saveOrder(Order order) {
+                try {
+                        orderDao.save(order);
+                } catch (Exception ex) {
+                        Logger.getLogger(OrderServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+                }
         }
         
 }

@@ -1,5 +1,5 @@
 package com.eboy.po;
-// Generated 2013-8-12 15:15:00 by Hibernate Tools 3.2.1.GA
+// Generated 2013-8-21 0:32:26 by Hibernate Tools 3.2.1.GA
 
 
 import java.util.HashSet;
@@ -33,6 +33,7 @@ public class Item  implements java.io.Serializable {
      private String itemInsuranceCostCurrency;
      private Double itemTaxCost;
      private String itemTaxCostCurrency;
+     private int itemSoldQuantity;
      private Set comments = new HashSet(0);
      private Set orders = new HashSet(0);
      private Set itemTags = new HashSet(0);
@@ -42,7 +43,7 @@ public class Item  implements java.io.Serializable {
     }
 
 	
-    public Item(Category category, String itemEbayId, String itemTitle, byte[] itemDescription, int itemQuantity, double itemSortScore, double itemDiscount, String itemThumbnailImageUrl, String itemSandboxId, double itemPrice, String itemPriceCurrency) {
+    public Item(Category category, String itemEbayId, String itemTitle, byte[] itemDescription, int itemQuantity, double itemSortScore, double itemDiscount, String itemThumbnailImageUrl, String itemSandboxId, double itemPrice, String itemPriceCurrency, int itemSoldQuantity) {
         this.category = category;
         this.itemEbayId = itemEbayId;
         this.itemTitle = itemTitle;
@@ -54,8 +55,9 @@ public class Item  implements java.io.Serializable {
         this.itemSandboxId = itemSandboxId;
         this.itemPrice = itemPrice;
         this.itemPriceCurrency = itemPriceCurrency;
+        this.itemSoldQuantity = itemSoldQuantity;
     }
-    public Item(Category category, String itemEbayId, String itemTitle, byte[] itemDescription, int itemQuantity, double itemSortScore, double itemDiscount, String itemThumbnailImageUrl, String itemSandboxId, double itemPrice, String itemPriceCurrency, Double itemPackageCost, String itemPackageCostCurrency, Double itemImportCost, String itemImportCostCurrency, Double itemShippingCost, String itemShippingCostCurrency, Double itemInsuranceCost, String itemInsuranceCostCurrency, Double itemTaxCost, String itemTaxCostCurrency, Set comments, Set orders, Set itemTags, Set galleries) {
+    public Item(Category category, String itemEbayId, String itemTitle, byte[] itemDescription, int itemQuantity, double itemSortScore, double itemDiscount, String itemThumbnailImageUrl, String itemSandboxId, double itemPrice, String itemPriceCurrency, Double itemPackageCost, String itemPackageCostCurrency, Double itemImportCost, String itemImportCostCurrency, Double itemShippingCost, String itemShippingCostCurrency, Double itemInsuranceCost, String itemInsuranceCostCurrency, Double itemTaxCost, String itemTaxCostCurrency, int itemSoldQuantity, Set comments, Set orders, Set itemTags, Set galleries) {
        this.category = category;
        this.itemEbayId = itemEbayId;
        this.itemTitle = itemTitle;
@@ -77,6 +79,7 @@ public class Item  implements java.io.Serializable {
        this.itemInsuranceCostCurrency = itemInsuranceCostCurrency;
        this.itemTaxCost = itemTaxCost;
        this.itemTaxCostCurrency = itemTaxCostCurrency;
+       this.itemSoldQuantity = itemSoldQuantity;
        this.comments = comments;
        this.orders = orders;
        this.itemTags = itemTags;
@@ -236,6 +239,13 @@ public class Item  implements java.io.Serializable {
     
     public void setItemTaxCostCurrency(String itemTaxCostCurrency) {
         this.itemTaxCostCurrency = itemTaxCostCurrency;
+    }
+    public int getItemSoldQuantity() {
+        return this.itemSoldQuantity;
+    }
+    
+    public void setItemSoldQuantity(int itemSoldQuantity) {
+        this.itemSoldQuantity = itemSoldQuantity;
     }
     public Set getComments() {
         return this.comments;

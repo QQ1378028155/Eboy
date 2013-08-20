@@ -57,6 +57,11 @@ public class FindItemsByKeywords {
                         values.add("1");
                         itemFilterList.add(filter);
                         
+                        filter = new ItemFilter();
+                        values = filter.getValue();
+                        filter.setName(ItemFilterType.CONDITION);
+                        values.add("1000");
+                        itemFilterList.add(filter);
                         
                         
                         FindItemsByKeywordsResponse result = serviceClient.findItemsByKeywords(request);

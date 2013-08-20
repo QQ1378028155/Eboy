@@ -10,7 +10,7 @@
         <head>
                 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
                 <title>chargeBackResult Page</title>
-                <script>
+                <script type="text/javascript">
                         function chargeBack()
                         {
                                 var status = "<s:property value="#order.orderStatus"/>";

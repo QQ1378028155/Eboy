@@ -18,7 +18,7 @@ import java.util.logging.Logger;
  * @author wjl
  */
 public class ExchangeConversion {
-        public Amount exchange(Amount input)
+        public static Amount execute(Amount input)
         {
                 String path = "http://qq.ip138.com/hl.asp?from="+ input.getCurrencyId() +"&to=CNY&q=1";                
                 try {
@@ -41,7 +41,7 @@ public class ExchangeConversion {
                         String restContent = content.substring(indexStart,indexEnd);
                         double rate = Double.parseDouble(restContent);
                         Amount amount = new Amount();
-                        amount.setCurrencyId("CHY");
+                        amount.setCurrencyId("CNY");
                         amount.setValue(rate * input.getValue());
                         return amount;
                                                

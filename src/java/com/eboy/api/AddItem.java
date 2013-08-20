@@ -19,6 +19,7 @@ import com.ebay.soap.eBLBaseComponents.ListingDurationCodeType;
 import com.ebay.soap.eBLBaseComponents.ListingTypeCodeType;
 import com.ebay.soap.eBLBaseComponents.PaymentDetailsType;
 import com.ebay.soap.eBLBaseComponents.ShippingDetailsType;
+import com.ebay.soap.eBLBaseComponents.SiteCodeType;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -83,13 +84,12 @@ public class AddItem {
                 
                 newItem.setPictureDetails(itemType.getPictureDetails());
                 newItem.setListingDuration(ListingDurationCodeType.DAYS_3.value());
-                
+
 
                 newItem.setCurrency(itemType.getCurrency());
                 newItem.setCountry(itemType.getCountry());
                 newItem.setLocation(itemType.getLocation());
                 newItem.setSite(itemType.getSite());
-                
                 
                 
                 newItem.setAutoPay(false);
@@ -114,6 +114,9 @@ public class AddItem {
                 newItem.setShippingDetails(itemType.getShippingDetails());
                 newItem.setReturnPolicy(itemType.getReturnPolicy());
                 newItem.setDispatchTimeMax(itemType.getDispatchTimeMax());
+                                newItem.setConditionID(1000);
+                
+                
                 api.setItem(newItem);
                 
                 api.setEndUserIP("59.78.38.83");
@@ -134,6 +137,6 @@ public class AddItem {
         
         public static void main(String args[])
         {
-                AddItem.execute(GetItem.execute("121159663647"));
+                AddItem.execute(GetItem.execute("111135052183"));
         }
 }

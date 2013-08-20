@@ -16,4 +16,5 @@ public interface OrderService {
         Order getOrder(Integer orderId);
         void updateDeliverOrder(Order order);
         Order getOrderByOrderValidate(String orderValidate);
+        void saveOrder(Order order);
 }
