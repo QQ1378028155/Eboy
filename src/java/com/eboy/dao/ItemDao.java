@@ -12,22 +12,26 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
  *
  * @author wjl
  */
-public class ItemDao extends HibernateDaoSupport
-{
-        public void save(Item item) throws Exception
-        {
+public class ItemDao extends HibernateDaoSupport {
+
+        public void save(Item item) throws Exception {
                 this.getHibernateTemplate().save(item);
         }
-        public Item getItem(int itemID)
-        {
-                return (Item)(this.getHibernateTemplate().get(Item.class, itemID));
+
+        public Item getItem(int itemID) {
+                return (Item) (this.getHibernateTemplate().get(Item.class, itemID));
         }
-        public List<Item> getItems()
-        {
-                return (List<Item>)(this.getHibernateTemplate().find("from Item"));
+
+        public List<Item> getItems() {
+                return (List<Item>) (this.getHibernateTemplate().find("from Item"));
         }
-        public void update(Item item) throws Exception
-        {
+
+        public List<Item> getItemsOrderBySale(String keywords) {
+                keywords = "%" + keywords + "%";
+                return (List<Item>) (this.getHibernateTemplate().find("from Item as i where itemTitle like ? order by i.orders.size desc", keywords));
+        }
+
+        public void update(Item item) throws Exception {
                 this.getHibernateTemplate().update(item);
         }
 }

@@ -77,11 +77,11 @@
             </key>
             <one-to-many class="com.eboy.po.Comment" />
         </set>
-        <set name="orders" inverse="true">
+        <set name="orders" inverse="true" lazy="false">
             <key>
                 <column name="itemID" not-null="true" />
             </key>
-            <one-to-many class="com.eboy.po.Order" />
+            <one-to-many class="com.eboy.po.Order"/>
         </set>
         <set name="itemTags" inverse="true">
             <key>

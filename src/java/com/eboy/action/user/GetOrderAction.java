@@ -13,16 +13,22 @@ import com.opensymphony.xwork2.ActionSupport;
  *
  * @author Tongda
  */
-public class GetOrderAction extends ActionSupport{
+public class GetOrderAction extends ActionSupport {
+
         private OrderService orderService;
         private String orderValidate;
-        private String password;
-         @Override
+        private Integer orderId;
+
+        @Override
         public String execute() {
-                Order order = orderService.getOrderByOrderValidate(orderValidate);
+                Order order = orderService.getOrder(orderId);
                 ActionContext context = ActionContext.getContext();
-                context.put("order", order);
-                return "success";
+                if (order.getOrderValidate().equals(orderValidate)) {
+                        context.put("order", order);
+                        return "success";
+                } else {
+                        return "fail";
+                }
         }
 
         public OrderService getOrderService() {
@@ -41,13 +47,11 @@ public class GetOrderAction extends ActionSupport{
                 this.orderValidate = orderValidate;
         }
 
-        public String getPassword() {
-                return password;
+        public Integer getOrderId() {
+                return orderId;
         }
 
-        public void setPassword(String password) {
-                this.password = password;
+        public void setOrderId(Integer orderId) {
+                this.orderId = orderId;
         }
-         
-         
 }

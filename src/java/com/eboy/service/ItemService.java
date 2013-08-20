@@ -16,4 +16,5 @@ public interface ItemService {
         Item getItem(int itemId);
         void updateItem(Item item);
         List<Item> getItems();
+        List<Item> getItemsOrderBySale(String keywords);
 }
