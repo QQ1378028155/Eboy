@@ -62,6 +62,6 @@ public class CommentServiceImpl implements CommentService{
 
         @Override
         public List<Comment> getCommentsByItemId(Integer itemId) {
-                return this.commentDao.getCommentsByOrderId(itemId);
+                return this.commentDao.getCommentsByItemId(itemId);
         }
 }

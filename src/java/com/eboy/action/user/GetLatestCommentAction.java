@@ -17,10 +17,19 @@ import java.util.List;
 public class GetLatestCommentAction extends ActionSupport {
 
         private CommentService commentService;
+        private Integer itemId;
+
+        public Integer getItemId() {
+                return itemId;
+        }
+
+        public void setItemId(Integer itemId) {
+                this.itemId = itemId;
+        }
 
         @Override
         public String execute() {
-                List<Comment> comments = commentService.getComments();
+                List<Comment> comments = commentService.getCommentsByItemId(itemId);
                 ActionContext context = ActionContext.getContext();
                 context.put("comments", comments);
                 return "success";
