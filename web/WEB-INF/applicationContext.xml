@@ -270,9 +270,6 @@
                 <property name="itemService">
                         <ref bean="itemService"></ref>
                 </property>
-                <property name="commentService">
-                        <ref bean="commentService"></ref>
-                </property>
         </bean>
         <bean id="searchItemsByTagAction" class="com.eboy.action.user.SearchItemsByTagAction">
                 <property name="itemTagService">

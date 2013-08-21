@@ -73,7 +73,7 @@
         </property>
         <set name="comments" inverse="true" lazy="false">
             <key>
-                <column name="itemID" not-null="true" />
+                <column name="itemID" not-null="true"/>
             </key>
             <one-to-many class="com.eboy.po.Comment" />
         </set>
@@ -93,7 +93,7 @@
             <key>
                 <column name="itemID" not-null="true" />
             </key>
-            <one-to-many class="com.eboy.po.Gallery" />
+            <one-to-many class="com.eboy.po.Gallery"  />
         </set>
     </class>
 </hibernate-mapping>
