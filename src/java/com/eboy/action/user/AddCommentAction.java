@@ -21,14 +21,14 @@ public class AddCommentAction extends ActionSupport {
         private CommentService commentService;
         private ItemService itemService;
         private String commentUserName;
-        private String commmentContent;
+        private String commentContent;
         private double commentRate;
         private Integer itemId;
         
         @Override
         public String execute() {
                 Item item = itemService.getItem(itemId);
-                commentService.addComment(commentUserName, commmentContent, commentRate, item);
+                commentService.addComment(commentUserName, commentContent, commentRate, item);
                 List<Comment> comments = commentService.getCommentsByItemId(itemId);
                 
                 ActionContext context = ActionContext.getContext();
@@ -61,13 +61,15 @@ public class AddCommentAction extends ActionSupport {
                 this.commentUserName = commentUserName;
         }
 
-        public String getCommmentContent() {
-                return commmentContent;
+        public String getCommentContent() {
+                return commentContent;
         }
 
-        public void setCommmentContent(String commmentContent) {
-                this.commmentContent = commmentContent;
+        public void setCommentContent(String commentContent) {
+                this.commentContent = commentContent;
         }
+
+
 
         public double getCommentRate() {
                 return commentRate;

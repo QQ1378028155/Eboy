@@ -66,10 +66,10 @@ and open the template in the editor.
                         <result name="fail">/jsp/user/getOrderFail.jsp</result>
                 </action>
                 <action name="getLatestComment" class="getLatestCommentAction">
-                        <result name="success">/jsp/user/getLatestCommentResultList.jsp</result>
+                        <result name="success">/jsp/user/getLatestCommentResult.jsp</result>
                 </action>
                 <action name="addComment" class="addCommentAction">
-                        <result name="success">/jsp/user/lookUpComment.jsp</result>
+                        <result name="success">/jsp/user/loadItemInfoResult.jsp</result>
                 </action>
                 <action name="chargeBack" class="chargeBackAction">
                         <result name="success">/jsp/user/getOrder.jsp</result>
@@ -80,6 +80,9 @@ and open the template in the editor.
                 </action>
                 <action name="loadItemsSortedBySale" class="loadItemsSortedBySaleAction">
                         <result name="success">/jsp/user/searchItemResult.jsp</result>
+                </action>
+                <action name="loadItemInfo" class="loadItemInfoAction">
+                        <result name="success">/jsp/user/loadItemInfoResult.jsp</result>
                 </action>
         </package>
 </struts>

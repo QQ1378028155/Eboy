@@ -34,9 +34,5 @@ public class CommentDao extends HibernateDaoSupport {
         {
                 return (List<Comment>)(getHibernateTemplate().find("from Comment where item.itemId=?", itemId));
         }
-
-        public List<Comment> getCommentsByOrderId(Integer itemId) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        }
         
 }

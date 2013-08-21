@@ -1,5 +1,5 @@
 <%-- 
-    Document   : getLatestComment
+    Document   : LoadItemInfo
     Created on : 2013-8-20, 20:24:17
     Author     : game3108
 --%>
@@ -9,11 +9,11 @@
 <html>
         <head>
                 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-                <title>getLatestComment Page</title>
+                <title>LoadItemInfo Page</title>
 
         </head>
         <body>
-                <s:form action="getLatestComment.action" >
+                <s:form action="loadItemInfo.action" >
                         <s:textfield name="itemId"/>
                         <s:submit/>
                 </s:form>
