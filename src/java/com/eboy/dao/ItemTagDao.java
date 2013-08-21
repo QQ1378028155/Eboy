@@ -24,6 +24,11 @@ public class ItemTagDao extends HibernateDaoSupport
         }
         public List<ItemTag> getItemTagsByTagWord(String tagWord)
         {
-                return(List<ItemTag>)(this.getHibernateTemplate().find("from ItemTag as it where it.tag.tagword = ?",tagWord));
+                return(List<ItemTag>)(this.getHibernateTemplate().find("from ItemTag as it where it.tag.tagWord = ?",tagWord));
+        }
+        
+        public List<ItemTag> getItemTagsByTagWordKeywords(String keywords) {
+                keywords = "%" + keywords + "%";
+                return (List<ItemTag>)(this.getHibernateTemplate().find("from ItemTag where tag.tagWord like ?", keywords));
         }
 }

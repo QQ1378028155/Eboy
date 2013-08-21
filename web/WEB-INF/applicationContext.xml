@@ -274,4 +274,9 @@
                         <ref bean="commentService"></ref>
                 </property>
         </bean>
+        <bean id="searchItemsByTagAction" class="com.eboy.action.user.SearchItemsByTagAction">
+                <property name="itemTagService">
+                        <ref bean="itemTagService"></ref>
+                </property>
+        </bean>
 </beans>

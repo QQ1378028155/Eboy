@@ -84,5 +84,8 @@ and open the template in the editor.
                 <action name="loadItemInfo" class="loadItemInfoAction">
                         <result name="success">/jsp/user/loadItemInfoResult.jsp</result>
                 </action>
+                <action name="searchItemsByTag" class="searchItemsByTagAction">
+                        <result name="success">/jsp/user/searchItemsByTagResult.jsp</result>
+                </action>
         </package>
 </struts>
