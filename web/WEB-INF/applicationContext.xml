@@ -270,5 +270,8 @@
                 <property name="itemService">
                         <ref bean="itemService"></ref>
                 </property>
+                <property name="commentService">
+                        <ref bean="commentService"></ref>
+                </property>
         </bean>
 </beans>
