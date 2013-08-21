@@ -14,7 +14,7 @@ import java.util.List;
 
 /**
  *
- * @author Tongda
+ * @author game3108
  */
 public class LoadItemInfoAction extends ActionSupport{
         private ItemService itemService;
