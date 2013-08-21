@@ -1,5 +1,5 @@
 <%-- 
-    Document   : chargeBackResult
+    Document   : chargeBack
     Created on : 2013-8-18, 21:23:37
     Author     : Tongda
 --%>
@@ -9,8 +9,8 @@
 <html>
         <head>
                 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-                <title>chargeBackResult Page</title>
-                <script type="text/javascript">
+                <title>chargeBack Page</title>
+                <script>
                         function chargeBack()
                         {
                                 var status = "<s:property value="#order.orderStatus"/>";

@@ -1,5 +1,5 @@
 <%-- 
-    Document   : lookUpSingleOrder
+    Document   : LookUpDelivery
     Created on : 2013-8-15, 12:53:12
     Author     : Tongda
 --%>
@@ -13,8 +13,10 @@
         </head>
         <body>
                 <s:form action="lookUpDelivery">
+                        <h2>please input the orderId</h2>
+                        <input type="text" name="orderId"/>
                         <h2>please input the orderValidate</h2>
-                        <input type="text" name="orderValidate"/>
+                        <input type="password" name="orderValidate"/>
                         <s:submit/>
                 </s:form>
         </body>

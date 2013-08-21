@@ -53,5 +53,10 @@ public class ItemServiceImpl implements ItemService
         public List<Item> getItems() {
                 return itemDao.getItems();
         }
+
+        @Override
+        public List<Item> getItemsOrderBySale(String keywords) {
+                return itemDao.getItemsOrderBySale(keywords);
+        }
         
 }

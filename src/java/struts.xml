@@ -63,6 +63,7 @@ and open the template in the editor.
                 </action>
                 <action name="lookUpDelivery" class="lookUpDeliveryAction">
                         <result name="success">/jsp/user/lookUpDeliveryResult.jsp</result>
+                        <result name="fail">/jsp/user/getOrderFail.jsp</result>
                 </action>
                 <action name="getLatestComment" class="getLatestCommentAction">
                         <result name="success">/jsp/user/getLatestCommentResultList.jsp</result>
@@ -75,6 +76,10 @@ and open the template in the editor.
                 </action>
                 <action name="getOrder" class="getOrderAction">
                         <result name="success">/jsp/user/chargeBack.jsp</result>
+                        <result name="fail">/jsp/user/getOrderFail.jsp</result>
+                </action>
+                <action name="loadItemsSortedBySale" class="loadItemsSortedBySaleAction">
+                        <result name="success">/jsp/user/searchItemResult.jsp</result>
                 </action>
         </package>
 </struts>

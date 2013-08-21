@@ -20,16 +20,21 @@ public class LookUpDeliveryAction extends ActionSupport {
 
         private OrderService orderService;
         private DeliveryService deliveryService;
+        private Integer orderId;
         private String orderValidate;
 
         @Override
         public String execute() {
-                Order order = orderService.getOrderByOrderValidate(orderValidate);
-                List<Delivery> deliveries = deliveryService.getDeliveriesByOrderId(order.getOrderId());
+                Order order = orderService.getOrder(orderId);
                 ActionContext context = ActionContext.getContext();
-                context.put("order", order);
-                context.put("deliveries", deliveries);
-                return "success";
+                if (order.getOrderValidate().equals(orderValidate)) {
+                        List<Delivery> deliveries = deliveryService.getDeliveriesByOrderId(order.getOrderId());
+                        context.put("order", order);
+                        context.put("deliveries", deliveries);
+                        return "success";
+                } else {
+                        return "fail";
+                }
         }
 
         public OrderService getOrderService() {
@@ -56,6 +61,11 @@ public class LookUpDeliveryAction extends ActionSupport {
                 this.orderValidate = orderValidate;
         }
 
+        public Integer getOrderId() {
+                return orderId;
+        }
 
-        
+        public void setOrderId(Integer orderId) {
+                this.orderId = orderId;
+        }
 }

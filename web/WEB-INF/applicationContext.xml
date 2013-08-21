@@ -261,4 +261,9 @@
                         <ref bean="commentService"></ref>
                 </property>
         </bean>
+        <bean id="loadItemsSortedBySaleAction" class="com.eboy.action.user.LoadItemsSortedBySale">
+                <property name="itemService">
+                        <ref bean="itemService"></ref>
+                </property>
+        </bean>
 </beans>
