@@ -38,46 +38,63 @@
                                 <td><s:property value="#item.orders.size()"/></td>
                                 <td><s:property value="#item.itemId"/></td>
                         </tr>
-                </table>           
-
-
-                <h2>Add Comment</h2>
-                <s:form action="addComment">
-                        <input type="text" name="itemId" value="<s:property value="#item.itemId"/>" readonly="true"/>
-                        <br/>
-                        <input type="text" name="commentUserName"/>
-                        <br/>
-                        <input type="text" name="commentContent"/>
-                        <br/>
-                        <input type="text" name="commentRate"/>
-
-                        <s:submit/>
-                </s:form>
-
-                <table>
-                        <tr>
-                                <th>
-                                        commentId
-                                </th>
-                                <th>
-                                        commentUserName
-                                </th>
-                                <th>
-                                        commentContent
-                                </th>
-                                <th>
-                                        commentRate
-                                </th>
-                        </tr>
-                        <s:iterator value="#comments">
-                                <tr>
-                                        <td><s:property value="commentId"/></td>
-                                        <td><s:property value="commentUserName"/></td>
-                                        <td><s:property value="commentContent"/></td>
-                                        <td><s:property value="commentRate"/></td>
-                                </tr>
-                        </s:iterator>
                 </table>
+                        
+                                <table>
+                                        <tr>
+                                                <th>
+                                                        galleryId
+                                                </th>
+                                                <th>
+                                                        picture
+                                                </th>
+                                        </tr>
+                                        <s:iterator value="#item.galleries">
+                                                <tr>
+                                                        <td><s:property value="galleryId"/></td>
+                                                         <td><img src="<s:property value="galleryUrl"/>"/></td>
+                                                </tr>
+                                        </s:iterator>
+                                </table>
+
+
+                                <h2>Add Comment</h2>
+                                <s:form action="addComment">
+                                        <input type="text" name="itemId" value="<s:property value="#item.itemId"/>" readonly="true"/>
+                                        <br/>
+                                        <input type="text" name="commentUserName"/>
+                                        <br/>
+                                        <input type="text" name="commentContent"/>
+                                        <br/>
+                                        <input type="text" name="commentRate"/>
+
+                                        <s:submit/>
+                                </s:form>
+
+                                        <table>
+                                                <tr>
+                                                        <th>
+                                                                commentId
+                                                        </th>
+                                                        <th>
+                                                                commentUserName
+                                                        </th>
+                                                        <th>
+                                                                commentContent
+                                                        </th>
+                                                        <th>
+                                                                commentRate
+                                                        </th>
+                                                </tr>
+                                                <s:iterator value="#item.comments">
+                                                        <tr>
+                                                                <td><s:property value="commentId"/></td>
+                                                                <td><s:property value="commentUserName"/></td>
+                                                                <td><s:property value="commentContent"/></td>
+                                                                <td><s:property value="commentRate"/></td>
+                                                        </tr>
+                                                </s:iterator>
+                                        </table>
 
         </body>
 </html>
