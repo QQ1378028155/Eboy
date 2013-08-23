@@ -20,16 +20,13 @@
 
 
 <div class="sidebar_box"><span class="bottom"></span>
-        <h3>类别</h3>   
-        <div class="content"> 
-                <ul class="sidebar_list">
-                        <s:iterator value="#categoryList">
-                                <li><a href="#"><s:property value="categoryName"/></a></li>
-                        </s:iterator>
-<!--                        
-                        
-                        
-                        
+    <h3>类别</h3>
+    <div class="content">
+        <ul class="sidebar_list">
+            <s:iterator value="#categoryList">
+                <li><a href="#"><s:property value="categoryName"/></a></li>
+            </s:iterator>
+<!--                                                                                       
                         <li class="first"><a href="#">Aenean varius nulla</a></li>
                         <li><a href="#">Cras mattis arcu</a></li>
                         <li><a href="#">Donec turpis ipsum</a></li>
@@ -45,6 +42,6 @@
                         <li><a href="#">Ut tincidunt imperdiet</a></li>
                         <li><a href="#">Vestibulum eleifend</a></li>
                         <li class="last"><a href="#">Velit mi rutrum diam</a></li>-->
-                </ul>
-        </div>
+        </ul>
+    </div>
 </div>
