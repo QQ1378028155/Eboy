@@ -15,4 +15,5 @@ public interface ItemTagService {
         public void addItemTag(ItemTag itemTag);
         public List<ItemTag> getItemTagsByItemId(int itemId);
         public List<ItemTag> getItemTagsByTagWord(String tagWord);
+        public List<ItemTag> getItemTagsByTagWordKeywords(String keywords);
 }

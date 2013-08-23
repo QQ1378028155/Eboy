@@ -277,8 +277,10 @@
                 <property name="itemService">
                         <ref bean="itemService"></ref>
                 </property>
-                <property name="commentService">
-                        <ref bean="commentService"></ref>
+        </bean>
+        <bean id="searchItemsByTagAction" class="com.eboy.action.user.SearchItemsByTagAction">
+                <property name="itemTagService">
+                        <ref bean="itemTagService"></ref>
                 </property>
         </bean>
         <bean id="addCartAction" class="com.eboy.action.user.AddCartAction">

@@ -11,7 +11,7 @@
         <property name="tagWord" type="string">
             <column name="tagWord" not-null="true" />
         </property>
-        <set name="itemTags" inverse="true">
+        <set name="itemTags" inverse="true" lazy="false">
             <key>
                 <column name="tagID" not-null="true" />
             </key>

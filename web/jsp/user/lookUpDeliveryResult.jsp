@@ -9,6 +9,15 @@
 <html>
         <head>
                 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+                <style type="text/css">
+                        html { height: 100% }
+                        body { height: 100%; margin: 0; padding: 0 }
+                        #map-canvas { height: 100% }
+                </style>
+                <script type="text/javascript"
+                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_T0ersce5oEvPQ-YLfGfTm-uzl6XO37A&sensor=false&language=cn">
+                </script>
+                <script type="text/javascript" src="GoogleMaps.js" charset="UTF-8" ></script>
                 <title>LookUpDeliveryResultList Page</title>
         </head>
         <body>
@@ -102,5 +111,15 @@
                         </tr>
                 </s:iterator> 
         </table>
+        <s:property value="#waypoints"/>
+        <br>
+        <s:property value="#destination"/>
+        <script>
+                var waypoints = "<s:property value="#waypoints"/>";
+                var destination = "<s:property value="#destination"/>";
+                alert(waypoints);
+                displayGoogleMaps(waypoints, destination);
+        </script>
+        <div id="map-canvas"></div>
 </body>
 </html>

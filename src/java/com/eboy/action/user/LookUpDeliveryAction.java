@@ -26,11 +26,22 @@ public class LookUpDeliveryAction extends ActionSupport {
         @Override
         public String execute() {
                 Order order = orderService.getOrder(orderId);
+                String waypoints = "";
+                String destination = "";
                 ActionContext context = ActionContext.getContext();
                 if (order.getOrderValidate().equals(orderValidate)) {
                         List<Delivery> deliveries = deliveryService.getDeliveriesByOrderId(order.getOrderId());
                         context.put("order", order);
                         context.put("deliveries", deliveries);
+                        for (int i = 0; i < deliveries.size(); i++) {
+                                waypoints = waypoints + deliveries.get(i).getDeliveryLocation();
+                                if (i != deliveries.size() - 1) {
+                                        waypoints = waypoints + "|";
+                                }
+                        }
+                        destination = order.getOrderAddress();
+                        context.put("destination", destination);
+                        context.put("waypoints", waypoints);
                         return "success";
                 } else {
                         return "fail";

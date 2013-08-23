@@ -1,6 +1,6 @@
 <%-- 
-    Document   : LoadItemsSortedBySale
-    Created on : 2013-8-19, 20:24:17
+    Document   : searchItemsByTag
+    Created on : 2013-8-20, 21:09:17
     Author     : Tongda
 --%>
 <%@taglib prefix="s" uri="/struts-tags" %>
@@ -9,12 +9,12 @@
 <html>
         <head>
                 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-                <title>LoadItemsSortedBySale Page</title>
+                <title>searchItemsByTag Page</title>
 
         </head>
         <body>
-                <s:form action="loadItemsSortedBySale.action" >
-                        <h2>please input the ItemTitle keywords that you want to search</h2>
+                <s:form action="searchItemsByTag.action" >
+                        <h2>please input the ItemTag keywords that you want to search</h2>
                         <s:textfield name="keywords"/>
                         <s:submit/>
                 </s:form>

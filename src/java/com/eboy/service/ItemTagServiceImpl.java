@@ -42,5 +42,10 @@ public class ItemTagServiceImpl implements ItemTagService{
         public void setItemTagDao(ItemTagDao itemTagDao) {
                 this.itemTagDao = itemTagDao;
         }
+
+        @Override
+        public List<ItemTag> getItemTagsByTagWordKeywords(String keywords) {
+               return itemTagDao.getItemTagsByTagWordKeywords(keywords);
+        }
         
 }
