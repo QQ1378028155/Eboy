@@ -100,5 +100,14 @@ and open the template in the editor.
                 <action name="searchItemsByTag" class="searchItemsByTagAction">
                         <result name="success">/jsp/user/searchItemsByTagResult.jsp</result>
                 </action>
+                <action name="getCategories" class="getCategoriesAction">
+                        <result name="success">/jsp/user/categories.jsp</result>
+                </action>
+                <action name="getNewItems" class="getNewItemsAction">
+                        <result name="success">/jsp/user/newItems.jsp</result>
+                </action>
+                <action name="getTags" class="getTagsAction">
+                        <result name="success">/jsp/user/getTags.jsp</result>
+                </action>
         </package>
 </struts>
