@@ -84,5 +84,18 @@ and open the template in the editor.
                 <action name="loadItemInfo" class="loadItemInfoAction">
                         <result name="success">/jsp/user/loadItemInfoResult.jsp</result>
                 </action>
+                <action name="addCart" class="addCartAction">
+                        <result name="success">/jsp/user/loadItemsSortedBySale.jsp</result>
+                </action>
+                <action name="getCart" class="getCartAction">
+                        <result name="success">/jsp/user/getCart.jsp</result>
+                        <result name="Nothing in the Cart">/jsp/user/noCart.jsp</result>
+                </action>
+                <action name="placeOrder" class="placeOrderAction">
+                        <result name="success">/jsp/user/loadItemsSortedBySale.jsp</result>
+                </action>
+                <action name="confirmOrder" class="confirmOrderAction">
+                        
+                </action>
         </package>
 </struts>

@@ -114,7 +114,9 @@ public class AddItem {
                 newItem.setShippingDetails(itemType.getShippingDetails());
                 newItem.setReturnPolicy(itemType.getReturnPolicy());
                 newItem.setDispatchTimeMax(itemType.getDispatchTimeMax());
-                                newItem.setConditionID(1000);
+                newItem.setConditionID(1000);
+                
+                newItem.getShippingDetails().setCODCost(null);
                 
                 
                 api.setItem(newItem);

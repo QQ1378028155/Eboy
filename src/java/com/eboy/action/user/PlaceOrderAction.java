@@ -31,162 +31,194 @@ import org.apache.struts2.ServletActionContext;
  *
  * @author wjl
  */
-public class PlaceOrderAction extends ActionSupport
-{
+public class PlaceOrderAction extends ActionSupport {
+
         private OrderService orderService;
         private ItemService itemService;
         private String orderAddress;
         private String orderPhone;
         private String orderReceiver;
         private String orderEmail;
-        
-        public String execute()
-        {
+
+        public String execute() {
                 Cookie[] cookie = ServletActionContext.getRequest().getCookies();
                 HttpServletResponse response = ServletActionContext.getResponse();
-                int i,j,cartSize = 0;
-                for(i = 0;i < cookie.length;i ++)
-                {
-                        if(cookie[i].getName().equals("cartSize"))
-                        {
+                int i, j, cartSize = 0;
+                System.out.println(cookie.length);
+                for (i = 0; i < cookie.length; i++) {
+                        System.out.println(cookie[i].getName());
+                        if (cookie[i].getName().equals("cartSize")) {
                                 cartSize = Integer.parseInt(cookie[i].getValue());
+                                break;
                         }
                 }
-                if(cartSize == 0)
-                       return "Nothing in the Cart!";
+                if (cartSize == 0) {
+                        return "Nothing in the Cart!";
+                }
                 Integer[] itemQuantity = new Integer[cartSize];
                 Integer[] itemId = new Integer[cartSize];
                 Item[] items = new Item[cartSize];
-                for(i = 0;i < cartSize;i ++)
-                {
-                        
-                        for(j = 0;j < cookie.length;j ++)
-                        {
-                                if(cookie[i].getName().equals("item" + i))
-                                        itemId[i] = Integer.parseInt(cookie[i].getValue());
-                                if(cookie[i].getName().equals("item"+i + "Quantity"))
-                                        itemQuantity[i] = Integer.parseInt(cookie[i].getValue());
+                for (i = 0; i < cartSize; i++) {
+
+                        for (j = 0; j < cookie.length; j++) {
+                                if (cookie[j].getName().equals("item" + i)) {
+                                        itemId[i] = Integer.parseInt(cookie[j].getValue());
+                                }
+                                if (cookie[j].getName().equals("item" + i + "Quantity")) {
+                                        itemQuantity[i] = Integer.parseInt(cookie[j].getValue());
+                                }
                         }
                         items[i] = getItemService().getItem(itemId[i]);
-                        if(items[i].getItemQuantity() < itemQuantity[i])
+                        if (items[i].getItemQuantity() < itemQuantity[i]) {
                                 return "Request Too much";
+                        }
                 }
                 Cookie c;
-                for(i = 0;i < cartSize;i ++)
-                {
+                for (i = 0; i < cartSize; i++) {
                         Order order = this.placeOrder(itemId[i], itemQuantity[i]);
-                        c = new Cookie("item" + i,null);
+                        c = new Cookie("item" + i, null);
                         c.setMaxAge(0);
+                        c.setPath("/Eboy/");
                         response.addCookie(c);
-                        c = new Cookie("item" + i+"Quantity",null);
+                        c = new Cookie("item" + i + "Quantity", null);
                         c.setMaxAge(0);
+                        c.setPath("/Eboy/");
                         response.addCookie(c);
                         sendMail(order);
                 }
-                c = new Cookie("cartSize","0");
+                c = new Cookie("cartSize", "0");
                 c.setMaxAge(3600 * 24 * 30);
+                c.setPath("/Eboy/");
                 response.addCookie(c);
                 return "success";
         }
-        public void sendMail(Order order)
-        {
+
+        public void sendMail(Order order) {
                 Properties props = System.getProperties();
-                props.setProperty("mail.smtp.host", "smtp.gmail.com");
+                props.put("mail.smtp.host", "smtp.gmail.com");
+                props.put("mail.smtp.user", "ebayproject.localize");
+                props.put("mail.smtp.password", "Ebay123456");
+                props.put("mail.smtp.port", "587");
                 props.put("mail.smtp.auth", "true");
-                Session s = Session.getInstance(props);
-                MimeMessage message = new MimeMessage(s);
+                props.put("mail.smtp.starttls.enable","true");
+                props.put("mail.smtp.Enable", "true");
+                props.put("mail.smtp.socketFactory.fallback", "false");
+                String[] to = {order.getOrderEmail()};
+                Session session = Session.getDefaultInstance(props, null);
+                MimeMessage message = new MimeMessage(session);
                 try {
-                        InternetAddress from = new InternetAddress("ebayproject.localize@gmail.com");
-                        message.setFrom(from);
-  
-                        InternetAddress to = new InternetAddress(getOrderEmail());
-                        message.setRecipient(Message.RecipientType.TO,to);
-                        
+                        message.setFrom(new InternetAddress("ebayproject.localize"));
+                        InternetAddress[] toAddress = new InternetAddress[to.length];
+                        for (int i = 0; i < to.length; i++) {
+                                toAddress[i] = new InternetAddress(to[i]);
+                        }
+                        System.out.println(Message.RecipientType.TO);
+
+                        for (int i = 0; i < toAddress.length; i++) {
+                                message.addRecipient(Message.RecipientType.TO, toAddress[i]);
+                        }
                         message.setSubject("成功添加订单");
                         String content = "您的订单号为 " + order.getOrderId() + ", 认证码为 " + order.getOrderValidate();
-                        message.setContent(content, "text/plan;charset=utf8");
-                        message.saveChanges();
-                        Transport transport = s.getTransport("smtp");
-                        transport.connect("smtp.gmail.com","ebayproject.localize","Ebay123456");
+                        message.setText(content);
+                        Transport transport = session.getTransport("smtp");
+                        transport.connect("smtp.gmail.com", "ebayproject.localize", "Ebay123456");
                         transport.sendMessage(message, message.getAllRecipients());
                         transport.close();
-                } catch (AddressException ex) {
-                        Logger.getLogger(PlaceOrderAction.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (MessagingException ex) {
                         Logger.getLogger(PlaceOrderAction.class.getName()).log(Level.SEVERE, null, ex);
                 }
+
+
+
+
+//                
+//                try {
+//                        InternetAddress from = new InternetAddress("ebayproject.localize@gmail.com");
+//                        message.setFrom(from);
+//
+//                        InternetAddress to = new InternetAddress(getOrderEmail());
+//                        message.setRecipient(Message.RecipientType.TO, to);
+//
+//                        message.setSubject("成功添加订单");
+//                        String content = "您的订单号为 " + order.getOrderId() + ", 认证码为 " + order.getOrderValidate();
+//                        message.setContent(content, "text/plan;charset=utf8");
+//                        message.saveChanges();
+//                        Transport transport = s.getTransport("smtp");
+//                        transport.connect("smtp.gmail.com", "ebayproject.localize", "Ebay123456");
+//                        transport.sendMessage(message, message.getAllRecipients());
+//                        transport.close();
+//                } catch (AddressException ex) {
+//                        Logger.getLogger(PlaceOrderAction.class.getName()).log(Level.SEVERE, null, ex);
+//                } catch (MessagingException ex) {
+//                        Logger.getLogger(PlaceOrderAction.class.getName()).log(Level.SEVERE, null, ex);
+//                }
         }
-        
-        
-        public Order placeOrder(int itemId,int itemQuantity)
-        {
+
+        public Order placeOrder(int itemId, int itemQuantity) {
                 int quantity = itemQuantity;
                 Item item = getItemService().getItem(itemId);
 
                 Order order = new Order();
                 order.setItem(item);
                 order.setOrderQuantity(quantity);
-                
+
                 char[] validateCode = new char[62];
-                for(int i = 0;i < 26;i ++)
-                        validateCode[i] = (char)(48 + i);
-                for(int i = 0;i < 10;i ++)
-                        validateCode[26 + i] = (char)(65 + i);
-                for(int i = 0;i < 26;i ++)
-                        validateCode[36 + i] = (char)(97 + i);
+                for (int i = 0; i < 10; i++) {
+                        validateCode[i] = (char) (48 + i);
+                }
+                for (int i = 0; i < 26; i++) {
+                        validateCode[10 + i] = (char) (65 + i);
+                }
+                for (int i = 0; i < 26; i++) {
+                        validateCode[36 + i] = (char) (97 + i);
+                }
                 String validate = "";
-                for(int i = 0;i < 8;i ++)
-                {
+                for (int i = 0; i < 8; i++) {
                         int index = (int) (Math.random() * 62);
                         validate = validate + validateCode[index];
                 }
                 order.setOrderValidate(validate);
-                Amount amount,newAmount;
+                Amount amount, newAmount;
                 double money = 0;
                 amount = new Amount();
                 amount.setValue(item.getItemPrice());
                 amount.setCurrencyId(item.getItemPriceCurrency());
-                newAmount = ExchangeConversion.execute(amount);                       
+                newAmount = ExchangeConversion.execute(amount);
                 money += newAmount.getValue();
-                if(item.getItemPackageCost() != null)
-                {
-                       amount = new Amount();
-                       amount.setValue(item.getItemPackageCost());
-                       amount.setCurrencyId(item.getItemPackageCostCurrency());
-                       newAmount = ExchangeConversion.execute(amount);                       
-                       money += newAmount.getValue();
+                if (item.getItemPackageCost() != null) {
+                        amount = new Amount();
+                        amount.setValue(item.getItemPackageCost());
+                        amount.setCurrencyId(item.getItemPackageCostCurrency());
+                        newAmount = ExchangeConversion.execute(amount);
+                        money += newAmount.getValue();
                 }
-                if(item.getItemImportCost() != null)
-                {
-                       amount = new Amount();
-                       amount.setValue(item.getItemImportCost());
-                       amount.setCurrencyId(item.getItemImportCostCurrency());
-                       newAmount = ExchangeConversion.execute(amount);                       
-                       money += newAmount.getValue();
+                if (item.getItemImportCost() != null) {
+                        amount = new Amount();
+                        amount.setValue(item.getItemImportCost());
+                        amount.setCurrencyId(item.getItemImportCostCurrency());
+                        newAmount = ExchangeConversion.execute(amount);
+                        money += newAmount.getValue();
                 }
-                if(item.getItemShippingCost() != null)
-                {
-                       amount = new Amount();
-                       amount.setValue(item.getItemShippingCost());
-                       amount.setCurrencyId(item.getItemShippingCostCurrency());
-                       newAmount = ExchangeConversion.execute(amount);                       
-                       money += newAmount.getValue();
+                if (item.getItemShippingCost() != null) {
+                        amount = new Amount();
+                        amount.setValue(item.getItemShippingCost());
+                        amount.setCurrencyId(item.getItemShippingCostCurrency());
+                        newAmount = ExchangeConversion.execute(amount);
+                        money += newAmount.getValue();
                 }
-                if(item.getItemInsuranceCost() != null)
-                {
-                       amount = new Amount();
-                       amount.setValue(item.getItemInsuranceCost());
-                       amount.setCurrencyId(item.getItemInsuranceCostCurrency());
-                       newAmount = ExchangeConversion.execute(amount);                       
-                       money += newAmount.getValue();
+                if (item.getItemInsuranceCost() != null) {
+                        amount = new Amount();
+                        amount.setValue(item.getItemInsuranceCost());
+                        amount.setCurrencyId(item.getItemInsuranceCostCurrency());
+                        newAmount = ExchangeConversion.execute(amount);
+                        money += newAmount.getValue();
                 }
-                if(item.getItemTaxCost() != null)
-                {
-                       amount = new Amount();
-                       amount.setValue(item.getItemTaxCost());
-                       amount.setCurrencyId(item.getItemTaxCostCurrency());
-                       newAmount = ExchangeConversion.execute(amount);                       
-                       money += newAmount.getValue();
+                if (item.getItemTaxCost() != null) {
+                        amount = new Amount();
+                        amount.setValue(item.getItemTaxCost());
+                        amount.setCurrencyId(item.getItemTaxCostCurrency());
+                        newAmount = ExchangeConversion.execute(amount);
+                        money += newAmount.getValue();
                 }
                 order.setOrderPrice(money * quantity);
                 order.setOrderAddress(getOrderAddress());
@@ -195,9 +227,9 @@ public class PlaceOrderAction extends ActionSupport
                 order.setOrderReceiver(getOrderReceiver());
                 order.setOrderEmail(getOrderEmail());
                 getOrderService().saveOrder(order);
-                item.setItemQuantity(item.getItemQuantity()-quantity);
+                item.setItemQuantity(item.getItemQuantity() - quantity);
                 item.setItemSoldQuantity(item.getItemSoldQuantity() + quantity);
-                getItemService().updateItem(item);     
+                getItemService().updateItem(item);
                 return order;
         }
 

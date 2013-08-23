@@ -64,7 +64,6 @@
                         <ref bean="sessionFactory"></ref>
                 </property>
         </bean>
-        
         <bean id="galleryDao" class="com.eboy.dao.GalleryDao">
                 <property name="sessionFactory">
                         <ref bean="sessionFactory"></ref>
@@ -80,7 +79,11 @@
                         <ref bean="sessionFactory"></ref>
                 </property>
         </bean> 
-
+        <bean id="statisticsDao" class="com.eboy.dao.StatisticsDao">
+                <property name="sessionFactory">
+                        <ref bean="sessionFactory"></ref>
+                </property>
+        </bean> 
 
         <bean id="tagService" class="com.eboy.service.TagServiceImpl">
                 <property name="tagDao">
@@ -102,13 +105,12 @@
                         <ref bean="orderDao"></ref>
                 </property>
         </bean>
-    
         <bean id="galleryService" class="com.eboy.service.GalleryServiceImpl">
                 <property name="galleryDao">
                         <ref bean="galleryDao"></ref>
                 </property>
         </bean>
-    
+        
         <bean id="deliveryService" class="com.eboy.service.DeliveryServiceImpl">
                 <property name="deliveryDao">
                         <ref bean="deliveryDao"></ref>
@@ -124,7 +126,12 @@
                         <ref bean="commentDao"></ref>
                 </property>
         </bean>
-
+        <bean id="statisticsService" class="com.eboy.service.StatisticsServiceImpl">
+                <property name="statisticsDao">
+                        <ref bean="statisticsDao"></ref>
+                </property>
+                        
+        </bean>
 
         <bean id="addTagAction" class="com.eboy.action.admin.AddTagAction">
                 <property name="tagService">
@@ -272,6 +279,30 @@
                 </property>
                 <property name="commentService">
                         <ref bean="commentService"></ref>
+                </property>
+        </bean>
+        <bean id="addCartAction" class="com.eboy.action.user.AddCartAction">
+                
+        </bean>
+        <bean id="getCartAction" class="com.eboy.action.user.GetCartAction">
+                <property name="itemService">
+                        <ref bean= "itemService"></ref>
+                </property>
+        </bean>
+        <bean id="placeOrderAction" class="com.eboy.action.user.PlaceOrderAction">
+                <property name="itemService">
+                        <ref bean="itemService"></ref>
+                </property>
+                <property name="orderService">
+                        <ref bean="orderService"></ref>
+                </property>
+        </bean>
+        <bean id="confirmOrderAction" class="com.eboy.action.user.ConfirmOrderAction">
+                <property name="orderService">
+                        <ref bean="orderService"></ref>
+                </property>
+                <property name="statisticsService">
+                        <ref bean="statisticsService"></ref>
                 </property>
         </bean>
 </beans>
