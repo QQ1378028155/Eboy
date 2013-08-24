@@ -442,6 +442,19 @@ h6 {
 	margin-right: 0; 
 }
 
+.checkorder_btn {
+        float: right;
+	display: block;
+	color: #fff;
+ 	height: 26px;
+	font-size: 11px;
+	font-weight: 700;
+	line-height: 26px;
+	cursor: pointer;
+	border: 1px solid #ccc;
+	background: #0ec4f7;	
+}
+
 #templatemo_footer { 
 	color: #707070; 
 }

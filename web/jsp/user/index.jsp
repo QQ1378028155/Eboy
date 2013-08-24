@@ -73,7 +73,7 @@
                     <h1><a href="">eboy</a></h1>
                 </div>
                 <div id="header_right">
-                    <a href="shoppingcart.jsp">我的购物车</a> | <a href="#">结账</a>
+                    <a href="shoppingcart.jsp">我的购物车</a> | <a href="checkout.jsp">账单结算</a>
 		</div>
                 <div class="cleaner"></div>
             </div><!-- END of templatemo_header -->
