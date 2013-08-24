@@ -44,7 +44,7 @@
             {
                 var strcookie = document.cookie;
                 var cartSize = "0";
-                var arrcookie = strcookie.split(";");
+                var arrcookie = strcookie.split("; ");
                 for(var i = 0;i < arrcookie.length;i ++) {
                     var arr = arrcookie[i].split("=");
                     if("cartSize" == arr[0])
@@ -100,8 +100,8 @@
                     <s:action name="getCategories" executeResult="true"/>
                     <s:action name="getTags" executeResult="true"/>
                 </div>
-                
-                <div id="content" class="float_r">
+                    <s:action name="getCart" executeResult="true"/>
+<!--                <div id="content" class="float_r">
                     <h1>我的购物车</h1>
                     <table width="680px" cellspacing="0" cellpadding="5">
                         <tr bgcolor="#ddd">
@@ -141,7 +141,7 @@
                         <p><a href="javascript:history.back()">继续购物</a></p>
                     	
                     </div>
-                </div>
+                </div>-->
                 <div class="cleaner"></div>
                 
             </div> <!-- END of templatemo_main -->

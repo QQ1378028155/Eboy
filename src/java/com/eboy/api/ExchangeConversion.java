@@ -7,6 +7,8 @@ package com.eboy.api;
 import com.ebay.services.finding.Amount;
 import java.io.IOException;
 import java.io.InputStream;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -42,7 +44,11 @@ public class ExchangeConversion {
                         double rate = Double.parseDouble(restContent);
                         Amount amount = new Amount();
                         amount.setCurrencyId("CNY");
-                        amount.setValue(rate * input.getValue());
+                        double m = rate * input.getValue();
+                        BigDecimal  b = new BigDecimal(m);
+                        
+                        amount.setValue(b.setScale(2, RoundingMode.HALF_UP).doubleValue());
+                        System.out.println(amount.getValue());
                         return amount;
                                                
                 } catch (MalformedURLException ex) {

@@ -8,11 +8,9 @@ import com.ebay.services.finding.Amount;
 import com.eboy.api.ExchangeConversion;
 import com.eboy.po.Item;
 import com.eboy.service.ItemService;
-import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.util.ArrayList;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import org.apache.struts2.ServletActionContext;
@@ -21,10 +19,11 @@ import org.apache.struts2.ServletActionContext;
  *
  * @author wjl
  */
-public class GetCartAction extends ActionSupport {
+public class GetCheckoutFormAction extends ActionSupport {
 
         private ItemService itemService;
         private double total;
+
         @Override
         public String execute() {
                 HttpServletRequest request = ServletActionContext.getRequest();
@@ -36,11 +35,7 @@ public class GetCartAction extends ActionSupport {
                                 break;
                         }
                 }
-                if (cartSize == 0) {
-                        return "Nothing in the Cart";
-                }
                 setTotal(0);
-                ArrayList<Item> cartList = new ArrayList();
                 for (int i = 0; i < cartSize; i++) {
                         int itemId = 0, itemQuantity = 0;
 
@@ -69,9 +64,9 @@ public class GetCartAction extends ActionSupport {
                                 newAmount = ExchangeConversion.execute(amount);
                                 item.setItemPackageCostCurrency(newAmount.getCurrencyId());
                                 item.setItemPackageCost(newAmount.getValue());
-                        }
-                        else
+                        } else {
                                 item.setItemPackageCost(0.0);
+                        }
                         if (item.getItemImportCost() != null) {
                                 amount = new Amount();
                                 amount.setValue(item.getItemImportCost());
@@ -79,9 +74,9 @@ public class GetCartAction extends ActionSupport {
                                 newAmount = ExchangeConversion.execute(amount);
                                 item.setItemImportCostCurrency(newAmount.getCurrencyId());
                                 item.setItemImportCost(newAmount.getValue());
-                        }
-                        else
+                        } else {
                                 item.setItemImportCost(0.0);
+                        }
                         if (item.getItemShippingCost() != null) {
                                 amount = new Amount();
                                 amount.setValue(item.getItemShippingCost());
@@ -89,9 +84,9 @@ public class GetCartAction extends ActionSupport {
                                 newAmount = ExchangeConversion.execute(amount);
                                 item.setItemShippingCostCurrency(newAmount.getCurrencyId());
                                 item.setItemShippingCost(newAmount.getValue());
-                        }
-                        else
+                        } else {
                                 item.setItemShippingCost(0.0);
+                        }
                         if (item.getItemInsuranceCost() != null) {
                                 amount = new Amount();
                                 amount.setValue(item.getItemInsuranceCost());
@@ -99,9 +94,9 @@ public class GetCartAction extends ActionSupport {
                                 newAmount = ExchangeConversion.execute(amount);
                                 item.setItemInsuranceCostCurrency(newAmount.getCurrencyId());
                                 item.setItemInsuranceCost(newAmount.getValue());
-                        }
-                        else
+                        } else {
                                 item.setItemInsuranceCost(0.0);
+                        }
                         if (item.getItemTaxCost() != null) {
                                 amount = new Amount();
                                 amount.setValue(item.getItemTaxCost());
@@ -109,18 +104,16 @@ public class GetCartAction extends ActionSupport {
                                 newAmount = ExchangeConversion.execute(amount);
                                 item.setItemTaxCostCurrency(newAmount.getCurrencyId());
                                 item.setItemTaxCost(newAmount.getValue());
-                        }
-                        else
+                        } else {
                                 item.setItemTaxCost(0.0);
+                        }
                         double price = item.getItemPrice() + item.getItemImportCost() + item.getItemInsuranceCost() + item.getItemPackageCost() + item.getItemShippingCost() + item.getItemTaxCost();
                         BigDecimal b = new BigDecimal(price);
                         item.setItemPrice(b.setScale(2, RoundingMode.HALF_UP).doubleValue());
-                        total += (item.getItemPrice() * item.getItemQuantity());
-                        b = new BigDecimal(total);
-                        total = b.setScale(2, RoundingMode.HALF_UP).doubleValue();
-                        cartList.add(item);
+                        setTotal(getTotal() + (item.getItemPrice() * item.getItemQuantity()));
+                        b = new BigDecimal(getTotal());
+                        setTotal(b.setScale(2, RoundingMode.HALF_UP).doubleValue());
                 }
-                ActionContext.getContext().put("cartList", cartList);
                 return "success";
         }
 

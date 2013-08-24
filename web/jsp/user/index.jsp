@@ -52,10 +52,10 @@
             {
                 var strcookie = document.cookie;
                 var cartSize = "0";
-                var arrcookie = strcookie.split(";");
+                var arrcookie = strcookie.split("; ");
                 for(var i = 0;i < arrcookie.length;i ++) {
                     var arr = arrcookie[i].split("=");
-                    if("cartSize" == arr[0])
+                    if(arr[0] == "cartSize")
                         cartSize = arr[1];
                 }
                 var v = document.getElementById("cartSize");

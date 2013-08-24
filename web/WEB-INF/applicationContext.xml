@@ -291,6 +291,11 @@
                         <ref bean= "itemService"></ref>
                 </property>
         </bean>
+        <bean id="getCheckoutFormAction" class="com.eboy.action.user.GetCheckoutFormAction">
+                <property name="itemService">
+                        <ref bean= "itemService"></ref>
+                </property>
+        </bean>
         <bean id="placeOrderAction" class="com.eboy.action.user.PlaceOrderAction">
                 <property name="itemService">
                         <ref bean="itemService"></ref>
