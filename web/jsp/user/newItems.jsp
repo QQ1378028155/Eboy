@@ -6,6 +6,35 @@
 <%@taglib prefix="s" uri="/struts-tags" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
+<script type="text/javascript">
+        function addCart(itemId)
+        {
+                var cartSize = 0;
+                var cookieArray = document.cookie.split("; ");
+                for(var i = 0;i < cookieArray.length;i ++) {
+                        var arr = cookieArray[i].split("=");
+                        if(arr[0] == "cartSize")
+                                cartSize = parseInt(arr[1]);
+                }
+                var date = new Date();
+                date.setTime(date.getTime() + 3600 * 24 * 30);
+                var strItem = "item" + cartSize +"=" + itemId + "; expires=" + date.toGMTString() + "; path=/Eboy/";
+                var strQuantity = "item" + cartSize +"Quantity=1; expires=" + date.toGMTString() + "; path=/Eboy/";
+                cartSize = cartSize + 1;
+                var strCartSize = "cartSize=" + cartSize + "; expires=" + date.toGMTString() + "; path=/Eboy/";
+                document.cookie = strItem;
+                document.cookie = strQuantity;
+                document.cookie = strCartSize;
+                var v = document.getElementById("cartSize");
+                v.innerHTML = cartSize + " 件商品";
+        }
+        
+        
+</script>
+
+
+
+
 <div id="content" class="float_r">
         <h1>新上架的商品</h1>
         <s:iterator value="#itemList" status="it">
@@ -13,7 +42,7 @@
                         <a href="productdetail.html"><img src="<s:property value="itemThumbnailImageUrl"/>" alt="Image 01"  height="150" width="200"/></a>
                         <h3 style="overflow: hidden; height: 60px;"><s:property value="itemTitle"/></h3>
                         <p class="product_price">RMB: <s:property value="itemPrice"/></p>
-                        <a href="shoppingcart.html" class="add_to_card">Add to Cart</a>
+                        <a href ="#" onclick="addCart(<s:property value="itemId"/>);" class="add_to_card">Add to Cart</a>
                         <a href="productdetail.html" class="detail">Detail</a>                
                 </div>
         </s:iterator>
