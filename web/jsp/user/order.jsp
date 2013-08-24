@@ -1,6 +1,6 @@
 <%-- 
-    Document   : shoppingcart
-    Created on : 2013-8-24, 4:56:08
+    Document   : order
+    Created on : 2013-8-24, 18:12:15
     Author     : WingFung
 --%>
 
@@ -10,7 +10,7 @@
 
 <html  xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <title>Eboy - 我的购物车</title>
+        <title>Eboy - 查询订单</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link href="css/templatemo_style.css" rel="stylesheet" type="text/css" />
         <link href="css/ddsmoothmenu.css" rel="stylesheet" type="text/css" />
@@ -21,8 +21,8 @@
         <script src="js/jquery.easing.1.3.js" type="text/javascript"></script>
         <script src="js/jquery.timers-1.2.js" type="text/javascript"></script>
         <script src="js/jquery.dualSlider.0.3.min.js" type="text/javascript"></script>
-
-        <script language="javascript" type="text/javascript">
+        
+        <script type="text/javascript">
             function clearText(field)
             {
                 if (field.defaultValue == field.value) field.value = '';
@@ -33,11 +33,25 @@
         <script type="text/javascript">
 
             ddsmoothmenu.init({
-                    mainmenuid: "top_nav", //menu DIV id
-                    orientation: 'h', //Horizontal or vertical menu: Set to "h" or "v"
-                    classname: 'ddsmoothmenu', //class added to menu's outer DIV
-                    //customtheme: ["#1c5a80", "#18374a"],
-                    contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
+                mainmenuid: "top_nav", //menu DIV id
+                orientation: 'h', //Horizontal or vertical menu: Set to "h" or "v"
+                classname: 'ddsmoothmenu', //class added to menu's outer DIV
+                //customtheme: ["#1c5a80", "#18374a"],
+                contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
+            });
+
+        </script>
+        
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $(".carousel").dualSlider({
+                    auto: true,
+                    autoDelay: 6000,
+                    easingCarousel: "swing",
+                    easingDetails: "easeOutBack",
+                    durationCarousel: 1000,
+                    durationDetails: 600
+                });
             });
             
             window.onload= function()
@@ -47,18 +61,17 @@
                 var arrcookie = strcookie.split("; ");
                 for(var i = 0;i < arrcookie.length;i ++) {
                     var arr = arrcookie[i].split("=");
-                    if("cartSize" == arr[0])
+                    if(arr[0] == "cartSize")
                         cartSize = arr[1];
                 }
                 var v = document.getElementById("cartSize");
                 v.innerHTML = cartSize + " 件商品";
             }
         </script>
-
+        
     </head>
-
+    
     <body>
-
         <div id="templatemo_wrapper">
             
             <div id="templatemo_header">
@@ -75,7 +88,7 @@
                 <div id="top_nav" class="ddsmoothmenu">
                     <ul>
                         <li><a href="index.jsp" >首页</a></li>
-                        <li><a href="order.jsp">查询订单</a></li>
+                        <li><a href="order.jsp" class="selected">查询订单</a></li>
                         <li><a href="checkout.jsp">账单结算</a></li>
                         <li><a href="faqs.jsp">常见问题</a></li>
                         <li><a href="contact.jsp">联系我们</a></li>
@@ -95,57 +108,45 @@
                 </div>
             </div><!-- END of templatemo_menu -->
             
-            <div id="templatemo_main">
-   		<div id="sidebar" class="float_l">
+             <div id="templatemo_main">
+                <div id="sidebar" class="float_l">
                     <s:action name="getCategories" executeResult="true"/>
                     <s:action name="getTags" executeResult="true"/>
                 </div>
-                    <s:action name="getCart" executeResult="true"/>
-<!--                <div id="content" class="float_r">
-                    <h1>我的购物车</h1>
+                <div id="content" class="float_r">
+                    <h1>查询订单</h1>
+                    订单号:
+                    <input type="text"  style="width:250px;" name="orderReceiver" />&nbsp;&nbsp;&nbsp;
+                    密钥:
+                    <input type="text"  style="width:250px;" name="orderReceiver" />
+                    <input type="submit" value=" 查询 " name="CheckOrder"  alt="CheckOrder" id="checkorderbutton" title="查询订单" class="checkorder_btn"  />
+                    <div class="cleaner h20"></div>
                     <table width="680px" cellspacing="0" cellpadding="5">
                         <tr bgcolor="#ddd">
                             <th width="220" align="center">商品图片 </th>
-                            <th width="180" align="center">描述 </th>
-                            <th width="100" align="center">数量 </th>
-                            <th width="60" align="right">单价 </th>
-                            <th width="60" align="right">总价 </th>
+                            <th width="150" align="center">描述 </th>
+                            <th width="50" align="center">数量 </th>
+                            <th width="50" align="right">总价 </th>
+                            <th width="90" align="right">运费与关税 </th>
+                            <th width="60" align="center">订单状态</th>
                             <th width="90"align="center">操作 </th>
                       	</tr>
                     	<tr>
                             <td><img src="images/product/01.jpg" alt="Image 01" /></td>
                             <td>Etiam in tellus</td> 
-                            <td align="center"><input type="text" value="1" style="width: 20px; text-align: right" /> </td>
+                            <td align="center">1 </td>
                             <td align="right">$100 </td> 
                             <td align="right">$100 </td>
-                            <td align="center"> <a href="#">删除</a> </td>
+                            <td align="right">已发货</td>
+                            <td align="center"> <a href="#">确认收货</a><br/><a href="#">查看物流</a></td>
                         </tr>
-                        <tr>
-                            <td><img src="images/product/02.jpg" alt="Image 02" /> </td>
-                            <td>Hendrerit justo</td>
-                            <td align="center"><input type="text" value="1" style="width: 20px; text-align: right" />  </td>
-                            <td align="right">$40  </td>
-                            <td align="right">$40 </td>
-                            <td align="center"> <a href="#">删除</a>  </td>
-                        </tr>
-                        <tr>
-                            <td colspan="3" align="right"  height="30px">
-                                若修改了购物车中的商品，请点击<a href="shoppingcart.html"><strong>刷新</strong></a>&nbsp;&nbsp; <br /> </td>
-                            <td align="right" style="background:#ddd; font-weight:bold"> 合计 </td>
-                            <td align="right" style="background:#ddd; font-weight:bold">$140 </td>
-                            <td style="background:#ddd; font-weight:bold"> </td>
-			</tr>
+                                                
                     </table>
-                    <div style="float:right; width: 215px; margin-top: 20px;">
-                        <p><a href="checkout.jsp">确认结算</a></p>
-                        <p><a href="javascript:history.back()">继续购物</a></p>
-                    	
-                    </div>
-                </div>-->
+                    
+                </div>
                 <div class="cleaner"></div>
-                
             </div> <!-- END of templatemo_main -->
-    
+            
             <div id="templatemo_footer">
                 <p>
                     <a href="index.jsp">首页</a> | <a href="order.jsp">查询订单</a> | <a href="checkout.jsp">账单结算</a> | <a href="faqs.jsp">常见问题</a> | <a href="contact.jsp">联系我们</a>
