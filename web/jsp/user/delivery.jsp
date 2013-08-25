@@ -115,10 +115,15 @@
                 </div>
                 <div id="content" class="float_r">
                     <h1>查看物流</h1>
-                    <iframe width="680" height="340" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="deliveryMap.jsp"></iframe>
-                    <div class="cleaner h10"></div>
                     <h4>你购买的商品</h4>
-                    <h4><strong>iphone5S</strong> 20件</h4>
+                    <p><strong>iphone5S</strong> 20件</p>
+                    <div class="cleaner h10"></div>
+                    <h4>收货信息</h4>
+                    <p>  收货人: 张三</p>
+                    <p>收货地址: 上海市浦东新区张江镇科苑路</p>
+                    <p>联系电话: 021-88888888</p>
+                    <div class="cleaner h10"></div>
+                    <h4>物流信息</h4>
                     <table>
                         <tr>
                             <th width="150" align="center">时间</th>
@@ -131,6 +136,9 @@
                             <td  align="center">苹果公司生产中</td>
                         </tr>
                     </table>
+                    <div class="cleaner h10"></div>
+                    <h4>物流地图</h4>
+                    <iframe width="680" height="340" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="deliveryMap.jsp"></iframe>
                 </div>
                 <div class="cleaner"></div>
             </div> <!-- END of templatemo_main -->
