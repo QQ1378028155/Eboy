@@ -1,6 +1,6 @@
 <%-- 
-    Document   : products
-    Created on : 2013-8-25, 1:51:47
+    Document   : contactus
+    Created on : 2013-8-25, 16:37:14
     Author     : WingFung
 --%>
 
@@ -10,7 +10,7 @@
 
 <html  xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <title>Eboy - 商品列表</title>
+        <title>Eboy - 联系我们</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link href="css/templatemo_style.css" rel="stylesheet" type="text/css" />
         <link href="css/ddsmoothmenu.css" rel="stylesheet" type="text/css" />
@@ -91,7 +91,7 @@
                         <li><a href="order.jsp">查询订单</a></li>
                         <li><a href="checkout.jsp">账单结算</a></li>
                         <li><a href="faqs.jsp">常见问题</a></li>
-                        <li><a href="contact.jsp">联系我们</a></li>
+                        <li><a href="contact.jsp" class="selected">联系我们</a></li>
                     </ul>
                     <br style="clear: left" />
                 </div><!-- end of ddsmoothmenu -->
@@ -114,29 +114,12 @@
                     <s:action name="getTags" executeResult="true"/>
                 </div>
                 <div id="content" class="float_r">
-                    <h1>商品列表</h1>
-                    <p>商品排序: <a href="#">按加入库存时间</a> | <a href="#">按销量从高到低</a> | <a href="#">按评分从高到低</a> | <a href="#">按价格从低到高</a></p>
-                    <div class="product_box">
-                        <a href="productdetail.html"><img src="images/product/01.jpg" alt="Image 01" /></a>
-                        <h3>商品名占的行数不同会导致同一排的三个商品难以对齐</h3>
-                        <p class="product_price">$ 100</p>
-                        <a href="shoppingcart.html" class="add_to_card">加入购物车</a>
-                        <a href="productdetail.html" class="detail">详细</a>
-                    </div>        	
-                    <div class="product_box">
-                        <a href="productdetail.html"><img src="images/product/02.jpg" alt="Image 02" /></a>
-                        <h3>中间商品的商品名只有一行</h3>
-                        <p class="product_price">$ 200</p>
-                        <a href="shoppingcart.html" class="add_to_card">加入购物车</a>
-                        <a href="productdetail.html" class="detail">详细</a>
-                    </div>        	
-                    <div class="product_box no_margin_right">
-                        <a href="productdetail.html"><img src="images/product/03.jpg" alt="Image 03" /></a>
-                        <h3>右边的商品的div class有个no_margin_right</h3>
-                        <p class="product_price">$ 120</p>
-                        <a href="shoppingcart.html" class="add_to_card">加入购物车</a>
-                        <a href="productdetail.html" class="detail">详细</a>
-                    </div>        	
+                    <h1>联系我们</h1>
+                    <strong>地址:</strong>上海市闵行区东川路800号<br />
+                    <strong>邮编:</strong>200240<br />
+                    <strong>电话:</strong>54749999<br />
+                    <strong>邮箱:</strong> <a href="mailto:Eboy@sjtu.edu.cn">Eboy@sjtu.edu.cn</a><br />
+                    <div class="cleaner h20"></div>
                 </div>
                 <div class="cleaner"></div>
             </div> <!-- END of templatemo_main -->
@@ -151,4 +134,3 @@
         </div><!-- END of templatemo_wrapper -->
     </body>
 </html>
-

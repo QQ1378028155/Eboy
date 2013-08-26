@@ -378,18 +378,18 @@ h6 {
 	padding: 5px; 
 }
 
-#contact_form { 
+#comment_form { 
 	padding: 0; 
 	width: 312px; 
 	margin-bottom: 40px; 
 }
 
-#contact_form form { 
+#comment_form form { 
 	margin: 0px; 
 	padding: 0px; 
 }
 
-#contact_form form .input_field { 
+#comment_form form .input_field { 
 	width: 300px; 
 	padding: 5px; 
 	color: #222;  
@@ -400,14 +400,14 @@ h6 {
 	margin-top: 5px; 
 }
 
-#contact_form form label { 
+#comment_form form label { 
 	display: block; 
 	width: 100px; 
 	margin-right: 12px; 
 	font-size: 13px; 
 }
 
-#contact_form form textarea { 
+#comment_form form textarea { 
 	width: 300px; 
 	height: 200px; 
 	padding: 5px; 
@@ -418,7 +418,7 @@ h6 {
 	margin-top: 5px; 
 }
 
-#contact_form form .submit_btn { 
+#comment_form form .submit_btn { 
 	padding: 5px 12px; 
 	background-color: #000; 
 	border: 1px solid #fff; 
