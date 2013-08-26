@@ -8,7 +8,7 @@
             <column name="orderID" />
             <generator class="identity" />
         </id>
-        <many-to-one name="item" class="com.eboy.po.Item" fetch="select">
+        <many-to-one name="item" class="com.eboy.po.Item" fetch="select" lazy="false">
             <column name="itemID" not-null="true" />
         </many-to-one>
         <property name="orderQuantity" type="int">

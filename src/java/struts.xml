@@ -69,20 +69,19 @@ and open the template in the editor.
                         <result name="success">/jsp/user/getLatestCommentResult.jsp</result>
                 </action>
                 <action name="addComment" class="addCommentAction">
-                        <result name="success">/jsp/user/loadItemInfoResult.jsp</result>
+                        <result name="success">/jsp/user/order.jsp</result>
                 </action>
                 <action name="chargeBack" class="chargeBackAction">
                         <result name="success">/jsp/user/getOrder.jsp</result>
                 </action>
                 <action name="getOrder" class="getOrderAction">
-                        <result name="success">/jsp/user/chargeBack.jsp</result>
-                        <result name="fail">/jsp/user/getOrderFail.jsp</result>
+
                 </action>
                 <action name="loadItemsSortedBySale" class="loadItemsSortedBySaleAction">
                         <result name="success">/jsp/user/searchItemResult.jsp</result>
                 </action>
                 <action name="loadItemInfo" class="loadItemInfoAction">
-                        <result name="success">/jsp/user/loadItemInfoResult.jsp</result>
+                        <result name="success">/jsp/user/productdetail.jsp</result>
                 </action>
                 <action name="addCart" class="addCartAction">
                         <result name="success">/jsp/user/loadItemsSortedBySale.jsp</result>

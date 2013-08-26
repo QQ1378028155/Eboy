@@ -43,7 +43,7 @@
                         <h3 style="overflow: hidden; height: 60px;"><s:property value="itemTitle"/></h3>
                         <p class="product_price">RMB: <s:property value="itemPrice"/></p>
                         <a href ="#" onclick="addCart(<s:property value="itemId"/>);" class="add_to_card">Add to Cart</a>
-                        <a href="productdetail.html" class="detail">Detail</a>                
+                        <a href="loadItemInfo.action?itemId=<s:property value="itemId"/>" class="detail">Detail</a>                
                 </div>
         </s:iterator>
 

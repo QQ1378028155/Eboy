@@ -22,18 +22,14 @@ public class AddCommentAction extends ActionSupport {
         private ItemService itemService;
         private String commentUserName;
         private String commentContent;
-        private double commentRate;
+        private String b;
         private Integer itemId;
         
         @Override
         public String execute() {
-                Item item = itemService.getItem(itemId);
-                commentService.addComment(commentUserName, commentContent, commentRate, item);
-                List<Comment> comments = commentService.getCommentsByItemId(itemId);
-                
-                ActionContext context = ActionContext.getContext();
-                context.put("item", item);
-                context.put("comments", comments);
+                Item item = getItemService().getItem(getItemId());
+                getCommentService().addComment( getCommentUserName(), getCommentContent(), Double.parseDouble(getB()), item);
+
                 return "success";
         }
 
@@ -71,13 +67,6 @@ public class AddCommentAction extends ActionSupport {
 
 
 
-        public double getCommentRate() {
-                return commentRate;
-        }
-
-        public void setCommentRate(double commentRate) {
-                this.commentRate = commentRate;
-        }
 
         public Integer getItemId() {
                 return itemId;
@@ -85,6 +74,14 @@ public class AddCommentAction extends ActionSupport {
 
         public void setItemId(Integer itemId) {
                 this.itemId = itemId;
+        }
+
+        public String getB() {
+                return b;
+        }
+
+        public void setB(String b) {
+                this.b = b;
         }
 
 }

@@ -50,12 +50,13 @@ public class ConfirmOrderAction extends ActionSupport {
                                         s.setStatisticsIncome(income);
                                         statisticsService.update(s);
                                 } else {
+                                        out.print("订单已经确认过了");
                                 }
                         } else {
-                                out.print("bad validation");
+                                out.print("订单验证失败");
                         }
                 } catch (IndexOutOfBoundsException e) {
-                        out.print("bad Order");
+                        out.print("订单不存在");
                 } catch (IOException ex) {
                         Logger.getLogger(ConfirmOrderAction.class.getName()).log(Level.SEVERE, null, ex);
                 }
