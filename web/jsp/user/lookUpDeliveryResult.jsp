@@ -81,7 +81,7 @@
                                         <s:property value="#order.orderPhone"/>
                                 </td>
                                 <td>
-                                        <s:property value="#order.orderReciver"/>
+                                        <s:property value="#order.orderReceiver"/>
                                 </td>
                                 <td>
                                         <s:property value="#order.orderEmail"/>
@@ -116,7 +116,6 @@
                 <script>
                         var waypoints = "<s:property value="#waypoints"/>";
                         var destination = "<s:property value="#destination"/>";
-                        alert(waypoints);
                         displayGoogleMaps(waypoints, destination);
                 </script>
                 <div id="map-canvas"></div>

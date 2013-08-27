@@ -294,8 +294,11 @@
                                                                 if (orderStatus == '已发货')
                                                                         confirmOrder.innerText = '确认售货';
                                                                 if (orderStatus != '未发货')
+                                                                {
                                                                         findGoogleMap.innerText = '查看物流';
-
+                                                                        var realhref = 'lookUpDelivery.action?orderId=' + orderId;
+                                                                        document.getElementById('findGoogleMap').setAttribute('href',realhref);
+                                                                }
                                                         }
                                                 }
                                         }
@@ -366,7 +369,7 @@
                                                         <td align="right" id="orderPrice"></td> 
                                                         <td align="right" id="orderStatus"></td>
                                                         <td align="center"> <a href="#" onclick="confirmOrder();
-                                return false;" id="confirmOrder"></a><br/><a href="#" id="findGoogleMap"></a></td>
+                                return false;" id="confirmOrder"></a><br/><a id="findGoogleMap"></a></td>
                                                 </tr>
                                         </table>
                                         <s:form action="addComment">

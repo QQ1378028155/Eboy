@@ -62,7 +62,7 @@ and open the template in the editor.
                         <result name="success">/jsp/admin/lookUpCommentResultList.jsp</result>
                 </action>
                 <action name="lookUpDelivery" class="lookUpDeliveryAction">
-                        <result name="success">/jsp/user/lookUpDeliveryResult.jsp</result>
+                        <result name="success">/jsp/user/delivery.jsp</result>
                         <result name="fail">/jsp/user/getOrderFail.jsp</result>
                 </action>
                 <action name="getLatestComment" class="getLatestCommentAction">
@@ -91,7 +91,7 @@ and open the template in the editor.
                         <result name="Nothing in the Cart">/jsp/user/noCart.jsp</result>
                 </action>
                 <action name="placeOrder" class="placeOrderAction">
-                        <result name="success">/jsp/user/loadItemsSortedBySale.jsp</result>
+                        <result name="success">/jsp/user/order.jsp</result>
                 </action>
                 <action name="confirmOrder" class="confirmOrderAction">
                         

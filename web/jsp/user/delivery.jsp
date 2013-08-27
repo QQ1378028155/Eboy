@@ -68,7 +68,10 @@
                 v.innerHTML = cartSize + " 件商品";
             }
         </script>
-        
+        <script type="text/javascript">
+                var waypoints = "<s:property value="#waypoints"/>";
+                var destination = "<s:property value="#destination"/>";
+        </script>
     </head>
     
     <body>
@@ -116,29 +119,34 @@
                 <div id="content" class="float_r">
                     <h1>查看物流</h1>
                     <h4>你购买的商品</h4>
-                    <p><strong>iphone5S</strong> 20件</p>
+                    <p><strong><s:property value="#order.item.itemTitle"/></strong><s:property value="#order.orderQuantity"/>件</p>
                     <div class="cleaner h10"></div>
                     <h4>收货信息</h4>
-                    <p>  收货人: 张三</p>
-                    <p>收货地址: 上海市浦东新区张江镇科苑路</p>
-                    <p>联系电话: 021-88888888</p>
+                    <p>  收货人: <s:property value="#order.orderReceiver"/></p>
+                    <p>收货地址: <s:property value="#order.orderAddress"/></p>
+                    <p>联系电话: <s:property value="#order.orderPhone"/></p>
                     <div class="cleaner h10"></div>
                     <h4>物流信息</h4>
                     <table>
                         <tr>
+                            <th width="150" align="center">序号</th>
                             <th width="150" align="center">时间</th>
                             <th width="360" align="center">地点</th>
-                            <th width="200" aligen="center">备注</th>
+                            <th width="200" align="center">备注</th>
                         </tr>
+                            <s:iterator value="#deliveries" status="u">
                         <tr>
-                            <td align="center">2013-08-25 21:05</td>
-                            <td  align="center">美国佛罗里达州</td>
-                            <td  align="center">苹果公司生产中</td>
+                            <td align="center"><s:property value="#u.index+1"/></td>
+                            <td  align="center">数据库中没有</td>
+                            <td  align="center"><s:property value="deliveryLocation"/></td>
+                            <td  align="center">数据库中没有</td>
                         </tr>
+                        </s:iterator>
+                            
                     </table>
                     <div class="cleaner h10"></div>
                     <h4>物流地图</h4>
-                    <iframe width="680" height="340" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="deliveryMap.jsp"></iframe>
+                    <iframe width="680" height="340" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="deliveryMap.jsp" id="myframe"></iframe>
                 </div>
                 <div class="cleaner"></div>
             </div> <!-- END of templatemo_main -->
