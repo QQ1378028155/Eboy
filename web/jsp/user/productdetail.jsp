@@ -1,7 +1,7 @@
 <%-- 
     Document   : productdetail
     Created on : 2013-8-24, 23:42:51
-    Author     : WingFung
+    Author     : WingFung game3108
 --%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -195,13 +195,13 @@
                                         <div class="cleaner h50"></div>
                                         <h5>商品评论</h5>
                                         <table>
-                                                <s:iterator value="#commentList">
+                                                <s:iterator value="#item.comments">
                                                         <tr>
-                                                                <p><strong><s:property value="commentUserName"/></strong><span style="float: right;">打分:<s:property value="commentRate"/></span></p>
-                                                                <p><s:property value="commentContent"/></p>
-                                                                <hr/>
+                                                                <td><strong><s:property value="commentUserName"/></strong></td>
+                                                                <td><s:property value="commentContent"/></td>
+                                                                <td><s:property value="commentRate"/></td>
                                                         </tr>
-                                                </s:iterator>
+                                                </s:iterator> 
                                         </table>
 
                                 </div>
