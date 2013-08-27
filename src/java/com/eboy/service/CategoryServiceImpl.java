@@ -41,5 +41,10 @@ public class CategoryServiceImpl implements CategoryService{
         public void setCategoryDao(CategoryDao categoryDao) {
                 this.categoryDao = categoryDao;
         }
+
+        @Override
+        public Category getCategory(int categoryId) {
+                return this.categoryDao.getCategory(categoryId);
+        }
         
 }

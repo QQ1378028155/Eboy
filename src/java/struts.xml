@@ -102,14 +102,17 @@ and open the template in the editor.
                 <action name="getCategories" class="getCategoriesAction">
                         <result name="success">/jsp/user/categories.jsp</result>
                 </action>
-                <action name="getNewItems" class="getNewItemsAction">
-                        <result name="success">/jsp/user/newItems.jsp</result>
+                <action name="getItems" class="getItemsAction">
+                        <result name="success">/jsp/user/itemList.jsp</result>
                 </action>
                 <action name="getTags" class="getTagsAction">
                         <result name="success">/jsp/user/getTags.jsp</result>
                 </action>
                 <action name="getCheckoutForm" class="getCheckoutFormAction">
                         <result name="success">/jsp/user/checkoutForm.jsp</result>
+                </action>
+                <action name="fetchFilter" class="fetchFilterAction">
+                        <result name="success">/jsp/user/products.jsp</result>
                 </action>
         </package>
 </struts>
