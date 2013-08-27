@@ -71,12 +71,12 @@
             <div id="templatemo_menu">
                 <div id="top_nav" class="ddsmoothmenu">
                     <ul>
-                        <li><a href="#" class="selected">收支明细</a></li>
-                        <li><a href="#">仓库管理</a></li>
-                        <li><a href="#">类型管理</a></li>
-                        <li><a href="#">标签管理</a></li>
-                        <li><a href="#">评价管理</a></li>
-                        <li><a href="#">物流管理</a></li>
+                        <li><a href="balance.jsp" class="selected">收支明细</a></li>
+                        <li><a href="storage.jsp">仓库管理</a></li>
+                        <li><a href="category.jsp">类型管理</a></li>
+                        <li><a href="tag.jsp">标签管理</a></li>
+                        <li><a href="comment.jsp">评价管理</a></li>
+                        <li><a href="delivery.jsp">物流管理</a></li>
                     </ul>
                     <br style="clear: left" />
                 </div><!-- end of ddsmoothmenu -->
@@ -131,7 +131,7 @@
             
             <div id="templatemo_footer">
                 <p>
-                    <a href="#">收支明细</a> | <a href="#">仓库管理</a> | <a href="#">类型管理</a> | <a href="#">标签管理</a> | <a href="#">评价管理</a> | <a href="#">物流管理</a>
+                    <a href="balance.jsp">收支明细</a> | <a href="storage.jsp">仓库管理</a> | <a href="category.jsp">类型管理</a> | <a href="tag.jsp">标签管理</a> | <a href="comment.jsp">评价管理</a> | <a href="delivery.jsp">物流管理</a>
                 </p>
                 Copyright © 2048 <a href="#">Eboy</a>
             </div> <!-- END of templatemo_footer -->
