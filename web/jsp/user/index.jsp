@@ -3,36 +3,30 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <html  xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>Eboy - 首页</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <link href="css/templatemo_style.css" rel="stylesheet" type="text/css" />
-        <link href="css/ddsmoothmenu.css" rel="stylesheet" type="text/css" />
-        <link href="css/jquery.dualSlider.0.2.css" rel="stylesheet" type="text/css" media="all" />
-        <script src="js/jquery.min.js" type="text/javascript"></script>
-        <script src="js/ddsmoothmenu.js" type="text/javascript"></script>
-        <script src="js/jquery-1.3.2.min.js" type="text/javascript"></script>
-        <script src="js/jquery.easing.1.3.js" type="text/javascript"></script>
-        <script src="js/jquery.timers-1.2.js" type="text/javascript"></script>
-        <script src="js/jquery.dualSlider.0.3.min.js" type="text/javascript"></script>
-        
-        <script type="text/javascript">
-            function clearText(field)
-            {
-                if (field.defaultValue == field.value) field.value = '';
-                else if (field.value == '') field.value = field.defaultValue;
-            }
-        </script>
+        <head>
+                <title>Eboy - 首页</title>
+                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+                <link href="css/templatemo_style.css" rel="stylesheet" type="text/css" />
+                <link href="css/ddsmoothmenu.css" rel="stylesheet" type="text/css" />
+                <link href="css/jquery.dualSlider.0.2.css" rel="stylesheet" type="text/css" media="all" />
+                <script src="js/jquery.min.js" type="text/javascript"></script>
+                <script src="js/ddsmoothmenu.js" type="text/javascript"></script>
+                <script src="js/jquery-1.3.2.min.js" type="text/javascript"></script>
+                <script src="js/jquery.easing.1.3.js" type="text/javascript"></script>
+                <script src="js/jquery.timers-1.2.js" type="text/javascript"></script>
+                <script src="js/jquery.dualSlider.0.3.min.js" type="text/javascript"></script>
 
-        <script type="text/javascript">
+                <script type="text/javascript">
+                        function clearText(field)
+                        {
+                                if (field.defaultValue == field.value)
+                                        field.value = '';
+                                else if (field.value == '')
+                                        field.value = field.defaultValue;
+                        }
+                </script>
 
-            ddsmoothmenu.init({
-                mainmenuid: "top_nav", //menu DIV id
-                orientation: 'h', //Horizontal or vertical menu: Set to "h" or "v"
-                classname: 'ddsmoothmenu', //class added to menu's outer DIV
-                //customtheme: ["#1c5a80", "#18374a"],
-                contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
-            });
+                <script type="text/javascript">
 
         </script>
         
