@@ -107,18 +107,23 @@
                     <div class="details_wrapper">
                         <div class="details">
                             <div class="detail">
-				<h2><a href="#">Eboy</a></h2>
-                                <p><a href="#">Eboy</a> is ... </p>
+				<h2><a href="#">Eboy简介</a></h2>
+                                <p><a href="#"></a> eboy电子商务系统致力为中国用户屏蔽在其他市场(如英国/美国)购买物品时由语言/文化/海关/运输/税带来的障碍。,使得中国用户也能够自如地在eBay上购买来自全球市场的商品。 </p>
 				<a href="#" title="查看更多" class="more">查看更多</a>
 			    </div><!-- /detail -->
                             <div class="detail">
-                                <h2><a href="#">待添加</a></h2>
-                                <p>Duis dignissim tincidunt turpis eget pellentesque. Nulla consectetur accumsan facilisis. Suspendisse et est lectus, at consectetur sem.</p>
+                                <h2><a href="#">我们的团队</a></h2>
+                                <p>组长：许佳文</p>
+                                <p>超级程序员1：王家雷</p>
+                                <p>超级程序员2：陈荣峰</p>                     
+                                <p>超级程序员3：蔡通达</p>
+                                <p>超级程序员4：杜阳</p>
                                 <a href="#" title="查看更多" class="more">查看更多</a>
                             </div><!-- /detail -->
                             <div class="detail">
-                                <h2><a href="#">待添加</a></h2>
-                                <p>Sed vel interdum sapien. Aliquam consequat, diam sit amet iaculis ultrices, diam erat faucibus dolor, quis auctor metus libero vel mi.</p>
+                                <h2><a href="#">我们的宗旨</a></h2>
+                                <p>竭尽全力为客户减少中间环节</p>
+                                <p>竭尽全力为客户透明化中间费用</p>
                                 <a href="#" title="查看更多" class="more">查看更多</a>
                             </div><!-- /detail -->
                         </div><!-- /details -->

@@ -61,7 +61,7 @@
                 </tr>
                 <s:iterator value="#cartList" status="ca">
                         <tr>
-                                <td><img src="<s:property value="itemThumbnailImageUrl"/>" alt="Image 01"  width="200" height="150"/></td>
+                                <td><img src="<s:property value="itemThumbnailImageUrl"/>" alt="Image 01" width="200" height="150"/></td>
                                 <td><s:property value="itemTitle"/></td> 
                                 <td align="center"><input type="text" value="<s:property value="itemQuantity"/>" style="width: 20px; text-align: right" /> </td>
                                 <td align="right">RMB &nbsp;<s:property value="itemPrice"/></td> 
