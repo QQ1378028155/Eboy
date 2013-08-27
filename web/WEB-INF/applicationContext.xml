@@ -317,9 +317,18 @@
                         <ref bean="categoryService"></ref>
                 </property>
         </bean>
-        <bean id= "getNewItemsAction" class="com.eboy.action.user.getNewItemsAction">
+        <bean id="fetchFilterAction" class="com.eboy.action.user.FetchFilterAction">
+                
+        </bean>
+        <bean id= "getItemsAction" class="com.eboy.action.user.GetItemsAction">
                 <property name="itemService">
                         <ref bean="itemService"></ref>
+                </property>
+                <property name="tagService">
+                        <ref bean="tagService"></ref>
+                </property>
+                <property name="categoryService">
+                        <ref bean="categoryService"></ref>
                 </property>
         </bean>
         <bean id="getTagsAction" class="com.eboy.action.user.GetTagsAction">

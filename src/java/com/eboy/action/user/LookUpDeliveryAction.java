@@ -21,7 +21,6 @@ public class LookUpDeliveryAction extends ActionSupport {
         private OrderService orderService;
         private DeliveryService deliveryService;
         private Integer orderId;
-        private String orderValidate;
 
         @Override
         public String execute() {
@@ -29,23 +28,20 @@ public class LookUpDeliveryAction extends ActionSupport {
                 String waypoints = "";
                 String destination = "";
                 ActionContext context = ActionContext.getContext();
-                if (order.getOrderValidate().equals(orderValidate)) {
-                        List<Delivery> deliveries = deliveryService.getDeliveriesByOrderId(order.getOrderId());
-                        context.put("order", order);
-                        context.put("deliveries", deliveries);
-                        for (int i = 0; i < deliveries.size(); i++) {
-                                waypoints = waypoints + deliveries.get(i).getDeliveryLocation();
-                                if (i != deliveries.size() - 1) {
-                                        waypoints = waypoints + "|";
-                                }
+                List<Delivery> deliveries = deliveryService.getDeliveriesByOrderId(order.getOrderId());
+                context.put("order", order);
+                context.put("deliveries", deliveries);
+                for (int i = 0; i < deliveries.size(); i++) {
+                        waypoints = waypoints + deliveries.get(i).getDeliveryLocation();
+                        if (i != deliveries.size() - 1) {
+                                waypoints = waypoints + "|";
                         }
-                        destination = order.getOrderAddress();
-                        context.put("destination", destination);
-                        context.put("waypoints", waypoints);
-                        return "success";
-                } else {
-                        return "fail";
                 }
+                destination = order.getOrderAddress();
+                context.put("destination", destination);
+                context.put("waypoints", waypoints);
+                return "success";
+
         }
 
         public OrderService getOrderService() {
@@ -62,14 +58,6 @@ public class LookUpDeliveryAction extends ActionSupport {
 
         public void setDeliveryService(DeliveryService deliveryService) {
                 this.deliveryService = deliveryService;
-        }
-
-        public String getOrderValidate() {
-                return orderValidate;
-        }
-
-        public void setOrderValidate(String orderValidate) {
-                this.orderValidate = orderValidate;
         }
 
         public Integer getOrderId() {

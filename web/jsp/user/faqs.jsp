@@ -115,7 +115,111 @@
                 </div>
                 <div id="content" class="float_r">
                     <h1>常见问题</h1>
-                    <h4>1.关税、运费、退货等问题</h4>
+                    <h4>1.运费问题</h4>
+                    <div>
+                        <p>中国邮政国际资费计算器</p>
+                        <p>只需选择目的地，输入包裹重量，自动计算中国邮政国际快件或航空小包邮费。</p>
+                        <script type="text/javascript">
+                            function charging(){
+                                var wupin_logic = new Array(150,180,190,210,280,240,325,335,445,445);//物品资费
+                                var file_logic = new Array(90,115,130,160,220,180,250,260,370,380);//文件资费
+                                var xuzhong_logic = new Array(30,40,45,55,75,90,100,120,120);//超过500克或其零数资费
+                                var weight=document.getElementById("weight").value; //重量
+                                var discount = document.getElementById('discount').value;//折扣
+                                var region_emst = document.getElementById('region_ems').value;//地区
+
+                                var result; 
+                                if(!weight){
+                                    document.getElementById("weight").innerHTML="请正确输入重量";
+                                    return false;
+                                }else{
+                                    document.getElementById("weight").innerHTML='';
+                                }
+                                if(!discount){
+                                    document.getElementById("discount").innerHTML="请正确输入折扣率";
+                                    return false;
+                                }else{
+                                    document.getElementById("discount").innerHTML='';	 
+                                }
+                                var leixing='wupin';
+                                var typeAry=file_logic;
+                                if(document.getElementById("type2").checked){
+                                    leixing='file';
+                                }
+
+                                //选择物品类型进行计费
+                                switch(leixing){
+                                    case 'wupin':
+                                        typeAry = wupin_logic;
+                                        break;
+                                    case 'file':
+                                        typeAry = file_logic;
+                                        break;
+                                }
+
+                                //计算费用
+                                if(weight>500){
+                                    var price = typeAry[region_emst];
+                                    price=Math.ceil((weight-500)/500)*xuzhong_logic[region_emst]+typeAry[region_emst];
+                                    result = price-(price*(discount/100));
+                                }else{
+                                        result = typeAry[region_emst]-(typeAry[region_emst]*(discount/100));
+                                }
+
+                                //得出计算结果并显示
+                                document.getElementById('results').value=result;
+                                return false;
+                            }
+                        </script>
+                        <table>
+                            <tr>
+                                <td>接收国家所属区：</td>
+                                <td>
+                                    <select id="region_ems" name="region">
+                                        <option selected="selected" value="0">一区</option>
+                                        <option value="1">二区</option>
+                                        <option value="2">三区</option>
+                                        <option value="3">四区</option>
+                                        <option value="4">五区</option>
+                                        <option value="5">六区</option>
+                                        <option value="6">七区</option>
+                                        <option value="7">八区</option>
+                                        <option value="8">九区</option>
+                                        <option value="9">十区</option>
+                                    </select>
+                                    <a href="faqs_EMS.jsp">属区查询</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>文件类型：</td>
+                                <td>
+                                    <input type="radio" id="type1" value="materials" name="type" checked="checked" />物品
+                                    <input type="radio" id="type2" value="file" name="type" /> 文件
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>重量/件：</td>
+                                <td>
+                                    <input type="text" name="weight" id="weight" size="35" maxlength="10" title="请正确输入重量" />克/件
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>折扣率：</td>
+                                <td>
+                                    <input type="text" value="0" id="discount" name="discount" size="35" maxlength="5" title="请正确输入折扣率" />%
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>计算结果：</td>
+                                <td>
+                                    <input type="text" id="results" name="result" size="35" disabled="disabled" />元
+                                </td>
+                            </tr>
+                        </table>
+                        <input type="button" onclick="charging()" value="计算" name="Submit" />
+                    </div>
+                    <h4>2.关税问题</h4>
+                    <h4>3.退货问题</h4>
                     <p>关税怎么算，运费怎么算，一般不支持退货</p>
                 </div>
                 <div class="cleaner"></div>

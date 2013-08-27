@@ -24,7 +24,12 @@
     <div class="content">
         <ul class="sidebar_list">
             <s:iterator value="#categoryList">
-                <li><a href="#"><s:property value="categoryName"/></a></li>
+                <li><a href="
+                       <s:url action="fetchFilter">
+                               <s:param name="method">category</s:param>
+                               <s:param name="value"><s:property value="categoryId"/></s:param>
+                       </s:url>
+                       "><s:property value="categoryName"/></a></li>
             </s:iterator>
 <!--                                                                                       
                         <li class="first"><a href="#">Aenean varius nulla</a></li>

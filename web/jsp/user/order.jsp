@@ -224,10 +224,11 @@
                                 <div id="menu_second_bar">
                                         <div id="top_shopping_cart">购物车： <strong id="cartSize"></strong> ( <a href="shoppingcart.jsp">进入购物车</a> )</div>
                                         <div id="templatemo_search">
-                                                <form action="#" method="get">
-                                                        <input type="text" value="请输入关键字" name="keyword" id="keyword" title="关键字" onfocus="clearText(this)" onblur="clearText(this)" class="txt_field" />
+                                                <s:form action="fetchFilter" method="get">
+                                                        <input type="hidden" name="method" value="keyword"/>
+                                                        <input type="text" value="请输入关键字" name="value" id="keyword" title="关键字" onfocus="clearText(this)" onblur="clearText(this)" class="txt_field" />
                                                         <input type="submit" value=" 搜索 " name="Search"  alt="Search" id="searchbutton" title="搜索" class="sub_btn"  />
-                                                </form>
+                                                </s:form>
                                         </div>
                                         <div class="cleaner"></div>
                                 </div>
@@ -293,8 +294,11 @@
                                                                 if (orderStatus == '已发货')
                                                                         confirmOrder.innerText = '确认售货';
                                                                 if (orderStatus != '未发货')
+                                                                {
                                                                         findGoogleMap.innerText = '查看物流';
-
+                                                                        var realhref = 'lookUpDelivery.action?orderId=' + orderId;
+                                                                        document.getElementById('findGoogleMap').setAttribute('href',realhref);
+                                                                }
                                                         }
                                                 }
                                         }
@@ -365,7 +369,7 @@
                                                         <td align="right" id="orderPrice"></td> 
                                                         <td align="right" id="orderStatus"></td>
                                                         <td align="center"> <a href="#" onclick="confirmOrder();
-                                return false;" id="confirmOrder"></a><br/><a href="#" id="findGoogleMap"></a></td>
+                                return false;" id="confirmOrder"></a><br/><a id="findGoogleMap"></a></td>
                                                 </tr>
                                         </table>
                                         <s:form action="addComment">

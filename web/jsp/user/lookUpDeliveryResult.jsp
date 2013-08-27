@@ -55,71 +55,69 @@
                                                 orderEmail
                                         </th>
                                 </tr>
-                        </tr>
-                        <tr>
+                                <tr>
+                                        <td>
+                                        <s:property value="#order.orderId"/>
+                                </td>
                                 <td>
-                                <s:property value="#order.orderId"/>
-                        </td>
-                        <td>
-                                <s:property value="#order.item.itemId"/>
-                        </td>
-                        <td>
-                                <s:property value="#order.orderQuantity"/>
-                        </td>
-                        <td>
-                                <s:property value="#order.orderValidate"/>
-                        </td>
-                        <td>
-                                <s:property value="#order.orderPrice"/>
-                        </td>
-                        <td>
-                                <s:property value="#order.orderAddress"/>
-                        </td>
-                        <td>
-                                <s:property value="#order.orderStatus"/>
-                        </td>
-                        <td>
-                                <s:property value="#order.orderPhone"/>
-                        </td>
-                        <td>
-                                <s:property value="#order.orderReciver"/>
-                        </td>
-                        <td>
-                                <s:property value="#order.orderEmail"/>
-                        </td>
-                </tr>
-        </table>
-        <h2>Delivery Detail</h2>
-        <table>
-                <tr>
-                        <th>
-                                Index
-                        </th>
-                        <th>
-                                OrderId
-                        </th>
-                        <th>
-                                DeliveryLocation
-                        </th>
-                </tr>
-                <s:iterator value="#deliveries" status="u">
-                        <tr>
+                                        <s:property value="#order.item.itemId"/>
+                                </td>
                                 <td>
-                                        <s:property value="#u.index+1"/></td><td>
-                                        <s:property value="order.orderId"/></td><td>
-                                        <s:property value="deliveryLocation"/></td>
+                                        <s:property value="#order.orderQuantity"/>
+                                </td>
+                                <td>
+                                        <s:property value="#order.orderValidate"/>
+                                </td>
+                                <td>
+                                        <s:property value="#order.orderPrice"/>
+                                </td>
+                                <td>
+                                        <s:property value="#order.orderAddress"/>
+                                </td>
+                                <td>
+                                        <s:property value="#order.orderStatus"/>
+                                </td>
+                                <td>
+                                        <s:property value="#order.orderPhone"/>
+                                </td>
+                                <td>
+                                        <s:property value="#order.orderReceiver"/>
+                                </td>
+                                <td>
+                                        <s:property value="#order.orderEmail"/>
+                                </td>
                         </tr>
-                </s:iterator> 
-        </table>
-        <s:property value="#waypoints"/>
-        <br>
-        <s:property value="#destination"/>
-        <script>
-                var waypoints = "<s:property value="#waypoints"/>";
-                var destination = "<s:property value="#destination"/>";
-                alert(waypoints);
-                displayGoogleMaps(waypoints, destination);
-        </script>
-        <div id="map-canvas"></div>
-</body>
+                </table>
+                <h2>Delivery Detail</h2>
+                <table>
+                        <tr>
+                                <th>
+                                        Index
+                                </th>
+                                <th>
+                                        OrderId
+                                </th>
+                                <th>
+                                        DeliveryLocation
+                                </th>
+                        </tr>
+                        <s:iterator value="#deliveries" status="u">
+                                <tr>
+                                        <td>
+                                                <s:property value="#u.index+1"/></td><td>
+                                                <s:property value="order.orderId"/></td><td>
+                                                <s:property value="deliveryLocation"/></td>
+                                </tr>
+                        </s:iterator> 
+                </table>
+                <s:property value="#waypoints"/>
+                <br>
+                <s:property value="#destination"/>
+                <script>
+                        var waypoints = "<s:property value="#waypoints"/>";
+                        var destination = "<s:property value="#destination"/>";
+                        displayGoogleMaps(waypoints, destination);
+                </script>
+                <div id="map-canvas"></div>
+        </body>
 </html>

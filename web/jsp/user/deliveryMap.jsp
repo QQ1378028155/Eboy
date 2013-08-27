@@ -23,7 +23,8 @@
   </head>
   <body>
       <script>
-          displayGoogleMaps("${waypoints}","${destination}");
+              <%-- displayGoogleMaps("${waypoints}","${destination}");--%>
+              displayGoogleMaps(parent.waypoints, parent.destination);
       </script>
       <div id="map-canvas"></div>
   </body>

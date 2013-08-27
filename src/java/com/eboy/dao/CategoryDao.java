@@ -18,7 +18,7 @@ public class CategoryDao extends HibernateDaoSupport
         {
                 this.getHibernateTemplate().save(category);
         }
-        public Category getCategory(long categoryID)
+        public Category getCategory(int categoryID)
         {
                 return (Category)(this.getHibernateTemplate().get(Category.class, categoryID));
         }
