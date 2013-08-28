@@ -1,6 +1,6 @@
 <%-- 
-    Document   : comment
-    Created on : 2013-8-28, 16:14:43
+    Document   : category
+    Created on : 2013-8-29, 1:35:33
     Author     : WingFung
 --%>
 
@@ -9,7 +9,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html  xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <title>EboyAdmin - 评价管理</title>
+        <title>EboyAdmin - 类型管理</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link href="css/templatemo_style.css" rel="stylesheet" type="text/css" />
         <link href="css/ddsmoothmenu.css" rel="stylesheet" type="text/css" />
@@ -53,11 +53,58 @@
                 });
             });
         </script>
+        
         <script>
-            function removeComment(node){
-                var parent=node.parentNode;
-                parent.removeChild(node);
+            function get_previoussibling(n)
+            {
+                var x=n.previousSibling;
+                while (x.nodeType!=1)
+                {
+                    x=x.previousSibling;
+                }
+                return x;
             }
+            function get_nextsibling(n)
+            {
+                var x=n.nextSibling;
+                while (x.nodeType!=1)
+                {
+                    x=x.nextSibling;
+                }
+                return x;
+            }
+            function modifyCategoryName(node){
+                var td=get_previoussibling(node.parentNode);
+                var value=td.innerHTML;
+                td.innerHTML="";
+                var textfield="<input type='text' style='width:200px;' value="+value+"></input>";
+                td.insertAdjacentHTML("beforeEnd",textfield);
+                node.style.display='none';
+                var confirmBtn=get_nextsibling(node);
+                confirmBtn.style.display='block';
+            };
+            function confirmCategoryName(node){
+                var td=get_previoussibling(node.parentNode);
+                var inputfield=td.childNodes[0];
+                if (inputfield.nodeType!=1)
+                    get_nextsibling(inputfield);
+                var value=inputfield.value;
+                td.innerHTML=value;
+                node.style.display='none';
+                var modifyBtn=get_previoussibling(node);
+                modifyBtn.style.display='block';
+            };
+            function addCategory(){
+                var num=document.getElementById("categoryNum");
+                var name=document.getElementById("categoryName");
+                var tr="<tr><td align='center'>"+num.value+"</td><td align='center'>"+name.value+"</td><td align=center>"+
+                        "<a href='javascript:void(0);' onclick='modifyCategoryName(this);' style='display:block;'>修改类型名称</a>"+
+                        "<input type='button' class='btn' onclick='confirmCategoryName(this);' style='display:none;width:100px;height:25px;background-color: #0099ff;'value='确认类型名称' />"+
+                        "</td></tr>";
+                document.getElementById("trInput").insertAdjacentHTML("beforeBegin",tr);
+                num.value="";
+                name.value="";
+            };
         </script>
     </head>
     
@@ -79,7 +126,7 @@
                     <ul>
                         <li><a href="balance.jsp">收支明细</a></li>
                         <li><a href="storage.jsp">仓库管理</a></li>
-                        <li><a href="category.jsp">类型管理</a></li>
+                        <li><a href="category.jsp" class="selected">类型管理</a></li>
                         <li><a href="tag.jsp">标签管理</a></li>
                         <li><a href="comment.jsp">评价管理</a></li>
                         <li><a href="delivery.jsp">物流管理</a></li>
@@ -104,29 +151,29 @@
             
             <div id="templatemo_main">
                 <div id="content" class="float_r">
-                    <h1>评价管理</h1>
-                    <h4>商品名称</h4>
-                    <h5><strong>iPhone 5S 金色版</strong></h5>
-                    <div class="cleaner h10"></div>
-                    <h4>商品评价</h4>
-                    <table width='920px'>
+                    <h1>类型管理</h1>
+                    <table id="categoryTable" style="font-size: 13px;">
                         <tr>
-                            <td>
-                            <p><strong>评论人昵称</strong>(<a href="mailto:aaa@qq.com">aaa@qq.com</a>)<span style="float: right;">2013-08-25 02:46</span></p>
-                            <p>好评！</p>
-                            <a href="javascript:void(0);" onclick='removeComment(this.parentNode.parentNode);'>删除</a>
-                            <hr/>
-                            </td>
+                            <th width="200" align="center">序号</th>
+                            <th width="400" align="center">类型名称</th>
+                            <th width="300" align="center">操作</th>
                         </tr>
+
                         <tr>
-                            <td>
-                            <p><strong>评论人昵称</strong>(<a href="mailto:bbb@163.com">bbb@163.com</a>)<span style="float: right;">2013-08-25 02:46</span></p>
-                            <p>中评！</p>
-                            <a href="javascript:void(0);" onclick='removeComment(this.parentNode.parentNode);'>删除</a>
-                            <hr/>
-                            </td>
+                            <td align="center">1</td>
+                            <td align="center">服装</td>
+                            <td align="center">
+                                <a href="javascript:void(0);" onclick="modifyCategoryName(this);" style="display:block;">修改类型名称</a>
+                                <input type="button" class="btn" onclick="confirmCategoryName(this);" style="display:none;width:100px;height:25px;background-color: #0099ff;"value="确认类型名称" />
+                            </td>   
+                        </tr>
+                        <tr id="trInput">
+                            <td align="center"><input id="categoryNum" type="text" style="width:100px;"></input></td>
+                            <td align="center"><input id="categoryName" type="text" style="width:200px;"></input></td>
+                            <td align="center"><a href="javascript:void(0);" onclick="addCategory();">添加</a></td>
                         </tr>
                     </table>
+
                 </div>
                 <div class="cleaner"></div>
             </div> <!-- END of templatemo_main -->
@@ -141,3 +188,4 @@
         </div><!-- END of templatemo_wrapper -->
     </body>
 </html>
+
