@@ -54,6 +54,22 @@
             });
         </script>
         
+        <script type="text/javascript">
+                function searchstorage()
+                {
+                        
+                }
+        </script>
+        
+        <script type="text/javascript">
+                function searchebay()
+                {
+                     document.getElementById("method").value="ebaykeyword";
+                     document.getElementById("searchform").action="/Eboy/jsp/admin/adminFetchFilter.action";
+                     document.getElementById("searchform").method="get";
+                     document.getElementById("searchform").submit();
+                }
+        </script>
     </head>
     
     <body>
@@ -85,11 +101,11 @@
                 <div id="menu_second_bar">
             
                     <div id="templatemo_search">
-                        <form action="#" method="get">
-                          <input type="text" value="请输入关键字" name="keyword" id="keyword" title="关键字" onfocus="clearText(this)" onblur="clearText(this)" class="txt_field" />
-                          <input type="submit" value=" 搜索仓库 " name="Search"  alt="Search" id="searchstoragebutton" title="搜索仓库商品" class="sub_btn"  />
-                          <input type="submit" value=" 搜索eBay " name="Search"  alt="Search" id="searchebaybutton" title="搜索eBay商品" class="sub_btn"  />
-
+                        <form id="searchform" action="#" method="get">
+                          <input type="text" value="请输入关键字" name="value" id="keywords" title="关键字" onfocus="clearText(this)" onblur="clearText(this)" class="txt_field" />
+                          <input type="hidden" id="method" name="method" value=""/>
+                          <input type="button" onclick="searchstorage();" value=" 搜索仓库 " name="Search"  alt="Search" id="searchstoragebutton" title="搜索仓库商品" class="sub_btn"  />
+                          <input type="button" onclick="searchebay();" value=" 搜索eBay " name="Search"  alt="Search" id="searchebaybutton" title="搜索eBay商品" class="sub_btn"  />
                         </form>
                     </div>
                     <div class="cleaner"></div>
@@ -100,35 +116,10 @@
             <div id="templatemo_main">
                 <div id="content" class="float_r">
                     <h1>eBay搜索结果</h1>
-                    <div class="product_box">
-                        <a href="productdetail.html"><img src="images/product/01.jpg" alt="Image 01" /></a>
-                        <h3>商品名占的行数不同会导致同一排的三个商品难以对齐</h3>
-                        <p><span class="product_price">$100</span></p>
-                        <a href="shoppingcart.html" class="add_to_card">加入仓库</a>
-                        <a href="productdetail.html" class="detail">详细</a>
-                    </div>        	
-                    <div class="product_box">
-                        <a href="productdetail.html"><img src="images/product/02.jpg" alt="Image 02" /></a>
-                        <h3>中间商品的商品名只有一行</h3>
-                        <p><span class="product_price">$200</span></p>
-                        <a href="shoppingcart.html" class="add_to_card">加入仓库</a>
-                        <a href="productdetail.html" class="detail">详细</a>
-                    </div>        	
-                   <div class="product_box">
-                        <a href="productdetail.html"><img src="images/product/02.jpg" alt="Image 02" /></a>
-                        <h3>中间商品的商品名只有一行</h3>
-                        <p><span class="product_price">$200</span></p>
-                        <a href="shoppingcart.html" class="add_to_card">加入仓库</a>
-                        <a href="productdetail.html" class="detail">详细</a>
-                    </div>        
-                    <div class="product_box no_margin_right">
-                        <a href="productdetail.html"><img src="images/product/03.jpg" alt="Image 03" /></a>
-                        <h3>右边的商品的div class有个no_margin_right</h3>
-                        <p><span class="product_price">$120</span></p>
-                        <a href="shoppingcart.html" class="add_to_card">加入仓库</a>
-                        <a href="productdetail.html" class="detail">详细</a>
-                    </div>        	
-
+                    <s:action name="adminGetEbayItems" executeResult="true">
+                         <s:param name="method"><s:property value="method"/></s:param>
+                         <s:param name="value"><s:property value="value"/></s:param>
+                    </s:action>
                 </div>
                 <div class="cleaner"></div>
             </div> <!-- END of templatemo_main -->

@@ -123,7 +123,11 @@ and open the template in the editor.
                         <result name="success">/jsp/admin/index.jsp</result>
                         <result name="failure">/jsp/admin/login.jsp</result>
                 </action>
-                
-                
+                <action name="adminGetEbayItems" class="adminGetEbayItemsAction">
+                        <result name="success">/jsp/admin/ebayItemList.jsp</result>
+                </action>
+                <action name="adminFetchFilter" class="adminFetchFilterAction">
+                        <result name="success">/jsp/admin/ebaySERP.jsp</result>
+                </action>
         </package>
 </struts>
