@@ -71,11 +71,11 @@
                 <div id="content">
                     <h1>管理员登录</h1>
                     <div align="center">
-                        <form action="#" method="post">
-                            <p>账号: <input type="text" name="adminid" /></p>
-                            <p>密码: <input type="password" name="adminpw" /></p>
+                            <s:form action="login" method="post">
+                            <p>账号: <input type="text" name="adminName" /></p>
+                            <p>密码: <input type="password" name="adminPassword" /></p>
                             <input type="submit" class="btn" value="登录" />
-                        </form>
+                        </s:form>
                     </div>
                 </div>
                 <div class="cleaner"></div>

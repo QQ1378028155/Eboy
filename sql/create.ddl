@@ -1,7 +1,7 @@
 CREATE TABLE Statistics (
-  statisticsID     int(10) NOT NULL AUTO_INCREMENT, 
-  statisticsIncome double NOT NULL, 
-  statisticsOutpay double NOT NULL, 
+  statisticsID    int(10) NOT NULL AUTO_INCREMENT, 
+  statisticsMoney double NOT NULL, 
+  statisticsTime  date NOT NULL, 
   PRIMARY KEY (statisticsID));
 CREATE TABLE ItemTag (
   itemTagID int(10) NOT NULL AUTO_INCREMENT, 
@@ -59,15 +59,15 @@ CREATE TABLE Item (
   itemPrice                 double NOT NULL, 
   itemPriceCurrency         varchar(10) NOT NULL, 
   itemPackageCost           double DEFAULT 0, 
-  itemPackageCostCurrency   varchar(10) DEFAULT 'CNY', 
+  itemPackageCostCurrency   varchar(10) DEFAULT 'CHY', 
   itemImportCost            double DEFAULT 0, 
-  itemImportCostCurrency    varchar(10) DEFAULT 'CNY', 
+  itemImportCostCurrency    varchar(10) DEFAULT 'CHY', 
   itemShippingCost          double DEFAULT 0, 
-  itemShippingCostCurrency  varchar(10) DEFAULT 'CNY', 
+  itemShippingCostCurrency  varchar(10) DEFAULT 'CHY', 
   itemInsuranceCost         double DEFAULT 0, 
-  itemInsuranceCostCurrency varchar(10) DEFAULT 'CNY', 
+  itemInsuranceCostCurrency varchar(10) DEFAULT 'CHY', 
   itemTaxCost               double DEFAULT 0, 
-  itemTaxCostCurrency       varchar(10) DEFAULT 'CNY', 
+  itemTaxCostCurrency       varchar(10) DEFAULT 'CHY', 
   itemSoldQuantity          int(10) DEFAULT 0 NOT NULL, 
   PRIMARY KEY (itemID));
 ALTER TABLE `Order` ADD INDEX FKOrder388381 (itemID), ADD CONSTRAINT FKOrder388381 FOREIGN KEY (itemID) REFERENCES Item (itemID);

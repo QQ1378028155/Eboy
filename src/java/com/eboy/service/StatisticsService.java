@@ -6,6 +6,7 @@ package com.eboy.service;
 
 import com.eboy.dao.StatisticsDao;
 import com.eboy.po.Statistics;
+import java.util.List;
 
 /**
  *
@@ -13,7 +14,7 @@ import com.eboy.po.Statistics;
  */
 public interface StatisticsService {
         
-        public Statistics getStatistics();
-        public void update(Statistics statistics);
+        public List<Statistics> getStatistics();
+        public void addStatistics(Statistics statistics);
 
 }

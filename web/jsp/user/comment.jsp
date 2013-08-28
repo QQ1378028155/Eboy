@@ -1,7 +1,7 @@
 <%-- 
     Document   : comment
     Created on : 2013-8-25, 19:58:19
-    Author     : WingFung
+    Author     : WingFung game3108
 --%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -120,12 +120,13 @@
                     <div class="cleaner h20"></div>
                     <h4>请填写以下表格对商品进行评价</h4>
                     <div id="comment_form">
-                        <form method="post" name="contact" action="#">
-                            <label for="author">昵称:</label> <input type="text" id="author" name="author" class="required input_field" />
+                        <form method="post" name="contact" action="addComment">
+                            <input type="text" name="itemId" value="<s:property value="#item.itemId"/>" readonly="true" style="display:none;"/>
+                            <label for="author">昵称:</label> <input type="text" id="author" name="commentRate" class="required input_field" />
                             <div class="cleaner h10"></div>
-                            <label for="email">邮箱:</label> <input type="text" id="email" name="email" class="validate-email required input_field" />
+                            <label for="rate">评分</label> <input type="text" id="rate" name="commentRate" class="required input_field" />
                             <div class="cleaner h10"></div>
-                            <label for="text">评价内容:</label> <textarea id="text" name="text" rows="0" cols="0" class="required"></textarea>
+                            <label for="content">评价内容:</label> <textarea id="content" name="CommentContent" rows="0" cols="0" class="required"></textarea>
                             <div class="cleaner h10"></div>
                             <input type="submit" value="提交" id="submit" name="submit" class="submit_btn float_l" />
                     </div>

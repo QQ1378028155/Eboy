@@ -13,12 +13,12 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
  * @author wjl
  */
 public class StatisticsDao extends HibernateDaoSupport{
-        public void update(Statistics statistics)
+        public void addStatistics(Statistics statistics)
         {
-                this.getHibernateTemplate().update(statistics);
+                this.getHibernateTemplate().save(statistics);
         }
-        public Statistics getStatistics()
+        public List<Statistics> getStatistics()
         {
-                return ((List<Statistics>)(this.getHibernateTemplate().find("from Statistics"))).get(0);
+                return ((List<Statistics>)(this.getHibernateTemplate().find("from Statistics")));
         }
 }
