@@ -81,7 +81,7 @@ and open the template in the editor.
                         <result name="success">/jsp/user/searchItemResult.jsp</result>
                 </action>
                 <action name="loadItemInfo" class="loadItemInfoAction">
-                        <result name="success">/jsp/user/productdetail.jsp</result>
+                        <result name="success">/jsp/user/loadItemInfoResult.jsp</result>
                 </action>
                 <action name="addCart" class="addCartAction">
                         <result name="success">/jsp/user/loadItemsSortedBySale.jsp</result>
@@ -108,6 +108,9 @@ and open the template in the editor.
                 <action name="getTags" class="getTagsAction">
                         <result name="success">/jsp/user/getTags.jsp</result>
                 </action>
+                <action name="getStatistics" class="getStatisticsAction">
+                        <result name="success">/jsp/admin/getStatistics.jsp</result>
+                </action>
                 <action name="getCheckoutForm" class="getCheckoutFormAction">
                         <result name="success">/jsp/user/checkoutForm.jsp</result>
                 </action>
@@ -120,7 +123,11 @@ and open the template in the editor.
                         <result name="success">/jsp/admin/index.jsp</result>
                         <result name="failure">/jsp/admin/login.jsp</result>
                 </action>
-                
-                
+                <action name="adminGetEbayItems" class="adminGetEbayItemsAction">
+                        <result name="success">/jsp/admin/ebayItemList.jsp</result>
+                </action>
+                <action name="adminFetchFilter" class="adminFetchFilterAction">
+                        <result name="success">/jsp/admin/ebaySERP.jsp</result>
+                </action>
         </package>
 </struts>
