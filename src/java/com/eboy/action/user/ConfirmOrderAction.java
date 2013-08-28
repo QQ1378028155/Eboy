@@ -11,6 +11,7 @@ import com.eboy.service.StatisticsService;
 import com.opensymphony.xwork2.ActionSupport;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
@@ -45,10 +46,11 @@ public class ConfirmOrderAction extends ActionSupport {
                                         out.print("success");
                                         order.setOrderStatus("已收到");
                                         orderService.updateDeliverOrder(order);
-                                        Statistics s = getStatisticsService().getStatistics();
-                                        double income = s.getStatisticsIncome() + order.getOrderPrice();
-                                        s.setStatisticsIncome(income);
-                                        statisticsService.update(s);
+                                        Statistics s = new Statistics();
+                                        s.setStatisticsMoney(order.getOrderPrice());
+                                        Date date = new Date();
+                                        s.setStatisticsTime(date);
+                                        statisticsService.addStatistics(s);
                                 } else {
                                         out.print("订单已经确认过了");
                                 }

@@ -6,6 +6,7 @@ package com.eboy.service;
 
 import com.eboy.dao.StatisticsDao;
 import com.eboy.po.Statistics;
+import java.util.List;
 
 /**
  *
@@ -15,15 +16,7 @@ public class StatisticsServiceImpl implements StatisticsService {
 
         private StatisticsDao statisticsDao;
 
-        @Override
-        public Statistics getStatistics() {
-                return getStatisticsDao().getStatistics();
-        }
 
-        @Override
-        public void update(Statistics statistics) {
-                getStatisticsDao().update(statistics);
-        }
 
         public StatisticsDao getStatisticsDao() {
                 return statisticsDao;
@@ -32,4 +25,15 @@ public class StatisticsServiceImpl implements StatisticsService {
         public void setStatisticsDao(StatisticsDao statisticsDao) {
                 this.statisticsDao = statisticsDao;
         }
+
+        @Override
+        public List<Statistics> getStatistics() {
+                return statisticsDao.getStatistics();
+        }
+
+        @Override
+        public void addStatistics(Statistics statistics) {
+                statisticsDao.addStatistics(statistics);
+        }
+
 }

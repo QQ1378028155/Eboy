@@ -114,5 +114,13 @@ and open the template in the editor.
                 <action name="fetchFilter" class="fetchFilterAction">
                         <result name="success">/jsp/user/products.jsp</result>
                 </action>
+                
+                
+                <action name="login" class="loginAction">
+                        <result name="success">/jsp/admin/index.jsp</result>
+                        <result name="failure">/jsp/admin/login.jsp</result>
+                </action>
+                
+                
         </package>
 </struts>
