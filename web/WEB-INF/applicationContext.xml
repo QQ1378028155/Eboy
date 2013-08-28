@@ -336,4 +336,9 @@
                         <ref bean="tagService"></ref>
                 </property>
         </bean>
+        <bean id="getStatisticsAction" class="com.eboy.action.admin.GetStatisticsAction">
+                <property name="statisticsService">
+                        <ref bean="statisticsService"></ref>
+                </property>
+        </bean>
 </beans>
