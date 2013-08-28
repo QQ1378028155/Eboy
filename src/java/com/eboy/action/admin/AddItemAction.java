@@ -116,8 +116,15 @@ public class AddItemAction extends ActionSupport
                         gallery.setGalleryUrl(pictureURL[i]);
                         getGalleryService().addGallery(gallery);
                 }
-                
-                NameValueListType[] nvlt = itemType.getItemSpecifics().getNameValueList();
+                NameValueListType[] nvlt;
+                try
+                {
+                         nvlt = itemType.getItemSpecifics().getNameValueList();
+                }
+                catch(Exception e)
+                {
+                        return "success";
+                }
                 for(int i = 0;i < nvlt.length;i ++)
                 {
                         String[] tagWords = nvlt[i].getValue();

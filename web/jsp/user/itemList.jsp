@@ -13,7 +13,11 @@
 
 <div id="content" class="float_r">
         <h1>新上架的商品</h1>
-        <a href="" onclick="showNew();return false;">按时间排序</a>|<a href="" onclick="showRate();return false;">按得分排序</a>|<a href="" onclick="showSale();return false;">按销售量排序</a>|<a href="" onclick="showPrice();return false;">按价格排序</a>
+        <a href="" onclick="showNew();
+                        return false;">按时间排序</a>|<a href="" onclick="showRate();
+                        return false;">按得分排序</a>|<a href="" onclick="showSale();
+                        return false;">按销售量排序</a>|<a href="" onclick="showPrice();
+                        return false;">按价格排序</a>
         <br/>
         <div id="new" style="display: inline;">
                 <s:iterator value="#newItemList" status="it">
@@ -60,58 +64,58 @@
                 </s:iterator>
         </div>
 
-<script type="text/javascript">
-        function addCart(itemId)
-        {
-                var cartSize = 0;
-                var cookieArray = document.cookie.split("; ");
-                for (var i = 0; i < cookieArray.length; i++) {
-                        var arr = cookieArray[i].split("=");
-                        if (arr[0] == "cartSize")
-                                cartSize = parseInt(arr[1]);
+        <script type="text/javascript">
+                function addCart(itemId)
+                {
+                        var cartSize = 0;
+                        var cookieArray = document.cookie.split("; ");
+                        for (var i = 0; i < cookieArray.length; i++) {
+                                var arr = cookieArray[i].split("=");
+                                if (arr[0] == "cartSize")
+                                        cartSize = parseInt(arr[1]);
+                        }
+                        var date = new Date();
+                        date.setTime(date.getTime() + 3600 * 24 * 30);
+                        var strItem = "item" + cartSize + "=" + itemId + "; expires=" + date.toGMTString() + "; path=/Eboy/";
+                        var strQuantity = "item" + cartSize + "Quantity=1; expires=" + date.toGMTString() + "; path=/Eboy/";
+                        cartSize = cartSize + 1;
+                        var strCartSize = "cartSize=" + cartSize + "; expires=" + date.toGMTString() + "; path=/Eboy/";
+                        document.cookie = strItem;
+                        document.cookie = strQuantity;
+                        document.cookie = strCartSize;
+                        var v = document.getElementById("cartSize");
+                        v.innerHTML = cartSize + " 件商品";
                 }
-                var date = new Date();
-                date.setTime(date.getTime() + 3600 * 24 * 30);
-                var strItem = "item" + cartSize + "=" + itemId + "; expires=" + date.toGMTString() + "; path=/Eboy/";
-                var strQuantity = "item" + cartSize + "Quantity=1; expires=" + date.toGMTString() + "; path=/Eboy/";
-                cartSize = cartSize + 1;
-                var strCartSize = "cartSize=" + cartSize + "; expires=" + date.toGMTString() + "; path=/Eboy/";
-                document.cookie = strItem;
-                document.cookie = strQuantity;
-                document.cookie = strCartSize;
-                var v = document.getElementById("cartSize");
-                v.innerHTML = cartSize + " 件商品";
-        }
-        var nlist = document.getElementById('new');
-        var rlist = document.getElementById('rate');
-        var slist = document.getElementById('sale');
-        var plist = document.getElementById('price');
-        function showNew() {
-                nlist.style.display = "inline";
-                rlist.style.display = "none";
-                slist.style.display = "none";
-                plist.style.display = "none";
-        }
-        function showRate() {
-                nlist.style.display = "none";
-                rlist.style.display = "inline";
-                slist.style.display = "none";
-                plist.style.display = "none";
-        }
-        function showSale() {
-                nlist.style.display = "none";
-                rlist.style.display = "none";
-                slist.style.display = "inline";
-                plist.style.display = "none";
-        }
-        function showPrice() {
-                nlist.style.display = "none";
-                rlist.style.display = "none";
-                slist.style.display = "none";
-                plist.style.display = "inline";
-        }
+                var nlist = document.getElementById('new');
+                var rlist = document.getElementById('rate');
+                var slist = document.getElementById('sale');
+                var plist = document.getElementById('price');
+                function showNew() {
+                        nlist.style.display = "inline";
+                        rlist.style.display = "none";
+                        slist.style.display = "none";
+                        plist.style.display = "none";
+                }
+                function showRate() {
+                        nlist.style.display = "none";
+                        rlist.style.display = "inline";
+                        slist.style.display = "none";
+                        plist.style.display = "none";
+                }
+                function showSale() {
+                        nlist.style.display = "none";
+                        rlist.style.display = "none";
+                        slist.style.display = "inline";
+                        plist.style.display = "none";
+                }
+                function showPrice() {
+                        nlist.style.display = "none";
+                        rlist.style.display = "none";
+                        slist.style.display = "none";
+                        plist.style.display = "inline";
+                }
 
-</script>
+        </script>
         <!--        <div class="product_box">
                         <a href="productdetail.html"><img src="images/product/01.jpg" alt="Image 01" /></a>
                         <h3>Integer eleifend sed</h3>

@@ -35,7 +35,7 @@
                                 </div>-->
 
                 <s:iterator value="#tagList">
-                        <a href="<s:url action="fetchFilter">
+                        <a href="<s:url value="products.jsp">
                                    <s:param name="method">tag</s:param>
                                    <s:param name="value"><s:property value="tagId"/></s:param>
                            </s:url>

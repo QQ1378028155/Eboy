@@ -20,10 +20,10 @@ and open the template in the editor.
                         <result name="success">/jsp/admin/addCategory.jsp</result>
                 </action>
                 <action name="translateItem" class="translateItemAction">
-                        <result name="success">/jsp/admin/addItem.jsp</result>
+                        <result name="success">/jsp/admin/itemToAdd.jsp</result>
                 </action>
                 <action name="addItem" class="addItemAction">
-                        <result name="success">/jsp/admin/addItem.jsp</result>
+                        <result name="success">/jsp/admin/storage.jsp?method=all</result>
                 </action>
                 <action name="lookUpOrder" class="lookUpOrderAction">
                         <result name="success">/jsp/admin/lookUpOrderResultList.jsp</result>
@@ -41,7 +41,7 @@ and open the template in the editor.
                         <result name="success">/jsp/admin/lookUpSingleOrder.jsp</result>
                 </action>
                 <action name="searchItemsFromStore" class="searchItemsFromStoreAction">
-                        <result name="success">/jsp/admin/itemsInStore.jsp</result>
+                        <result name="success">/jsp/admin/itemList.jsp</result>
                 </action>
                 <action name="goToTranslationItem" class="goToTranslationItemAction"> 
                         <result name="success">/jsp/admin/setTranslation.jsp</result>
