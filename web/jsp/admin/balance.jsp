@@ -95,10 +95,10 @@
                 </div>
             </div><!-- END of templatemo_menu -->
             
-            
             <div id="templatemo_main">
                 <div id="content">
                     <h1>收支明细</h1>
+                    <img src="http://chart.apis.google.com/chart?chs=200x125&amp;chd=s:helloWorld&amp;cht=lc&amp;chxt=x,y&amp;chxl=0:|Mar|Apr|May|June|July|1:||50+Kb" alt="Sample chart" />
                     <div align="center">
                         <table >
                             <tr>
@@ -122,8 +122,10 @@
                                 <td align="center">90000</td>
                                 <td align="center">10000</td>
                             </tr>
+                                
                         </table>
                     </div>
+                    <s:action name="getStatistics" executeResult="true"/>
 
                 </div>
                 <div class="cleaner"></div>
