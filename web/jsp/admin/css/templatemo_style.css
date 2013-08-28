@@ -266,6 +266,7 @@ h6 {
     height:30px;
     background-color: #000;
     color: #fff;
+    cursor: pointer;
     border-width: 0;
     font-family: Microsoft YaHei;
 }
@@ -360,6 +361,12 @@ h6 {
 	font-weight: 700
 }
 
+.product_box .product_quantity {
+	color: #ff9900;
+	font-size: 14px;
+	font-weight: 700
+}
+
 .product_box .add_to_card {
 	float: left;
 	display: block;
@@ -439,7 +446,7 @@ h6 {
 .faq h3 { font-size: 14px; margin: 30px 0 5px }
 
 .content_half { 
-	width: 320px; 
+	width: 460px; 
 }
 
 .content_13 { 
