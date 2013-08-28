@@ -14,5 +14,6 @@ import java.util.List;
 public interface TagService {
         void addTag(String tagWord);    
         Tag getTag(int tagId);
+        Tag getTag(String tagWord);
         List<Tag> getTags();
 }

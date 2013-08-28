@@ -45,5 +45,10 @@ public class TagServiceImpl implements TagService{
         public Tag getTag(int tagId) {
                 return this.tagDao.getTag(tagId);
         }
+
+        @Override
+        public Tag getTag(String tagWord) {
+                return tagDao.getTag(tagWord);
+        }
         
 }

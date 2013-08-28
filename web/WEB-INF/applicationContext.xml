@@ -153,7 +153,12 @@
                 <property name="galleryService">
                         <ref bean="galleryService"></ref>
                 </property>
-        
+                <property name="tagService">
+                        <ref bean="tagService"></ref>
+                </property>
+                <property name="itemTagService">
+                        <ref bean="itemTagService"></ref>
+                </property>
         </bean>
         <bean id="translateItemAction" class="com.eboy.action.admin.TranslateItemAction">
                 <property name="categoryService">
