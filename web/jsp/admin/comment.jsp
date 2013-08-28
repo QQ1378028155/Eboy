@@ -1,14 +1,15 @@
 <%-- 
-    Document   : balance
-    Created on : 2013-8-27, 16:00:25
+    Document   : comment
+    Created on : 2013-8-28, 16:14:43
     Author     : WingFung
 --%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@taglib prefix="s" uri="/struts-tags" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html  xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <title>EboyAdmin - 收支明细</title>
+        <title>EboyAdmin - 评价管理</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link href="css/templatemo_style.css" rel="stylesheet" type="text/css" />
         <link href="css/ddsmoothmenu.css" rel="stylesheet" type="text/css" />
@@ -71,7 +72,7 @@
             <div id="templatemo_menu">
                 <div id="top_nav" class="ddsmoothmenu">
                     <ul>
-                        <li><a href="balance.jsp" class="selected">收支明细</a></li>
+                        <li><a href="balance.jsp">收支明细</a></li>
                         <li><a href="storage.jsp">仓库管理</a></li>
                         <li><a href="category.jsp">类型管理</a></li>
                         <li><a href="tag.jsp">标签管理</a></li>
@@ -95,38 +96,28 @@
                 </div>
             </div><!-- END of templatemo_menu -->
             
+            
             <div id="templatemo_main">
-                <div id="content">
-                    <h1>收支明细</h1>
-                    <img src="http://chart.apis.google.com/chart?chs=200x125&amp;chd=s:helloWorld&amp;cht=lc&amp;chxt=x,y&amp;chxl=0:|Mar|Apr|May|June|July|1:||50+Kb" alt="Sample chart" />
-                    <div align="center">
-                        <table >
-                            <tr>
-                                <th width="150">日期</th>
-                                <th width="400">摘要</th>
-                                <th width="100">类型</th>
-                                <th width="120">金额(CNY)</th>
-                                <th width="120">结余(CNY)</th>
-                            </tr>
-                            <tr>
-                                <td align="center">2013-08-27 15:22</td>
-                                <td align="center">本金</td>
-                                <td align="center">收入</td>
-                                <td align="center">100000</td>
-                                <td align="center">100000</td>
-                            </tr>
-                            <tr>
-                                <td align="center">2013-08-27 15:36</td>
-                                <td align="center">为客户下单20台iphone5S，订单号：abcdefgh</td>
-                                <td align="center">支出</td>
-                                <td align="center">90000</td>
-                                <td align="center">10000</td>
-                            </tr>
-                                
-                        </table>
-                    </div>
-                    <s:action name="getStatistics" executeResult="true"/>
-
+                <div id="content" class="float_r">
+                    <h1>评价管理</h1>
+                    <h4>商品名称</h4>
+                    <h5><strong>iPhone 5S 金色版</strong></h5>
+                    <div class="cleaner h10"></div>
+                    <h4>商品评价</h4>
+                    <table>
+                        <tr>
+                            <p><strong>评论人昵称</strong>(<a href="mailto:aaa@qq.com">aaa@qq.com</a>)<span style="float: right;">2013-08-25 02:46</span></p>
+                            <p>好评！</p>
+                            <a href="">删除</a>
+                            <hr/>
+                        </tr>
+                        <tr>
+                            <p><strong>评论人昵称</strong>(<a href="mailto:bbb@163.com">bbb@163.com</a>)<span style="float: right;">2013-08-25 02:46</span></p>
+                            <p>中评！</p>
+                            <a href="">删除</a>
+                            <hr/>
+                        </tr>
+                    </table>
                 </div>
                 <div class="cleaner"></div>
             </div> <!-- END of templatemo_main -->
