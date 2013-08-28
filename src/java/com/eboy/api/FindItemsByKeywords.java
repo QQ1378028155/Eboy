@@ -72,6 +72,7 @@ public class FindItemsByKeywords {
                                 Item newItem = new Item();
                                 newItem.setItemEbayId(item.getItemId());
                                 newItem.setItemPrice(item.getSellingStatus().getConvertedCurrentPrice().getValue());
+                                newItem.setItemPriceCurrency(item.getSellingStatus().getConvertedCurrentPrice().getCurrencyId());
                                 newItem.setItemTitle(item.getTitle());
                                 if(item.getGalleryURL() == null)
                                         newItem.setItemThumbnailImageUrl("./images/notFound.jpg");

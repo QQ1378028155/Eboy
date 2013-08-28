@@ -335,5 +335,12 @@
                 <property name="tagService">
                         <ref bean="tagService"></ref>
                 </property>
+        </bean>     
+        <bean id="adminFetchFilterAction" class="com.eboy.action.admin.AdminFetchFilterAction">
+        </bean>
+        <bean id= "adminGetEbayItemsAction" class="com.eboy.action.admin.AdminGetEbayItemsAction">
+                <property name="itemService">
+                        <ref bean="itemService"></ref>
+                </property>
         </bean>
 </beans>
