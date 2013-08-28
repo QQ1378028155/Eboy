@@ -163,6 +163,10 @@
                                 <td><textarea style="width:250px;" id="text" name="text" rows="8" cols="0" class="required">先把原来的写进框里</textarea></td>
                             </tr>
                             <tr>
+                                <td height="30" width="100">评价:</td>
+                                <td><a href="comment.jsp">评价管理</a></td> 
+                            </tr>
+                            <tr>
                                 <td height="30" width="100">标签:</td>
                                 <td>
                                     <input type="text" style="width:170px;"></input>
