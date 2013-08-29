@@ -20,10 +20,7 @@ public class DeliveryServiceImpl implements DeliveryService {
         private DeliveryDao deliveryDao;
 
         @Override
-        public void addDelivery(String deliveryLocation, Order order) {
-                Delivery delivery = new Delivery();
-                delivery.setOrder(order);
-                delivery.setDeliveryLocation(deliveryLocation);
+        public void addDelivery(Delivery delivery) {
                 try {
                         deliveryDao.save(delivery);
                 } catch (Exception ex) {
@@ -47,5 +44,15 @@ public class DeliveryServiceImpl implements DeliveryService {
         @Override
         public List<Delivery> getDeliveriesByOrderId(Integer orderId) {
                 return this.deliveryDao.getDeliveriesByOrderId(orderId);
+        }
+
+        @Override
+        public Delivery getDelivery(Integer deliveryId) {
+                return this.deliveryDao.getDelivery(deliveryId);
+        }
+
+        @Override
+        public void deleteDelivery(Delivery delivery) {
+                this.deliveryDao.deleteDeliery(delivery);
         }
 }

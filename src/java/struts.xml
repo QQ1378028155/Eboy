@@ -132,5 +132,11 @@ and open the template in the editor.
                 <action name="adminGetCategories" class="adminGetCategoriesAction">
                         <result name="success">/jsp/admin/categories.jsp</result>
                 </action>
+                <action name="adminLookUpDelivery" class="adminLookUpDeliveryAction">
+                        <result name="success">/jsp/admin/delivery.jsp</result>
+                </action>
+                <action name="updateOrderStatus" class="updateOrderStatusAction">
+                </action>
+                <action name="deleteOrderDelivery" class="deleteOrderDeliveryAction"></action>
         </package>
 </struts>

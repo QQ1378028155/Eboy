@@ -17,9 +17,9 @@ public class DeliveryDao extends HibernateDaoSupport{
         {
                 this.getHibernateTemplate().save(delivery);
         }
-        public Delivery getDelivery(long deliveryID)
+        public Delivery getDelivery(Integer deliveryId)
         {
-                return (Delivery)(this.getHibernateTemplate().get(Delivery.class, deliveryID));
+                return (Delivery)(this.getHibernateTemplate().get(Delivery.class, deliveryId));
         }
         public List<Delivery> getDeliveries()
         {
@@ -28,5 +28,9 @@ public class DeliveryDao extends HibernateDaoSupport{
         public List<Delivery> getDeliveriesByOrderId(Integer orderId)
         {
                 return (List<Delivery>)(getHibernateTemplate().find("from Delivery where order.orderId=?", orderId));
+        }
+        public void deleteDeliery(Delivery delivery)
+        {
+                this.getHibernateTemplate().delete(delivery);
         }
 }
