@@ -1,6 +1,6 @@
 <%-- 
-    Document   : storageSERP
-    Created on : 2013-8-27, 23:34:29
+    Document   : category
+    Created on : 2013-8-29, 1:35:33
     Author     : WingFung
 --%>
 
@@ -9,7 +9,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html  xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <title>EboyAdmin - 仓库搜索结果</title>
+        <title>EboyAdmin - 类型管理</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link href="css/templatemo_style.css" rel="stylesheet" type="text/css" />
         <link href="css/ddsmoothmenu.css" rel="stylesheet" type="text/css" />
@@ -54,6 +54,65 @@
             });
         </script>
         
+        <script>
+            function get_previoussibling(n)
+            {
+                var x=n.previousSibling;
+                while (x.nodeType!=1)
+                {
+                    x=x.previousSibling;
+                }
+                return x;
+            }
+            function get_nextsibling(n)
+            {
+                var x=n.nextSibling;
+                while (x.nodeType!=1)
+                {
+                    x=x.nextSibling;
+                }
+                return x;
+            }
+            function modifyCategoryName(node){
+                var td=get_previoussibling(node.parentNode);
+                var value=td.innerHTML;
+                td.innerHTML="";
+                var textfield="<input type='text' style='width:200px;' value="+value+"></input>";
+                td.insertAdjacentHTML("beforeEnd",textfield);
+                node.style.display='none';
+                var confirmBtn=get_nextsibling(node);
+                confirmBtn.style.display='block';
+            };
+            function confirmCategoryName(node){
+                var td=get_previoussibling(node.parentNode);
+                var inputfield=td.childNodes[0];
+                if (inputfield.nodeType!=1)
+                    get_nextsibling(inputfield);
+                var value=inputfield.value;
+                td.innerHTML=value;
+                node.style.display='none';
+                var modifyBtn=get_previoussibling(node);
+                modifyBtn.style.display='block';
+            };
+            function addCategory(){
+                var num=document.getElementById("categoryNum");
+                var name=document.getElementById("categoryName");
+                var tr="<tr><td align='center'>"+num.value+"</td><td align='center'>"+name.value+"</td><td align=center>"+
+                        "<a href='javascript:void(0);' onclick='modifyCategoryName(this);' style='display:block;'>修改类型名称</a>"+
+                        "<input type='button' class='btn' onclick='confirmCategoryName(this);' style='display:none;width:100px;height:25px;background-color: #0099ff;'value='确认类型名称' />"+
+                        "</td></tr>";
+                document.getElementById("trInput").insertAdjacentHTML("beforeBegin",tr);
+                var xmlHttp;
+                if (window.ActiveXObject) {
+                        xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+                } else
+                        xmlHttp = new XMLHttpRequest();
+               xmlHttp.open("get", "addCategory.action?categoryName=" + document.getElementById("categoryName").value, true);
+               xmlHttp.send();
+               num.value="";
+               name.value="";
+            };
+        </script>
     </head>
     
     <body>
@@ -74,7 +133,7 @@
                     <ul>
                         <li><a href="balance.jsp">收支明细</a></li>
                         <li><a href="storage.jsp">仓库管理</a></li>
-                        <li><a href="category.jsp">类型管理</a></li>
+                        <li><a href="category.jsp" class="selected">类型管理</a></li>
                         <li><a href="tag.jsp">标签管理</a></li>
                         <li><a href="comment.jsp">评价管理</a></li>
                         <li><a href="delivery.jsp">物流管理</a></li>
@@ -99,39 +158,20 @@
             
             <div id="templatemo_main">
                 <div id="content" class="float_r">
-                    <h1>仓库搜索结果</h1>
-                    <div class="product_box">
-                        <a href="productdetail.html"><img src="images/product/01.jpg" alt="Image 01" /></a>
-                        <h3>商品名占的行数不同会导致同一排的三个商品难以对齐</h3>
-                        <p>定价:<span class="product_price">$100</span></p>
-                        <p>数量:<span class="product_quantity">999</span></p>
-                        <a href="shoppingcart.html" class="add_to_card">修改信息</a>
-                        <a href="productdetail.html" class="detail">查看</a>
-                    </div>        	
-                    <div class="product_box">
-                        <a href="productdetail.html"><img src="images/product/02.jpg" alt="Image 02" /></a>
-                        <h3>中间商品的商品名只有一行</h3>
-                        <p>定价:<span class="product_price">$200</span></p>
-                        <p>数量:<span class="product_quantity">3</span></p>
-                        <a href="shoppingcart.html" class="add_to_card">修改信息</a>
-                        <a href="productdetail.html" class="detail">查看</a>
-                    </div>        	
-                   <div class="product_box">
-                        <a href="productdetail.html"><img src="images/product/02.jpg" alt="Image 02" /></a>
-                        <h3>中间商品的商品名只有一行</h3>
-                        <p>定价:<span class="product_price">$200</span></p>
-                        <p>数量:<span class="product_quantity">888</span></p>
-                        <a href="shoppingcart.html" class="add_to_card">修改信息</a>
-                        <a href="productdetail.html" class="detail">查看</a>
-                    </div>        
-                    <div class="product_box no_margin_right">
-                        <a href="productdetail.html"><img src="images/product/03.jpg" alt="Image 03" /></a>
-                        <h3>右边的商品的div class有个no_margin_right</h3>
-                        <p>定价:<span class="product_price">$120</span></p>
-                        <p>数量:<span class="product_quantity">5</span></p>
-                        <a href="shoppingcart.html" class="add_to_card">修改信息</a>
-                        <a href="productdetail.html" class="detail">查看</a>
-                    </div>        		
+                    <h1>类型管理</h1>
+                    <table id="categoryTable" style="font-size: 13px;">
+                        <tr>
+                            <th width="200" align="center">序号</th>
+                            <th width="400" align="center">类型名称</th>
+                            <th width="300" align="center">操作</th>
+                        </tr>
+                        <s:action name="adminGetCategories" executeResult="true"/>
+                        <tr id="trInput">
+                            <td align="center"><input id="categoryNum" type="text" style="width:100px;"></input></td>
+                            <td align="center"><input id="categoryName" type="text" style="width:200px;"></input></td>
+                            <td align="center"><a href="javascript:void(0);" onclick="addCategory();">添加</a></td>
+                        </tr>
+                    </table>
 
                 </div>
                 <div class="cleaner"></div>

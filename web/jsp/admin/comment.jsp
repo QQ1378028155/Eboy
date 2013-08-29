@@ -53,7 +53,12 @@
                 });
             });
         </script>
-        
+        <script>
+            function removeComment(node){
+                var parent=node.parentNode;
+                parent.removeChild(node);
+            }
+        </script>
     </head>
     
     <body>
@@ -104,18 +109,22 @@
                     <h5><strong>iPhone 5S 金色版</strong></h5>
                     <div class="cleaner h10"></div>
                     <h4>商品评价</h4>
-                    <table>
+                    <table width='920px'>
                         <tr>
+                            <td>
                             <p><strong>评论人昵称</strong>(<a href="mailto:aaa@qq.com">aaa@qq.com</a>)<span style="float: right;">2013-08-25 02:46</span></p>
                             <p>好评！</p>
-                            <a href="">删除</a>
+                            <a href="javascript:void(0);" onclick='removeComment(this.parentNode.parentNode);'>删除</a>
                             <hr/>
+                            </td>
                         </tr>
                         <tr>
+                            <td>
                             <p><strong>评论人昵称</strong>(<a href="mailto:bbb@163.com">bbb@163.com</a>)<span style="float: right;">2013-08-25 02:46</span></p>
                             <p>中评！</p>
-                            <a href="">删除</a>
+                            <a href="javascript:void(0);" onclick='removeComment(this.parentNode.parentNode);'>删除</a>
                             <hr/>
+                            </td>
                         </tr>
                     </table>
                 </div>

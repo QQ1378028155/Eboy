@@ -5,19 +5,27 @@
 package com.eboy.action.admin;
 
 import com.ebay.soap.eBLBaseComponents.ItemType;
+import com.ebay.soap.eBLBaseComponents.NameValueListType;
 import com.ebay.soap.eBLBaseComponents.PictureDetailsType;
 import com.ebay.soap.eBLBaseComponents.ShippingDetailsType;
 import com.eboy.api.AddItem;
 import com.eboy.api.GetItem;
 import com.eboy.api.GetItemShipping;
 import com.eboy.api.ItemAdapter;
+import com.eboy.api.YoudaoTranslate;
 import com.eboy.po.Category;
 import com.eboy.po.Gallery;
 import com.eboy.po.Item;
+import com.eboy.po.ItemTag;
+import com.eboy.po.Tag;
 import com.eboy.service.CategoryService;
 import com.eboy.service.GalleryService;
 import com.eboy.service.ItemService;
+import com.eboy.service.ItemTagService;
+import com.eboy.service.TagService;
 import com.opensymphony.xwork2.ActionSupport;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -28,6 +36,8 @@ public class AddItemAction extends ActionSupport
         private CategoryService categoryService;
         private ItemService itemService;
         private GalleryService galleryService;
+        private TagService tagService;
+        private ItemTagService itemTagService;
         private String itemEbayId;
         private String itemTitle;
         private String itemDescription;
@@ -104,11 +114,41 @@ public class AddItemAction extends ActionSupport
                         Gallery gallery = new Gallery();
                         gallery.setItem(item);
                         gallery.setGalleryUrl(pictureURL[i]);
-                        galleryService.addGallery(gallery);
+                        getGalleryService().addGallery(gallery);
                 }
-                
-                
-                
+                NameValueListType[] nvlt;
+                try
+                {
+                         nvlt = itemType.getItemSpecifics().getNameValueList();
+                }
+                catch(Exception e)
+                {
+                        return "success";
+                }
+                for(int i = 0;i < nvlt.length;i ++)
+                {
+                        String[] tagWords = nvlt[i].getValue();
+                        for(int j = 0;j < tagWords.length;j ++)
+                        {
+                                String tagWord = null;
+                                try {
+                                        tagWord = YoudaoTranslate.execute(tagWords[j]);
+                                } catch (Exception ex) {
+                                        Logger.getLogger(AddItemAction.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                                
+                                Tag tag = getTagService().getTag(tagWord);
+                                if(tag == null)
+                                {
+                                        tagService.addTag(tagWord);
+                                        tag = tagService.getTag(tagWord);
+                                }
+                                ItemTag itemTag = new ItemTag();
+                                itemTag.setItem(item);
+                                itemTag.setTag(tag);
+                                itemTagService.addItemTag(itemTag);
+                        }
+                }
                 
                 return "success";
         }
@@ -167,6 +207,22 @@ public class AddItemAction extends ActionSupport
 
         public void setGalleryService(GalleryService galleryService) {
                 this.galleryService = galleryService;
+        }
+
+        public TagService getTagService() {
+                return tagService;
+        }
+
+        public void setTagService(TagService tagService) {
+                this.tagService = tagService;
+        }
+
+        public ItemTagService getItemTagService() {
+                return itemTagService;
+        }
+
+        public void setItemTagService(ItemTagService itemTagService) {
+                this.itemTagService = itemTagService;
         }
         
 }

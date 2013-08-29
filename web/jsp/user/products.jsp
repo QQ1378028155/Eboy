@@ -117,8 +117,8 @@
                                         <s:action name="getTags" executeResult="true"/>
                                 </div>
                                 <s:action name="getItems" executeResult="true">
-                                        <s:param name="method"><s:property value="method"/></s:param>
-                                        <s:param name="value"><s:property value="value"/></s:param>
+                                        <s:param name="method"><s:property value="#parameters.method"/></s:param>
+                                        <s:param name="value"><s:property value="#parameters.value"/></s:param>
                                 </s:action>
                                 <div class="cleaner"></div>
                         </div> <!-- END of templatemo_main -->

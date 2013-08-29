@@ -20,10 +20,10 @@ and open the template in the editor.
                         <result name="success">/jsp/admin/addCategory.jsp</result>
                 </action>
                 <action name="translateItem" class="translateItemAction">
-                        <result name="success">/jsp/admin/addItem.jsp</result>
+                        <result name="success">/jsp/admin/itemToAdd.jsp</result>
                 </action>
                 <action name="addItem" class="addItemAction">
-                        <result name="success">/jsp/admin/addItem.jsp</result>
+                        <result name="success">/jsp/admin/storage.jsp?method=all</result>
                 </action>
                 <action name="lookUpOrder" class="lookUpOrderAction">
                         <result name="success">/jsp/admin/lookUpOrderResultList.jsp</result>
@@ -41,7 +41,7 @@ and open the template in the editor.
                         <result name="success">/jsp/admin/lookUpSingleOrder.jsp</result>
                 </action>
                 <action name="searchItemsFromStore" class="searchItemsFromStoreAction">
-                        <result name="success">/jsp/admin/itemsInStore.jsp</result>
+                        <result name="success">/jsp/admin/itemList.jsp</result>
                 </action>
                 <action name="goToTranslationItem" class="goToTranslationItemAction"> 
                         <result name="success">/jsp/admin/setTranslation.jsp</result>
@@ -123,7 +123,14 @@ and open the template in the editor.
                         <result name="success">/jsp/admin/index.jsp</result>
                         <result name="failure">/jsp/admin/login.jsp</result>
                 </action>
-                
-                
+                <action name="adminGetEbayItems" class="adminGetEbayItemsAction">
+                        <result name="success">/jsp/admin/ebayItemList.jsp</result>
+                </action>
+                <action name="adminFetchFilter" class="adminFetchFilterAction">
+                        <result name="success">/jsp/admin/ebaySERP.jsp</result>
+                </action>
+                <action name="adminGetCategories" class="adminGetCategoriesAction">
+                        <result name="success">/jsp/admin/categories.jsp</result>
+                </action>
         </package>
 </struts>

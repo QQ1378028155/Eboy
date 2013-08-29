@@ -7,8 +7,10 @@ package com.eboy.action.admin;
 import com.ebay.soap.eBLBaseComponents.ItemType;
 import com.eboy.api.GetItem;
 import com.eboy.api.HtmlParser;
+import com.eboy.api.ItemAdapter;
 import com.eboy.api.YoudaoTranslate;
 import com.eboy.po.Category;
+import com.eboy.po.Item;
 import com.eboy.service.CategoryService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -26,58 +28,40 @@ import org.jsoup.nodes.Document;
  */
 public class TranslateItemAction extends ActionSupport
 {
-        private String itemEbayId;
-        private String itemTitle;
-        private String itemDescription;
         private CategoryService categoryService;
+        private String itemEbayId;
+        private String itemDescription;
         @Override
         public String execute()
         {
-                HttpServletRequest request = ServletActionContext.getRequest();
-                setItemEbayId(request.getParameter("itemEbayId"));
-                System.out.println("*******************                   itemEbayId=" + itemEbayId);
-                ItemType itemType = GetItem.execute(getItemEbayId());
+                ItemType itemType = GetItem.execute(itemEbayId);
+                Item item = ItemAdapter.execute(itemType);
                 try {
-                        setItemTitle(YoudaoTranslate.execute(itemType.getTitle()));
+                        item.setItemTitle(YoudaoTranslate.execute(itemType.getTitle()));
                 } catch (Exception ex) {
                         Logger.getLogger(TranslateItemAction.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 try {
                         
 //                        Document document = Jsoup.parse(itemDescription);
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
+                                             
                         setItemDescription(HtmlParser.execute(itemType.getDescription()));
+                        item.setItemDescription(getItemDescription().getBytes());
                 } catch (Exception ex) {
                         Logger.getLogger(TranslateItemAction.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 List<Category> categoryList = getCategoryService().getCategorys();
-                
+                ActionContext.getContext().put("item",item);
                 ActionContext.getContext().put("categoryList", categoryList);
                 return "success";
         }
 
-        public String getItemEbayId() {
-                return itemEbayId;
+        public CategoryService getCategoryService() {
+                return categoryService;
         }
 
-        public void setItemEbayId(String itemEbayId) {
-                this.itemEbayId = itemEbayId;
-        }
-
-        public String getItemTitle() {
-                return itemTitle;
-        }
-
-        public void setItemTitle(String itemTitle) {
-                this.itemTitle = itemTitle;
+        public void setCategoryService(CategoryService categoryService) {
+                this.categoryService = categoryService;
         }
 
         public String getItemDescription() {
@@ -88,12 +72,12 @@ public class TranslateItemAction extends ActionSupport
                 this.itemDescription = itemDescription;
         }
 
-        public CategoryService getCategoryService() {
-                return categoryService;
+        public String getItemEbayId() {
+                return itemEbayId;
         }
 
-        public void setCategoryService(CategoryService categoryService) {
-                this.categoryService = categoryService;
+        public void setItemEbayId(String itemEbayId) {
+                this.itemEbayId = itemEbayId;
         }
         
         

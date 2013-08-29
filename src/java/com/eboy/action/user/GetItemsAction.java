@@ -93,12 +93,16 @@ public class GetItemsAction extends ActionSupport {
                         item.setItemPriceCurrency(newAmount.getCurrencyId());
                 }
                 newItemList = SortItem.sortByNew(items);
+                newItemList = newItemList.subList(0, size);
                 context.put("newItemList", newItemList);
                 rateItemList = SortItem.sortByRate(items);
+                rateItemList = rateItemList.subList(0, size);
                 context.put("rateItemList", rateItemList);
                 saleItemList = SortItem.sortBySale(items);
+                saleItemList = saleItemList.subList(0, size);
                 context.put("saleItemList", saleItemList);
                 priceItemList = SortItem.sortByPrice(items);
+                priceItemList = priceItemList.subList(0, size);
                 context.put("priceItemList", priceItemList);
                 return "success";
         }

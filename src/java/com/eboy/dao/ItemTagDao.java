@@ -16,7 +16,9 @@ public class ItemTagDao extends HibernateDaoSupport
 {
         public void save(ItemTag itemTag) throws Exception
         {
-                this.getHibernateTemplate().save(itemTag);
+                List<ItemTag> it = (List<ItemTag>)(this.getHibernateTemplate().find("from ItemTag as it where it.item.itemId = ? and it.tag.tagWord = ?",itemTag.getItem().getItemId(),itemTag.getTag().getTagWord()));
+                if(it.size() == 0)
+                        this.getHibernateTemplate().save(itemTag);
         }
         public List<ItemTag> getItemTagsByItemId(int itemId)
         {

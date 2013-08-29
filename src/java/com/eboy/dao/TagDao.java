@@ -21,6 +21,17 @@ public class TagDao extends HibernateDaoSupport{
         {
                 return (Tag)(this.getHibernateTemplate().get(Tag.class, tagID));
         }
+        public Tag getTag(String tagWord)
+        {
+                try
+                {
+                        return ((List<Tag>)(this.getHibernateTemplate().find("from Tag where tagWord = ?",tagWord ))).get(0);
+                }
+                catch(IndexOutOfBoundsException e)
+                {
+                        return null;
+                }
+        }
         public List<Tag> getTags()
         {
                 return (List<Tag>)(getHibernateTemplate().find("from Tag"));

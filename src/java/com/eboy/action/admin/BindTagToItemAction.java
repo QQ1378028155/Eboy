@@ -11,6 +11,13 @@ import com.eboy.service.ItemService;
 import com.eboy.service.ItemTagService;
 import com.eboy.service.TagService;
 import com.opensymphony.xwork2.ActionSupport;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import org.apache.struts2.ServletActionContext;
 
 /**
  *
@@ -21,18 +28,39 @@ public class BindTagToItemAction extends ActionSupport
         private ItemTagService itemTagService;
         private ItemService itemService;
         private TagService tagService;
-        private String itemId;
-        private String tagId;
+
         @Override
         public String execute()
         {
-                Tag tag = getTagService().getTag(Integer.parseInt(getTagId()));
-                Item item = getItemService().getItem(Integer.parseInt(getItemId()));
+                HttpServletRequest request = ServletActionContext.getRequest();
+                int itemId = Integer.parseInt(request.getParameter("itemId"));
+                String tagWord = request.getParameter("tagWord");
+                
+                Tag tag = tagService.getTag(tagWord);
+                if(tag == null)
+                {
+                        tagService.addTag(tagWord);
+                        tag = tagService.getTag(tagWord);
+                }
+                Item item = itemService.getItem(itemId);
                 ItemTag itemTag = new ItemTag();
                 itemTag.setItem(item);
                 itemTag.setTag(tag);
-                getItemTagService().addItemTag(itemTag);
-                return "success";
+                itemTagService.addItemTag(itemTag);
+                
+                HttpServletResponse response = ServletActionContext.getResponse();
+                response.setCharacterEncoding("utf-8");
+                response.setContentType("text/plain");
+                PrintWriter out = null;
+                try {
+                        out = response.getWriter();
+                } catch (IOException ex) {
+                        Logger.getLogger(BindTagToItemAction.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                out.print("success");
+                out.flush();
+                out.close();
+                return null;
         }
 
         public ItemTagService getItemTagService() {
@@ -59,19 +87,4 @@ public class BindTagToItemAction extends ActionSupport
                 this.tagService = tagService;
         }
 
-        public String getItemId() {
-                return itemId;
-        }
-
-        public void setItemId(String itemId) {
-                this.itemId = itemId;
-        }
-
-        public String getTagId() {
-                return tagId;
-        }
-
-        public void setTagId(String tagId) {
-                this.tagId = tagId;
-        }
 }

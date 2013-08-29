@@ -25,7 +25,7 @@
         <ul class="sidebar_list">
             <s:iterator value="#categoryList">
                 <li><a href="
-                       <s:url action="fetchFilter">
+                       <s:url value="products.jsp">
                                <s:param name="method">category</s:param>
                                <s:param name="value"><s:property value="categoryId"/></s:param>
                        </s:url>
