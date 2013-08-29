@@ -33,7 +33,7 @@ public class GetStatisticsAction extends ActionSupport
         public String execute() {
                 List<Statistics> statisticsList = statisticsService.getStatistics();
                 String chartUrl = "http://chart.apis.google.com/chart?cht=bvg"
-                        + "&chco=ff0000,00ff00&chtt=收+支+明+细&chs=600x500&chbh=40,0";
+                        + "&chco=ff0000,00ff00&chtt=近+五+日+收+支+明+细&chs=600x500&chbh=40,0";
                 String chda="&chd=t:";
                 String chdb="|";
                 String chxla="&chxt=x,y&chxl=0:|";
