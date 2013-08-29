@@ -13,6 +13,7 @@
                         <td><s:property value="statisticsMoney"/></td>
                         <td><s:property value="statisticsTime"/></td>
                 </s:iterator>
+                        <img src="<s:property value="chartUrl"/>" alt="Sample chart" />
 
         </div>
 </div>

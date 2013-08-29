@@ -1,7 +1,7 @@
 <%-- 
     Document   : balance
     Created on : 2013-8-27, 16:00:25
-    Author     : WingFung
+    Author     : WingFung game3108
 --%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@taglib prefix="s" uri="/struts-tags" %>
@@ -98,7 +98,6 @@
             <div id="templatemo_main">
                 <div id="content">
                     <h1>收支明细</h1>
-                    <img src="http://chart.apis.google.com/chart?chs=200x125&amp;chd=s:helloWorld&amp;cht=lc&amp;chxt=x,y&amp;chxl=0:|Mar|Apr|May|June|July|1:||50+Kb" alt="Sample chart" />
                     <div align="center">
                         <table >
                             <tr>
