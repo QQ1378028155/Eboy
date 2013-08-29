@@ -1,7 +1,7 @@
 <%-- 
     Document   : balance
     Created on : 2013-8-27, 16:00:25
-    Author     : WingFung
+    Author     : WingFung game3108
 --%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@taglib prefix="s" uri="/struts-tags" %>
@@ -98,34 +98,14 @@
             <div id="templatemo_main">
                 <div id="content">
                     <h1>收支明细</h1>
-                    <img src="http://chart.apis.google.com/chart?chs=200x125&amp;chd=s:helloWorld&amp;cht=lc&amp;chxt=x,y&amp;chxl=0:|Mar|Apr|May|June|July|1:||50+Kb" alt="Sample chart" />
                     <div align="center">
-                        <table >
                             <tr>
                                 <th width="150">日期</th>
-                                <th width="400">摘要</th>
-                                <th width="100">类型</th>
                                 <th width="120">金额(CNY)</th>
-                                <th width="120">结余(CNY)</th>
                             </tr>
-                            <tr>
-                                <td align="center">2013-08-27 15:22</td>
-                                <td align="center">本金</td>
-                                <td align="center">收入</td>
-                                <td align="center">100000</td>
-                                <td align="center">100000</td>
-                            </tr>
-                            <tr>
-                                <td align="center">2013-08-27 15:36</td>
-                                <td align="center">为客户下单20台iphone5S，订单号：abcdefgh</td>
-                                <td align="center">支出</td>
-                                <td align="center">90000</td>
-                                <td align="center">10000</td>
-                            </tr>
-                                
-                        </table>
+                        <s:action name="getStatistics" executeResult="true"/> 
                     </div>
-                    <s:action name="getStatistics" executeResult="true"/>
+                    
 
                 </div>
                 <div class="cleaner"></div>

@@ -7,12 +7,14 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <div class="sidebar_box"><span class="bottom"></span>
-        <h3>支出</h3>   
         <div class="content"> 
                 <s:iterator value="#statisticsList">
-                        <td><s:property value="statisticsMoney"/></td>
-                        <td><s:property value="statisticsTime"/></td>
+                        <th><s:property value="statisticsTime"/></th>
+                        <th><s:property value="statisticsMoney"/></th>
+                        <br/>
                 </s:iterator>
+                        <br/>
+                        <img src="<s:property value="chartUrl"/>" alt="Sample chart" />
 
         </div>
 </div>
