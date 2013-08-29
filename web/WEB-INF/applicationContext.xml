@@ -353,4 +353,9 @@
                         <ref bean="statisticsService"></ref>
                 </property>
         </bean>
+        <bean id="adminGetCategoriesAction" class="com.eboy.action.admin.AdminGetCategoriesAction">
+                <property name="categoryService">
+                        <ref bean="categoryService"></ref>
+                </property>
+        </bean>
 </beans>

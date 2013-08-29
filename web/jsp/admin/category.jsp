@@ -102,8 +102,15 @@
                         "<input type='button' class='btn' onclick='confirmCategoryName(this);' style='display:none;width:100px;height:25px;background-color: #0099ff;'value='确认类型名称' />"+
                         "</td></tr>";
                 document.getElementById("trInput").insertAdjacentHTML("beforeBegin",tr);
-                num.value="";
-                name.value="";
+                var xmlHttp;
+                if (window.ActiveXObject) {
+                        xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+                } else
+                        xmlHttp = new XMLHttpRequest();
+               xmlHttp.open("get", "addCategory.action?categoryName=" + document.getElementById("categoryName").value, true);
+               xmlHttp.send();
+               num.value="";
+               name.value="";
             };
         </script>
     </head>
@@ -158,15 +165,7 @@
                             <th width="400" align="center">类型名称</th>
                             <th width="300" align="center">操作</th>
                         </tr>
-
-                        <tr>
-                            <td align="center">1</td>
-                            <td align="center">服装</td>
-                            <td align="center">
-                                <a href="javascript:void(0);" onclick="modifyCategoryName(this);" style="display:block;">修改类型名称</a>
-                                <input type="button" class="btn" onclick="confirmCategoryName(this);" style="display:none;width:100px;height:25px;background-color: #0099ff;"value="确认类型名称" />
-                            </td>   
-                        </tr>
+                        <s:action name="adminGetCategories" executeResult="true"/>
                         <tr id="trInput">
                             <td align="center"><input id="categoryNum" type="text" style="width:100px;"></input></td>
                             <td align="center"><input id="categoryName" type="text" style="width:200px;"></input></td>

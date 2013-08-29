@@ -129,5 +129,8 @@ and open the template in the editor.
                 <action name="adminFetchFilter" class="adminFetchFilterAction">
                         <result name="success">/jsp/admin/ebaySERP.jsp</result>
                 </action>
+                <action name="adminGetCategories" class="adminGetCategoriesAction">
+                        <result name="success">/jsp/admin/categories.jsp</result>
+                </action>
         </package>
 </struts>
