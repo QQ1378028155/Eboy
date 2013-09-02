@@ -358,4 +358,22 @@
                         <ref bean="categoryService"></ref>
                 </property>
         </bean>
+        <bean id="adminLookUpDeliveryAction" class="com.eboy.action.admin.AdminLookUpDeliveryAction">
+                <property name="orderService">
+                        <ref bean="orderService"></ref>
+                </property>
+                <property name="deliveryService">
+                        <ref bean="deliveryService"></ref>
+                </property>
+        </bean>
+        <bean id="updateOrderStatusAction" class="com.eboy.action.admin.UpdateOrderStatusAction">
+                <property name="orderService">
+                        <ref bean="orderService"></ref>
+                </property>
+        </bean>
+        <bean id="deleteOrderDeliveryAction" class="com.eboy.action.admin.DeleteOrderDeliveryAction">
+                <property name="deliveryService">
+                        <ref bean="deliveryService"></ref>
+                </property>
+        </bean>
 </beans>
