@@ -99,10 +99,6 @@
                 <div id="content">
                     <h1>收支明细</h1>
                     <div align="center">
-                            <tr>
-                                <th width="150">日期</th>
-                                <th width="120">金额(CNY)</th>
-                            </tr>
                         <s:action name="getStatistics" executeResult="true"/> 
                     </div>
                     
