@@ -130,27 +130,31 @@ public class GetStatisticsAction extends ActionSupport
                 
                 for (int i =0;i<5;i++){
                         //System.out.println(resultDate[i]+" "+resultMoneyP[i]+"    "+resultMoneyM[i]+"   "+MaxMoney);
-                        chxla+=resultDate[i];
-                        if (resultMoneyP[i]!=null){
-                                int tem=(int) (resultMoneyP[i]*100/MaxMoney);
-                                chda+=tem;
-                        }else{
-                                chda+="0";
-                        }
-                        
-                        if (resultMoneyM[i]!=null){
-                                int tem=(int) (-resultMoneyM[i]*100/MaxMoney);
-                                chdb+=tem;
-                        }else{
-                                chdb+="0";
-                        }
-                         
-                        
-                        if (i!=4){
-                                chxla+="|";
-                                chda+=",";
-                                chdb+=",";
-                                
+                        if (resultDate[i] != null) {
+                                chxla += resultDate[i];
+                                if (resultMoneyP[i] != null) {
+                                        int tem = (int) (resultMoneyP[i] * 100 / MaxMoney);
+                                        chda += tem;
+                                } else {
+                                        chda += "0";
+                                }
+
+                                if (resultMoneyM[i] != null) {
+                                        int tem = (int) (-resultMoneyM[i] * 100 / MaxMoney);
+                                        chdb += tem;
+                                } else {
+                                        chdb += "0";
+                                }
+
+
+                                if (i != 4) {
+                                        if (resultDate[i + 1] != null) {
+                                                chxla += "|";
+                                                chda += ",";
+                                                chdb += ",";
+                                        }
+
+                                }
                         }
                 }
                 
