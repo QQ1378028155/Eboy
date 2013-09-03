@@ -8,12 +8,6 @@
 
 <div class="sidebar_box"><span class="bottom"></span>
         <div class="content"> 
-                <s:iterator value="#statisticsList">
-                        <th><s:property value="statisticsTime"/></th>
-                        <th><s:property value="statisticsMoney"/></th>
-                        <br/>
-                </s:iterator>
-                        <br/>
                         <img src="<s:property value="chartUrl"/>" alt="Sample chart" />
 
         </div>
