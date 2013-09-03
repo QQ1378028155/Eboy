@@ -379,4 +379,7 @@
                         <ref bean="deliveryService"></ref>
                 </property>
         </bean>
+        <bean id="getHotListAction" class="com.eboy.action.admin.GetHotListAction">
+                
+        </bean>
 </beans>

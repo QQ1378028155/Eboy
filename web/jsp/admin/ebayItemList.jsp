@@ -6,7 +6,7 @@
 <%@taglib prefix="s" uri="/struts-tags" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<div id="content" class="float_r">
+
         <div>
                 <s:iterator value="#items" status="it">
                         <div class="<s:property value="#class[#it.index]"/>">
@@ -18,4 +18,3 @@
                         </div>
                 </s:iterator>
         </div>
-</div> 
