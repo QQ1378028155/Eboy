@@ -90,7 +90,7 @@ public class AddItem {
                 newItem.setCountry(itemType.getCountry());
                 newItem.setLocation(itemType.getLocation());
                 newItem.setSite(itemType.getSite());
-                
+                newItem.setQuantity(itemType.getQuantity());
                 
                 newItem.setAutoPay(false);
                 

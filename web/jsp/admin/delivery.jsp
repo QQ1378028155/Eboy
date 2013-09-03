@@ -124,6 +124,7 @@
                         
                         function deliver(orderId) {
                                 var str = document.getElementById('orderStatus').innerHTML;
+                                alert(str);
                                 if(str != "未发货"){
                                         alert("已经发货，不能重复发货！");
                                         return false;
@@ -214,9 +215,7 @@
                                                                         <td id="itemTitle"><s:property value="#order.item.itemTitle"/></td> 
                                                                         <td align="center" id="orderQuantity" ><s:property value="#order.orderQuantity"/></td>
                                                                         <td align="right" id="orderPrice"><s:property value="#order.orderPrice"/></td> 
-                                                                        <td align="center" id="orderStatus">                                    
-                                                                                <s:property value="#order.orderStatus"/>
-                                                                        </td>
+                                                                        <td align="center" id="orderStatus"><s:property value="#order.orderStatus"/></td>
                                                                         <td align="center">
                                                                                 <a href="javascript:void(0);" id="modifyBtn" onclick="deliver(<s:property value="#order.orderId"/>);return false;" style="display:block;">发货</a>
                                                                         </td>

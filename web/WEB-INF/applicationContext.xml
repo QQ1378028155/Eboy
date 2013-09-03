@@ -195,6 +195,9 @@
                 <property name="deliveryService">
                         <ref bean="deliveryService"></ref>
                 </property>
+                <property name="statisticsService">
+                        <ref bean="statisticsService"></ref>
+                </property>
         </bean>
         <bean id="searchItemsFromStoreAction" class="com.eboy.action.admin.SearchItemsFromStoreAction">
                 <property name="itemService">

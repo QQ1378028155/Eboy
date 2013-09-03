@@ -46,7 +46,7 @@ public class GetOrderAction extends ActionSupport {
                         else
                         {
                                 Item item = order.getItem();
-                                BigDecimal b = new BigDecimal(item.getItemPrice());
+                                BigDecimal b = new BigDecimal(order.getOrderPrice());
                                 double price = b.setScale(2, RoundingMode.HALF_UP).doubleValue();
                                 responseText = "success " + item.getItemThumbnailImageUrl().length() + " " + item.getItemTitle().length() + " " + item.getItemThumbnailImageUrl()+item.getItemTitle() + " " + order.getOrderQuantity() + " " + price + " " + order.getOrderStatus() + " " + order.getItem().getItemId();
                         }

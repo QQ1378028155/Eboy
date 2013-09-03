@@ -54,10 +54,10 @@ public class AddItemAction extends ActionSupport
                 item.setItemTitle(getItemTitle());
                 item.setItemDescription(getItemDescription().getBytes());
                 item.setItemSandboxId(itemSandboxId);
-                Category category = getCategoryService().getCategorys().get(Integer.parseInt(getItemCategoryId()) - 1);
+                Category category = getCategoryService().getCategory(Integer.parseInt(itemCategoryId));
                 item.setCategory(category);
                 
-                ShippingDetailsType sdt = GetItemShipping.execute(getItemEbayId());
+                ShippingDetailsType sdt = GetItemShipping.execute(getItemEbayId(),1);
                 try
                 {
                         item.setItemPackageCost(sdt.getCalculatedShippingRate().getPackagingHandlingCosts().getValue());

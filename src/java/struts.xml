@@ -81,7 +81,7 @@ and open the template in the editor.
                         <result name="success">/jsp/user/searchItemResult.jsp</result>
                 </action>
                 <action name="loadItemInfo" class="loadItemInfoAction">
-                        <result name="success">/jsp/user/loadItemInfoResult.jsp</result>
+                        <result name="success">/jsp/user/productdetail.jsp</result>
                 </action>
                 <action name="addCart" class="addCartAction">
                         <result name="success">/jsp/user/loadItemsSortedBySale.jsp</result>

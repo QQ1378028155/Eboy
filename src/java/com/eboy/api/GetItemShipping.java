@@ -19,7 +19,7 @@ import java.util.logging.Logger;
  * @author wjl
  */
 public class GetItemShipping {
-        public static ShippingDetailsType execute(String itemEbayId)
+        public static ShippingDetailsType execute(String itemEbayId,int itemQuantity)
         {
                 ApiContext apiContext = new ApiContext();
                 ApiCredential cred = apiContext.getApiCredential();
@@ -31,6 +31,7 @@ public class GetItemShipping {
                 api.setItemID(itemEbayId);
                 api.setDestinationCountryCode(CountryCodeType.CN);
                 api.setDestinationPostalCode("201100");
+                api.setQuantitySold(itemQuantity);
                 try {
                         ShippingDetailsType shippingDetails = api.getItemShipping();
                         return shippingDetails;
