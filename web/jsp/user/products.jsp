@@ -22,15 +22,6 @@
                 <script src="js/jquery.timers-1.2.js" type="text/javascript"></script>
                 <script src="js/jquery.dualSlider.0.3.min.js" type="text/javascript"></script>
 
-                <script type="text/javascript">
-                        function clearText(field)
-                        {
-                                if (field.defaultValue == field.value)
-                                        field.value = '';
-                                else if (field.value == '')
-                                        field.value = field.defaultValue;
-                        }
-                </script>
 
                 <script type="text/javascript">
 
@@ -56,19 +47,6 @@
                                 });
                         });
 
-                        window.onload = function()
-                        {
-                                var strcookie = document.cookie;
-                                var cartSize = "0";
-                                var arrcookie = strcookie.split("; ");
-                                for (var i = 0; i < arrcookie.length; i++) {
-                                        var arr = arrcookie[i].split("=");
-                                        if (arr[0] == "cartSize")
-                                                cartSize = arr[1];
-                                }
-                                var v = document.getElementById("cartSize");
-                                v.innerHTML = cartSize + " 件商品";
-                        }
                 </script>
 
         </head>
@@ -99,14 +77,8 @@
                                 </div><!-- end of ddsmoothmenu -->
 
                                 <div id="menu_second_bar">
-                                        <div id="top_shopping_cart">购物车： <strong id="cartSize"></strong> ( <a href="shoppingcart.jsp">进入购物车</a> )</div>
-                                        <div id="templatemo_search">
-                                                <s:form action="fetchFilter" method="get">
-                                                        <input type="hidden" name="method" value="keyword"/>
-                                                        <input type="text" value="请输入关键字" name="value" id="keyword" title="关键字" onfocus="clearText(this)" onblur="clearText(this)" class="txt_field" />
-                                                        <input type="submit" value=" 搜索 " name="Search"  alt="Search" id="searchbutton" title="搜索" class="sub_btn"  />
-                                                </s:form>
-                                        </div>
+                                        <s:include value="topcart.jsp"/>
+                                        <s:include value="searchForm.jsp"/>
                                         <div class="cleaner"></div>
                                 </div>
                         </div><!-- END of templatemo_menu -->

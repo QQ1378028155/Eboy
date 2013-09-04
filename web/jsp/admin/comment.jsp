@@ -100,12 +100,7 @@
                 <div id="menu_second_bar">
             
                     <div id="templatemo_search">
-                        <form action="#" method="get">
-                          <input type="text" value="请输入关键字" name="keyword" id="keyword" title="关键字" onfocus="clearText(this)" onblur="clearText(this)" class="txt_field" />
-                          <input type="submit" value=" 搜索仓库 " name="Search"  alt="Search" id="searchstoragebutton" title="搜索仓库商品" class="sub_btn"  />
-                          <input type="submit" value=" 搜索eBay " name="Search"  alt="Search" id="searchebaybutton" title="搜索eBay商品" class="sub_btn"  />
-
-                        </form>
+<s:include value="searchForm.jsp"/>
                     </div>
                     <div class="cleaner"></div>
                 </div>
