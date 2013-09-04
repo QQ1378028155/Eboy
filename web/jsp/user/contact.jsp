@@ -80,6 +80,12 @@
                 document.getElementById('content').innerHTML="<h1>官方物流</h1><img src='images/eyoubaologo.png'></img><br></br><h4>E邮宝</h4><p><strong> 国际e邮宝是中国邮政为适应国际电子商务寄递市场的需要，为中国寄件人推出全新国际邮递产品。该业务将致力于为eBay中国寄件人提供发向美国、澳洲等国家的包裹寄递服务。</strong></p><img src='images/eyoubao.png'></img><br></br><br></br><img src='images/shunfenglogo.png'></img><br></br><h4>顺丰速运</h4><p><strong>顺丰速运（集团）有限公司作为一家主要经营国际、国内快递业务的港资快递企业，为广大客户提供快速、准确、安全、经济、优质的专业快递服务。</strong></p><li>顺丰以“成就客户，推动经济，发展民族速递业”为自己的使命，积极探索客户需求，不断推出新的服务项目，为客户的产品提供快速、安全的流通渠道。</li><li>为了向客户提供更便捷、更安全的服务，顺丰速运网络全部采用自建、自营的方式。经过十几年的发展，顺丰已经拥有6万多名员工和4000多台自有营运车辆,30多家一级分公司，2000多个自建的营业网点，服务网络覆盖20多个省、直辖市和香港、台湾地区，100多个地级市。</li><div class='cleaner h20'></div>";  
             }
         </script>
+        <script type="text/javascript">
+            function cishanbangzhu()
+            {
+                document.getElementById('content').innerHTML="<h1>慈善帮助</h1><div style='background:url(images/charity_bg.jpg)'><object classid='clsid:D27CDB6E-AE6D-11cf-96B8-444553540000' codebase='http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0' width='900' height='300'><param name='movie' value='images/index.swf'><param name='quality' value='high'><param name='wmode' value='transparent'><embed src='images/index.swf' width='700' height='150' quality='high' pluginspage='http://www.macromedia.com/go/getflashplayer' type='application/x-shockwave-flash' wmode='transparent'></object></div><br></br><h3>慈善计划</h3><h4>我们将营业的1%拿出来作为eboy慈善基金</h4><p><strong>当遇到重大自然灾害的时候第一时间进行物资援助</strong></p><p><strong>援建落后地区的希望小学</strong></p><p><strong>每年结对10名贫困地区的儿童，帮助他们完成学业</strong></p><div class='cleaner h20'></div>";  
+            }
+        </script>
     </head>
     
     <body>
@@ -126,6 +132,7 @@
                         <div class="content">
                             <ul class="sidebar_list">
                                 <li class="first"><a href="javascript:void(0)" onclick="lianxiwomen()">联系我们</a></li>
+                                <li><a href="javascript:void(0)" onclick="cishanbangzhu()">慈善帮助</a></li>
                                 <li class="last"><a href="javascript:void(0)" onclick="guanfangwuliu()">官方物流</a></li>
                             </ul>
                         </div>

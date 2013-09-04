@@ -382,4 +382,22 @@
         <bean id="getHotListAction" class="com.eboy.action.admin.GetHotListAction">
                 
         </bean>
+        <bean id="getCommentsAction" class="com.eboy.action.admin.GetCommentsAction">
+                <property name="commentService">
+                        <ref bean="commentService"></ref>
+                </property>
+        </bean>
+         <bean id="adminGetTagsAction" class="com.eboy.action.admin.AdminGetTagsAction">
+                <property name="tagService">
+                        <ref bean="tagService"></ref>
+                </property>
+        </bean>
+        <bean id="apreadEmailAction" class="com.eboy.action.admin.SpreadEmailAction">
+                <property name="orderService">
+                        <ref bean="orderService"></ref>
+                </property>
+                <property name="itemService">
+                        <ref bean="itemService"></ref>
+                </property>
+        </bean>
 </beans>
