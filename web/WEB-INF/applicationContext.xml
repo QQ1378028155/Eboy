@@ -392,7 +392,7 @@
                         <ref bean="tagService"></ref>
                 </property>
         </bean>
-        <bean id="apreadEmailAction" class="com.eboy.action.admin.SpreadEmailAction">
+        <bean id="spreadEmailAction" class="com.eboy.action.admin.SpreadEmailAction">
                 <property name="orderService">
                         <ref bean="orderService"></ref>
                 </property>

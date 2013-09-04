@@ -8,7 +8,7 @@
             <column name="itemID" />
             <generator class="identity" />
         </id>
-        <many-to-one name="category" class="com.eboy.po.Category" fetch="select">
+        <many-to-one name="category" class="com.eboy.po.Category" fetch="select" lazy="false">
             <column name="categoryID" not-null="true" />
         </many-to-one>
         <property name="itemEbayId" type="string">

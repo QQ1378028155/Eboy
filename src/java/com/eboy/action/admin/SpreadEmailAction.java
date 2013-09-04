@@ -46,6 +46,7 @@ public class SpreadEmailAction extends ActionSupport {
         
         @Override
         public String execute() {
+                System.out.println("excute spreadEmail");
                 Properties props = System.getProperties();
                 props.put("mail.smtp.host", "smtp.gmail.com");
                 props.put("mail.smtp.user", "ebayproject.localize");
@@ -65,7 +66,7 @@ public class SpreadEmailAction extends ActionSupport {
                 
                 String title = "推广："+item.getItemTitle();
                 String content = "您好，EBOY郑重向您推荐下件产品:"+item.getItemTitle()
-                        +" 价格:"+ item.getItemPriceCurrency()+" 链接：http://localhost:8080/Eboy/jsp/user/loadItemInfo.action?itemId="+itemId;
+                        +" 链接：http://localhost:8080/Eboy/jsp/user/loadItemInfo.action?itemId="+itemId;
                 
                 List<String> emailList=new ArrayList<String>();
                 
