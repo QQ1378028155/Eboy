@@ -1,5 +1,5 @@
 package com.eboy.po;
-// Generated 2013-8-28 8:45:08 by Hibernate Tools 3.2.1.GA
+// Generated 2013-9-4 12:34:11 by Hibernate Tools 3.2.1.GA
 
 
 
@@ -12,13 +12,20 @@ public class Delivery  implements java.io.Serializable {
      private Integer deliveryId;
      private Order order;
      private String deliveryLocation;
+     private String deliveryRemark;
 
     public Delivery() {
     }
 
+	
     public Delivery(Order order, String deliveryLocation) {
+        this.order = order;
+        this.deliveryLocation = deliveryLocation;
+    }
+    public Delivery(Order order, String deliveryLocation, String deliveryRemark) {
        this.order = order;
        this.deliveryLocation = deliveryLocation;
+       this.deliveryRemark = deliveryRemark;
     }
    
     public Integer getDeliveryId() {
@@ -41,6 +48,13 @@ public class Delivery  implements java.io.Serializable {
     
     public void setDeliveryLocation(String deliveryLocation) {
         this.deliveryLocation = deliveryLocation;
+    }
+    public String getDeliveryRemark() {
+        return this.deliveryRemark;
+    }
+    
+    public void setDeliveryRemark(String deliveryRemark) {
+        this.deliveryRemark = deliveryRemark;
     }
 
 

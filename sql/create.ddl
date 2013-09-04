@@ -16,6 +16,7 @@ CREATE TABLE Delivery (
   deliveryID       int(10) NOT NULL AUTO_INCREMENT, 
   deliveryLocation varchar(255) NOT NULL, 
   orderID          int(10) NOT NULL, 
+  deliveryRemark   varchar(255), 
   PRIMARY KEY (deliveryID));
 CREATE TABLE Category (
   categoryID   int(10) NOT NULL AUTO_INCREMENT, 
@@ -27,12 +28,13 @@ CREATE TABLE Gallery (
   itemID     int(10) NOT NULL, 
   PRIMARY KEY (galleryID));
 CREATE TABLE Comment (
-  CommentID       int(10) NOT NULL AUTO_INCREMENT, 
+  commentID       int(10) NOT NULL AUTO_INCREMENT, 
   commentUserName varchar(255), 
   commentContent  varchar(255) NOT NULL, 
   commentRate     double NOT NULL, 
   itemID          int(10) NOT NULL, 
-  PRIMARY KEY (CommentID));
+  commentTime     datetime NOT NULL, 
+  PRIMARY KEY (commentID));
 CREATE TABLE `Order` (
   orderID       int(10) NOT NULL AUTO_INCREMENT, 
   orderQuantity int(10) NOT NULL, 

@@ -35,11 +35,10 @@ public class SearchItemsFromStoreAction extends ActionSupport
                 List<Item> items = new ArrayList<Item>();
                 List<String> cla = new ArrayList<String>();                
 
-
-                if(getMethod().equals("all"))
-                        items = getItemService().getItems();
                 if(getMethod().equals("keyword"))
                         items = getItemService().getItemsOrderBySale(getValue());
+                else
+                        items = getItemService().getItems();
                 for (int i = 0; i < items.size(); i++) {
                         if (i % 4 == 3) {
                                 cla.add("product_box no_margin_right");
