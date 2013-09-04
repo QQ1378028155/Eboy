@@ -146,5 +146,8 @@ and open the template in the editor.
                 <action name="adminGetTags" class="adminGetTagsAction">
                         <result name="success">/jsp/admin/tags.jsp</result>
                 </action>
+                <action name="spreadEmail" class="SpreadEmailAction">
+                        <result name="success">/jsp/admin/storage.jsp</result>
+                </action>
         </package>
 </struts>

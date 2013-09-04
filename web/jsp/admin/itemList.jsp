@@ -1,7 +1,7 @@
 <%-- 
     Document   : newItems
     Created on : 2013-8-23, 14:55:43
-    Author     : wjl
+    Author     : wjl game3108
 --%>
 <%@taglib prefix="s" uri="/struts-tags" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -19,6 +19,20 @@
                         return false;">按销售量排序</a>|<a href="" onclick="showPrice();
                         return false;">按价格排序</a>
         <br/>
+         <script>
+                function spreadEmail(itemId){
+                alert("推广邮件已发送");
+                var xmlHttp;
+                if (window.ActiveXObject) {
+                        xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+                } else
+                        xmlHttp = new XMLHttpRequest();
+                        xmlHttp.open("get", "spreadEmail.action?itemId="+itemId, true);
+                        xmlHttp.send();
+                };
+
+        </script>
+        
         <div id="new" style="display: inline;">
                 <s:iterator value="#newItemList" status="it">
                         <div class="<s:property value="#class[#it.index]"/>">
@@ -27,7 +41,7 @@
                                 <p class="product_price">RMB: <s:property value="itemPrice"/></p>
                                 <p>数量:<span class="product_quantity"><s:property value="itemQuantity"/></span></p>
                                 <a href ="#" class="add_to_card">修改信息</a>
-                                <a href="loadItemInfo.action?itemId=<s:property value="itemId"/>" class="detail">查看</a>                
+                                <a href="javascript:void(0);" onclick="spreadEmail(<s:property value="itemId"/>);" class="detail">推广</a>
                         </div>
                 </s:iterator>
         </div>
@@ -39,7 +53,7 @@
                                 <p class="product_price">RMB: <s:property value="itemPrice"/></p>
                                 <p>数量:<span class="product_quantity"><s:property value="itemQuantity"/></span></p>                                
                                 <a href ="#"  class="add_to_card">修改信息</a>
-                                <a href="loadItemInfo.action?itemId=<s:property value="itemId"/>" class="detail">查看</a>                
+                                <a href="javascript:void(0);" onclick="spreadEmail(<s:property value="itemId"/>);" class="detail">推广</a>     
                         </div>
                 </s:iterator>
         </div>
@@ -51,7 +65,7 @@
                                 <p class="product_price">RMB: <s:property value="itemPrice"/></p>
                                 <p>数量:<span class="product_quantity"><s:property value="itemQuantity"/></span></p>
                                 <a href ="#"  class="add_to_card">修改信息</a>
-                                <a href="loadItemInfo.action?itemId=<s:property value="itemId"/>" class="detail">查看</a>                
+                                <a href="javascript:void(0);" onclick="spreadEmail(<s:property value="itemId"/>);" class="detail">推广</a>      
                         </div>
                 </s:iterator>
         </div>
@@ -63,7 +77,7 @@
                                 <p class="product_price">RMB: <s:property value="itemPrice"/></p>
                                 <p>数量:<span class="product_quantity"><s:property value="itemQuantity"/></span></p>
                                 <a href ="#" class="add_to_card">修改信息</a>
-                                <a href="loadItemInfo.action?itemId=<s:property value="itemId"/>" class="detail">查看</a>                
+                                <a href="javascript:void(0);" onclick="spreadEmail(<s:property value="itemId"/>);" class="detail">推广</a>           
                         </div>
                 </s:iterator>
         </div>
