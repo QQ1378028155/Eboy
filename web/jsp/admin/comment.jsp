@@ -54,9 +54,19 @@
             });
         </script>
         <script>
-            function removeComment(node){
+            function removeComment(node, commentId){
                 var parent=node.parentNode;
                 parent.removeChild(node);
+                var xmlHttp;
+                if (window.ActiveXObject) {
+                        xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+                } else
+                        xmlHttp = new XMLHttpRequest();
+                xmlHttp.open("get", "deleteComment.action?commentId=" + commentId, true);
+                xmlHttp.onreadystatechange = function() {
+
+                }
+                xmlHttp.send();
             }
         </script>
     </head>
@@ -105,28 +115,7 @@
             <div id="templatemo_main">
                 <div id="content" class="float_r">
                     <h1>评价管理</h1>
-                    <h4>商品名称</h4>
-                    <h5><strong>iPhone 5S 金色版</strong></h5>
-                    <div class="cleaner h10"></div>
-                    <h4>商品评价</h4>
-                    <table width='920px'>
-                        <tr>
-                            <td>
-                            <p><strong>评论人昵称</strong>(<a href="mailto:aaa@qq.com">aaa@qq.com</a>)<span style="float: right;">2013-08-25 02:46</span></p>
-                            <p>好评！</p>
-                            <a href="javascript:void(0);" onclick='removeComment(this.parentNode.parentNode);'>删除</a>
-                            <hr/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                            <p><strong>评论人昵称</strong>(<a href="mailto:bbb@163.com">bbb@163.com</a>)<span style="float: right;">2013-08-25 02:46</span></p>
-                            <p>中评！</p>
-                            <a href="javascript:void(0);" onclick='removeComment(this.parentNode.parentNode);'>删除</a>
-                            <hr/>
-                            </td>
-                        </tr>
-                    </table>
+                    <s:action name="getComments" executeResult="true"/>
                 </div>
                 <div class="cleaner"></div>
             </div> <!-- END of templatemo_main -->

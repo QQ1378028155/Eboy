@@ -382,4 +382,14 @@
         <bean id="getHotListAction" class="com.eboy.action.admin.GetHotListAction">
                 
         </bean>
+        <bean id="getCommentsAction" class="com.eboy.action.admin.GetCommentsAction">
+                <property name="commentService">
+                        <ref bean="commentService"></ref>
+                </property>
+        </bean>
+         <bean id="adminGetTagsAction" class="com.eboy.action.admin.AdminGetTagsAction">
+                <property name="tagService">
+                        <ref bean="tagService"></ref>
+                </property>
+        </bean>
 </beans>
