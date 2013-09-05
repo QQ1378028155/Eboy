@@ -142,7 +142,7 @@ and open the template in the editor.
                 </action>
                 <action name="getComments" class="getCommentsAction">
                         <result name="success">/jsp/admin/comments.jsp</result>
-                </action>
+                 </action>
                 <action name="adminGetTags" class="adminGetTagsAction">
                         <result name="success">/jsp/admin/tags.jsp</result>
                 </action>
@@ -154,6 +154,9 @@ and open the template in the editor.
                 </action>
                 <action name="confirmEditItem" class="confirmEditItemAction">
                         <result name="success">/jsp/admin/storage.jsp</result>
+                </action>
+                <action name="mobileGetOrder" class="mobileGetOrderAction">
+                        <result name="success">/jsp/user/mobileOrder.jsp</result>
                 </action>
         </package>
 </struts>
