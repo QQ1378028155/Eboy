@@ -157,6 +157,7 @@ and open the template in the editor.
                 </action>
                 <action name="mobileGetOrder" class="mobileGetOrderAction">
                         <result name="success">/jsp/user/mobileOrder.jsp</result>
+                        <result name="fail">/jsp/user/order.jsp</result>
                 </action>
         </package>
 </struts>

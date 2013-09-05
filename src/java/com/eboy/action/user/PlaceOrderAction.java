@@ -141,11 +141,9 @@ public class PlaceOrderAction extends ActionSupport {
                                 + "<p>当然您也可以通过如下二维码在手机上直接查阅订单信息</p>"
                                 + "<img src=https://chart.googleapis.com/chart?cht=qr&chs=200x200&choe=UTF-8&chld=L|4&chl="
                                 + ip
-                                + ":8080/Eboy/jsp/user/mobileGetOrder.action?orderId="
-                                + order.getOrderId()
-                                + "&orderValidate="
-                                + order.getOrderValidate()
-                                + "/>";
+                                + ":8080/Eboy/jsp/user/mobileGetOrder.action?orderSecret="
+                                + order.getOrderValidate() + order.getOrderId()
+                                + "&/>";
                         message.setContent(content,"text/html;charset=utf-8");
                         Transport transport = session.getTransport("smtp");
                         transport.connect("smtp.gmail.com", "ebayproject.localize", "Ebay123456");

@@ -8,6 +8,8 @@ import com.eboy.po.Order;
 import com.eboy.service.OrderService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 /**
  *
@@ -16,15 +18,23 @@ import com.opensymphony.xwork2.ActionSupport;
 public class MobileGetOrderAction extends ActionSupport {
 
         private OrderService orderService;
-        private String orderValidate;
-        private Integer orderId;
+        private String orderSecret;
 
         @Override
         public String execute() {
+                String orderValidate = orderSecret.substring(0, 8);
+                int orderId = Integer.parseInt(orderSecret.substring(8));
                 Order order = orderService.getOrder(orderId);
-                ActionContext context = ActionContext.getContext();
-                context.put("order", order);
-                return "success";
+                if(orderValidate.equals(order.getOrderValidate()))
+                {
+                        ActionContext context = ActionContext.getContext();
+                        BigDecimal b = new BigDecimal(order.getOrderPrice());
+                        order.setOrderPrice(b.setScale(2, RoundingMode.HALF_UP).doubleValue());
+                        context.put("order", order);
+                        return "success";
+                }
+                else
+                        return "fail";
         }
 
         public OrderService getOrderService() {
@@ -35,19 +45,13 @@ public class MobileGetOrderAction extends ActionSupport {
                 this.orderService = orderService;
         }
 
-        public String getOrderValidate() {
-                return orderValidate;
+        public String getOrderSecret() {
+                return orderSecret;
         }
 
-        public void setOrderValidate(String orderValidate) {
-                this.orderValidate = orderValidate;
+        public void setOrderSecret(String orderSecret) {
+                this.orderSecret = orderSecret;
         }
 
-        public Integer getOrderId() {
-                return orderId;
-        }
-
-        public void setOrderId(Integer orderId) {
-                this.orderId = orderId;
-        }
+        
 }

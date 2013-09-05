@@ -10,6 +10,8 @@ import com.eboy.service.ItemService;
 import com.eboy.service.OrderService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,7 +46,7 @@ public class SpreadEmailAction extends ActionSupport {
     private Session s;
 
     @Override
-    public String execute() {
+    public String execute() throws UnknownHostException {
         System.out.println("excute spreadEmail");
         Properties props = System.getProperties();
         props.put("mail.smtp.host", "smtp.gmail.com");
@@ -64,14 +66,21 @@ public class SpreadEmailAction extends ActionSupport {
         List<Order> orderList = orderService.getOrders();
 
         String title = "Eboy推广：" + item.getItemTitle();
+        InetAddress addr = InetAddress.getLocalHost();
+        String ip=addr.getHostAddress().toString();//获得本机IP
         String content = "<h1>Eboy进入新商品啦</h1>"
                 + "<p>尊敬的用户您好，感谢您在百忙之中抽空来阅读本封邮件</p>"
                 + "<p>EBOY郑重向您推荐下件产品:</p>"
                 + "<p>产品名称：" + item.getItemTitle() + "</p>"
                 + "<p>产品价格：" + item.getItemPrice() + "</p>"
-                + "<a href = http://localhost:8080/Eboy/jsp/user/loadItemInfo.action?itemId=" + itemId 
+                + "<a href = http://" + ip + ":8080/Eboy/jsp/user/loadItemInfo.action?itemId=" + itemId 
                 + "><img src='" + item.getItemThumbnailImageUrl() + "'/></a>"
                 + "<p>点击图片查看产品详情</p>"
+                + "<p>当然您也可以通过如下二维码在手机上直接查看产品详情</p>"
+                + "<img src=https://chart.googleapis.com/chart?cht=qr&chs=200x200&choe=UTF-8&chld=L|4&chl="
+                + ip
+                + ":8080/Eboy/jsp/user/loadItemInfo.action?itemId=" + itemId
+                + "&></img>"
                 + "<p>如果我们的邮件打扰到您，您可以退订</p>";
 
         List<String> emailList = new ArrayList<String>();
