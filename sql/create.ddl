@@ -13,10 +13,12 @@ CREATE TABLE Tag (
   tagWord varchar(255) NOT NULL, 
   PRIMARY KEY (tagID));
 CREATE TABLE Delivery (
-  deliveryID       int(10) NOT NULL AUTO_INCREMENT, 
-  deliveryLocation varchar(255) NOT NULL, 
-  orderID          int(10) NOT NULL, 
-  deliveryRemark   varchar(255), 
+  deliveryID              int(10) NOT NULL AUTO_INCREMENT, 
+  deliveryLocation        varchar(255) NOT NULL, 
+  orderID                 int(10) NOT NULL, 
+  deliveryRemark          varchar(255), 
+  deliveryTime            datetime NOT NULL, 
+  deliveryLocationChinese varchar(255) NOT NULL, 
   PRIMARY KEY (deliveryID));
 CREATE TABLE Category (
   categoryID   int(10) NOT NULL AUTO_INCREMENT, 

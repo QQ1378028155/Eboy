@@ -74,15 +74,45 @@
                                 if (arr[0] == "cartSize")
                                         cartSize = parseInt(arr[1]);
                         }
+                        var itemArr = Array(cartSize);
+                        var itemQuantityArr = Array(cartSize);
+
+                        for (var i = 0; i < cookieArray.length; i++) {
+                                var arr = cookieArray[i].split("=");
+
+                                var quantityIndex = arr[0].indexOf("Quantity");
+                                if (quantityIndex != -1) {
+                                        var index = parseInt(arr[0].slice(4, quantityIndex));
+                                        itemQuantityArr[index] = parseInt(arr[1]);
+                                }
+                                else {
+                                        if (arr[0].indexOf("item") != -1) {
+                                                var index = parseInt(arr[0].slice(4, arr[0].length));
+                                                itemArr[index] = parseInt(arr[1]);
+                                        }
+                                }
+                        }
+                        var quantity = 0;
+                        var index = cartSize;
+                        for (var i = 0; i < cartSize; i++) {
+                                if (itemArr[i] == itemId) {
+                                        index = i;
+                                        quantity = itemQuantityArr[i];
+                                        break;
+                                }
+                        }
                         var date = new Date();
                         date.setTime(date.getTime() + 3600 * 24 * 30);
-                        var strItem = "item" + cartSize + "=" + itemId + "; expires=" + date.toGMTString() + "; path=/Eboy/";
-                        var strQuantity = "item" + cartSize + "Quantity=1; expires=" + date.toGMTString() + "; path=/Eboy/";
-                        cartSize = cartSize + 1;
-                        var strCartSize = "cartSize=" + cartSize + "; expires=" + date.toGMTString() + "; path=/Eboy/";
+                        var strItem = "item" + index + "=" + itemId + "; expires=" + date.toGMTString() + "; path=/Eboy/";
+                        var strQuantity = "item" + index + "Quantity=" + (quantity + 1) + "; expires=" + date.toGMTString() + "; path=/Eboy/";
+                        if (cartSize == index) {
+                                cartSize = cartSize + 1;
+                                var strCartSize = "cartSize=" + cartSize + "; expires=" + date.toGMTString() + "; path=/Eboy/";
+                                document.cookie = strCartSize;
+                        }
                         document.cookie = strItem;
                         document.cookie = strQuantity;
-                        document.cookie = strCartSize;
+
                         var v = document.getElementById("cartSize");
                         v.innerHTML = cartSize + " 件商品";
                 }

@@ -111,9 +111,9 @@
                             <s:iterator value="#deliveries" status="u">
                         <tr>
                             <td align="center"><s:property value="#u.index+1"/></td>
-                            <td  align="center">数据库中没有</td>
+                            <td  align="center"><s:property value="deliveryTime"/></td>
                             <td  align="center"><s:property value="deliveryLocation"/></td>
-                            <td  align="center">数据库中没有</td>
+                            <td  align="center"><s:property value="deliveryRemark"/></td>
                         </tr>
                         </s:iterator>
                             

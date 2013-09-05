@@ -34,7 +34,7 @@ public class TranslateItemAction extends ActionSupport
         @Override
         public String execute()
         {
-                ItemType itemType = GetItem.execute(itemEbayId);
+                ItemType itemType = GetItem.execute(itemEbayId,true);
                 Item item = ItemAdapter.execute(itemType);
                 try {
                         item.setItemTitle(YoudaoTranslate.execute(itemType.getTitle()));

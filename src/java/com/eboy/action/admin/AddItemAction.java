@@ -45,8 +45,7 @@ public class AddItemAction extends ActionSupport
         @Override
         public String execute()
         {
-                System.out.println("                                                                      " + getItemEbayId());
-                ItemType itemType = GetItem.execute(getItemEbayId());
+                ItemType itemType = GetItem.execute(getItemEbayId(),true);
                 String itemSandboxId =  AddItem.execute(itemType);
                 
                 Item item = ItemAdapter.execute(itemType);

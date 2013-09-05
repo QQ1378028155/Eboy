@@ -20,14 +20,19 @@ import java.util.logging.Logger;
  * @author wjl
  */
 public class GetItem {
-        
-        public static ItemType execute(String itemEbayId)
-        {
+
+        public static ItemType execute(String itemEbayId, boolean product) {
                 ApiContext apiContext = new ApiContext();
                 ApiCredential cred = apiContext.getApiCredential();
-                cred.seteBayToken(ApiConfig.authEbayToken);
-                apiContext.setApiServerUrl(ApiConfig.apiEbayServerUrl);
-                
+                if (product == true) {
+                        cred.seteBayToken(ApiConfig.authEbayToken);
+                        apiContext.setApiServerUrl(ApiConfig.apiEbayServerUrl);
+                } 
+                else 
+                {
+                        cred.seteBayToken(ApiConfig.authSandboxToken);
+                        apiContext.setApiServerUrl(ApiConfig.apiSandboxServerUrl);
+                }
                 GetItemCall api = new GetItemCall();
                 api.setApiContext(apiContext);
                 api.setItemID(itemEbayId);
@@ -50,7 +55,7 @@ public class GetItem {
                         Logger.getLogger(GetItem.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 return null;
-                
-                
+
+
         }
 }

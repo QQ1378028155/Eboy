@@ -28,7 +28,7 @@ public class ItemDao extends HibernateDaoSupport {
 
         public List<Item> getItemsOrderBySale(String keywords) {
                 keywords = "%" + keywords + "%";
-                return (List<Item>) (this.getHibernateTemplate().find("from Item where itemTitle like ? order by orders.size desc", keywords));
+                return (List<Item>) (this.getHibernateTemplate().find("from Item where itemTitle like ? and itemQuantity != 0 order by orders.size desc", keywords));
         }
 
         public void update(Item item) throws Exception {

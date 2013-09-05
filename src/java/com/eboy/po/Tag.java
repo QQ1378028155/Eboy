@@ -1,5 +1,5 @@
 package com.eboy.po;
-// Generated 2013-9-4 12:34:11 by Hibernate Tools 3.2.1.GA
+// Generated 2013-9-5 20:41:36 by Hibernate Tools 3.2.1.GA
 
 
 import java.util.HashSet;

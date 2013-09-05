@@ -136,9 +136,4 @@ public class AddItem {
                 }
                 return null;
         }
-        
-        public static void main(String args[])
-        {
-                AddItem.execute(GetItem.execute("111135052183"));
-        }
 }
