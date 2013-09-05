@@ -40,7 +40,7 @@
                                 <h3 style="overflow: hidden; height: 60px;"><s:property value="itemTitle"/></h3>
                                 <p class="product_price">RMB: <s:property value="itemPrice"/></p>
                                 <p>数量:<span class="product_quantity"><s:property value="itemQuantity"/></span></p>
-                                <a href ="#" class="add_to_card">修改信息</a>
+                                <a href ="editItem.action?itemId=<s:property value="itemId"/>" class="add_to_card">修改信息</a>
                                 <a href="javascript:void(0);" onclick="spreadEmail(<s:property value="itemId"/>);" class="detail">推广</a>
                         </div>
                 </s:iterator>
@@ -52,7 +52,7 @@
                                 <h3 style="overflow: hidden; height: 60px;"><s:property value="itemTitle"/></h3>
                                 <p class="product_price">RMB: <s:property value="itemPrice"/></p>
                                 <p>数量:<span class="product_quantity"><s:property value="itemQuantity"/></span></p>                                
-                                <a href ="#"  class="add_to_card">修改信息</a>
+                                <a href ="editItem.action?itemId=<s:property value="itemId"/>" class="add_to_card">修改信息</a>
                                 <a href="javascript:void(0);" onclick="spreadEmail(<s:property value="itemId"/>);" class="detail">推广</a>     
                         </div>
                 </s:iterator>
@@ -64,7 +64,7 @@
                                 <h3 style="overflow: hidden; height: 60px;"><s:property value="itemTitle"/></h3>
                                 <p class="product_price">RMB: <s:property value="itemPrice"/></p>
                                 <p>数量:<span class="product_quantity"><s:property value="itemQuantity"/></span></p>
-                                <a href ="#"  class="add_to_card">修改信息</a>
+                                <a href ="editItem.action?itemId=<s:property value="itemId"/>" class="add_to_card">修改信息</a>
                                 <a href="javascript:void(0);" onclick="spreadEmail(<s:property value="itemId"/>);" class="detail">推广</a>      
                         </div>
                 </s:iterator>
@@ -76,7 +76,7 @@
                                 <h3 style="overflow: hidden; height: 60px;"><s:property value="itemTitle"/></h3>
                                 <p class="product_price">RMB: <s:property value="itemPrice"/></p>
                                 <p>数量:<span class="product_quantity"><s:property value="itemQuantity"/></span></p>
-                                <a href ="#" class="add_to_card">修改信息</a>
+                                <a href ="editItem.action?itemId=<s:property value="itemId"/>" class="add_to_card">修改信息</a>
                                 <a href="javascript:void(0);" onclick="spreadEmail(<s:property value="itemId"/>);" class="detail">推广</a>           
                         </div>
                 </s:iterator>

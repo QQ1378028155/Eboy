@@ -401,4 +401,14 @@
                 </property>
         </bean>
         <bean id="loginAction" class="com.eboy.action.admin.LoginAction"></bean>
+        <bean id="editItemAction" class="com.eboy.action.admin.EditItemAction">
+                <property name="itemService">
+                        <ref bean="itemService"></ref>
+                </property>
+        </bean>
+        <bean id="confirmEditItemAction" class="com.eboy.action.admin.ConfirmEditItemAction">
+                <property name="itemService">
+                        <ref bean="itemService"></ref>
+                </property>
+        </bean>
 </beans>
