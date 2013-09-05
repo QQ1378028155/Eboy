@@ -401,9 +401,26 @@
                 </property>
         </bean>
         <bean id="loginAction" class="com.eboy.action.admin.LoginAction"></bean>
+
         <bean id="refreshItemAction" class="com.eboy.action.admin.RefreshItemAction">
                 <property name="itemService">
                         <ref bean="itemService"></ref>
+                </property>
+        </bean>
+
+        <bean id="editItemAction" class="com.eboy.action.admin.EditItemAction">
+                <property name="itemService">
+                        <ref bean="itemService"></ref>
+                </property>
+        </bean>
+        <bean id="confirmEditItemAction" class="com.eboy.action.admin.ConfirmEditItemAction">
+                <property name="itemService">
+                        <ref bean="itemService"></ref>
+                </property>
+        </bean>
+        <bean id="mobileGetOrderAction" class="com.eboy.action.user.MobileGetOrderAction">
+                <property name="orderService">
+                        <ref bean="orderService"></ref>
                 </property>
         </bean>
 </beans>

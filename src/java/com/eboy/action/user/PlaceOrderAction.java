@@ -11,10 +11,13 @@ import com.eboy.po.Order;
 import com.eboy.service.ItemService;
 import com.eboy.service.OrderService;
 import com.opensymphony.xwork2.ActionSupport;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.mail.Authenticator;
+import javax.mail.BodyPart;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
@@ -22,6 +25,7 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
@@ -40,7 +44,7 @@ public class PlaceOrderAction extends ActionSupport {
         private String orderReceiver;
         private String orderEmail;
 
-        public String execute() {
+        public String execute() throws UnknownHostException {
                 Cookie[] cookie = ServletActionContext.getRequest().getCookies();
                 HttpServletResponse response = ServletActionContext.getResponse();
                 int i, j, cartSize = 0;
@@ -93,7 +97,7 @@ public class PlaceOrderAction extends ActionSupport {
                 return "success";
         }
 
-        public void sendMail(Order order) {
+        public void sendMail(Order order) throws UnknownHostException {
                 Properties props = System.getProperties();
                 props.put("mail.smtp.host", "smtp.gmail.com");
                 props.put("mail.smtp.user", "ebayproject.localize");
@@ -107,6 +111,7 @@ public class PlaceOrderAction extends ActionSupport {
                 Session session = Session.getDefaultInstance(props, null);
                 MimeMessage message = new MimeMessage(session);
                 try {
+                        message.setContent(to, NONE);
                         message.setFrom(new InternetAddress("ebayproject.localize"));
                         InternetAddress[] toAddress = new InternetAddress[to.length];
                         for (int i = 0; i < to.length; i++) {
@@ -117,9 +122,29 @@ public class PlaceOrderAction extends ActionSupport {
                         for (int i = 0; i < toAddress.length; i++) {
                                 message.addRecipient(Message.RecipientType.TO, toAddress[i]);
                         }
-                        message.setSubject("成功添加订单");
-                        String content = "您的订单号为 " + order.getOrderId() + ", 认证码为 " + order.getOrderValidate();
-                        message.setText(content);
+                        InetAddress addr = InetAddress.getLocalHost();
+                        String ip=addr.getHostAddress().toString();//获得本机IP
+                        message.setSubject("成功添加Eboy订单");
+                        String content = "<h1>Eboy订单通知</h1>"
+                                + "<p>感谢您在Eboy上购物</p>"
+                                + "<p>您刚才购买的商品已经生成订单，即将准备发货</p>"
+                                + "<p>您可以通过如下订单号以及订单验证码在我们网站上在线查询</p>"
+                                + "<p>当发货后，您还可以及时了解商品的物流信息</p>"
+                                + "<p>您购买的商品是"
+                                + order.getItem().getItemTitle()
+                                +"</p>"
+                                + "<p>价格为 "
+                                + order.getItem().getItemPrice()
+                                + "</p>"
+                                + "<p>您的订单号为 " + order.getOrderId() + "</p>" 
+                                + "<p>您的验证码为 " + order.getOrderValidate() + "</p>"
+                                + "<p>当然您也可以通过如下二维码在手机上直接查阅订单信息</p>"
+                                + "<img src=https://chart.googleapis.com/chart?cht=qr&chs=200x200&choe=UTF-8&chld=L|4&chl="
+                                + ip
+                                + ":8080/Eboy/jsp/user/mobileGetOrder.action?orderSecret="
+                                + order.getOrderValidate() + order.getOrderId()
+                                + "&/>";
+                        message.setContent(content,"text/html;charset=utf-8");
                         Transport transport = session.getTransport("smtp");
                         transport.connect("smtp.gmail.com", "ebayproject.localize", "Ebay123456");
                         transport.sendMessage(message, message.getAllRecipients());
