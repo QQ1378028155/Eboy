@@ -24,6 +24,7 @@ and open the template in the editor.
                 </action>
                 <action name="addItem" class="addItemAction">
                         <result name="success">/jsp/admin/storage.jsp?method=all</result>
+                        <result name="fail">/jsp/admin/ebayApiError.jsp</result>
                 </action>
                 <action name="lookUpOrder" class="lookUpOrderAction">
                         <result name="success">/jsp/admin/lookUpOrderResultList.jsp</result>
@@ -91,6 +92,7 @@ and open the template in the editor.
                 </action>
                 <action name="placeOrder" class="placeOrderAction">
                         <result name="success">/jsp/user/order.jsp</result>
+                        <result name="Request Too Much">/jsp/user/requestTooMuch.jsp</result>
                 </action>
                 <action name="confirmOrder" class="confirmOrderAction">
                         

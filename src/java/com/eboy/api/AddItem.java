@@ -28,16 +28,16 @@ import java.util.logging.Logger;
  * @author wjl
  */
 public class AddItem {
-        public static String execute(ItemType itemType)
-        {
+
+        public static String execute(ItemType itemType) throws ApiException, SdkException, Exception {
                 ApiContext apiContext = new ApiContext();
                 ApiCredential cred = apiContext.getApiCredential();
                 cred.seteBayToken(ApiConfig.authSandboxToken);
-                apiContext.setApiServerUrl(ApiConfig.apiSandboxServerUrl);    
+                apiContext.setApiServerUrl(ApiConfig.apiSandboxServerUrl);
                 apiContext.setSite(itemType.getSite());
                 AddItemCall api = new AddItemCall();
                 api.setApiContext(apiContext);
-                
+
 //                ItemType newItem = new ItemType();
 //                newItem.setListingType(ListingTypeCodeType.FIXED_PRICE_ITEM);
 //                newItem.setTitle(itemType.getTitle());
@@ -75,13 +75,13 @@ public class AddItem {
 //                
 //                
 //                api.setItem(itemType);
-                
+
                 ItemType newItem = new ItemType();
                 newItem.setTitle(itemType.getTitle());
                 newItem.setDescription(itemType.getDescription());
                 newItem.setListingType(ListingTypeCodeType.FIXED_PRICE_ITEM);
                 newItem.setStartPrice(itemType.getSellingStatus().getCurrentPrice());
-                
+
                 newItem.setPictureDetails(itemType.getPictureDetails());
                 newItem.setListingDuration(ListingDurationCodeType.DAYS_3.value());
 
@@ -91,49 +91,40 @@ public class AddItem {
                 newItem.setLocation(itemType.getLocation());
                 newItem.setSite(itemType.getSite());
                 newItem.setQuantity(itemType.getQuantity());
-                
+
                 newItem.setAutoPay(false);
-                
+
                 CategoryType ct = new CategoryType();
                 ct.setCategoryID("171485");
                 ct.setCategoryName("Computers/Tablets &amp; Networking:iPads, Tablets &amp; eBook Readers");
-                
+
                 newItem.setPrimaryCategory(ct);
 
-                
-                
-                
-                
+
+
+
+
                 BuyerPaymentMethodCodeType[] bpmcts = new BuyerPaymentMethodCodeType[1];
                 bpmcts[0] = BuyerPaymentMethodCodeType.PAY_PAL;
                 newItem.setPaymentMethods(bpmcts);
                 newItem.setConditionID(itemType.getConditionID());
                 newItem.setPayPalEmailAddress("1378028155@qq.com");
-               
+
 //                ShippingDetailsType sdt = new ShippingDetailsType();
                 newItem.setShippingDetails(itemType.getShippingDetails());
                 newItem.setReturnPolicy(itemType.getReturnPolicy());
                 newItem.setDispatchTimeMax(itemType.getDispatchTimeMax());
                 newItem.setConditionID(1000);
-                
+
                 newItem.getShippingDetails().setCODCost(null);
-                
-                
+
+
                 api.setItem(newItem);
-                
+
                 api.setEndUserIP("59.78.38.83");
-                try {
-                        FeesType fee = api.addItem();
-                        String ebayId = api.getReturnedItemID();
-                        System.out.println("sandboxID = " + ebayId);
-                        return ebayId;
-                } catch (ApiException ex) {
-                        Logger.getLogger(GetItem.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (SdkException ex) {
-                        Logger.getLogger(GetItem.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (Exception ex) {
-                        Logger.getLogger(GetItem.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                return null;
+
+                FeesType fee = api.addItem();
+                String ebayId = api.getReturnedItemID();
+                return ebayId;
         }
 }

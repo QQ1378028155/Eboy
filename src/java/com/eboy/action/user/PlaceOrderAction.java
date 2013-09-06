@@ -43,7 +43,7 @@ public class PlaceOrderAction extends ActionSupport {
         private String orderPhone;
         private String orderReceiver;
         private String orderEmail;
-
+        private String message;
         public String execute() throws UnknownHostException {
                 Cookie[] cookie = ServletActionContext.getRequest().getCookies();
                 HttpServletResponse response = ServletActionContext.getResponse();
@@ -74,7 +74,8 @@ public class PlaceOrderAction extends ActionSupport {
                         }
                         items[i] = getItemService().getItem(itemId[i]);
                         if (items[i].getItemQuantity() < itemQuantity[i]) {
-                                return "Request Too much";
+                                setMessage(items[i].getItemTitle() + " 库存不够了，请重新调整购买数量");
+                                return "Request Too Much";
                         }
                 }
                 Cookie c;
@@ -304,5 +305,13 @@ public class PlaceOrderAction extends ActionSupport {
 
         public void setOrderEmail(String orderEmail) {
                 this.orderEmail = orderEmail;
+        }
+
+        public String getMessage() {
+                return message;
+        }
+
+        public void setMessage(String message) {
+                this.message = message;
         }
 }

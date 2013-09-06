@@ -4,6 +4,8 @@
  */
 package com.eboy.action.admin;
 
+import com.ebay.sdk.ApiException;
+import com.ebay.sdk.SdkException;
 import com.ebay.soap.eBLBaseComponents.ItemType;
 import com.ebay.soap.eBLBaseComponents.NameValueListType;
 import com.ebay.soap.eBLBaseComponents.PictureDetailsType;
@@ -42,18 +44,31 @@ public class AddItemAction extends ActionSupport
         private String itemTitle;
         private String itemDescription;
         private String itemCategoryId;
+        private String message;
         @Override
         public String execute()
         {
                 ItemType itemType = GetItem.execute(getItemEbayId(),true);
-                String itemSandboxId =  AddItem.execute(itemType);
+                String itemSandboxId = null;
+                try {
+                        itemSandboxId = AddItem.execute(itemType);
+                } catch (ApiException ex) {
+                        message = ex.getMessage();
+                        return "fail";
+                } catch (SdkException ex) {
+                        message = ex.getMessage();
+                        return "fail";
+                } catch (Exception ex) {
+                        message = ex.getMessage();
+                        return "fail";
+                }
                 
                 Item item = ItemAdapter.execute(itemType);
                 item.setItemEbayId(getItemEbayId());
                 item.setItemTitle(getItemTitle());
                 item.setItemDescription(getItemDescription().getBytes());
                 item.setItemSandboxId(itemSandboxId);
-                Category category = getCategoryService().getCategory(Integer.parseInt(itemCategoryId));
+                Category category = getCategoryService().getCategory(Integer.parseInt(getItemCategoryId()));
                 item.setCategory(category);
                 
                 ShippingDetailsType sdt = GetItemShipping.execute(getItemEbayId(),1);
@@ -139,13 +154,13 @@ public class AddItemAction extends ActionSupport
                                 Tag tag = getTagService().getTag(tagWord);
                                 if(tag == null)
                                 {
-                                        tagService.addTag(tagWord);
-                                        tag = tagService.getTag(tagWord);
+                                        getTagService().addTag(tagWord);
+                                        tag = getTagService().getTag(tagWord);
                                 }
                                 ItemTag itemTag = new ItemTag();
                                 itemTag.setItem(item);
                                 itemTag.setTag(tag);
-                                itemTagService.addItemTag(itemTag);
+                                getItemTagService().addItemTag(itemTag);
                         }
                 }
                 
@@ -222,6 +237,14 @@ public class AddItemAction extends ActionSupport
 
         public void setItemTagService(ItemTagService itemTagService) {
                 this.itemTagService = itemTagService;
+        }
+
+        public String getMessage() {
+                return message;
+        }
+
+        public void setMessage(String message) {
+                this.message = message;
         }
         
 }
