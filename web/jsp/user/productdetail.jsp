@@ -185,11 +185,13 @@
 
                             <tr>
                                 <td height="30">数量:</td>
-                                <td><input id="itemQuantity" type="text" value="1" style="width: 20px; text-align: right" /></td>
+                                <td><input id="itemQuantity" type="text" value="1" style="width: 60px; text-align: right" /></td>
                             </tr>
                         </table>
                         <div class="cleaner h20"></div>
-                        <a href="#" class="add_to_card" onclick="addCart(<s:property value="#item.itemId"/>);">加入购物车</a>
+                        <div class="product_box">
+                                <a href="#" class="add_to_card" onclick="addCart(<s:property value="#item.itemId"/>);">加入购物车</a>
+                        </div>
                     </div>
                     <div>
                         <script type="text/javascript">

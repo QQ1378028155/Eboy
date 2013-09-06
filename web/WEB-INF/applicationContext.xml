@@ -423,4 +423,9 @@
                         <ref bean="orderService"></ref>
                 </property>
         </bean>
+        <bean id="adminLoadItemInfoAction" class="com.eboy.action.admin.AdminLoadItemInfoAction">
+                <property name="itemService">
+                        <ref bean="itemService"></ref>
+                </property>
+        </bean>
 </beans>

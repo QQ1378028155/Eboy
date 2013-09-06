@@ -164,5 +164,8 @@ and open the template in the editor.
                         <result name="success">/jsp/user/mobileOrder.jsp</result>
                         <result name="fail">/jsp/user/order.jsp</result>
                 </action>
+                <action name="adminLoadItemInfo" class="adminLoadItemInfoAction">
+                        <result name="success">/jsp/admin/productdetail.jsp</result>
+                </action>
         </package>
 </struts>
