@@ -6,6 +6,11 @@ package com.eboy.action.admin;
 
 import com.eboy.service.CategoryService;
 import com.opensymphony.xwork2.ActionSupport;
+import java.io.UnsupportedEncodingException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.http.HttpServletRequest;
+import org.apache.struts2.ServletActionContext;
 
 /**
  *
@@ -13,22 +18,24 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 public class AddCategoryAction extends ActionSupport
 {
-        private String categoryName;
+
         private CategoryService categoryService;
         @Override
         public String execute()
         {
-                getCategoryService().addCategory(getCategoryName());
+                HttpServletRequest request = ServletActionContext.getRequest();
+                try {
+                        request.setCharacterEncoding("UTF-8");
+                } catch (UnsupportedEncodingException ex) {
+                        Logger.getLogger(AddCategoryAction.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                String categoryName = request.getParameter("categoryName");
+                System.out.println(categoryName);
+                
+                getCategoryService().addCategory(categoryName);
                 return "success";
         }
 
-        public String getCategoryName() {
-                return categoryName;
-        }
-
-        public void setCategoryName(String categoryName) {
-                this.categoryName = categoryName;
-        }
 
         public CategoryService getCategoryService() {
                 return categoryService;

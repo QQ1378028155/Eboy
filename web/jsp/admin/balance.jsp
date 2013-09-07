@@ -84,8 +84,8 @@
                                                         xmlHttp.open("get", "refreshItem.action", true);
                                                         xmlHttp.onreadystatechange = function()
                                                         {
-                                                                if(xmlHttp.readyState == 4) {
-                                                                        if(xmlHttp.status == 200) {
+                                                                if (xmlHttp.readyState == 4) {
+                                                                        if (xmlHttp.status == 200) {
                                                                                 refreshItem.innerText = "刷新完成";
                                                                         }
                                                                 }
@@ -93,8 +93,6 @@
                                                         xmlHttp.send();
                                                         refreshItem.innerText = "正在刷新";
                                                 }
-
-                                                
                                         </script>
                                         <ul>
                                                 <li><a href="balance.jsp" class="selected">收支明细</a></li>
@@ -116,15 +114,12 @@
                                         <div class="cleaner"></div>
                                 </div>
                         </div><!-- END of templatemo_menu -->
-
                         <div id="templatemo_main">
                                 <div id="content">
                                         <h1>收支明细</h1>
                                         <div align="center">
                                                 <s:action name="getStatistics" executeResult="true"/> 
                                         </div>
-
-
                                 </div>
                                 <div class="cleaner"></div>
                         </div> <!-- END of templatemo_main -->

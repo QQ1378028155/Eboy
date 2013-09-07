@@ -8,7 +8,6 @@
 
 <div class="sidebar_box"><span class="bottom"></span>
         <div class="content"> 
-                        <img src="<s:property value="chartUrl"/>" alt="Sample chart" />
-
+                <img src="<s:property value="chartUrl"/>" alt="Sample chart" />
         </div>
 </div>

@@ -36,15 +36,15 @@ public class AddOrderDeliveryAction extends ActionSupport {
                 HttpServletRequest request = ServletActionContext.getRequest();
                 
                 int orderId = Integer.parseInt(request.getParameter("orderId"));
-                String deliveryLocation = request.getParameter("deliveryLocation");
+                String deliveryLocationChinese = request.getParameter("deliveryLocationChinese");
                 String deliveryRemark = request.getParameter("deliveryRemark");
                 Order order = orderService.getOrder(orderId);
                 Delivery delivery = new Delivery();
                 delivery.setOrder(order);
-                delivery.setDeliveryLocation(deliveryLocation);
+                delivery.setDeliveryLocationChinese(deliveryLocationChinese);
                 delivery.setDeliveryTime(new Date());
                 try {
-                        delivery.setDeliveryLocationChinese(YoudaoTranslate.execute(deliveryLocation));
+                        delivery.setDeliveryLocation(YoudaoTranslate.execute(deliveryLocationChinese));
                 } catch (Exception ex) {
                         Logger.getLogger(AddOrderDeliveryAction.class.getName()).log(Level.SEVERE, null, ex);
                 }

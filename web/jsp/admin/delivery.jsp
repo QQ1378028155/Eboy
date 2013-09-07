@@ -83,7 +83,7 @@
                                         xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
                                 } else
                                         xmlHttp = new XMLHttpRequest();
-                                xmlHttp.open("get", "addOrderDelivery.action?orderId=" + <s:property value="#order.orderId"/> + "&deliveryLocation=" + spot.value + "&deliveryRemark=" + info.value, true);
+                                xmlHttp.open("get", "addOrderDelivery.action?orderId=" + <s:property value="#order.orderId"/> + "&deliveryLocationChinese=" + spot.value + "&deliveryRemark=" + info.value, true);
                                 xmlHttp.onreadystatechange = function() {
                                         if (xmlHttp.readyState == 4) {
                                                 if (xmlHttp.status == 200) {
