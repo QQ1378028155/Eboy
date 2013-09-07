@@ -98,11 +98,11 @@
                 </div><!-- end of ddsmoothmenu -->
                 
                 <div id="menu_second_bar">
-            
-                    <div id="templatemo_search">
-<s:include value="searchForm.jsp"/>
-                    </div>
-                    <div class="cleaner"></div>
+
+                        <div id="templatemo_search">
+                                <s:include value="searchForm.jsp"/>
+                        </div>
+                        <div class="cleaner"></div>
                 </div>
             </div><!-- END of templatemo_menu -->
             

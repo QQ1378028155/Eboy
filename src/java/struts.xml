@@ -142,6 +142,9 @@ and open the template in the editor.
                 <action name="getHotList" class="getHotListAction">
                         <result name="success">/jsp/admin/taobaoSearch.jsp</result>
                 </action>
+                <action name="userHotList" class="userHotListAction">
+                        <result name="success">/jsp/user/taobaoSearch.jsp</result>
+                </action>
                 <action name="getComments" class="getCommentsAction">
                         <result name="success">/jsp/admin/comments.jsp</result>
                  </action>

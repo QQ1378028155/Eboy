@@ -132,6 +132,8 @@
                                 <div id="sidebar" class="float_l">
                                         <s:action name="getCategories" executeResult="true"/>
                                         <s:action name="getTags" executeResult="true"/>
+                                        <s:action name="userHotList" executeResult="true" />
+                                        
                                 </div>
                                 <s:action name="getItems" executeResult="true">
                                         <s:param name="method">all</s:param>

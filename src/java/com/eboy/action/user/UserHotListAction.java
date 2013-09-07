@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.eboy.action.admin;
+package com.eboy.action.user;
 
 import com.eboy.api.TaobaoHotItem;
 import com.opensymphony.xwork2.ActionContext;
@@ -16,7 +16,7 @@ import java.util.List;
  *
  * @author wjl
  */
-public class GetHotListAction extends ActionSupport {
+public class UserHotListAction extends ActionSupport {
         @Override
         public String execute()
         {

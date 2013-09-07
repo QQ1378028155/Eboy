@@ -221,6 +221,7 @@
                                 <div id="sidebar" class="float_l">
                                         <s:action name="getCategories" executeResult="true"/>
                                         <s:action name="getTags" executeResult="true"/>
+                                        <s:action name="userHotList" executeResult="true" />
                                 </div>
                                 <div id="content" class="float_r">
 

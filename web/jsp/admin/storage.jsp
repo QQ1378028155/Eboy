@@ -87,7 +87,6 @@
 
                                         <div id="templatemo_search">
                                                 <s:include value="searchForm.jsp"/>
-                                                <s:action name="getHotList" executeResult="true"/>
                                         </div>
 
                                         <div class="cleaner"></div>

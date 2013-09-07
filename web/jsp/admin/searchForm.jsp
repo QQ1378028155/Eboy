@@ -30,3 +30,5 @@
         <input type="button" onclick="searchstorage();" value=" 搜索仓库 " name="Search"  alt="Search" id="searchstoragebutton" title="搜索仓库商品" class="sub_btn"  />
         <input type="button" onclick="searchebay();" value=" 搜索eBay " name="Search"  alt="Search" id="searchebaybutton" title="搜索eBay商品" class="sub_btn"  />
 </form>
+
+<s:action name="getHotList" executeResult="true"/>

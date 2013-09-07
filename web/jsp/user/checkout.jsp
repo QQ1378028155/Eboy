@@ -73,6 +73,7 @@
                                 <div id="sidebar" class="float_l">
                                         <s:action name="getCategories" executeResult="true"/>
                                         <s:action name="getTags" executeResult="true"/>
+                                        <s:action name="userHotList" executeResult="true" />
                                 </div>
                                 <s:action name="getCheckoutForm" executeResult="true"/>
                                 <div class="cleaner"></div>
