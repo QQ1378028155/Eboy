@@ -36,4 +36,8 @@ public class TagDao extends HibernateDaoSupport{
         {
                 return (List<Tag>)(getHibernateTemplate().find("from Tag"));
         }
+        
+        public void updateTag(Tag tag) {
+                this.getHibernateTemplate().update(tag);
+        }
 }

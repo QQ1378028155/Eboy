@@ -73,7 +73,7 @@
                 }
                 return x;
             }
-            function modifyTagName(node){
+            function modifyTagName(node, tagId){
                 var td=get_previoussibling(node.parentNode);
                 var value=td.innerHTML;
                 td.innerHTML="";
@@ -83,27 +83,26 @@
                 var confirmBtn=get_nextsibling(node);
                 confirmBtn.style.display='block';
             };
-            function confirmTagName(node){
+            function confirmTagName(node, tagId){
                 var td=get_previoussibling(node.parentNode);
                 var inputfield=td.childNodes[0];
                 if (inputfield.nodeType!=1)
                     get_nextsibling(inputfield);
                 var value=inputfield.value;
                 td.innerHTML=value;
+                var xmlHttp;
+                if (window.ActiveXObject) {
+                        xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+                } else
+                        xmlHttp = new XMLHttpRequest();
+                xmlHttp.open("get", "editTag.action?tagId=" + tagId + "&tagWord=" + value, true);
+                xmlHttp.send();
+                
+                
+                
                 node.style.display='none';
                 var modifyBtn=get_previoussibling(node);
                 modifyBtn.style.display='block';
-            };
-            function addTag(){
-                var num=document.getElementById("categoryNum");
-                var name=document.getElementById("categoryName");
-                var tr="<tr><td align='center'>"+num.value+"</td><td align='center'>"+name.value+"</td><td align=center>"+
-                        "<a href='javascript:void(0);' onclick='modifyTagName(this);' style='display:block;'>修改类型名称</a>"+
-                        "<input type='button' class='btn' onclick='confirmTagName(this);' style='display:none;width:100px;height:25px;background-color: #0099ff;'value='确认标签名称' />"+
-                        "</td></tr>";
-                document.getElementById("trInput").insertAdjacentHTML("beforeBegin",tr);
-                num.value="";
-                name.value="";
             };
         </script>
     </head>
@@ -137,7 +136,7 @@
                 <div id="menu_second_bar">
             
                     <div id="templatemo_search">
-<s:include value="searchForm.jsp"/>
+                        <s:include value="searchForm.jsp"/>
                     </div>
                     <div class="cleaner"></div>
                 </div>
@@ -154,11 +153,6 @@
                             <th width="300" align="center">操作</th>
                         </tr>
                             <s:action name="adminGetTags" executeResult="true"/>
-                        <tr id="trInput">
-                            <td align="center"><input id="categoryNum" type="text" style="width:100px;"></input></td>
-                            <td align="center"><input id="categoryName" type="text" style="width:200px;"></input></td>
-                            <td align="center"><a href="javascript:void(0);" onclick="addTag();">添加</a></td>
-                        </tr>
                     </table>
 
                 </div>
@@ -171,7 +165,6 @@
                 </p>
                 Copyright © 2048 <a href="#">Eboy</a>
             </div> <!-- END of templatemo_footer -->
-            
         </div><!-- END of templatemo_wrapper -->
     </body>
 </html>

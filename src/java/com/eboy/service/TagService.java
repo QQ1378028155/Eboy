@@ -16,4 +16,5 @@ public interface TagService {
         Tag getTag(int tagId);
         Tag getTag(String tagWord);
         List<Tag> getTags();
+        void updateTag(Tag tag);
 }

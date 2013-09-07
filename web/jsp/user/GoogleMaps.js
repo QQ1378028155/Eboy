@@ -22,7 +22,7 @@ function displayRoute(spots)
 	spot_cnt=spots.length;
     if (spot_cnt<2){
     	if (spot_cnt==1)
-    		displaySpot(spots[0],"s");
+    		displaySpot(spots[0],"起");
     	return;
     }
 
@@ -66,7 +66,7 @@ function displayGoogleMaps(waypoints,destination)
         };
         map = new google.maps.Map(/*window.frames["gMap"].*/document.getElementById("map-canvas"),mapOptions);
         
-        displaySpot(destination,"t");
+        displaySpot(destination,"终");
         displayRoute(addresses);
     });
 }
