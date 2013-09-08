@@ -436,4 +436,9 @@
                         <ref bean="tagService"></ref>
                 </property>
         </bean>
+        <bean id="orderMapAction" class="com.eboy.action.admin.OrderMapAction">
+                <property name="orderService">
+                        <ref bean="orderService"></ref>
+                </property>
+        </bean>
 </beans>
