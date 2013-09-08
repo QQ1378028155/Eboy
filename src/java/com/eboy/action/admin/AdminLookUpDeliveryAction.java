@@ -10,6 +10,8 @@ import com.eboy.service.DeliveryService;
 import com.eboy.service.OrderService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.List;
 
 /**
@@ -27,6 +29,8 @@ public class AdminLookUpDeliveryAction extends ActionSupport {
                 Order order = orderService.getOrder(orderId);
                 ActionContext context = ActionContext.getContext();
                 List<Delivery> deliveries = deliveryService.getDeliveriesByOrderId(order.getOrderId());
+                BigDecimal b = new BigDecimal(order.getOrderPrice());
+                order.setOrderPrice(b.setScale(2, RoundingMode.HALF_UP).doubleValue());
                 context.put("order", order);
                 context.put("deliveries", deliveries);
                 return "success";

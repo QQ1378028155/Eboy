@@ -8,6 +8,8 @@ import com.eboy.po.Statistics;
 import com.eboy.service.StatisticsService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -126,7 +128,11 @@ public class GetStatisticsAction extends ActionSupport
                         }
                 }
                 
-                chxlb+=MaxMoney/2+"|"+MaxMoney;
+                //chxlb+=MaxMoney/2+"|"+MaxMoney;
+                BigDecimal b1 = new BigDecimal(MaxMoney/2);
+                BigDecimal b2 = new BigDecimal(MaxMoney);
+                chxlb+=b1.setScale(2, RoundingMode.HALF_UP).doubleValue() + "|" + b2.setScale(2, RoundingMode.HALF_UP).doubleValue();
+                
                 
                 for (int i =0;i<5;i++){
                         //System.out.println(resultDate[i]+" "+resultMoneyP[i]+"    "+resultMoneyM[i]+"   "+MaxMoney);

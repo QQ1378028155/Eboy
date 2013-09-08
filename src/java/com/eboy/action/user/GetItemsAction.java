@@ -46,6 +46,11 @@ public class GetItemsAction extends ActionSupport {
                 List<Item> items = null;
                 if (getMethod().equals("all")) {
                         items = getItemService().getItems();
+                        for (int i = 0; i < items.size(); i++) {
+                                if (items.get(i).getItemQuantity() == 0) {
+                                        items.remove(i);
+                                }
+                        }
                 }
                 if (getMethod().equals("category")) {
                         int categoryId = Integer.parseInt(getValue());
@@ -53,26 +58,40 @@ public class GetItemsAction extends ActionSupport {
                         Object[] is = category.getItems().toArray();
                         items = new ArrayList<Item>();
                         for (int i = 0; i < is.length; i++) {
-                                items.add((Item)is[i]);
+                                items.add((Item) is[i]);
+                        }
+                        for (int i = 0; i < items.size(); i++) {
+                                if (items.get(i).getItemQuantity() == 0) {
+                                        items.remove(i);
+                                }
                         }
                 }
-                if(getMethod().equals("tag"))
-                {
+                if (getMethod().equals("tag")) {
                         int tagId = Integer.parseInt(getValue());
                         Tag tag = tagService.getTag(tagId);
                         Object[] its = tag.getItemTags().toArray();
                         items = new ArrayList<Item>();
-                        for(int i = 0;i < its.length;i ++)
-                                items.add(((ItemTag)its[i]).getItem());
+                        for (int i = 0; i < its.length; i++) {
+                                items.add(((ItemTag) its[i]).getItem());
+                        }
+                        for (int i = 0; i < items.size(); i++) {
+                                if (items.get(i).getItemQuantity() == 0) {
+                                        items.remove(i);
+                                }
+                        }
                 }
-                if(getMethod().equals("keyword"))
-                {
+                if (getMethod().equals("keyword")) {
                         String keyword = value;
                         items = itemService.getItemsOrderBySale(keyword);
-                        System.out.println(items.size());
+                        //System.out.println(items.size());
+                        for (int i = 0; i < items.size(); i++) {
+                                if (items.get(i).getItemQuantity() == 0) {
+                                        items.remove(i);
+                                }
+                        }
                 }
-                
-                
+
+
                 List<Item> newItemList = new ArrayList<Item>();
                 List<Item> rateItemList = new ArrayList<Item>();
                 List<Item> priceItemList = new ArrayList<Item>();
@@ -146,6 +165,4 @@ public class GetItemsAction extends ActionSupport {
         public void setTagService(TagService tagService) {
                 this.tagService = tagService;
         }
-
-
 }
