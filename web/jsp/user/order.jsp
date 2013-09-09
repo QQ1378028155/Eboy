@@ -345,6 +345,7 @@
                                                 </tr>
                                         </table>
                                         <form action="addComment.action" >
+                                                <s:token/>
                                                 <table>
                                                         <tr style="display: none;">
                                                                 <td><input type="text" id="itemId" name="itemId"/></td>

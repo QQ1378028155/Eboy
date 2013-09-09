@@ -23,6 +23,9 @@ and open the template in the editor.
                         <result name="success">/jsp/admin/itemToAdd.jsp</result>
                 </action>
                 <action name="addItem" class="addItemAction">
+                        <interceptor-ref name="tokenSession"/>
+                        <interceptor-ref name="defaultStack"/>
+                        <result name="invalid.token">doublePost.jsp</result>
                         <result name="success">/jsp/admin/storage.jsp?method=all</result>
                         <result name="fail">/jsp/admin/ebayApiError.jsp</result>
                 </action>
@@ -69,6 +72,9 @@ and open the template in the editor.
                         <result name="success">/jsp/user/getLatestCommentResult.jsp</result>
                 </action>
                 <action name="addComment" class="addCommentAction">
+                        <interceptor-ref name="tokenSession"/>
+                        <interceptor-ref name="defaultStack"/>
+                        <result name="invalid.token">doublePost.jsp</result>
                         <result name="success">/jsp/user/order.jsp</result>
                 </action>
                 <action name="chargeBack" class="chargeBackAction">
@@ -91,6 +97,9 @@ and open the template in the editor.
                         <result name="Nothing in the Cart">/jsp/user/noCart.jsp</result>
                 </action>
                 <action name="placeOrder" class="placeOrderAction">
+                        <interceptor-ref name="tokenSession"/>
+                        <interceptor-ref name="defaultStack"/>
+                        <result name="invalid.token">doublePost.jsp</result>
                         <result name="success">/jsp/user/order.jsp</result>
                         <result name="Request Too Much">/jsp/user/requestTooMuch.jsp</result>
                 </action>
@@ -147,7 +156,7 @@ and open the template in the editor.
                 </action>
                 <action name="getComments" class="getCommentsAction">
                         <result name="success">/jsp/admin/comments.jsp</result>
-                 </action>
+                </action>
                 <action name="adminGetTags" class="adminGetTagsAction">
                         <result name="success">/jsp/admin/tags.jsp</result>
                 </action>
