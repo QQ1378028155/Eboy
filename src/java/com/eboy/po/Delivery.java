@@ -1,5 +1,5 @@
 package com.eboy.po;
-// Generated 2013-9-5 20:41:36 by Hibernate Tools 3.2.1.GA
+// Generated 2013-9-9 16:00:35 by Hibernate Tools 3.2.1.GA
 
 
 import java.util.Date;
@@ -15,24 +15,21 @@ public class Delivery  implements java.io.Serializable {
      private String deliveryLocation;
      private String deliveryRemark;
      private Date deliveryTime;
-     private String deliveryLocationChinese;
 
     public Delivery() {
     }
 
 	
-    public Delivery(Order order, String deliveryLocation, Date deliveryTime, String deliveryLocationChinese) {
+    public Delivery(Order order, String deliveryLocation, Date deliveryTime) {
         this.order = order;
         this.deliveryLocation = deliveryLocation;
         this.deliveryTime = deliveryTime;
-        this.deliveryLocationChinese = deliveryLocationChinese;
     }
-    public Delivery(Order order, String deliveryLocation, String deliveryRemark, Date deliveryTime, String deliveryLocationChinese) {
+    public Delivery(Order order, String deliveryLocation, String deliveryRemark, Date deliveryTime) {
        this.order = order;
        this.deliveryLocation = deliveryLocation;
        this.deliveryRemark = deliveryRemark;
        this.deliveryTime = deliveryTime;
-       this.deliveryLocationChinese = deliveryLocationChinese;
     }
    
     public Integer getDeliveryId() {
@@ -69,13 +66,6 @@ public class Delivery  implements java.io.Serializable {
     
     public void setDeliveryTime(Date deliveryTime) {
         this.deliveryTime = deliveryTime;
-    }
-    public String getDeliveryLocationChinese() {
-        return this.deliveryLocationChinese;
-    }
-    
-    public void setDeliveryLocationChinese(String deliveryLocationChinese) {
-        this.deliveryLocationChinese = deliveryLocationChinese;
     }
 
 

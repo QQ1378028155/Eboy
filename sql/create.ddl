@@ -13,12 +13,11 @@ CREATE TABLE Tag (
   tagWord varchar(255) NOT NULL, 
   PRIMARY KEY (tagID));
 CREATE TABLE Delivery (
-  deliveryID              int(10) NOT NULL AUTO_INCREMENT, 
-  deliveryLocation        varchar(255) NOT NULL, 
-  orderID                 int(10) NOT NULL, 
-  deliveryRemark          varchar(255), 
-  deliveryTime            datetime NOT NULL, 
-  deliveryLocationChinese varchar(255) NOT NULL, 
+  deliveryID       int(10) NOT NULL AUTO_INCREMENT, 
+  deliveryLocation varchar(255) NOT NULL, 
+  orderID          int(10) NOT NULL, 
+  deliveryRemark   varchar(255), 
+  deliveryTime     datetime NOT NULL, 
   PRIMARY KEY (deliveryID));
 CREATE TABLE Category (
   categoryID   int(10) NOT NULL AUTO_INCREMENT, 
@@ -53,7 +52,7 @@ CREATE TABLE Item (
   itemID                    int(10) NOT NULL AUTO_INCREMENT, 
   itemEbayID                varchar(30) NOT NULL, 
   itemTitle                 varchar(255) NOT NULL, 
-  itemDescription           blob NOT NULL, 
+  itemDescription           mediumblob NOT NULL, 
   itemQuantity              int(10) NOT NULL, 
   itemSortScore             double NOT NULL, 
   itemDiscount              double NOT NULL, 
@@ -63,13 +62,13 @@ CREATE TABLE Item (
   itemPrice                 double NOT NULL, 
   itemPriceCurrency         varchar(10) NOT NULL, 
   itemPackageCost           double DEFAULT 0, 
-  itemPackageCostCurrency   varchar(10) DEFAULT 'CHY', 
+  itemPackageCostCurrency   varchar(10) DEFAULT 'CNY', 
   itemImportCost            double DEFAULT 0, 
-  itemImportCostCurrency    varchar(10) DEFAULT 'CHY', 
+  itemImportCostCurrency    varchar(10) DEFAULT 'CNY', 
   itemShippingCost          double DEFAULT 0, 
-  itemShippingCostCurrency  varchar(10) DEFAULT 'CHY', 
+  itemShippingCostCurrency  varchar(10) DEFAULT 'CNY', 
   itemInsuranceCost         double DEFAULT 0, 
-  itemInsuranceCostCurrency varchar(10) DEFAULT 'CHY', 
+  itemInsuranceCostCurrency varchar(10) DEFAULT 'CNY', 
   itemTaxCost               double DEFAULT 0, 
   itemTaxCostCurrency       varchar(10) DEFAULT 'CHY', 
   itemSoldQuantity          int(10) DEFAULT 0 NOT NULL, 
@@ -81,4 +80,3 @@ ALTER TABLE Item ADD INDEX FKItem461997 (categoryID), ADD CONSTRAINT FKItem46199
 ALTER TABLE Delivery ADD INDEX FKDelivery657493 (orderID), ADD CONSTRAINT FKDelivery657493 FOREIGN KEY (orderID) REFERENCES `Order` (orderID);
 ALTER TABLE ItemTag ADD INDEX FKItemTag797338 (tagID), ADD CONSTRAINT FKItemTag797338 FOREIGN KEY (tagID) REFERENCES Tag (tagID);
 ALTER TABLE ItemTag ADD INDEX FKItemTag814279 (itemID), ADD CONSTRAINT FKItemTag814279 FOREIGN KEY (itemID) REFERENCES Item (itemID);
-

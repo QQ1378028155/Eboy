@@ -10,6 +10,7 @@ import com.ebay.sdk.ApiException;
 import com.ebay.sdk.SdkException;
 import com.ebay.sdk.call.AddItemCall;
 import com.ebay.soap.eBLBaseComponents.BuyerPaymentMethodCodeType;
+import com.ebay.soap.eBLBaseComponents.CalculatedShippingRateType;
 import com.ebay.soap.eBLBaseComponents.CategoryType;
 import com.ebay.soap.eBLBaseComponents.CountryCodeType;
 import com.ebay.soap.eBLBaseComponents.CurrencyCodeType;
@@ -17,9 +18,12 @@ import com.ebay.soap.eBLBaseComponents.FeesType;
 import com.ebay.soap.eBLBaseComponents.ItemType;
 import com.ebay.soap.eBLBaseComponents.ListingDurationCodeType;
 import com.ebay.soap.eBLBaseComponents.ListingTypeCodeType;
+import com.ebay.soap.eBLBaseComponents.MeasureType;
 import com.ebay.soap.eBLBaseComponents.PaymentDetailsType;
 import com.ebay.soap.eBLBaseComponents.ShippingDetailsType;
+import com.ebay.soap.eBLBaseComponents.ShippingTypeCodeType;
 import com.ebay.soap.eBLBaseComponents.SiteCodeType;
+import java.math.BigDecimal;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -111,6 +115,26 @@ public class AddItem {
                 newItem.setPayPalEmailAddress("1378028155@qq.com");
 
 //                ShippingDetailsType sdt = new ShippingDetailsType();
+                  
+                try
+                {
+                        ShippingTypeCodeType stct = itemType.getShippingDetails().getShippingType();
+                        System.out.println("                                                                      " + stct.value());
+                        if(stct.value().equals("Flat"))
+                        {
+                                MeasureType mt1 = itemType.getShippingDetails().getCalculatedShippingRate().getWeightMajor();
+                                mt1.setValue(BigDecimal.ZERO);
+                                MeasureType mt2 = itemType.getShippingDetails().getCalculatedShippingRate().getWeightMinor();
+                                mt2.setValue(BigDecimal.ZERO);
+                                
+                        }
+                }catch(Exception e)
+                {
+                        
+                }
+                
+                
+                
                 newItem.setShippingDetails(itemType.getShippingDetails());
                 newItem.setReturnPolicy(itemType.getReturnPolicy());
                 newItem.setDispatchTimeMax(itemType.getDispatchTimeMax());

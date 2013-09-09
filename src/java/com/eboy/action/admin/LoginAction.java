@@ -18,10 +18,10 @@ public class LoginAction extends ActionSupport{
         @Override
         public String execute()
         {
-                if(getAdminName().equals("admin") && getAdminPassword().equals("admin"))
+                if(getAdminPassword().equals("admin"))
                 {
                         ActionContext context = ActionContext.getContext();
-                        context.getSession().put("login", true);
+                        context.getSession().put("login", adminName);
                         return "success";
                 }
                 else

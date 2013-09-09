@@ -172,5 +172,8 @@ and open the template in the editor.
                 </action>
                 <action name="editTag" class="editTagAction">
                 </action>
+                <action name="getAdmin" class="getAdminAction">
+                        <result name="success">/jsp/admin/validate.jsp</result>
+                </action>
         </package>
 </struts>

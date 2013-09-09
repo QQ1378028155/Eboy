@@ -436,4 +436,7 @@
                         <ref bean="tagService"></ref>
                 </property>
         </bean>
+        <bean id="getAdminAction" class="com.eboy.action.admin.GetAdminAction">
+                
+        </bean>
 </beans>

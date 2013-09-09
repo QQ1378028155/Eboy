@@ -123,7 +123,7 @@
                     <h1><a href="">eboyadmin</a></h1>
                 </div>
                 <div id="header_right">
-                    <strong>管理员账号名</strong> | <a href="#">退出登录</a>
+                    <strong><s:action name="getAdmin" executeResult="true"/></strong> | <a href="#">退出登录</a>
 		</div>
                 <div class="cleaner"></div>
             </div><!-- END of templatemo_header -->
