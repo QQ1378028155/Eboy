@@ -21,24 +21,19 @@
                         联系电话:<br />
                         <input type="text"  style="width:300px;"  name="orderPhone"/>
                         <h3>购物车</h3>
-                        <h4>合计: <strong><s:property value="total"/></strong></h4>         
-                </div>
+                        <h4>合计: <strong><s:property value="total"/></strong></h4>
+                        <table style="background-color: #f0f0f0; float: right; border: 2px">
+                                <tr>
+                                        <td height="80px" style="padding: 0px 10px;"> <img src="images/Alipay.jpg" alt="Alipay" width="150" height="80"/></td>
+                                        <td width="422px;" style="padding: 0px 10px;">我们强烈推荐用户使用支付宝支付货款</td>
+                                        <td style="padding-right: 10px;"><a href="#" class="more" onclick="document.getElementById('checkoutForm').submit();
+                                                return false;">支付宝支付</a></td>
+                                </tr>
 
+                        </table>
+                </div>
                 <div class="content_half float_r checkout">
-
                 </div>
-
                 <div class="cleaner h50"></div>
-
-
-
-                <table style="border:1px solid #CCCCCC;" width="100%">
-
-                        <tr>
-                                <td height="80px"> <img src="images/Alipay.jpg" alt="Alipay" width="150" height="80"/></td>
-                                <td width="400px;" style="padding: 0px 20px;">改成支付宝？Recommended if you have a PayPal account. Fastest delivery time.</td>
-                                <td><a href="#" class="more" onclick="document.getElementById('checkoutForm').submit();return false;">支付宝支付</a></td>
-                        </tr>
-                </table>
         </div>
 </s:form>

@@ -4,7 +4,6 @@
  */
 package com.eboy.action.user;
 
-import com.eboy.api.YoudaoTranslate;
 import com.eboy.po.Delivery;
 import com.eboy.po.Order;
 import com.eboy.service.DeliveryService;
@@ -12,8 +11,6 @@ import com.eboy.service.OrderService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -35,20 +32,12 @@ public class LookUpDeliveryAction extends ActionSupport {
                 context.put("order", order);
                 context.put("deliveries", deliveries);
                 for (int i = 0; i < deliveries.size(); i++) {
-                        String str = deliveries.get(i).getDeliveryLocationChinese();
-                        
-                        waypoints = waypoints + str.substring(0,str.length() - 1);
+                        waypoints = waypoints + deliveries.get(i).getDeliveryLocation();
                         if (i != deliveries.size() - 1) {
                                 waypoints = waypoints + "|";
                         }
                 }
-                try {
-                        String str = YoudaoTranslate.execute(order.getOrderAddress());
-                        
-                        destination = str.substring(0,str.length() - 1);
-                } catch (Exception ex) {
-                        Logger.getLogger(LookUpDeliveryAction.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                destination = order.getOrderAddress();
                 context.put("destination", destination);
                 context.put("waypoints", waypoints);
                 return "success";

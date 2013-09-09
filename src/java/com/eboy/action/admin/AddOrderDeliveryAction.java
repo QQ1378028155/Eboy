@@ -4,19 +4,14 @@
  */
 package com.eboy.action.admin;
 
-import com.eboy.api.YoudaoTranslate;
 import com.eboy.po.Delivery;
 import com.eboy.po.Order;
 import com.eboy.service.OrderService;
 import com.eboy.service.DeliveryService;
-import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts2.ServletActionContext;
@@ -28,26 +23,20 @@ import org.apache.struts2.ServletActionContext;
 public class AddOrderDeliveryAction extends ActionSupport {
 
         private OrderService orderService;
-        private DeliveryService deliveryService;
-
+        private DeliveryService deliveryService
         
         @Override
         public String execute() {
                 HttpServletRequest request = ServletActionContext.getRequest();
                 
                 int orderId = Integer.parseInt(request.getParameter("orderId"));
-                String deliveryLocationChinese = request.getParameter("deliveryLocationChinese");
+                String deliveryLocation = request.getParameter("deliveryLocation");
                 String deliveryRemark = request.getParameter("deliveryRemark");
                 Order order = orderService.getOrder(orderId);
                 Delivery delivery = new Delivery();
                 delivery.setOrder(order);
-                delivery.setDeliveryLocationChinese(deliveryLocationChinese);
+                delivery.setDeliveryLocation(deliveryLocation);
                 delivery.setDeliveryTime(new Date());
-                try {
-                        delivery.setDeliveryLocation(YoudaoTranslate.execute(deliveryLocationChinese));
-                } catch (Exception ex) {
-                        Logger.getLogger(AddOrderDeliveryAction.class.getName()).log(Level.SEVERE, null, ex);
-                }
                 delivery.setDeliveryRemark(deliveryRemark);
                 deliveryService.addDelivery(delivery);
                 String responseText = delivery.getDeliveryId().toString();

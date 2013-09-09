@@ -83,7 +83,7 @@
                                         xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
                                 } else
                                         xmlHttp = new XMLHttpRequest();
-                                xmlHttp.open("get", "addOrderDelivery.action?orderId=" + <s:property value="#order.orderId"/> + "&deliveryLocationChinese=" + spot.value + "&deliveryRemark=" + info.value, true);
+                                xmlHttp.open("get", "addOrderDelivery.action?orderId=" + <s:property value="#order.orderId"/> + "&deliveryLocation=" + spot.value + "&deliveryRemark=" + info.value, true);
                                 xmlHttp.onreadystatechange = function() {
                                         if (xmlHttp.readyState == 4) {
                                                 if (xmlHttp.status == 200) {
@@ -145,15 +145,15 @@
                         {
                                 var ordermapdiv = document.getElementById("ordermapdiv");
                                 var ordermapbutton = document.getElementById("ordermapbutton");
-                                if(ordermapdiv.style.display == "none")
+                                if (ordermapdiv.style.display == "none")
                                 {
-                                      ordermapbutton.value="隐藏订单地图";
-                                      ordermapdiv.style.display = "inline";
+                                        ordermapbutton.value = "隐藏订单地图";
+                                        ordermapdiv.style.display = "inline";
                                 }
                                 else
                                 {
-                                        ordermapbutton.value="显示订单地图";
-                                        ordermapdiv.style.display = "none";        
+                                        ordermapbutton.value = "显示订单地图";
+                                        ordermapdiv.style.display = "none";
                                 }
                         }
                 </script>
@@ -167,7 +167,7 @@
                                         <h1><a href="">eboyadmin</a></h1>
                                 </div>
                                 <div id="header_right">
-                                        <strong><s:action name="getAdmin" executeResult="true"/></strong> | <a href="#">退出登录</a>
+                                        <strong>管理员账号名</strong> | <a href="#">退出登录</a>
                                 </div>
                                 <div class="cleaner"></div>
                         </div><!-- END of templatemo_header -->
@@ -205,7 +205,7 @@
                                                 <input type="submit" value=" 查询订单 " name="CheckOrder"  alt="CheckOrder" id="checkorderbutton" title="查询订单" class="btn" style="width:100px;"  />
                                                 <input type="button" value=" 显示订单地图 " name="ShowOrderMap"  alt="ShowOrderMap" id="ordermapbutton" title="显示订单地图" class="btn" style="width:120px;" onclick="OrderMapSwitch()"/>
                                         </form>
-                                        
+
                                         <div id="ordermapdiv" style="display: none">
                                                 <s:action name="orderMap" executeResult="true" />
                                         </div>
@@ -250,7 +250,7 @@
                                                         <tr id="tr<s:property value="deliveryId"/>">
                                                                 <td align="center" style=" display: none;"><s:property value="deliveryId"/></td>
                                                                 <td align="center"><s:property value="deliveryTime"/></td>
-                                                                <td align="center"><s:property value="deliveryLocationChinese"/></td>
+                                                                <td align="center"><s:property value="deliveryLocation"/></td>
                                                                 <td align="center"><s:property value="deliveryRemark"/></td>
                                                                 <td align="center"><a href="javascript:void(0);" onclick="removeDelivery(<s:property value="deliveryId"/>);">删除</a></td>
                                                         </tr>
