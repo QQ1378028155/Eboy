@@ -10,7 +10,7 @@ import com.eboy.service.CommentService;
 import com.eboy.service.ItemService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
-import java.util.List;
+import java.util.Date;
 
 /**
  *
@@ -28,7 +28,8 @@ public class AddCommentAction extends ActionSupport {
         @Override
         public String execute() {
                 Item item = getItemService().getItem(getItemId());
-                getCommentService().addComment( getCommentUserName(), getCommentContent(), Double.parseDouble(getB()), item);
+
+                getCommentService().addComment(getCommentUserName(), getCommentContent(), Double.parseDouble(getB()), item, new Date());
 
                 return "success";
         }

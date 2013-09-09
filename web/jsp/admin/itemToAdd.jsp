@@ -7,6 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <div>
         <s:form action="addItem">
+                <s:token/>
                 <img src="<s:property value="#item.itemThumbnailImageUrl"/>"/>
                 <input type="hidden" value="<s:property value="#item.itemEbayId"/>" name="itemEbayId"/>
                 <table>
