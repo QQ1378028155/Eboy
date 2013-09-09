@@ -128,50 +128,79 @@ public class GetStatisticsAction extends ActionSupport
                         }
                 }
                 
-                //chxlb+=MaxMoney/2+"|"+MaxMoney;
-                BigDecimal b1 = new BigDecimal(MaxMoney/2);
-                BigDecimal b2 = new BigDecimal(MaxMoney);
-                chxlb+=b1.setScale(2, RoundingMode.HALF_UP).doubleValue() + "|" + b2.setScale(2, RoundingMode.HALF_UP).doubleValue();
+               ActionContext context = ActionContext.getContext();
                 
-                
-                for (int i =0;i<5;i++){
-                        //System.out.println(resultDate[i]+" "+resultMoneyP[i]+"    "+resultMoneyM[i]+"   "+MaxMoney);
+                for (int i = 0; i < 5; i++) {
                         if (resultDate[i] != null) {
-                                chxla += resultDate[i];
+                                
+                                context.put("year" + i, resultDate[i]);
+                                System.out.println("contextresult:"+resultDate[i]);
                                 if (resultMoneyP[i] != null) {
-                                        int tem = (int) (resultMoneyP[i] * 100 / MaxMoney);
-                                        chda += tem;
+                                        context.put("num1" + i, resultMoneyP[i]);
                                 } else {
-                                        chda += "0";
+                                        context.put("num1" + i, 0);
                                 }
 
                                 if (resultMoneyM[i] != null) {
-                                        int tem = (int) (-resultMoneyM[i] * 100 / MaxMoney);
-                                        chdb += tem;
+                                        context.put("num2" + i, -resultMoneyM[i]);
                                 } else {
-                                        chdb += "0";
+                                        context.put("num2" + i, 0);
                                 }
 
-
-                                if (i != 4) {
-                                        if (resultDate[i + 1] != null) {
-                                                chxla += "|";
-                                                chda += ",";
-                                                chdb += ",";
-                                        }
-
-                                }
+                        } else {
+                                context.put("year" + i, 0);
+                                context.put("num1" + i, 0);
+                                context.put("num2" + i, 0);
                         }
+
                 }
                 
-                chartUrl+=chda+chdb+chxla+chxlb;
-                System.out.println(chartUrl);
+                //chxlb+=MaxMoney/2+"|"+MaxMoney;
+//                BigDecimal b1 = new BigDecimal(MaxMoney/2);
+//                BigDecimal b2 = new BigDecimal(MaxMoney);
+//                chxlb+=b1.setScale(2, RoundingMode.HALF_UP).doubleValue() + "|" + b2.setScale(2, RoundingMode.HALF_UP).doubleValue();
+//                
+//                
+//                for (int i =0;i<5;i++){
+//                        //System.out.println(resultDate[i]+" "+resultMoneyP[i]+"    "+resultMoneyM[i]+"   "+MaxMoney);
+//                        if (resultDate[i] != null) {
+//                                chxla += resultDate[i];
+//                                if (resultMoneyP[i] != null) {
+//                                        int tem = (int) (resultMoneyP[i] * 100 / MaxMoney);
+//                                        chda += tem;
+//                                } else {
+//                                        chda += "0";
+//                                }
+//
+//                                if (resultMoneyM[i] != null) {
+//                                        int tem = (int) (-resultMoneyM[i] * 100 / MaxMoney);
+//                                        chdb += tem;
+//                                } else {
+//                                        chdb += "0";
+//                                }
+//
+//
+//                                if (i != 4) {
+//                                        if (resultDate[i + 1] != null) {
+//                                                chxla += "|";
+//                                                chda += ",";
+//                                                chdb += ",";
+//                                        }
+//
+//                                }
+//                        }
+//                }
+//                
+//                chartUrl+=chda+chdb+chxla+chxlb;
+                //System.out.println(chartUrl);
 
                 
                 
-                ActionContext context = ActionContext.getContext();
-                context.put("statisticsList", statisticsList);
-                context.put("chartUrl", chartUrl);
+
+                //context.put("statisticsList", statisticsList);
+                //context.put("chartUrl", chartUrl);
+                context.put("num1",2000);
+        
                 return "success";
         }
 }
