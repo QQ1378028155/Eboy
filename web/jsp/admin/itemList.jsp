@@ -35,7 +35,7 @@
         <div id="new" style="display: inline;">
                 <s:iterator value="#newItemList" status="it">
                         <div class="<s:property value="#class[#it.index]"/>">
-                                <a href="adminLoadItemInfo.action?itemId=<s:property value="itemId"/>"><img src="<s:property value="itemThumbnailImageUrl"/>" alt="Image 01"  height="150" width="200"/></a>
+                                <a href="http://cgi.sandbox.ebay.com/<s:property value="itemSandboxId"/>"><img src="<s:property value="itemThumbnailImageUrl"/>" alt="Image 01"  height="150" width="200"/></a>
                                 <h3 style="overflow: hidden; height: 60px;"><s:property value="itemTitle"/></h3>
                                 <p class="product_price">RMB: <s:property value="itemPrice"/></p>
                                 <p>数量:<span class="product_quantity"><s:property value="itemQuantity"/></span></p>
@@ -47,7 +47,7 @@
         <div id="rate" style=" display: none;">
                 <s:iterator value="#rateItemList" status="it">
                         <div class="<s:property value="#class[#it.index]"/>">
-                                <a href="adminLoadItemInfo.action?itemId=<s:property value="itemId"/>"><img src="<s:property value="itemThumbnailImageUrl"/>" alt="Image 01"  height="150" width="200"/></a>
+                                <a href="http://cgi.sandbox.ebay.com/<s:property value="itemSandboxId"/>"><img src="<s:property value="itemThumbnailImageUrl"/>" alt="Image 01"  height="150" width="200"/></a>
                                 <h3 style="overflow: hidden; height: 60px;"><s:property value="itemTitle"/></h3>
                                 <p class="product_price">RMB: <s:property value="itemPrice"/></p>
                                 <p>数量:<span class="product_quantity"><s:property value="itemQuantity"/></span></p>                                
@@ -59,7 +59,7 @@
         <div id="sale" style=" display: none;">
                 <s:iterator value="#saleItemList" status="it">
                         <div class="<s:property value="#class[#it.index]"/>">
-                                <a href="adminLoadItemInfo.action?itemId=<s:property value="itemId"/>"><img src="<s:property value="itemThumbnailImageUrl"/>" alt="Image 01"  height="150" width="200"/></a>
+                                <a href="http://cgi.sandbox.ebay.com/<s:property value="itemSandboxId"/>"><img src="<s:property value="itemThumbnailImageUrl"/>" alt="Image 01"  height="150" width="200"/></a>
                                 <h3 style="overflow: hidden; height: 60px;"><s:property value="itemTitle"/></h3>
                                 <p class="product_price">RMB: <s:property value="itemPrice"/></p>
                                 <p>数量:<span class="product_quantity"><s:property value="itemQuantity"/></span></p>
@@ -71,7 +71,7 @@
         <div id="price" style=" display: none;">
                 <s:iterator value="#priceItemList" status="it">
                         <div class="<s:property value="#class[#it.index]"/>">
-                                <a href="adminLoadItemInfo.action?itemId=<s:property value="itemId"/>"><img src="<s:property value="itemThumbnailImageUrl"/>" alt="Image 01"  height="150" width="200"/></a>
+                                <a href="http://cgi.sandbox.ebay.com/<s:property value="itemSandboxId"/>"><img src="<s:property value="itemThumbnailImageUrl"/>" alt="Image 01"  height="150" width="200"/></a>
                                 <h3 style="overflow: hidden; height: 60px;"><s:property value="itemTitle"/></h3>
                                 <p class="product_price">RMB: <s:property value="itemPrice"/></p>
                                 <p>数量:<span class="product_quantity"><s:property value="itemQuantity"/></span></p>
