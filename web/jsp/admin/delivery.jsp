@@ -139,9 +139,23 @@
                                 document.getElementById('orderStatus').innerHTML = "已发货";
 
                         }
-
-
-
+                </script>
+                <script type="text/javascript">
+                        function OrderMapSwitch()
+                        {
+                                var ordermapdiv = document.getElementById("ordermapdiv");
+                                var ordermapbutton = document.getElementById("ordermapbutton");
+                                if(ordermapdiv.style.display == "none")
+                                {
+                                      ordermapbutton.value="隐藏订单地图";
+                                      ordermapdiv.style.display = "inline";
+                                }
+                                else
+                                {
+                                        ordermapbutton.value="显示订单地图";
+                                        ordermapdiv.style.display = "none";        
+                                }
+                        }
                 </script>
         </head>
 
@@ -189,7 +203,12 @@
                                                 <input type="text"  style="width:300px;" id="orderId" name="orderId" />
                                                 <p style="display: none;" id="authOrderId"></p>
                                                 <input type="submit" value=" 查询订单 " name="CheckOrder"  alt="CheckOrder" id="checkorderbutton" title="查询订单" class="btn" style="width:100px;"  />
+                                                <input type="button" value=" 显示订单地图 " name="ShowOrderMap"  alt="ShowOrderMap" id="ordermapbutton" title="显示订单地图" class="btn" style="width:120px;" onclick="OrderMapSwitch()"/>
                                         </form>
+                                        
+                                        <div id="ordermapdiv" style="display: none">
+                                                <s:action name="orderMap" executeResult="true" />
+                                        </div>
                                         <div class="cleaner h20"></div>
                                         <table width="920px" cellspacing="0" cellpadding="5" style='font-size:13px;'>
                                                 <tr bgcolor="#ddd">
