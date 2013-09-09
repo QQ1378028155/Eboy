@@ -23,6 +23,16 @@ public class AdminGetCategoriesAction extends ActionSupport {
                 List<Category> categoryList = getCategoryService().getCategorys();
                 ActionContext context = ActionContext.getContext();
                 context.put("categoryList", categoryList);
+                
+                String storageinfo = "['类别', '个数'],";
+                for(int i=0; i<categoryList.size(); i++)
+                {
+                        Category category = categoryList.get(i);
+                        storageinfo = storageinfo + "[" + "'" + category.getCategoryName() + "', " + category.getItems().size() + "], ";
+                }
+                //System.out.println("Storageinfo***************************" + storageinfo);
+                context.put("storageinfo", storageinfo);
+                
                 return "success";
         }
 

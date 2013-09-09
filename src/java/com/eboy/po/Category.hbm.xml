@@ -11,9 +11,9 @@
         <property name="categoryName" type="string">
             <column name="categoryName" not-null="true" />
         </property>
-        <set name="items" inverse="true">
+        <set name="items" inverse="true"  lazy="false">
             <key>
-                <column name="categoryID" not-null="true" />
+                <column name="categoryID" not-null="true"/>
             </key>
             <one-to-many class="com.eboy.po.Item" />
         </set>

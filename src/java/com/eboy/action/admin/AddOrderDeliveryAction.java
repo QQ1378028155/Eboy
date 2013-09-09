@@ -23,7 +23,7 @@ import org.apache.struts2.ServletActionContext;
 public class AddOrderDeliveryAction extends ActionSupport {
 
         private OrderService orderService;
-        private DeliveryService deliveryService
+        private DeliveryService deliveryService;
         
         @Override
         public String execute() {
