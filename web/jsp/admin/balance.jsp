@@ -72,28 +72,6 @@
 
                         <div id="templatemo_menu">
                                 <div id="top_nav" class="ddsmoothmenu">
-                                        <script>
-                                                function refreshItem()
-                                                {
-                                                        var xmlHttp;
-                                                        var refreshItem = document.getElementById('refreshItem');
-                                                        if (window.ActiveXObject) {
-                                                                xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
-                                                        } else
-                                                                xmlHttp = new XMLHttpRequest();
-                                                        xmlHttp.open("get", "refreshItem.action", true);
-                                                        xmlHttp.onreadystatechange = function()
-                                                        {
-                                                                if (xmlHttp.readyState == 4) {
-                                                                        if (xmlHttp.status == 200) {
-                                                                                refreshItem.innerText = "刷新完成";
-                                                                        }
-                                                                }
-                                                        }
-                                                        xmlHttp.send();
-                                                        refreshItem.innerText = "正在刷新";
-                                                }
-                                        </script>
                                         <ul>
                                                 <li><a href="balance.jsp" class="selected">收支明细</a></li>
                                                 <li><a href="storage.jsp">仓库管理</a></li>
@@ -101,7 +79,6 @@
                                                 <li><a href="tag.jsp">标签管理</a></li>
                                                 <li><a href="comment.jsp">评价管理</a></li>
                                                 <li><a href="delivery.jsp">物流管理</a></li>
-                                                <li><a href="javascript:void(0)" onclick="refreshItem();" id ="refreshItem">刷新商品</a></li>
                                         </ul>
                                         <br style="clear: left" />
                                 </div><!-- end of ddsmoothmenu -->

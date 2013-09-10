@@ -7,31 +7,53 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 
-
-
-
-
-<div id="content" class="float_r">
-        <h1>仓库中的货物</h1>
-        <a href="" onclick="showNew();
-                        return false;">按时间排序</a>|<a href="" onclick="showRate();
-                        return false;">按得分排序</a>|<a href="" onclick="showSale();
-                        return false;">按销售量排序</a>|<a href="" onclick="showPrice();
-                        return false;">按价格排序</a>
-        <br/>
-         <script>
-                function spreadEmail(itemId){
-                alert("推广邮件已发送");
+<script>
+        function refreshItem()
+        {
                 var xmlHttp;
+                var refreshItem = document.getElementById('refreshItem');
                 if (window.ActiveXObject) {
                         xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
                 } else
                         xmlHttp = new XMLHttpRequest();
-                        xmlHttp.open("get", "spreadEmail.action?itemId="+itemId, true);
-                        xmlHttp.send();
-                };
+                xmlHttp.open("get", "refreshItem.action", true);
+                xmlHttp.onreadystatechange = function()
+                {
+                        if (xmlHttp.readyState == 4) {
+                                if (xmlHttp.status == 200) {
+                                        refreshItem.innerText = "刷新完成";
+                                }
+                        }
+                }
+                xmlHttp.send();
+                refreshItem.innerText = "正在刷新";
+        }
+</script>
+
+
+
+<div id="content" class="float_r">
+        <h1>仓库中的货物<input type="button" value="刷新商品"id="refrshitem" class="btn" style="width:120px; float: right" onclick="refreshItem();"/></h1>
+        <a href="" onclick="showNew();
+                                                        return false;">按时间排序</a>|<a href="" onclick="showRate();
+                                                        return false;">按得分排序</a>|<a href="" onclick="showSale();
+                                                        return false;">按销售量排序</a>|<a href="" onclick="showPrice();
+                                                        return false;">按价格排序</a>
+        <br/>
+        <script>
+                                               function spreadEmail(itemId) {
+                                                       alert("推广邮件已发送");
+                                                       var xmlHttp;
+                                                       if (window.ActiveXObject) {
+                                                               xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+                                                       } else
+                                                               xmlHttp = new XMLHttpRequest();
+                                                       xmlHttp.open("get", "spreadEmail.action?itemId=" + itemId, true);
+                                                       xmlHttp.send();
+                                               }
+                                               ;
         </script>
-        
+
         <div id="new" style="display: inline;">
                 <s:iterator value="#newItemList" status="it">
                         <div class="<s:property value="#class[#it.index]"/>">
@@ -110,6 +132,5 @@
                         slist.style.display = "none";
                         plist.style.display = "inline";
                 }
-
         </script>
 </div> 
