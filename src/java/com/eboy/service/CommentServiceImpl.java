@@ -7,6 +7,7 @@ package com.eboy.service;
 import com.eboy.dao.CommentDao;
 import com.eboy.po.Comment;
 import com.eboy.po.Item;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -47,12 +48,14 @@ public class CommentServiceImpl implements CommentService{
         }
 
         @Override
-        public void addComment(String commentUserName, String commentContent, double commentRate, Item item) {
+        public void addComment(String commentUserName, String commentContent, double commentRate, Item item ,Date commentTime) {
                 Comment comment = new Comment();
                 comment.setCommentUserName(commentUserName);
                 comment.setCommentContent(commentContent);
                 comment.setCommentRate(commentRate);
-                comment.setItem(item);;
+                comment.setItem(item);
+                comment.setCommentTime(commentTime);;
+                
                 try {
                         commentDao.save(comment);
                 } catch (Exception ex) {

@@ -51,7 +51,7 @@ public class OrderMapAction extends ActionSupport {
                 }
                 ActionContext context = ActionContext.getContext();
                 context.put("orderinfo", orderinfo);
-                System.out.println("*******************************************orderinfo" + orderinfo);
+                //System.out.println("*******************************************orderinfo" + orderinfo);
                 return "success";
         }
 

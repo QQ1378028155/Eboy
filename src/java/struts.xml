@@ -130,6 +130,9 @@ and open the template in the editor.
                         <result name="success">/jsp/admin/balance.jsp</result>
                         <result name="failure">/jsp/admin/login.jsp</result>
                 </action>
+                <action name="logOut" class="logOutAction">
+                        <result name="success">/jsp/admin/login.jsp</result>
+                </action>
                 <action name="adminGetEbayItems" class="adminGetEbayItemsAction">
                         <result name="success">/jsp/admin/ebayItemList.jsp</result>
                 </action>

@@ -6,6 +6,7 @@ package com.eboy.service;
 
 import com.eboy.po.Comment;
 import com.eboy.po.Item;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -17,6 +18,6 @@ public interface CommentService {
         Comment getComment(Integer commentId);
         void deleteComment(Comment comment);
         void addComment(String commentUserName,String commentContent
-                ,double commentRate,Item item );
+                ,double commentRate,Item item,Date commentTime );
         List<Comment> getCommentsByItemId(Integer itemId);
 }

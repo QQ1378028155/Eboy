@@ -394,6 +394,7 @@
                 </property>
         </bean>
         <bean id="loginAction" class="com.eboy.action.admin.LoginAction"></bean>
+        <bean id="logOutAction" class="com.eboy.action.admin.LogOutAction"></bean>
 
         <bean id="refreshItemAction" class="com.eboy.action.admin.RefreshItemAction">
                 <property name="itemService">

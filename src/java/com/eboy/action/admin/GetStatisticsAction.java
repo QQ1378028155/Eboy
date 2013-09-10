@@ -35,7 +35,7 @@ public class GetStatisticsAction extends ActionSupport
         public String execute() {
                 List<Statistics> statisticsList = statisticsService.getStatistics();
                 String chartUrl = "http://chart.apis.google.com/chart?cht=bvg"
-                        + "&chco=ff0000,00ff00&chtt=近+五+日+收+支+明+细&chs=600x500&chbh=40,0";
+                        + "&chco=ff0000,00ff00&chf=c,s,f0f0f0&chtt=近+五+日+收+支+明+细&chs=600x500&chbh=40,0";
                 String chda="&chd=t:";
                 String chdb="|";
                 String chxla="&chxt=x,y&chxl=0:|";
@@ -136,13 +136,17 @@ public class GetStatisticsAction extends ActionSupport
                                 context.put("year" + i, resultDate[i]);
                                 System.out.println("contextresult:"+resultDate[i]);
                                 if (resultMoneyP[i] != null) {
-                                        context.put("num1" + i, resultMoneyP[i]);
+                                        BigDecimal b = new BigDecimal(resultMoneyP[i]);
+                                        double c=b.setScale(2, RoundingMode.HALF_UP).doubleValue();
+                                        context.put("num1" + i, c);
                                 } else {
                                         context.put("num1" + i, 0);
                                 }
 
                                 if (resultMoneyM[i] != null) {
-                                        context.put("num2" + i, -resultMoneyM[i]);
+                                        BigDecimal b = new BigDecimal(-resultMoneyM[i]);
+                                        double c=b.setScale(2, RoundingMode.HALF_UP).doubleValue();
+                                        context.put("num2" + i, c);
                                 } else {
                                         context.put("num2" + i, 0);
                                 }
@@ -152,53 +156,7 @@ public class GetStatisticsAction extends ActionSupport
                                 context.put("num1" + i, 0);
                                 context.put("num2" + i, 0);
                         }
-
                 }
-                
-                //chxlb+=MaxMoney/2+"|"+MaxMoney;
-//                BigDecimal b1 = new BigDecimal(MaxMoney/2);
-//                BigDecimal b2 = new BigDecimal(MaxMoney);
-//                chxlb+=b1.setScale(2, RoundingMode.HALF_UP).doubleValue() + "|" + b2.setScale(2, RoundingMode.HALF_UP).doubleValue();
-//                
-//                
-//                for (int i =0;i<5;i++){
-//                        //System.out.println(resultDate[i]+" "+resultMoneyP[i]+"    "+resultMoneyM[i]+"   "+MaxMoney);
-//                        if (resultDate[i] != null) {
-//                                chxla += resultDate[i];
-//                                if (resultMoneyP[i] != null) {
-//                                        int tem = (int) (resultMoneyP[i] * 100 / MaxMoney);
-//                                        chda += tem;
-//                                } else {
-//                                        chda += "0";
-//                                }
-//
-//                                if (resultMoneyM[i] != null) {
-//                                        int tem = (int) (-resultMoneyM[i] * 100 / MaxMoney);
-//                                        chdb += tem;
-//                                } else {
-//                                        chdb += "0";
-//                                }
-//
-//
-//                                if (i != 4) {
-//                                        if (resultDate[i + 1] != null) {
-//                                                chxla += "|";
-//                                                chda += ",";
-//                                                chdb += ",";
-//                                        }
-//
-//                                }
-//                        }
-//                }
-//                
-//                chartUrl+=chda+chdb+chxla+chxlb;
-                //System.out.println(chartUrl);
-
-                
-                
-
-                //context.put("statisticsList", statisticsList);
-                //context.put("chartUrl", chartUrl);
                 context.put("num1",2000);
         
                 return "success";
