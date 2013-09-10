@@ -64,8 +64,6 @@
                                               result=[tempt0,tempt1,tempt2,tempt3,tempt4,tempt5];
                                       }
                               }
-                                       
-
                       }
               }
        }
@@ -79,14 +77,18 @@
           title: '近5日收支明细',
           vAxis: {title: '日期',  titleTextStyle: {color: 'red'}}
         };
+        
 
         var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+                var formatter = new google.visualization.ColorFormat();
+        formatter.addRange(-20000,20000,'#0f0f0f','#0f0f0f');
+        formatter.format(data,0);
         chart.draw(data, options);
       }
     </script>
 </head>
 
-<div class="sidebar_box"><span class="bottom"></span>
+
         <div id="chart_div" style="width: 900px; height: 500px;"></div>
-</div>
+
 

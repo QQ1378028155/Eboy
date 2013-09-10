@@ -86,7 +86,7 @@
                                 <p>
                                         <a href="index.jsp">首页</a> | <a href="order.jsp">查询订单</a> | <a href="checkout.jsp">账单结算</a> | <a href="faqs.jsp">常见问题</a> | <a href="contact.jsp">联系我们</a>
                                 </p>
-                                Copyright © 2048 <a href="#">Eboy</a>
+                                Copyright © 2013 <a href="#">Eboy</a>
                         </div> <!-- END of templatemo_footer -->
 
                 </div><!-- END of templatemo_wrapper -->

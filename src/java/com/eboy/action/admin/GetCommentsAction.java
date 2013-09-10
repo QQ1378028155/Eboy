@@ -53,7 +53,7 @@ public class GetCommentsAction extends ActionSupport {
                         + "['3'," + ratethree + "], "
                         + "['4'," + ratefour + "], "
                         + "['5'," + ratefive + "], ";
-                System.out.print("rateinfo**************************" + rateinfo);
+                //System.out.print("rateinfo**************************" + rateinfo);
                 context.put("rateinfo", rateinfo);
                 
                 return "success";

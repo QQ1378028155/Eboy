@@ -123,7 +123,7 @@
                     <h1><a href="">eboyadmin</a></h1>
                 </div>
                 <div id="header_right">
-                    <strong><s:action name="getAdmin" executeResult="true"/></strong> | <a href="#">退出登录</a>
+                    <strong><s:action name="getAdmin" executeResult="true"/></strong> | <a href="logOut.action">退出登录</a>
 		</div>
                 <div class="cleaner"></div>
             </div><!-- END of templatemo_header -->
@@ -176,7 +176,7 @@
                 <p>
                     <a href="balance.jsp">收支明细</a> | <a href="storage.jsp">仓库管理</a> | <a href="category.jsp">类型管理</a> | <a href="tag.jsp">标签管理</a> | <a href="comment.jsp">评价管理</a> | <a href="delivery.jsp">物流管理</a>
                 </p>
-                Copyright © 2048 <a href="#">Eboy</a>
+                Copyright © 2013 <a href="#">Eboy</a>
             </div> <!-- END of templatemo_footer -->
             
         </div><!-- END of templatemo_wrapper -->
