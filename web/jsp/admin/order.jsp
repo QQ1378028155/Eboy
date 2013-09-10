@@ -1,15 +1,16 @@
 <%-- 
-    Document   : ebaySERP
-    Created on : 2013-8-27, 23:35:31
-    Author     : WingFung
+    Document   : order
+    Created on : 2013-9-10, 17:39:20
+    Author     : wjl
 --%>
+
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@taglib prefix="s" uri="/struts-tags" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html  xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <title>EboyAdmin - eBay搜索结果</title>
+        <title>EboyAdmin - eBoy 发货</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link href="css/templatemo_style.css" rel="stylesheet" type="text/css" />
         <link href="css/ddsmoothmenu.css" rel="stylesheet" type="text/css" />
@@ -78,7 +79,7 @@
                         <li><a href="category.jsp">类型管理</a></li>
                         <li><a href="tag.jsp">标签管理</a></li>
                         <li><a href="comment.jsp">评价管理</a></li>
-                                                <li><a href="order.jsp">订单管理</a></li>
+                                                <li><a href="order.jsp" class="selected">订单管理</a></li>
                         <li><a href="delivery.jsp">物流管理</a></li>
                     </ul>
                     <br style="clear: left" />
@@ -95,11 +96,7 @@
             
             <div id="templatemo_main">
                 <div id="content" class="float_r">
-                    <h1>eBay搜索结果</h1>
-                    <s:action name="adminGetEbayItems" executeResult="true">
-                         <s:param name="method"><s:property value="method"/></s:param>
-                         <s:param name="value"><s:property value="value"/></s:param>
-                    </s:action>
+                        <s:action name="getCheckout" executeResult="true"/>
                 </div>
                 <div class="cleaner"></div>
             </div> <!-- END of templatemo_main -->

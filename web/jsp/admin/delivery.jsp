@@ -121,24 +121,6 @@
                                 xmlHttp.open("get", "updateOrderStatus.action?orderId=" + <s:property value="#order.orderId"/> + "&orderStatus=" + document.getElementById("orderStatusList").value, true);
                                 xmlHttp.send();
                         }
-
-                        function deliver(orderId) {
-                                var str = document.getElementById('orderStatus').innerHTML;
-                                if (str != "未发货") {
-                                        alert("已经发货，不能重复发货！");
-                                        return false;
-                                }
-                                var xmlHttp;
-
-                                if (window.ActiveXObject) {
-                                        xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
-                                } else
-                                        xmlHttp = new XMLHttpRequest();
-                                xmlHttp.open("get", "deliverOrder.action?orderId=" + orderId, true);
-                                xmlHttp.send();
-                                document.getElementById('orderStatus').innerHTML = "已发货";
-
-                        }
                 </script>
                 <script type="text/javascript">
                         function OrderMapSwitch()
@@ -180,6 +162,7 @@
                                                 <li><a href="category.jsp">类型管理</a></li>
                                                 <li><a href="tag.jsp">标签管理</a></li>
                                                 <li><a href="comment.jsp">评价管理</a></li>
+                                                <li><a href="order.jsp">订单管理</a></li>
                                                 <li><a href="delivery.jsp" class="selected">物流管理</a></li>
                                         </ul>
                                         <br style="clear: left" />
@@ -212,12 +195,11 @@
                                         <div class="cleaner h20"></div>
                                         <table width="920px" cellspacing="0" cellpadding="5" style='font-size:13px;'>
                                                 <tr bgcolor="#ddd">
-                                                        <th width="220" align="center">商品图片 </th>
-                                                        <th width="270" align="center">描述 </th>
-                                                        <th width="50" align="center">数量 </th>
-                                                        <th width="80" align="right">总价 </th>
-                                                        <th width="120" align="center">订单状态</th>
-                                                        <th width="180"align="center">操作 </th>
+                                                        <th width="256" align="center">商品图片 </th>
+                                                        <th width="306" align="center">描述 </th>
+                                                        <th width="86" align="center">数量 </th>
+                                                        <th width="116" align="right">总价 </th>
+                                                        <th width="156" align="center">订单状态</th>
                                                 </tr>
                                                 <tr>
                                                         <td><img  id="itemThumbnailImageUrl" src="<s:property value="#order.item.itemThumbnailImageUrl"/>" /></td>
@@ -225,10 +207,6 @@
                                                         <td align="center" id="orderQuantity" ><s:property value="#order.orderQuantity"/></td>
                                                         <td align="right" id="orderPrice"><s:property value="#order.orderPrice"/></td> 
                                                         <td align="center" id="orderStatus"><s:property value="#order.orderStatus"/></td>
-                                                        <td align="center">
-                                                                <a href="javascript:void(0);" id="modifyBtn" onclick="deliver(<s:property value="#order.orderId"/>);
-                                return false;" style="display:block;">发货</a>
-                                                        </td>
                                                 </tr>
                                         </table>
 

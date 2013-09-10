@@ -188,17 +188,7 @@
                         <ref bean="deliveryService"></ref>
                 </property>
         </bean>
-        <bean id="deliverOrderAction" class="com.eboy.action.admin.DeliverOrderAction">
-                <property name="orderService">
-                        <ref bean="orderService"></ref>
-                </property>
-                <property name="deliveryService">
-                        <ref bean="deliveryService"></ref>
-                </property>
-                <property name="statisticsService">
-                        <ref bean="statisticsService"></ref>
-                </property>
-        </bean>
+
         <bean id="searchItemsFromStoreAction" class="com.eboy.action.admin.SearchItemsFromStoreAction">
                 <property name="itemService">
                         <ref bean="itemService"></ref>
@@ -390,7 +380,7 @@
                         <ref bean="commentService"></ref>
                 </property>
         </bean>
-         <bean id="adminGetTagsAction" class="com.eboy.action.admin.AdminGetTagsAction">
+        <bean id="adminGetTagsAction" class="com.eboy.action.admin.AdminGetTagsAction">
                 <property name="tagService">
                         <ref bean="tagService"></ref>
                 </property>
@@ -442,6 +432,30 @@
         <bean id="orderMapAction" class="com.eboy.action.admin.OrderMapAction">
                 <property name="orderService">
                         <ref bean="orderService"></ref>
+                </property>
+        </bean>
+        <bean id="getCheckout" class="com.eboy.action.admin.GetCheckout">
+                <property name="orderService">
+                        <ref bean="orderService"></ref>
+                </property>
+        </bean>
+        <bean id="getCheckoutAction" class="com.eboy.action.admin.GetCheckoutAction">
+                <property name="getCheckout">
+                        <ref bean="getCheckout"></ref>
+                </property>
+        </bean>
+        <bean id="deliverOrderAction" class="com.eboy.action.admin.DeliverOrderAction">
+                <property name="orderService">
+                        <ref bean="orderService"></ref>
+                </property>
+                <property name="deliveryService">
+                        <ref bean="deliveryService"></ref>
+                </property>
+                <property name="statisticsService">
+                        <ref bean="statisticsService"></ref>
+                </property>
+                <property name="getCheckout">
+                        <ref bean="getCheckout"></ref>
                 </property>
         </bean>
 </beans>

@@ -128,6 +128,7 @@
                         <li><a href="category.jsp">类型管理</a></li>
                         <li><a href="tag.jsp" class="selected">标签管理</a></li>
                         <li><a href="comment.jsp">评价管理</a></li>
+                                                <li><a href="order.jsp">订单管理</a></li>
                         <li><a href="delivery.jsp">物流管理</a></li>
                     </ul>
                     <br style="clear: left" />

@@ -17,4 +17,5 @@ public interface OrderService {
         void updateDeliverOrder(Order order);
         Order getOrderByOrderValidate(String orderValidate);
         void saveOrder(Order order);
+        List<Order> getUndeliveredOrders();
 }

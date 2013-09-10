@@ -54,5 +54,10 @@ public class OrderServiceImpl implements OrderService{
                         Logger.getLogger(OrderServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
                 }
         }
+
+        @Override
+        public List<Order> getUndeliveredOrders() {
+                return orderDao.getUndeliveredOrders();
+        }
         
 }

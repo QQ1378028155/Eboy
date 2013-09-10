@@ -102,6 +102,7 @@
                                                 <li><a href="category.jsp">类型管理</a></li>
                                                 <li><a href="tag.jsp">标签管理</a></li>
                                                 <li><a href="comment.jsp">评价管理</a></li>
+                                                <li><a href="order.jsp">订单管理</a></li>
                                                 <li><a href="delivery.jsp">物流管理</a></li>
                                                 <li><a href="javascript:void(0)" onclick="refreshItem();" id ="refreshItem">刷新商品</a></li>
                                         </ul>
