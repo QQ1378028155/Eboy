@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2013-9-9 16:00:41 by Hibernate Tools 3.2.1.GA -->
+<!-- Generated 2013-9-11 8:02:44 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="com.eboy.po.Tag" table="Tag" catalog="Eboy">
         <id name="tagId" type="java.lang.Integer">
@@ -11,7 +11,7 @@
         <property name="tagWord" type="string">
             <column name="tagWord" not-null="true" />
         </property>
-        <set name="itemTags" inverse="true" lazy="false">
+        <set name="itemTags" inverse="true">
             <key>
                 <column name="tagID" not-null="true" />
             </key>

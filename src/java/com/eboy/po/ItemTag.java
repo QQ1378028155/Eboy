@@ -1,5 +1,5 @@
 package com.eboy.po;
-// Generated 2013-9-9 16:00:35 by Hibernate Tools 3.2.1.GA
+// Generated 2013-9-11 8:02:44 by Hibernate Tools 3.2.1.GA
 
 
 

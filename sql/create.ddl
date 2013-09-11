@@ -70,9 +70,19 @@ CREATE TABLE Item (
   itemInsuranceCost         double DEFAULT 0, 
   itemInsuranceCostCurrency varchar(10) DEFAULT 'CNY', 
   itemTaxCost               double DEFAULT 0, 
-  itemTaxCostCurrency       varchar(10) DEFAULT 'CHY', 
+  itemTaxCostCurrency       varchar(10) DEFAULT 'CNY', 
   itemSoldQuantity          int(10) DEFAULT 0 NOT NULL, 
   PRIMARY KEY (itemID));
+CREATE TABLE MLC (
+  MLCID int(10) NOT NULL AUTO_INCREMENT, 
+  MLC0  double, 
+  MLC1  double, 
+  MLC2  double, 
+  MLC3  double, 
+  MLC4  double, 
+  MLC5  double, 
+  MLC6  double, 
+  PRIMARY KEY (MLCID));
 ALTER TABLE `Order` ADD INDEX FKOrder388381 (itemID), ADD CONSTRAINT FKOrder388381 FOREIGN KEY (itemID) REFERENCES Item (itemID);
 ALTER TABLE Comment ADD INDEX FKComment17490 (itemID), ADD CONSTRAINT FKComment17490 FOREIGN KEY (itemID) REFERENCES Item (itemID);
 ALTER TABLE Gallery ADD INDEX FKGallery697525 (itemID), ADD CONSTRAINT FKGallery697525 FOREIGN KEY (itemID) REFERENCES Item (itemID);
@@ -80,3 +90,4 @@ ALTER TABLE Item ADD INDEX FKItem461997 (categoryID), ADD CONSTRAINT FKItem46199
 ALTER TABLE Delivery ADD INDEX FKDelivery657493 (orderID), ADD CONSTRAINT FKDelivery657493 FOREIGN KEY (orderID) REFERENCES `Order` (orderID);
 ALTER TABLE ItemTag ADD INDEX FKItemTag797338 (tagID), ADD CONSTRAINT FKItemTag797338 FOREIGN KEY (tagID) REFERENCES Tag (tagID);
 ALTER TABLE ItemTag ADD INDEX FKItemTag814279 (itemID), ADD CONSTRAINT FKItemTag814279 FOREIGN KEY (itemID) REFERENCES Item (itemID);
+

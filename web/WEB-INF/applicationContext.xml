@@ -33,6 +33,7 @@
                                 <value>com/eboy/po/Order.hbm.xml</value>
                                 <value>com/eboy/po/Tag.hbm.xml</value>
                                 <value>com/eboy/po/Statistics.hbm.xml</value>
+                                <value>com/eboy/po/Mlc.hbm.xml</value>
                         </list>
                 </property>
                 <property name="hibernateProperties">
@@ -84,7 +85,11 @@
                         <ref bean="sessionFactory"></ref>
                 </property>
         </bean> 
-
+        <bean id="mlcDao" class="com.eboy.dao.MlcDao">
+                <property name="sessionFactory">
+                        <ref bean="sessionFactory"></ref>
+                </property>
+        </bean>
         <bean id="tagService" class="com.eboy.service.TagServiceImpl">
                 <property name="tagDao">
                         <ref bean="tagDao"></ref>
@@ -132,7 +137,11 @@
                 </property>
                         
         </bean>
-
+        <bean id="mlcService" class="com.eboy.service.MlcServiceImpl">
+                <property name="mlcDao">
+                        <ref bean="mlcDao"></ref>
+                </property>
+        </bean>
         <bean id="addTagAction" class="com.eboy.action.admin.AddTagAction">
                 <property name="tagService">
                         <ref bean="tagService"></ref>
@@ -457,6 +466,14 @@
                 </property>
                 <property name="getCheckout">
                         <ref bean="getCheckout"></ref>
+                </property>
+        </bean>
+        <bean id="trainAction" class="com.eboy.action.admin.TrainAction">
+                <property name="itemService">
+                        <ref bean="itemService"></ref>
+                </property>
+                <property name="mlcService">
+                        <ref bean="mlcService"></ref>
                 </property>
         </bean>
 </beans>

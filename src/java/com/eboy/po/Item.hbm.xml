@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2013-9-9 16:00:41 by Hibernate Tools 3.2.1.GA -->
+<!-- Generated 2013-9-11 8:02:44 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="com.eboy.po.Item" table="Item" catalog="Eboy">
         <id name="itemId" type="java.lang.Integer">
@@ -92,7 +92,7 @@
             </key>
             <one-to-many class="com.eboy.po.ItemTag" />
         </set>
-        <set name="galleries" inverse="true">
+        <set name="galleries" inverse="true" lazy="false">
             <key>
                 <column name="itemID" not-null="true" />
             </key>

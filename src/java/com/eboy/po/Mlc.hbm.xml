@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2013-9-11 8:02:44 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.eboy.po.Mlc" table="MLC" catalog="Eboy">
+        <id name="mlcid" type="java.lang.Integer">
+            <column name="MLCID" />
+            <generator class="identity" />
+        </id>
+        <property name="mlc0" type="java.lang.Double">
+            <column name="MLC0" precision="22" scale="0" />
+        </property>
+        <property name="mlc1" type="java.lang.Double">
+            <column name="MLC1" precision="22" scale="0" />
+        </property>
+        <property name="mlc2" type="java.lang.Double">
+            <column name="MLC2" precision="22" scale="0" />
+        </property>
+        <property name="mlc3" type="java.lang.Double">
+            <column name="MLC3" precision="22" scale="0" />
+        </property>
+        <property name="mlc4" type="java.lang.Double">
+            <column name="MLC4" precision="22" scale="0" />
+        </property>
+        <property name="mlc5" type="java.lang.Double">
+            <column name="MLC5" precision="22" scale="0" />
+        </property>
+        <property name="mlc6" type="java.lang.Double">
+            <column name="MLC6" precision="22" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

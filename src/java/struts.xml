@@ -190,5 +190,8 @@ and open the template in the editor.
                 <action name="getCheckout" class="getCheckoutAction">
                         <result name="success">/jsp/admin/checkoutForm.jsp</result>
                 </action>
+                <action name="train" class="trainAction">
+                        
+                </action>
         </package>
 </struts>

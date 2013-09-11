@@ -31,5 +31,15 @@
     <mapping/>
     <mapping/>
     <mapping resource="com/eboy/po/Statistics.hbm.xml"/>
+    <mapping/>
+    <mapping/>
+    <mapping/>
+    <mapping/>
+    <mapping/>
+    <mapping/>
+    <mapping/>
+    <mapping/>
+    <mapping/>
+    <mapping resource="com/eboy/po/Mlc.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
