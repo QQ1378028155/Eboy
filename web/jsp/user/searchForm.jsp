@@ -11,15 +11,15 @@
                         {
                                 if (field.defaultValue == field.value)
                                         field.value = '';
-                                else if (field.value == '')
-                                        field.value = field.defaultValue;
+//                                else if (field.value == '')
+//                                        field.value = field.defaultValue;
                         }
                 </script>
 
 <div id="templatemo_search">
         <s:form action="fetchFilter" method="get">
                 <input type="hidden" name="method" value="keyword"/>
-                <input type="text" value="请输入关键字" name="value" id="keyword" title="关键字" onfocus="clearText(this)" onblur="clearText(this)" class="txt_field" />
+                <input type="text" value="请输入关键字" name="value" id="keyword" title="关键字" onfocus="clearText(this)" onblur="clearText(this)" class="txt_field" x-webkit-speech/>
                 <input type="submit" value=" 搜索 " name="Search"  alt="Search" id="searchbutton" title="搜索" class="sub_btn"  />
         </s:form>
 </div>
