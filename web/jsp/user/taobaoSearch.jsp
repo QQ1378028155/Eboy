@@ -8,18 +8,17 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <div class="sidebar_box"><span class="bottom"></span>
-        <h3>淘宝热门</h3>   
+        <h3>商品热门</h3>   
         <div class="content">
 
 <!--<div class="sidebar_box">-->
 <!--        <h3>本地网站的搜索频繁词汇</h3>   -->
 <!--        <div class="content"> -->
-                <s:iterator value="#hotList" status="hl">
-                        <a href="<s:url value="fetchFilter.action">
-                                   <s:param name="method">keyword</s:param>
-                                   <s:param name="value"><s:property value="#hotList[#hl.index]"/></s:param>
+                <s:iterator value="#itemList" status="hl">
+                        <a href="<s:url value="loadItemInfo.action">
+                                   <s:param name="itemId"><s:property value="itemId"/></s:param>
                            </s:url>
-                           "><s:property value="#hotList[#hl.index]"/></a>&nbsp;&nbsp;
+                           "><s:property value="itemId"/>&nbsp&nbsp<s:property value="itemTitle"/></a>&nbsp;&nbsp;
                 </s:iterator>
         </div>
 </div>

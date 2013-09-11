@@ -4,48 +4,55 @@
  */
 package com.eboy.action.user;
 
-import com.eboy.api.TaobaoHotItem;
+
+import com.eboy.po.Item;
+import com.eboy.po.Mlc;
+import com.eboy.service.ItemService;
+import com.eboy.service.MlcService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
+import com.eboy.action.admin.TrainAction;
 
 /**
  *
  * @author wjl
  */
 public class UserHotListAction extends ActionSupport {
+        
+        private ItemService itemService;
+
+        public ItemService getItemService() {
+                return itemService;
+        }
+
+        public void setItemService(ItemService itemService) {
+                this.itemService = itemService;
+        }
+        
         @Override
         public String execute()
         {
                 ActionContext context = ActionContext.getContext();
-                List<String> hList = TaobaoHotItem.execute();
-                List<String> eHotList = TaobaoHotItem.engHotList;
-                List<String> hotList = new ArrayList<String>();
-                List<String> engHotList = new ArrayList<String>();
+                List<Item> itemList = itemService.getItems();
                 
-                for(int i = 0;i < hList.size();i ++)
-                {
-                        hotList.add(hList.get(i));
-                        engHotList.add(eHotList.get(i));
+                Integer fiveResult[]=TrainAction.getResult();
+                
+                List<Item> itemResult= new ArrayList<Item>();
+                for ( int i = 0 ; i <5 ; i++){
+                        if (fiveResult[i]==-1){
+                                break;
+                        }else{
+                                itemResult.add(itemList.get(fiveResult[i]));;
+                        }
                 }
                 
-                List<String> hl = new ArrayList<String>();
-                List<String> ehl = new ArrayList<String>();
-                
-                for(int i = 0;i < 5;i ++)
-                {
-                        int size = hotList.size();
-                        int index = (int)(size * Math.random());
-                        hl.add(hotList.get(index));
-                        ehl.add(engHotList.get(index));
-                        hotList.remove(index);
-                        engHotList.remove(index);
-                }
-                context.put("hotList", hl);
-                context.put("engHotList", ehl);
+                context.put("itemList", itemResult);
                 return "success";
+        }
+        
+       public double f(List<Double> c, double price, double rate, int pictureNumber, int sold) {
+                return c.get(0) * Math.pow(price, 0.5) + c.get(1) * Math.pow(rate, 4) + c.get(2) * pictureNumber + c.get(3) * Math.log(sold);
         }
 }

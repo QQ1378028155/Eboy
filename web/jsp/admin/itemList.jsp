@@ -28,12 +28,26 @@
                 xmlHttp.send();
                 refreshItem.innerText = "正在刷新";
         }
+        
+        function train()
+        {
+                var xmlHttp;
+                var train = document.getElementById('train');
+                if (window.ActiveXObject) {
+                        xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+                } else
+                        xmlHttp = new XMLHttpRequest();
+                xmlHttp.open("get", "train.action", true);
+                xmlHttp.send();
+                
+        }
 </script>
 
 
 
 <div id="content" class="float_r">
-        <h1>仓库中的货物<input type="button" value="刷新商品"id="refrshitem" class="btn" style="width:120px; float: right" onclick="refreshItem();"/></h1>
+        <h1>仓库中的货物<input type="button" value="刷新商品"id="refrshitem" class="btn" style="width:120px; float: right" onclick="refreshItem();"/>
+                <input type="button" value="更新排名"id="train" class="btn" style="width:120px; float: right" onclick="train();"/></h1>
         <a href="" onclick="showNew();
                                                         return false;">按时间排序</a>|<a href="" onclick="showRate();
                                                         return false;">按得分排序</a>|<a href="" onclick="showSale();
