@@ -6,6 +6,22 @@
 
 <%@taglib prefix="s" uri="/struts-tags" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<style type="text/css">
+
+a:link {
+        color: #000000;
+}
+a:visited {
+        color: #66CCFF;
+}
+a:hover {
+        color: #FF0000;
+}
+a:active {
+        color: #0033FF;
+}
+</style>
 <div>
      <s:iterator value="#hotList" status="hl">
          <a href="<s:url value="adminFetchFilter.action">

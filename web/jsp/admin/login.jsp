@@ -1,28 +1,29 @@
-<%-- 
-    Document   : index
-    Created on : 2013-8-27, 15:57:51
-    Author     : WingFung
---%>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@taglib prefix="s" uri="/struts-tags" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
-<html  xmlns="http://www.w3.org/1999/xhtml">
-        <head>
-                <title>EboyAdmin - 管理员登录</title>
-                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-                <link href="css/templatemo_style.css" rel="stylesheet" type="text/css" />
-                <link href="css/ddsmoothmenu.css" rel="stylesheet" type="text/css" />
-                <link href="css/jquery.dualSlider.0.2.css" rel="stylesheet" type="text/css" media="all" />
-                <script src="js/jquery.min.js" type="text/javascript"></script>
-                <script src="js/ddsmoothmenu.js" type="text/javascript"></script>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<title>EbayApiErorr</title>
+<link rel="icon" type="image/png" href="images/favicon.ico" />
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png" />
+<!--[if lt IE 9]>
+<script src="scripts/ie9.js">IE7_PNG_SUFFIX=".png";</script>
+<![endif]-->
+<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css' />
+<link rel="stylesheet" href="stylesheets/style.css" /> 
+<link rel="stylesheet" href="stylesheets/responsive.css" /> 
+<script src="scripts/jquery.min.js"></script> 
+<script src="scripts/js_func.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  <script src="js/ddsmoothmenu.js" type="text/javascript"></script>
                 <script src="js/jquery-1.3.2.min.js" type="text/javascript"></script>
                 <script src="js/jquery.easing.1.3.js" type="text/javascript"></script>
                 <script src="js/jquery.timers-1.2.js" type="text/javascript"></script>
                 <script src="js/jquery.dualSlider.0.3.min.js" type="text/javascript"></script>
 
-                <script type="text/javascript">
+             <script type="text/javascript">
                         function clearText(field)
                         {
                                 if (field.defaultValue == field.value)
@@ -54,37 +55,47 @@
                                         durationDetails: 600
                                 });
                         });
-                </script>
-        </head>
+                </script></head>
+<body>
+<div class="wraper">
+ <header class="header">
+  <a class="logo" href="index.html">construct</a>
+  <nav>
+  <!-- top menu -->
+   <ul>
+   
+   </ul>
+  <!-- /top menu -->
+  </nav>
+ </header>
+</div> 
 
-        <body>
-                <div id="templatemo_wrapper">
-
-                        <div id="templatemo_header">
-                                <div id="site_title">
-                                        <h1><a href="">eboyadmin</a></h1>
-                                </div>
-                                <div class="cleaner"></div>
-                        </div><!-- END of templatemo_header -->
-
-                        <div id="templatemo_main">
-                                <div id="content">
-                                        <h1>管理员登录</h1>
-                                        <div align="center">
-                                                <form action="/Eboy/jsp/admin/login.action" method="post">
+<div class="content_block">
+ <!-- top_title -->
+ <div class="top_title">
+  <div class="wraper">
+   <h2>Eboy Admin<span></span></h2> 
+  
+  </div>
+ </div>
+ <!-- /top_title -->
+ <div class="wraper">     
+ <h4 class="bord">管理员登陆</h4>
+   <form action="/Eboy/jsp/admin/login.action" method="post">
                                                         <p>账号: <input type="text" name="adminName" /></p>
                                                         <p>密码: <input type="password" name="adminPassword" /></p>
                                                         <input type="submit" class="btn" value="登录" />
                                                 </form>
-                                        </div>
-                                </div>
-                                <div class="cleaner"></div>
-                        </div> <!-- END of templatemo_main -->
+</div></div>
 
-                        <div id="templatemo_footer">
-                                Copyright © 2013 <a href="#">Eboy</a>
-                        </div> <!-- END of templatemo_footer -->
-
-                </div><!-- END of templatemo_wrapper -->
-        </body>
-</html>
+<!-- copyright -->
+<div class="copyright">
+ <div class="wraper">
+  <p><span>Copyright 2014 Eboy Project.</span>保留所有权利<a href="#"></p>
+  <a class="top" href="#">返回顶部</a>
+ </div>
+</div>
+<!-- /copyright -->
+<!-- /footer -->
+</body>
+</html> 

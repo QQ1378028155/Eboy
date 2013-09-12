@@ -13,21 +13,17 @@ import com.opensymphony.xwork2.ActionSupport;
  *
  * @author Tongda
  */
-public class ConfirmEditItemAction extends ActionSupport{
-        
+public class ConfirmEditItemAction extends ActionSupport {
+
         private ItemService itemService;
         private Integer itemId;
         private String itemTitle;
-        private double itemPrice;
-        private int itemQuantity;
         private String itemDescription;
+
         @Override
-        public String execute()
-        {
+        public String execute() {
                 Item item = itemService.getItem(itemId);
                 item.setItemTitle(itemTitle);
-                item.setItemPrice(itemPrice);
-                item.setItemQuantity(itemQuantity);
                 item.setItemDescription(itemDescription.getBytes());
                 itemService.updateItem(item);
                 return "success";
@@ -49,35 +45,19 @@ public class ConfirmEditItemAction extends ActionSupport{
                 this.itemId = itemId;
         }
 
-    public String getItemTitle() {
-        return itemTitle;
-    }
+        public String getItemTitle() {
+                return itemTitle;
+        }
 
-    public void setItemTitle(String itemTitle) {
-        this.itemTitle = itemTitle;
-    }
+        public void setItemTitle(String itemTitle) {
+                this.itemTitle = itemTitle;
+        }
 
-    public double getItemPrice() {
-        return itemPrice;
-    }
+        public String getItemDescription() {
+                return itemDescription;
+        }
 
-    public void setItemPrice(double itemPrice) {
-        this.itemPrice = itemPrice;
-    }
-
-    public int getItemQuantity() {
-        return itemQuantity;
-    }
-
-    public void setItemQuantity(int itemQuantity) {
-        this.itemQuantity = itemQuantity;
-    }
-
-    public String getItemDescription() {
-        return itemDescription;
-    }
-
-    public void setItemDescription(String itemDescription) {
-        this.itemDescription = itemDescription;
-    }
+        public void setItemDescription(String itemDescription) {
+                this.itemDescription = itemDescription;
+        }
 }
