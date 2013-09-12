@@ -288,7 +288,7 @@
                                         <li class="google"><a href="#">Google+</a></li>
                                 </ul>
                         </div>
-                </div>
+                    </div>
                 <!-- /social block -->
 
                 <!-- copyright -->

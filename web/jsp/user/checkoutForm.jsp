@@ -23,7 +23,7 @@
                         <input type="text"  style="width:200px;margin-bottom: 10px;"  name="orderEmail" class='text_field'/><br/>
                         联系电话:<br />
                         <input type="text"  style="width:200px;margin-bottom: 10px;"  name="orderPhone" class='text_field'/><br/>
-                        <h3>购物车 合计: <strong><s:property value="total"/>元</strong></h3>
+                        <h3>购物车 合计: <strong><s:property value="total"/>元</strong>&nbsp;&nbsp;(包含佣金:<strong><s:property value="fee"/>元</strong>&nbsp; 慈善:<strong><s:property value="charity"/>元</strong>)</h3>
 
                 </div>
                 <table style="margin-top:50px;background-color: #f0f0f0; float: right; border: 2px">

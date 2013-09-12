@@ -13,15 +13,15 @@ import com.opensymphony.xwork2.ActionSupport;
  *
  * @author Tongda
  */
-public class ConfirmEditItemAction extends ActionSupport{
-        
+public class ConfirmEditItemAction extends ActionSupport {
+
         private ItemService itemService;
         private Integer itemId;
         private String itemTitle;
         private String itemDescription;
+
         @Override
-        public String execute()
-        {
+        public String execute() {
                 Item item = itemService.getItem(itemId);
                 item.setItemTitle(itemTitle);
                 item.setItemDescription(itemDescription.getBytes());
@@ -45,19 +45,19 @@ public class ConfirmEditItemAction extends ActionSupport{
                 this.itemId = itemId;
         }
 
-    public String getItemTitle() {
-        return itemTitle;
-    }
+        public String getItemTitle() {
+                return itemTitle;
+        }
 
-    public void setItemTitle(String itemTitle) {
-        this.itemTitle = itemTitle;
-    }
+        public void setItemTitle(String itemTitle) {
+                this.itemTitle = itemTitle;
+        }
 
-    public String getItemDescription() {
-        return itemDescription;
-    }
+        public String getItemDescription() {
+                return itemDescription;
+        }
 
-    public void setItemDescription(String itemDescription) {
-        this.itemDescription = itemDescription;
-    }
+        public void setItemDescription(String itemDescription) {
+                this.itemDescription = itemDescription;
+        }
 }

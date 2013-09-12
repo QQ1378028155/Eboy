@@ -47,7 +47,7 @@ public class ConfirmOrderAction extends ActionSupport {
                                         order.setOrderStatus("已收到");
                                         orderService.updateDeliverOrder(order);
                                         Statistics s = new Statistics();
-                                        s.setStatisticsMoney(order.getOrderPrice());
+                                        s.setStatisticsMoney(order.getOrderPrice() * 1.05);
                                         Date date = new Date();
                                         s.setStatisticsTime(date);
                                         statisticsService.addStatistics(s);

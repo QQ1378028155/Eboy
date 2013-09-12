@@ -124,6 +124,7 @@
                                         <s:include value="searchForm.jsp"/>
                                 </div>
                         </div>
+<<<<<<< HEAD
                         <!-- /top_title -->
                         <div class="wraper">
                                 <!-- main -->
@@ -149,7 +150,7 @@
                                 </div>
                                 <!-- /main -->
                         </div>
-                </div>
+                    </div>
 
                 <!-- social block -->
                 <div class="social_block">

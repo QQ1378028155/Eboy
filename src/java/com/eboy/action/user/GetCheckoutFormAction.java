@@ -23,7 +23,8 @@ public class GetCheckoutFormAction extends ActionSupport {
 
         private ItemService itemService;
         private double total;
-
+        private double fee;
+        private double charity;
         @Override
         public String execute() {
                 HttpServletRequest request = ServletActionContext.getRequest();
@@ -111,6 +112,16 @@ public class GetCheckoutFormAction extends ActionSupport {
                         BigDecimal b = new BigDecimal(price);
                         item.setItemPrice(b.setScale(2, RoundingMode.HALF_UP).doubleValue());
                         setTotal(getTotal() + (item.getItemPrice() * item.getItemQuantity()));
+
+                        fee = total * 0.05;
+                        b = new BigDecimal(fee);
+                        fee = b.setScale(2, RoundingMode.HALF_UP).doubleValue();
+                        
+                        charity = total * 0.01;
+                        b = new BigDecimal(charity);
+                        charity = b.setScale(2, RoundingMode.HALF_UP).doubleValue();
+                        
+                        total = total * 1.06;
                         b = new BigDecimal(getTotal());
                         setTotal(b.setScale(2, RoundingMode.HALF_UP).doubleValue());
                 }
@@ -131,5 +142,21 @@ public class GetCheckoutFormAction extends ActionSupport {
 
         public void setTotal(double total) {
                 this.total = total;
+        }
+
+        public double getFee() {
+                return fee;
+        }
+
+        public void setFee(double fee) {
+                this.fee = fee;
+        }
+
+        public double getCharity() {
+                return charity;
+        }
+
+        public void setCharity(double charity) {
+                this.charity = charity;
         }
 }
