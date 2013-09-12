@@ -38,16 +38,28 @@ public class UserHotListAction extends ActionSupport {
                 List<Item> itemList = itemService.getItems();
 
                 Integer fiveResult[]=TrainAction.getResult();
-                
-                List<Item> itemResult= new ArrayList<Item>();
-                for ( int i = 0 ; i <5 ; i++){
-                        if (fiveResult[i]==-1 || fiveResult[i]==null){
+      
+                List<Item> itemResult = new ArrayList<Item>();
+                for (int i = 0; i < 5; i++) {
+                        if (fiveResult[i] == null) {
+                                int number = 0;
+                                for (int j=0 ; j<itemList.size() ;j++){
+                                        if (itemList.get(j).getItemQuantity()!=0){
+                                                itemResult.add(itemList.get(j));
+                                                number++;
+                                        }
+                                        if ( number ==5){
+                                                break;
+                                        }
+                                }
                                 break;
-                        }else{
+                        } else if (fiveResult[i] == -1) {
+                                break;
+                        } else {
                                 itemResult.add(itemList.get(fiveResult[i]));;
                         }
                 }
-                
+
                 context.put("itemList", itemResult);
                 return "success";
         

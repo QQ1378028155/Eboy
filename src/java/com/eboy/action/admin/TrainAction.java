@@ -99,7 +99,7 @@ public class TrainAction extends ActionSupport {
                 }
                 
                 for ( int i =0 ; i < 5 ; i++){
-                        System.out.println("result:         "+fiveResult[i]);
+                        //System.out.println("result:         "+fiveResult[i]);
                 }
                 
                 
@@ -192,7 +192,7 @@ public class TrainAction extends ActionSupport {
                         int cIndex = 0;
                         double cRate = 0;
                         boolean flag = false;
-                        System.out.println(c.get(0) + "  " + c.get(1) + " " + c.get(2) + "  " + c.get(3) + " " + RMSE);
+                        //System.out.println(c.get(0) + "  " + c.get(1) + " " + c.get(2) + "  " + c.get(3) + " " + RMSE);
 
 
 
