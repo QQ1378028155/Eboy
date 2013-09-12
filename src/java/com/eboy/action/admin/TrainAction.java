@@ -38,6 +38,14 @@ public class TrainAction extends ActionSupport {
         List<Double> rate;
         List<Integer> pictureNumber;
         List<Item> itemList;
+        List<Double> result = new ArrayList<Double>();
+        List<Double> c = new ArrayList<Double>();
+        public static Integer[] fiveResult = new Integer[5];
+        
+        public static Integer[] getResult(){
+                return fiveResult;
+        }
+        
 
         @Override
         public String execute() {
@@ -49,11 +57,56 @@ public class TrainAction extends ActionSupport {
 
                 getData();
                 train();
+                getScore();
+                
+                
+                
                 return null;
+        }
+        
+        public void getScore(){
+                List<Item> resultList = getItemService().getItems();
+                for ( int i = 0 ; i < resultList.size() ; i++){
+                        Item item = resultList.get(i);
+                        if (item.getItemQuantity()==0){ 
+                                result.add(0.0);
+                        }else{
+                                Double tempt =f(c,price.get(i), rate.get(i), pictureNumber.get(i), soldQuantity.get(i));
+                                result.add(tempt);
+                        }       
+                }
+                
+                for ( int i = 0 ; i<5 ;i++){
+                        fiveResult[i]=-1;
+                }
+                
+                for ( int i = 0 ; i < result.size() ; i++){
+                        Double tempt = result.get(i);
+                        for ( int j = 0 ; j < 5 ; j++){
+                                if (fiveResult[j]==-1){
+                                        fiveResult[j]=i;
+                                        break;
+                                }else{
+                                        if (tempt>result.get(fiveResult[j])){
+                                                for (int k = 4 ;k>j ;k--){
+                                                        fiveResult[k]=fiveResult[k-1];
+                                                }
+                                                fiveResult[j]=i;
+                                                break;
+                                        }
+                                }
+                        }
+                }
+                
+                for ( int i =0 ; i < 5 ; i++){
+                        //System.out.println("result:         "+fiveResult[i]);
+                }
+                
+                
         }
 
         public void getData() {
-                itemList = getItemService().getItems();
+//              itemList = getItemService().getItems();
                 for (int i = 0; i < itemList.size(); i++) {
                         Item item = itemList.get(i);
                         ItemType it = GetItem.execute(itemList.get(i).getItemEbayId(), true);
@@ -127,7 +180,6 @@ public class TrainAction extends ActionSupport {
         }
 
         public void train() {
-                List<Double> c = new ArrayList<Double>();
 
                 Mlc mlc = mlcService.getMlc();
                 c.add(mlc.getMlc0());
@@ -140,7 +192,7 @@ public class TrainAction extends ActionSupport {
                         int cIndex = 0;
                         double cRate = 0;
                         boolean flag = false;
-                        System.out.println(c.get(0) + "  " + c.get(1) + " " + c.get(2) + "  " + c.get(3) + " " + RMSE);
+                        //System.out.println(c.get(0) + "  " + c.get(1) + " " + c.get(2) + "  " + c.get(3) + " " + RMSE);
 
 
 
