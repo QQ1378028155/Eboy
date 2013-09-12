@@ -1,69 +1,93 @@
-<%-- 
-    Document   : newItems
-    Created on : 2013-8-23, 14:55:43
-    Author     : wjl
---%>
 <%@taglib prefix="s" uri="/struts-tags" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-
-
-
-
-
-<div id="content" class="float_r">
-        <h1>新上架的商品</h1>
-        <a href="" onclick="showNew();
-                        return false;">按时间排序</a>|<a href="" onclick="showRate();
-                        return false;">按得分排序</a>|<a href="" onclick="showSale();
-                        return false;">按销售量排序</a>|<a href="" onclick="showPrice();
-                        return false;">按价格排序</a>
-        <br/>
-        <div id="new" style="display: inline;">
-                <s:iterator value="#newItemList" status="it">
-                        <div class="<s:property value="#class[#it.index]"/>">
-                                <a href="loadItemInfo.action?itemId=<s:property value="itemId"/>"><img src="<s:property value="itemThumbnailImageUrl"/>" alt="Image 01"  height="150" width="200"/></a>
-                                <h3 style="overflow: hidden; height: 60px;"><s:property value="itemTitle"/></h3>
-                                <p class="product_price">RMB: <s:property value="itemPrice"/></p>
-                                <a href ="#" onclick="addCart(<s:property value="itemId"/>);" class="add_to_card">加入购物车</a>
-                                <a href="loadItemInfo.action?itemId=<s:property value="itemId"/>" class="detail">详情</a>                
-                        </div>
-                </s:iterator>
-        </div>
-        <div id="rate" style=" display: none;">
-                <s:iterator value="#rateItemList" status="it">
-                        <div class="<s:property value="#class[#it.index]"/>">
-                                <a href="loadItemInfo.action?itemId=<s:property value="itemId"/>"><img src="<s:property value="itemThumbnailImageUrl"/>" alt="Image 01"  height="150" width="200"/></a>
-                                <h3 style="overflow: hidden; height: 60px;"><s:property value="itemTitle"/></h3>
-                                <p class="product_price">RMB: <s:property value="itemPrice"/></p>
-                                <a href ="#" onclick="addCart(<s:property value="itemId"/>);" class="add_to_card">加入购物车</a>
-                                <a href="loadItemInfo.action?itemId=<s:property value="itemId"/>" class="detail">详情</a>                
-                        </div>
-                </s:iterator>
-        </div>
-        <div id="sale" style=" display: none;">
-                <s:iterator value="#saleItemList" status="it">
-                        <div class="<s:property value="#class[#it.index]"/>">
-                                <a href="loadItemInfo.action?itemId=<s:property value="itemId"/>"><img src="<s:property value="itemThumbnailImageUrl"/>" alt="Image 01"  height="150" width="200"/></a>
-                                <h3 style="overflow: hidden; height: 60px;"><s:property value="itemTitle"/></h3>
-                                <p class="product_price">RMB: <s:property value="itemPrice"/></p>
-                                <a href ="#" onclick="addCart(<s:property value="itemId"/>);" class="add_to_card">加入购物车</a>
-                                <a href="loadItemInfo.action?itemId=<s:property value="itemId"/>" class="detail">详情</a>                
-                        </div>
-                </s:iterator>
-        </div>
-        <div id="price" style=" display: none;">
-                <s:iterator value="#priceItemList" status="it">
-                        <div class="<s:property value="#class[#it.index]"/>">
-                                <a href="loadItemInfo.action?itemId=<s:property value="itemId"/>"><img src="<s:property value="itemThumbnailImageUrl"/>" alt="Image 01"  height="150" width="200"/></a>
-                                <h3 style="overflow: hidden; height: 60px;"><s:property value="itemTitle"/></h3>
-                                <p class="product_price">RMB: <s:property value="itemPrice"/></p>
-                                <a href ="#" onclick="addCart(<s:property value="itemId"/>);" class="add_to_card">加入购物车</a>
-                                <a href="loadItemInfo.action?itemId=<s:property value="itemId"/>" class="detail">详情</a>                
-                        </div>
-                </s:iterator>
-        </div>
-
+<div class="portfolio_sidebar portfolio_sidebar_right">
+    
+    <a href="" onclick="showNew();return false;">按时间排序</a>|
+    <a href="" onclick="showRate();return false;">按得分排序</a>|
+    <a href="" onclick="showSale();return false;">按销售量排序</a>|
+    <a href="" onclick="showPrice();return false;">按价格排序</a><br/><br/>
+    
+    <ul  id="new" style="display: inline;" class="three_columns gallery">
+        <s:iterator value="#newItemList" status="it">
+        <li>
+            <div class="img" >                    
+                <a href="loadItemInfo.action?itemId=<s:property value="itemId"/>">
+                    <div align='center' style="height:150px;width:200px;overflow:hidden;">
+                        <img src="<s:property value="itemThumbnailImageUrl"/>" alt=""/>
+                    </div> 
+                </a>
+            </div>
+            <div class="desc">
+                <h5 style="overflow: hidden;"><s:property value="itemTitle"/></h5>
+                <p class="product_price">价格: <s:property value="itemPrice"/>元</p>
+                <a href ="#" onclick="addCart(<s:property value="itemId"/>);" class="add_to_cart">加入购物车</a>
+                <a href="loadItemInfo.action?itemId=<s:property value="itemId"/>" class="detail">详细</a>
+            </div>
+        </li>
+        </s:iterator>
+    </ul>
+    
+    <ul  id="rate" style="display: none;" class="three_columns gallery">
+        <s:iterator value="#rateItemList" status="it">
+        <li>
+            <div class="img" >                    
+                <a href="loadItemInfo.action?itemId=<s:property value="itemId"/>">
+                    <div align='center' style="height:150px;width:200px;overflow:hidden;">
+                        <img src="<s:property value="itemThumbnailImageUrl"/>" alt=""/>
+                    </div> 
+                </a>
+            </div>
+            <div class="desc">
+                <h5 style="overflow: hidden;"><s:property value="itemTitle"/></h5>
+                    <p class="product_price">价格: <s:property value="itemPrice"/>元</p>
+                    <a href ="#" onclick="addCart(<s:property value="itemId"/>);" class="add_to_cart">加入购物车</a>
+                    <a href="loadItemInfo.action?itemId=<s:property value="itemId"/>" class="detail">详细</a>
+            </div>
+        </li>
+        </s:iterator>
+    </ul>
+    
+    <ul  id="sale" style="display: none;" class="three_columns gallery">
+        <s:iterator value="#saleItemList" status="it">
+        <li>
+            <div class="img" >                    
+                <a href="loadItemInfo.action?itemId=<s:property value="itemId"/>">
+                    <div align='center' style="height:150px;width:200px;overflow:hidden;">
+                        <img src="<s:property value="itemThumbnailImageUrl"/>" alt=""/>
+                    </div> 
+                </a>
+            </div>
+            <div class="desc">
+                <h5 style="overflow: hidden;"><s:property value="itemTitle"/></h5>
+                    <p class="product_price">价格: <s:property value="itemPrice"/>元</p>
+                    <a href ="#" onclick="addCart(<s:property value="itemId"/>);" class="add_to_cart">加入购物车</a>
+                    <a href="loadItemInfo.action?itemId=<s:property value="itemId"/>" class="detail">详细</a>
+            </div>
+        </li>
+        </s:iterator>
+    </ul>
+    
+    <ul  id="price" style="display: none;" class="three_columns gallery">
+        <s:iterator value="#priceItemList" status="it">
+        <li>
+            <div class="img" >                    
+                <a href="loadItemInfo.action?itemId=<s:property value="itemId"/>">
+                    <div align='center' style="height:150px;width:200px;overflow:hidden;">
+                        <img src="<s:property value="itemThumbnailImageUrl"/>" alt=""/>
+                    </div> 
+                </a>
+            </div>
+            <div class="desc">
+                <h5 style="overflow: hidden;"><s:property value="itemTitle"/></h5>
+                    <p class="product_price">价格: <s:property value="itemPrice"/>元</p>
+                    <a href ="#" onclick="addCart(<s:property value="itemId"/>);" class="add_to_cart">加入购物车</a>
+                    <a href="loadItemInfo.action?itemId=<s:property value="itemId"/>" class="detail">详细</a>
+            </div>
+        </li>
+        </s:iterator>
+    </ul>
+    
         <script type="text/javascript">
                 function addCart(itemId)
                 {
@@ -146,4 +170,4 @@
                 }
 
         </script>
-</div> 
+</div>

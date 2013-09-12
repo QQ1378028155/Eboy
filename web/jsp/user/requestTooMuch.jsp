@@ -1,94 +1,153 @@
 <%-- 
-    Document   : ebayApiError
-    Created on : 2013-9-6, 21:17:01
-    Author     : wjl
+    Document   : requestTooMuch
+    Created on : 2013-9-12, 13:31:00
+    Author     : WingFung
 --%>
-
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@taglib prefix="s" uri="/struts-tags" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <html>
-        <head>
-                <title>Eboy - 账单结算</title>
-                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-                <link href="css/templatemo_style.css" rel="stylesheet" type="text/css" />
-                <link href="css/ddsmoothmenu.css" rel="stylesheet" type="text/css" />
-                <link href="css/jquery.dualSlider.0.2.css" rel="stylesheet" type="text/css" media="all" />
-                <script src="js/jquery.min.js" type="text/javascript"></script>
-                <script src="js/ddsmoothmenu.js" type="text/javascript"></script>
-                <script src="js/jquery-1.3.2.min.js" type="text/javascript"></script>
-                <script src="js/jquery.easing.1.3.js" type="text/javascript"></script>
-                <script src="js/jquery.timers-1.2.js" type="text/javascript"></script>
-                <script src="js/jquery.dualSlider.0.3.min.js" type="text/javascript"></script>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <title>Eboy - 账单结算</title>
+        <link rel="icon" type="image/png" href="images/favicon.ico" />
+        <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png" />
+        <!--[if lt IE 9]>
+        <script src="scripts/ie9.js">IE7_PNG_SUFFIX=".png";</script>
+        <![endif]-->
+        <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css' />
+        <link rel="stylesheet" href="stylesheets/style.css" /> 
+        <link rel="stylesheet" href="stylesheets/responsive.css" /> 
+        <link rel="stylesheet" href="stylesheets/prettyPhoto.css" />
+        <script src="scripts/jquery.min.js"></script> 
+        <script src="scripts/jquery.bxSlider.min.js"></script>
+        <script src="scripts/jquery.faq.js"></script>  
+        <script src="scripts/jquery.prettyPhoto.js"></script>
+        <script src="scripts/jquery.blackandwhite.min.js"></script>
+        <script src="scripts/js_func.js"></script>
+        <script>
+        $(function(){
+                $(".gallery a[rel^='prettyPhoto']").prettyPhoto({theme: 'dark_rounded'});
+                $('.clients_slider').bxSlider({
+                        auto: false,
+                        controls : false,
+                        mode: 'fade',
+                        pager: true
+                });	
+                $('.recent_slider').bxSlider({
+                        auto: false,
+                        displaySlideQty: 1,
+                        moveSlideQty: 1,
+                speed : 1000
+                });
+                $('#faq').dltoggle();
+                $("#open").click(function(event){
+              $('#faq').dltoggle_show();
+              return false;
+                });
+                $("#close").click(function(event){
+              $('#faq').dltoggle_hide();
+              return false;
+                });
+            $('.bwWrapper').BlackAndWhite({
+                hoverEffect : true,
+                webworkerPath : false,
+                responsive:true,
+                invertHoverEffect:false
+            });
+        });
+        </script>
+    </head>
+    <body>
+        <div class="wraper">
+            <header class="header">
+                <a class="logo" href="index.jsp">Eboy</a>
 
+                <nav>
+                    <!-- top menu -->
+                    <ul>
+                        <li><a href="index.jsp">首页</a></li>
+                        <li><a href="order.jsp">查询订单</a></li>
+                        <li><a href="checkout.jsp">账单结算</a></li>
+                        <li><a href="faqs.jsp">常见问题</a></li>
+                        <li><a href="contact.jsp">关于我们</a></li>
+                    </ul>
+                    <!-- /top menu -->
+                    <s:include value="topcart.jsp"/>
+                </nav>
+            </header>
+        </div>
+                
+        <div class="content_block">
+            <!-- top_title -->
+            <div class="top_title">
+                <div class="wraper">
+                    <h2>账单结算</h2>
+                    <s:include value="searchForm.jsp"/>
+                </div>
+            </div>
+            <!-- /top_title -->
+            <div class="wraper">
+                <!-- sidebar -->
+                <div class="sidebar" style='float:left;'>
+                    <!-- acc tabs -->
+                    <div class="acc_tabs">
+                        <div id="tabs">
+                            <ul class="tab_select">
+                                <li><a href="#tab-1">类别</a></li>
+                                <li><a href="#tab-2">标签</a></li>
+                            </ul>
+                            <s:action name="getCategories" executeResult="true"/>
+                            <s:action name="getTags" executeResult="true"/>
+                            
+                        </div>
+                    </div>
+                    <!-- /acc tabs -->
+                    <!-- most popular -->
+                    <s:action name="userHotList" executeResult="true" />
+                    
+                    <!-- /most popular -->
+                </div>
+                <!-- /sidebar -->
+                <!-- main -->
+                <div style='padding-left:20px;width:690px;float:right;'>
+                    <h4><s:property value="message"/></h4>
+                </div>
+                <!-- /main -->
+            </div>
+        </div>
 
-
-                <script type="text/javascript">
-
-                        ddsmoothmenu.init({
-                                mainmenuid: "top_nav", //menu DIV id
-                                orientation: 'h', //Horizontal or vertical menu: Set to "h" or "v"
-                                classname: 'ddsmoothmenu', //class added to menu's outer DIV
-                                //customtheme: ["#1c5a80", "#18374a"],
-                                contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
-                        });
-
-
-                </script>
-        </head>
-        <body>
-                <div id="templatemo_wrapper">
-
-                        <div id="templatemo_header">
-                                <div id="site_title">
-                                        <h1><a href="">eboy</a></h1>
-                                </div>
-                                <div id="header_right">
-                                        <a href="shoppingcart.jsp">我的购物车</a> | <a href="checkout.jsp">账单结算</a>
-                                </div>
-                                <div class="cleaner"></div>
-                        </div><!-- END of templatemo_header -->
-
-                        <div id="templatemo_menu">
-                                <div id="top_nav" class="ddsmoothmenu">
-                                        <ul>
-                                                <li><a href="index.jsp" >首页</a></li>
-                                                <li><a href="order.jsp">查询订单</a></li>
-                                                <li><a href="checkout.jsp" class="selected">账单结算</a></li>
-                                                <li><a href="faqs.jsp">常见问题</a></li>
-                                                <li><a href="contact.jsp">联系我们</a></li>
-                                        </ul>
-                                        <br style="clear: left" />
-                                </div><!-- end of ddsmoothmenu -->
-
-                                <div id="menu_second_bar">
-                                        <s:include value="topcart.jsp"/>
-                                        <s:include value="searchForm.jsp"/>
-                                        <div class="cleaner"></div>
-                                </div>
-                        </div><!-- END of templatemo_menu -->
-
-                        <div id="templatemo_main">
-                                <div id="sidebar" class="float_l">
-                                        <s:action name="getCategories" executeResult="true"/>
-                                        <s:action name="getTags" executeResult="true"/>
-                                        <s:action name="userHotList" executeResult="true" />
-                                </div>
-                                <div id="content" class="float_r">
-                                        <h4><s:property value="message"/></h4>
-                                </div>
-                                <div class="cleaner"></div>
-                        </div> <!-- END of templatemo_main -->
-
-                        <div id="templatemo_footer">
-                                <p>
-                                        <a href="index.jsp">首页</a> | <a href="order.jsp">查询订单</a> | <a href="checkout.jsp">账单结算</a> | <a href="faqs.jsp">常见问题</a> | <a href="contact.jsp">联系我们</a>
-                                </p>
-                                Copyright © 2013 <a href="#">Eboy</a>
-                        </div> <!-- END of templatemo_footer -->
-
-                </div><!-- END of templatemo_wrapper -->
-        </body>
+        <!-- social block -->
+        <div class="social_block">
+            <div class="wraper">
+                <p>欢迎关注我们</p>
+                <ul>
+                    <li class="facebook"><a href="#">Facebook</a></li>
+                    <li class="twitter"><a href="#">Twitter</a></li>
+                    <li class="linkedin"><a href="#">LinkedIn</a></li>
+                    <li class="rss"><a href="#">RSS</a></li>
+                    <li class="dribbble"><a href="#">Dribbble</a></li>
+                    <li class="google"><a href="#">Google+</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- /social block -->
+        
+        <!-- copyright -->
+        <div class="copyright">
+            <div class="wraper">
+                <p><span>Copyright 2013 Eboy </span>All Rights Reserved</p>
+                <a class="top" href="#">回到顶部</a>
+            </div>
+        </div>
+        <!-- /copyright -->
+        
+    </body>
 </html>
+

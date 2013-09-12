@@ -18,35 +18,12 @@
         </body>
 </html>-->
 
+                            <div id="tab-1" style="padding:10px;">
 
-<div class="sidebar_box"><span class="bottom"></span>
-    <h3>类别</h3>
-    <div class="content">
-        <ul class="sidebar_list">
-            <s:iterator value="#categoryList">
-                <li><a href="
-                       <s:url value="products.jsp">
-                               <s:param name="method">category</s:param>
-                               <s:param name="value"><s:property value="categoryId"/></s:param>
-                       </s:url>
-                       "><s:property value="categoryName"/></a></li>
-            </s:iterator>
-<!--                                                                                       
-                        <li class="first"><a href="#">Aenean varius nulla</a></li>
-                        <li><a href="#">Cras mattis arcu</a></li>
-                        <li><a href="#">Donec turpis ipsum</a></li>
-                        <li><a href="#">Fusce sodales mattis</a></li>
-                        <li><a href="#">Maecenas et mauris</a></li>
-                        <li><a href="#">Mauris nulla tortor</a></li>
-                        <li><a href="#">Nulla odio ipsum</a></li>
-                        <li><a href="#">Nunc ac viverra nibh</a></li>
-                        <li><a href="#">Praesent id venenatis</a></li>
-                        <li><a href="#">Quisque odio velit</a></li>
-                        <li><a href="#">Suspendisse posuere</a></li>
-                        <li><a href="#">Tempus lacus risus</a></li>
-                        <li><a href="#">Ut tincidunt imperdiet</a></li>
-                        <li><a href="#">Vestibulum eleifend</a></li>
-                        <li class="last"><a href="#">Velit mi rutrum diam</a></li>-->
-        </ul>
-    </div>
-</div>
+                                <ol>
+                                    <s:iterator value="#categoryList">
+                                        <li style="height:30px;"><a href="<s:url value="products.jsp"><s:param name="method">category</s:param><s:param name="value"><s:property value="categoryId"/></s:param></s:url>"><s:property value="categoryName"/></a></li>
+                                    </s:iterator>
+                                </ol>
+
+                            </div>
