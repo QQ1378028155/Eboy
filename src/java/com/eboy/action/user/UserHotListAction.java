@@ -36,12 +36,12 @@ public class UserHotListAction extends ActionSupport {
         {
                 ActionContext context = ActionContext.getContext();
                 List<Item> itemList = itemService.getItems();
-                
+
                 Integer fiveResult[]=TrainAction.getResult();
                 
                 List<Item> itemResult= new ArrayList<Item>();
                 for ( int i = 0 ; i <5 ; i++){
-                        if (fiveResult[i]==-1){
+                        if (fiveResult[i]==-1 || fiveResult[i]==null){
                                 break;
                         }else{
                                 itemResult.add(itemList.get(fiveResult[i]));;
@@ -50,8 +50,8 @@ public class UserHotListAction extends ActionSupport {
                 
                 context.put("itemList", itemResult);
                 return "success";
-        }
         
+        }
        public double f(List<Double> c, double price, double rate, int pictureNumber, int sold) {
                 return c.get(0) * Math.pow(price, 0.5) + c.get(1) * Math.pow(rate, 4) + c.get(2) * pictureNumber + c.get(3) * Math.log(sold);
         }

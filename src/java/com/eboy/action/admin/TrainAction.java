@@ -40,7 +40,7 @@ public class TrainAction extends ActionSupport {
         List<Item> itemList;
         List<Double> result = new ArrayList<Double>();
         List<Double> c = new ArrayList<Double>();
-        public static Integer fiveResult[] = new Integer[5];
+        public static Integer[] fiveResult = new Integer[5];
         
         public static Integer[] getResult(){
                 return fiveResult;
