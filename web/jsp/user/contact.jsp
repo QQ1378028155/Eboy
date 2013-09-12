@@ -124,7 +124,6 @@
                                         <s:include value="searchForm.jsp"/>
                                 </div>
                         </div>
-<<<<<<< HEAD
                         <!-- /top_title -->
                         <div class="wraper">
                                 <!-- main -->
