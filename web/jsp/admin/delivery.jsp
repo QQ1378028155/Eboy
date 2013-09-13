@@ -140,7 +140,38 @@
                                         ordermapdiv.style.display = "none";
                                 }
                         }
-                </script></head>
+                </script>
+               <script type="text/javascript">
+                    function AutoResizeImage(maxWidth, maxHeight, objImg) {
+                            var img = new Image();
+                            img.src = objImg.src;
+                            var hRatio;
+                            var wRatio;
+                            var Ratio = 1;
+                            var w = img.width;
+                            var h = img.height;
+                            wRatio = maxWidth / w;
+                            hRatio = maxHeight / h;
+                            if (maxWidth == 0 && maxHeight == 0) {
+                                    Ratio = 1;
+                            } else if (maxWidth == 0) {//
+                                    if (hRatio < 1)
+                                            Ratio = hRatio;
+                            } else if (maxHeight == 0) {
+                                    if (wRatio < 1)
+                                            Ratio = wRatio;
+                            } else if (wRatio < 1 || hRatio < 1) {
+                                    Ratio = (wRatio <= hRatio ? wRatio : hRatio);
+                            }
+                            if (Ratio < 1) {
+                                    w = w * Ratio;
+                                    h = h * Ratio;
+                            }
+                            objImg.height = h;
+                            objImg.width = w;
+                    }
+            </script>
+</head>
 <body>
 <div class="wraper">
  <header class="header">
@@ -161,7 +192,7 @@
     <li><a href="tag.jsp">标签管理</a>
 
     </li>
-    <li><a href="comment.jsp">评论管理</a>
+    <li><a href="comment.jsp">评价管理</a>
     
    </li>
      <li><a href="order.jsp">订单管理</a>
@@ -199,7 +230,7 @@
                                         <div id="ordermapdiv" style="display: none">
                                                 <s:action name="orderMap" executeResult="true" />
                                         </div>
-                                        <div class="cleaner h20"></div>
+                                        <br/>
                                         <table width="920px" cellspacing="0" cellpadding="5" style='font-size:13px;'>
                                                 <tr bgcolor="#ddd">
                                                         <th width="256" align="center">商品图片 </th>
@@ -209,7 +240,11 @@
                                                         <th width="156" align="center">订单状态</th>
                                                 </tr>
                                                 <tr>
-                                                        <td><img  id="itemThumbnailImageUrl" src="<s:property value="#order.item.itemThumbnailImageUrl"/>" /></td>
+                                                        <td>
+                                                            <div align='center' style="height:192px;width:256px;overflow:hidden;">
+                                                                <img id="itemThumbnailImageUrl" src="<s:property value="#order.item.itemThumbnailImageUrl"/>" width="0" height="0" onload="AutoResizeImage(256,192,this)" alt=""/>
+                                                            </div> 
+                                                        </td>
                                                         <td id="itemTitle"><s:property value="#order.item.itemTitle"/></td> 
                                                         <td align="center" id="orderQuantity" ><s:property value="#order.orderQuantity"/></td>
                                                         <td align="right" id="orderPrice"><s:property value="#order.orderPrice"/></td> 
@@ -219,35 +254,36 @@
 <br/>
 
                                         <h4>收货信息</h4>
-                                        <p>  收货人: <s:property value="#order.orderReceiver"/></p>
-                                        <p>收货地址: <s:property value="#order.orderAddress"/></p>
-                                        <p>联系电话: <s:property value="#order.orderPhone"/></p>
-                                        <div class="cleaner h10"></div>
+                                        <div style='padding:10px;border:1px solid #ccc;color: #333;font-size:15px;'>
+                                            <p>  收货人: <s:property value="#order.orderReceiver"/></p>
+                                            <p>收货地址: <s:property value="#order.orderAddress"/></p>
+                                            <p>联系电话: <s:property value="#order.orderPhone"/></p>
+                                        </div>
  
    <br/>
   
                                         <h4>物流信息</h4>
-                                        <table id="deliveryTable">
-                                                <tr>
+                                        <table id="deliveryTable" >
+                                            <tr bgcolor="#ccc">
                                                         <th width="100" align="center" style=" display: none;">序号</th>
-                                                        <th width="150" align="center">时间</th>
-                                                        <th width="340" align="center">地点</th>
-                                                        <th width="210" align="center">备注</th>
-                                                        <th width="100" align="center">操作</th>
+                                                        <th width="175" align="center">时间</th>
+                                                        <th width="365" align="center">地点</th>
+                                                        <th width="235" align="center">备注</th>
+                                                        <th width="125" align="center">操作</th>
                                                 </tr>
                                                 <s:iterator value="#deliveries" status="u">
                                                         <tr id="tr<s:property value="deliveryId"/>">
                                                                 <td align="center" style=" display: none;"><s:property value="deliveryId"/></td>
-                                                                <td align="center"><s:property value="deliveryTime"/></td>
-                                                                <td align="center"><s:property value="deliveryLocation"/></td>
-                                                                <td align="center"><s:property value="deliveryRemark"/></td>
-                                                                <td align="center"><a  class="btn_col" href="javascript:void(0);" onclick="removeDelivery(<s:property value="deliveryId"/>);">删除</a></td>
+                                                                <td align="center" style="padding:5px 10px;"><s:property value="deliveryTime"/></td>
+                                                                <td align="center" style="padding:5px 10px;"><s:property value="deliveryLocation"/></td>
+                                                                <td align="center" style="padding:5px 10px;"><s:property value="deliveryRemark"/></td>
+                                                                <td align="center" style="padding:5px 10px;"><a  class="btn_col" href="javascript:void(0);" onclick="removeDelivery(<s:property value="deliveryId"/>);">删除</a></td>
                                                         </tr>
                                                 </s:iterator>
                                                 <tr id="trInput">
-                                                        <td align="center"><input id="deliveryTime" type="text" style="width:150px;" disabled></input></td>
-                                                        <td align="center"><input id="deliverySpot" type="text" style="width:200px;"></input></td>
-                                                        <td align="center"><input id="deliveryInfo" type="text" style="width:200px;"></input></td>
+                                                        <td align="center"><input id="deliveryTime" type="text" style="width:150px;text-align:center;" class="text_field" disabled></input></td>
+                                                        <td align="center"><input id="deliverySpot" type="text" style="width:200px;text-align:center;" class="text_field"></input></td>
+                                                        <td align="center"><input id="deliveryInfo" type="text" style="width:200px;text-align:center;" class="text_field"></input></td>
                                                         <td align="center"><a  class="btn_col" href="javascript:void(0);" onclick="addDelivery();
                                 return false;">添加</a></td>
                                                 </tr>
@@ -262,14 +298,13 @@
 <br/>
 <br/>
 </div></div>
-
 <!-- copyright -->
-<div class="copyright">
- <div class="wraper">
-  <p><span>Copyright 2014 Eboy Project.</span>保留所有权利<a href="#"></p>
-  <a class="top" href="#">返回顶部</a>
- </div>
-</div>
+        <div class="copyright">
+            <div class="wraper">
+                <p><span>Copyright 2013 Eboy </span>All Rights Reserved</p>
+                <a class="top" href="#">返回顶部</a>
+            </div>
+        </div>
 <!-- /copyright -->
 <!-- /footer -->
 </body>

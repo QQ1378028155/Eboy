@@ -871,7 +871,7 @@ body.index_v2 .copyright .top, body.index_v2 .copyright .top:visited {right:30px
 .portfolio_sidebar .three_columns li .img:before {width:185px;height:125px;}
 .portfolio_sidebar .three_columns li .desc {float:none;clear:both;width:auto;padding-top:15px;}
 /*four columns */
-.portfolio_sidebar .four_columns li {padding-bottom:40px;margin:0 32px 0 0;border-bottom:none;width:195px;}
+.portfolio_sidebar .four_columns li {padding-bottom:40px;margin:0 32px 0 0;border-bottom:none;width:210px;}
 .portfolio_sidebar .four_columns li:nth-child(4n) {margin-right:0;}
 .portfolio_sidebar .four_columns li:nth-child(4n+1) {clear:both;}
 .portfolio_sidebar .four_columns li .img:before {width:185px;height:125px;}
@@ -1134,7 +1134,7 @@ a.btn_s {height:26px;padding-top:10px;display:block;text-align:center;}
 .large_icons ul li.seo .circle {background-position:-530px 0;}
 
 /* Google maps */
-.google_map {border:5px solid #f6f3f3;margin:0 0 100px 0;min-height:387px;}
+.google_map {border:5px solid #f6f3f3;margin:0 0 100px 0;}
 .google_map34 {width:75%;}
 
 /* Typography page */

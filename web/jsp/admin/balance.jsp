@@ -56,7 +56,7 @@
     <li><a href="tag.jsp">标签管理</a>
 
     </li>
-    <li><a href="comment.jsp">评论管理</a>
+    <li><a href="comment.jsp">评价管理</a>
     
     </li>
      <li><a href="order.jsp">订单管理</a>

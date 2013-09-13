@@ -518,7 +518,7 @@
         <div class="copyright">
             <div class="wraper">
                 <p><span>Copyright 2013 Eboy </span>All Rights Reserved</p>
-                <a class="top" href="#">回到顶部</a>
+                <a class="top" href="#">返回顶部</a>
             </div>
         </div>
         <!-- /copyright -->

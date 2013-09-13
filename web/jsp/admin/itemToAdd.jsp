@@ -13,7 +13,7 @@
                 <table>
                         <tr>
                                 <td height="30" width="100">商品名称翻译:</td>
-                                <td><input type="text" style="width:250px;" value="<s:property value="#item.itemTitle"/>" name="itemTitle"/></td>
+                                <td><input type="text" style="width:250px;background-color: #fff;" value="<s:property value="#item.itemTitle"/>" name="itemTitle" class="text_field"/></td>
                         </tr>
                         <tr>
                                 <td height="30" width="100">价格:</td>

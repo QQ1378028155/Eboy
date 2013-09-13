@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-<title>收支明细</title>
+<title>EboyAdmin - 修改商品信息</title>
 <link rel="icon" type="image/png" href="images/favicon.ico" />
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
 <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png" />
@@ -81,7 +81,7 @@
     <li><a href="tag.jsp">标签管理</a>
 
     </li>
-    <li><a href="comment.jsp">评论管理</a>
+    <li><a href="comment.jsp">评价管理</a>
     
     </li>
      <li><a href="order.jsp">订单管理</a>
@@ -116,17 +116,21 @@
                         <h3>eBay商品信息</h3>
                         <table>
                             <tr>
-                                <td height="30" width="100">商品名称:<s:property value="#item.itemTitle"/></td>
+                                <td height="30" width="100">商品名称:</td>
+                                <td style="padding:5px 10px;"><s:property value="#item.itemTitle"/></td>
                             </tr>
                             <tr>
-                                <td height="30" width="100">商品价格:<s:property value="#item.itemPriceCurrency"/>&nbsp<s:property value="#item.itemPrice"/></td>
+                                <td height="30" width="100">商品价格:</td>
+                                <td style="padding:5px 10px;"><s:property value="#item.itemPriceCurrency"/>&nbsp<s:property value="#item.itemPrice"/></td>
                             </tr>
                             <tr>
-                                <td height="30" width="100">库存数量:<s:property value="#item.itemQuantity"/></td>
+                                <td height="30" width="100">库存数量:</td>
+                                <td style="padding:5px 10px;"><s:property value="#item.itemQuantity"/></td>
                             </tr>
                             <tr>
-                                <td height="30" width="100">商品描述:
-                                    <textarea disabled="true" style="width:300px; resize: none;" id="text" name="itemDescription" rows="8" cols="0" class="required"><s:property value="#itemDescription"/></textarea></td>
+                                <td height="30" width="100">商品描述:</td>
+                                <td><textarea disabled="true" style="font:13px 'Microsoft YaHei';background-color:#f6f3f3;color:#626363;border:1px solid #c0bebe;padding:5px 10px;width:300px; resize: none;" id="text" name="itemDescription" rows="8" cols="0" class="required"><s:property value="#itemDescription"/></textarea></td>
+                                    
                             </tr>
                         </table>
 
@@ -137,19 +141,19 @@
                             <table>
                                 <tr>
                                     <td height="30" width="100">商品名称:</td>
-                                    <td><input type="text" name="itemTitle" style="width:300px;" value="<s:property value="#item.itemTitle"/>"></input></td>
+                                    <td><input type="text" name="itemTitle" style="width:300px;background-color: #fff;" value="<s:property value="#item.itemTitle"/>" class="text_field"></input></td>
                                 </tr>
                                 <tr>
                                     <td height="30" width="100">商品价格:</td>
-                                    <td><s:property value="#item.itemPriceCurrency"/><input disabled="ture" type="text" name="itemPrice" style="width:275px;" value="<s:property value="#item.itemPrice"/>"></input></td>
+                                    <td><input disabled="ture" type="text" name="itemPrice" style="width:300px;" class="text_field" value="<s:property value="#item.itemPriceCurrency"/> <s:property value="#item.itemPrice"/>"></input></td>
                                 </tr>
                                 <tr>
                                     <td height="30" width="100">库存数量:</td>
-                                    <td><input disabled="ture" type="text" name="itemQuantity" style="width:300px;" value="<s:property value="#item.itemQuantity"/>"></input></td>
+                                    <td><input disabled="ture" type="text" name="itemQuantity" style="width:300px;" value="<s:property value="#item.itemQuantity"/>" class="text_field"></input></td>
                                 </tr>
                                 <tr>
                                     <td height="30" width="100">商品描述:
-                                    </td><td><textarea style="width:300px; resize: none;" id="text" name="itemDescription" rows="8" cols="0" class="required"><s:property value="#itemDescription"/></textarea>
+                                    </td><td><textarea style="font:13px 'Microsoft YaHei';color:#626363;border:1px solid #c0bebe;padding:5px 10px;width:300px; resize: none;" id="text" name="itemDescription" rows="8" cols="0" class="required"><s:property value="#itemDescription"/></textarea>
                                     </td>
                                 </tr>
                                 <input  style="display:none" type="text" name="itemId" value="<s:property value="#item.itemId"/>"></input>
@@ -166,12 +170,12 @@
 </div>
 
 <!-- copyright -->
-<div class="copyright">
- <div class="wraper">
-  <p><span>Copyright 2014 Eboy Project.</span>保留所有权利<a href="#"></p>
-  <a class="top" href="#">返回顶部</a>
- </div>
-</div>
+        <div class="copyright">
+            <div class="wraper">
+                <p><span>Copyright 2013 Eboy </span>All Rights Reserved</p>
+                <a class="top" href="#">返回顶部</a>
+            </div>
+        </div>
 <!-- /copyright -->
 <!-- /footer -->
 </body>

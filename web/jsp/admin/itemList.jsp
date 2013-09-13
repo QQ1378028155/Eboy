@@ -77,8 +77,8 @@
 <div class="portfolio_sidebar portfolio_sidebar_right">
     
     <div style="margin-bottom:40px;">
-        <input type="button" value="刷新商品"id="refrshitem" class="btn_m" style="width:120px; float: right" onclick="refreshItem();"/>
-                <input type="button" value="更新排名"id="train" class="btn_m" style="width:120px; float: right" onclick="train();"/>
+        <input type="button" value="刷新商品"id="refrshitem" class="btn_m" style="float: right" onclick="refreshItem();"/>
+        <input type="button" value="更新排名"id="train" class="btn_m" style="float: right" onclick="train();"/>
   
 
         <a href="" onclick="showNew();
@@ -102,7 +102,7 @@
                                                ;
         </script>
 
-	<ul  id="new" style="display: inline;" class="four_columns gallery">
+	<ul id="new" style="display: inline;" class="four_columns gallery">
                 <s:iterator value="#newItemList" status="it">
                         <li>
                                 <div class="img" >                    
@@ -122,6 +122,7 @@
                         </li>
                 </s:iterator>
         </ul>
+
 	<ul  id="rate" style="display: none;" class="four_columns gallery">
                 <s:iterator value="#rateItemList" status="it">
                         <li>

@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-<title>类型管理</title>
+<title>EboyAdmin - 类型管理</title>
 <link rel="icon" type="image/png" href="images/favicon.ico" />
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
 <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png" />
@@ -137,7 +137,7 @@
     <li><a href="tag.jsp">标签管理</a>
 
     </li>
-    <li><a href="comment.jsp">评论管理</a>
+    <li><a href="comment.jsp">评价管理</a>
     
     </li>
      <li><a href="order.jsp">订单管理</a>
@@ -172,8 +172,8 @@
                         </tr>
                         <s:action name="adminGetCategories" executeResult="true"/>
                         <tr id="trInput">
-                            <td align="center"><input id="categoryNum" type="text" style="width:100px;"></input></td>
-                            <td align="center"><input id="categoryName" type="text" style="width:200px;"></input></td>
+                            <td align="center"><input  id="categoryNum" type="text" style="width:100px;background-color:#fff;text-align:center;" class="text_field"></input></td>
+                            <td align="center"><input  id="categoryName" type="text" style="width:200px;background-color:#fff;text-align:center" class="text_field"></input></td>
                             <td align="center"> <a class="btn_col" href="javascript:void(0);" onclick="addCategory();">添加</a></td>
                         </tr>
                     </table>
@@ -183,12 +183,12 @@
 </div></div>
 
 <!-- copyright -->
-<div class="copyright">
- <div class="wraper">
-  <p><span>Copyright 2014 Eboy Project.</span>保留所有权利<a href="#"></p>
-  <a class="top" href="#">返回顶部</a>
- </div>
-</div>
+        <div class="copyright">
+            <div class="wraper">
+                <p><span>Copyright 2013 Eboy </span>All Rights Reserved</p>
+                <a class="top" href="#">返回顶部</a>
+            </div>
+        </div>
 <!-- /copyright -->
 <!-- /footer -->
 </body>

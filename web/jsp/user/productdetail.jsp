@@ -241,26 +241,28 @@
                         <a class="bsLikeDiv" href="http://static.bshare.cn"></a>
                         <script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareLike.js"></script><div class="bshare-custom icon" style="float:left;"><a title="分享到QQ空间" class="bshare-qzone"></a><a title="分享到新浪微博" class="bshare-sinaminiblog"></a><a title="分享到人人网" class="bshare-renren"></a><a title="分享到腾讯微博" class="bshare-qqmb"></a><a title="分享到搜狐微博" class="bshare-sohuminiblog"></a></div><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/button.js#style=-1&amp;ssc=false&amp;mdiv=-1&amp;type=15"></script><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC1.js"></script>
                     </div>
-                    <div style='width:710px;float:left;margin-top:20px;'>
-                        <h3>商品描述</h3>
-                        <div style="overflow: auto;max-height:600px;">
+                    <div style='width:710px;float:left;margin-top:50px;'>
+                        <h4>商品描述</h4>
+                        <div style="overflow: auto;max-height:600px;padding:10px;border:1px solid #ccc;">
                             ${itemDescription}	
                         </div>
                         <div style='height:50px'></div>
                     </div>
+                        
+                    
                     <div style='width:710px;float:left;margin-top:50px;'>
-                        <h3>商品评论</h3>
-                        <table>
+                        <h4>商品评价</h4>
+                        <div style="padding:10px;border:1px solid #ccc;">
                             <s:iterator value="#item.comments">
-                                <tr>
-                                    <td><strong><s:property value="commentUserName"/></strong></td>
-                                    <td><s:property value="commentContent"/></td>
-                                    <td><s:property value="commentRate"/></td>
-                                </tr>
+                                
+                                    <p><strong><s:property value="commentUserName"/></strong><p/>
+                                    <p>评价: <s:property value="commentContent"/><p/>
+                                    <p>评分: <s:property value="commentRate"/><p/>
+                                    <div style="width:100%;border-bottom:1px dashed #ccc"></div>
                             </s:iterator> 
-                        </table>
-                    </div>
-                    <div style='height:30px;float:left;'></div>
+                        </div>
+                     </div>
+                        <div style="height:30px;float:left;"></div>
                 </div>
                 <!-- /main -->
             </div>
@@ -286,7 +288,7 @@
         <div class="copyright">
             <div class="wraper">
                 <p><span>Copyright 2013 Eboy </span>All Rights Reserved</p>
-                <a class="top" href="#">回到顶部</a>
+                <a class="top" href="#">返回顶部</a>
             </div>
         </div>
         <!-- /copyright -->

@@ -117,18 +117,22 @@
                 <!-- main -->
                 <div style='padding-left:20px;width:690px;float:right;'>
                     <h4>你购买的商品</h4>
-                    <p><strong><s:property value="#order.item.itemTitle"/></strong><s:property value="#order.orderQuantity"/>件</p>
+                    <div style="padding:10px;border:1px solid #ccc;">
+                        <p><strong><s:property value="#order.item.itemTitle"/></strong> <s:property value="#order.orderQuantity"/>件</p>
+                    </div>
                     <br/>
                     <h4>收货信息</h4>
-                    <p>　收货人: <s:property value="#order.orderReceiver"/></p>
-                    <p>收货地址: <s:property value="#order.orderAddress"/></p>
-                    <p>联系电话: <s:property value="#order.orderPhone"/></p>
+                    <div style="padding:10px;border:1px solid #ccc;">
+                        <p>　收货人: <s:property value="#order.orderReceiver"/></p>
+                        <p>收货地址: <s:property value="#order.orderAddress"/></p>
+                        <p>联系电话: <s:property value="#order.orderPhone"/></p>
+                    </div>
                     <br/>
                     <h4>物流信息</h4>
-                    <table>
+                    <table border="1px">
                         <tr bgcolor="#ddd">
-                            <th width="150" align="center">序号</th>
-                            <th width="150" align="center">时间</th>
+                            <th width="50" align="center">序号</th>
+                            <th width="200" align="center">时间</th>
                             <th width="360" align="center">地点</th>
                             <th width="200" align="center">备注</th>
                         </tr>
@@ -143,7 +147,9 @@
                     </table>
                     <br/>
                     <h4>物流地图</h4>
-                    <iframe width="680" height="340" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="deliveryMap.jsp" id="myframe"></iframe>
+                    <div class="google_map c_after">
+                        <iframe width="680" height="340" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="deliveryMap.jsp" id="myframe"></iframe>
+                    </div>
                     <div style="height:30px;"></div>
                 </div>
                 <!-- /main -->
@@ -170,7 +176,7 @@
         <div class="copyright">
             <div class="wraper">
                 <p><span>Copyright 2013 Eboy </span>All Rights Reserved</p>
-                <a class="top" href="#">回到顶部</a>
+                <a class="top" href="#">返回顶部</a>
             </div>
         </div>
         <!-- /copyright -->

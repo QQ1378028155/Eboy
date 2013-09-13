@@ -23,7 +23,7 @@
   </head>
   <body>
       <script>
-              var orderinfovar = parent.document.getElementById("fuckyou").value;
+              var orderinfovar = parent.document.getElementById("orderinfoid").value;
               //alert(orderinfovar);
               displayOrderMaps(orderinfovar);
       </script>

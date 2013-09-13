@@ -81,7 +81,7 @@
     <li><a href="tag.jsp">标签管理</a>
 
     </li>
-    <li><a href="comment.jsp">评论管理</a>
+    <li><a href="comment.jsp">评价管理</a>
     
     </li>
      <li><a href="order.jsp">订单管理</a>
@@ -89,6 +89,9 @@
       <li><a href="delivery.jsp">物流管理</a>
    </ul>
   <!-- /top menu -->
+    <div style="float:right; margin-top: 12px;">
+      <strong><s:action name="getAdmin" executeResult="true"/></strong> | <a href="logOut.action">退出登录</a>
+  </div>
   </nav>
  </header>
 </div> 
@@ -99,10 +102,7 @@
   <div class="wraper">
 <h2>订单管理<span></span></h2>
     <s:include value="searchForm.jsp"/>
-   <ul>
-    <li><s:action name="getAdmin" executeResult="true"/> | <a href="logOut.action">退出登录</a></li>
 
-   </ul>
   </div>
  </div>
  <!-- /top_title -->
@@ -118,12 +118,12 @@
 </div>
 
 <!-- copyright -->
-<div class="copyright">
- <div class="wraper">
-  <p><span>Copyright 2014 Eboy Project.</span>保留所有权利<a href="#"></p>
-  <a class="top" href="#">返回顶部</a>
- </div>
-</div>
+        <div class="copyright">
+            <div class="wraper">
+                <p><span>Copyright 2013 Eboy </span>All Rights Reserved</p>
+                <a class="top" href="#">返回顶部</a>
+            </div>
+        </div>
 <!-- /copyright -->
 <!-- /footer -->
 </body>

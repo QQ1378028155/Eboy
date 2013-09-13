@@ -51,25 +51,27 @@
 <input type="button" value=" 显示表格 " id="rateinfobutton" class="btn_m" style="width:120px;" onclick="rateInfoSwitch()"/>
 <div id="piechart" style="width: 900px; height: 500px; display: none"></div>
 
-<s:iterator value="#comments" status="u">
-        <div>
+
+<div style="margin-top:20px;">
                 <table width='920px'>
+                    <s:iterator value="#comments" status="u">
                         <tr>
                                 <td>
-                                        <h4>商品名称</h4>
-                                        <h5><strong><s:property value="item.itemTitle"/></strong></h5>
-                                        <div class="cleaner h10"></div>
-                                        <h4>商品评价</h4>
-                                        <p><strong>昵称 :&nbsp</strong><s:property value="commentUserName"/><span style="float: right;"><s:property value="commentTime.toString()"/></span></p>
-                                        <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<s:property value="commentContent"/></p>
-                                        <p><strong>评分 :&nbsp<s:property value="commentRate"/></strong></p>
+                                    <div style='padding:10px;border:1px solid #ccc;color: #333;font-size:15px;'>
+                                        <p><strong>商品: </strong><s:property value="item.itemTitle"/></p>
+                                        <p><strong>昵称: </strong><s:property value="commentUserName"/></p>
+                                        <p><strong>评价: </strong><s:property value="commentContent"/></p>
+                                        <p><strong>评分: </strong><s:property value="commentRate"/></p>
+                                        <p><strong>时间: </strong><s:property value="commentTime.toString()"/></p>
                                         <a href="javascript:void(0);" onclick='removeComment(this.parentNode.parentNode.parentNode.parentNode,<s:property value="commentId"/>);'>删除</a>
-                                        <hr/>
+                                        
+                                    </div>
+                                    <br/><hr/><br/>
                                 </td>
                         </tr>
-
+                    </s:iterator>
                 </table>
-                <div>
-                </s:iterator>
+    <div>
+
                   
 
