@@ -17,9 +17,9 @@
                 </script>
                 
                     <div style="float:right;">
-                        <s:form action="fetchFilter" method="get">
+                        <form action="/Eboy/jsp/user/fetchFilter.action" method="get">
                             <input type="hidden" name="method" value="keyword"/>
                             <input type="text" value="请输入关键字" name="value" id="keyword" title="关键字" onfocus="clearText(this);" onblur="clearText(this);" class="text_field"  x-webkit-speech/>
                             <input type="submit" value=" 搜索商品 " name="Search"  id="searchbutton" title="搜索商品" class="btn_m"/>
-                        </s:form>
+                        </form>
                     </div>

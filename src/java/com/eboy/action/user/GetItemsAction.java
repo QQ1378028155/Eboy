@@ -49,6 +49,7 @@ public class GetItemsAction extends ActionSupport {
                         for (int i = 0; i < items.size(); i++) {
                                 if (items.get(i).getItemQuantity() == 0) {
                                         items.remove(i);
+                                        i --;
                                 }
                         }
                 }
@@ -63,6 +64,7 @@ public class GetItemsAction extends ActionSupport {
                         for (int i = 0; i < items.size(); i++) {
                                 if (items.get(i).getItemQuantity() == 0) {
                                         items.remove(i);
+                                        i--;
                                 }
                         }
                 }
@@ -77,6 +79,7 @@ public class GetItemsAction extends ActionSupport {
                         for (int i = 0; i < items.size(); i++) {
                                 if (items.get(i).getItemQuantity() == 0) {
                                         items.remove(i);
+                                        i--;
                                 }
                         }
                 }
@@ -87,6 +90,7 @@ public class GetItemsAction extends ActionSupport {
                         for (int i = 0; i < items.size(); i++) {
                                 if (items.get(i).getItemQuantity() == 0) {
                                         items.remove(i);
+                                        i--;
                                 }
                         }
                 }
