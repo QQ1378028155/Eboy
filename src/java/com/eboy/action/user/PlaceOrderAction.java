@@ -28,6 +28,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts2.ServletActionContext;
 
@@ -126,6 +127,8 @@ public class PlaceOrderAction extends ActionSupport {
                         }
                         InetAddress addr = InetAddress.getLocalHost();
                         String ip=addr.getHostAddress().toString();//获得本机IP
+                        HttpServletRequest request = ServletActionContext.getRequest();
+                        int port = request.getLocalPort();
                         message.setSubject("成功添加Eboy订单");
                         String content = "<h1>Eboy订单通知</h1>"
                                 + "<p>感谢您在Eboy上购物</p>"
@@ -136,14 +139,14 @@ public class PlaceOrderAction extends ActionSupport {
                                 + order.getItem().getItemTitle()
                                 +"</p>"
                                 + "<p>价格为 "
-                                + order.getItem().getItemPrice()
+                                + order.getOrderPrice()
                                 + "</p>"
                                 + "<p>您的订单号为 " + order.getOrderId() + "</p>" 
                                 + "<p>您的验证码为 " + order.getOrderValidate() + "</p>"
                                 + "<p>当然您也可以通过如下二维码在手机上直接查阅订单信息</p>"
                                 + "<img src=https://chart.googleapis.com/chart?cht=qr&chs=200x200&choe=UTF-8&chld=L|4&chl="
                                 + ip
-                                + ":8080/Eboy/jsp/user/mobileGetOrder.action?orderSecret="
+                                + ":" + port +"/Eboy/jsp/user/mobileGetOrder.action?orderSecret="
                                 + order.getOrderValidate() + order.getOrderId()
                                 + "&/>";
                         message.setContent(content,"text/html;charset=utf-8");
