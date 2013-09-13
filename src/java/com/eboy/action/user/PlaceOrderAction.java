@@ -11,6 +11,8 @@ import com.eboy.po.Order;
 import com.eboy.service.ItemService;
 import com.eboy.service.OrderService;
 import com.opensymphony.xwork2.ActionSupport;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.Properties;
@@ -129,6 +131,11 @@ public class PlaceOrderAction extends ActionSupport {
                         String ip=addr.getHostAddress().toString();//获得本机IP
                         HttpServletRequest request = ServletActionContext.getRequest();
                         int port = request.getLocalPort();
+                        BigDecimal b = new BigDecimal(order.getOrderPrice());
+                        double orderPrice = b.setScale(2, RoundingMode.HALF_UP).doubleValue();
+                        
+                        
+                        
                         message.setSubject("成功添加Eboy订单");
                         String content = "<h1>Eboy订单通知</h1>"
                                 + "<p>感谢您在Eboy上购物</p>"
@@ -139,8 +146,8 @@ public class PlaceOrderAction extends ActionSupport {
                                 + order.getItem().getItemTitle()
                                 +"</p>"
                                 + "<p>价格为 "
-                                + order.getOrderPrice()
-                                + "</p>"
+                                + orderPrice
+                                + " RMB</p>"
                                 + "<p>您的订单号为 " + order.getOrderId() + "</p>" 
                                 + "<p>您的验证码为 " + order.getOrderValidate() + "</p>"
                                 + "<p>当然您也可以通过如下二维码在手机上直接查阅订单信息</p>"
