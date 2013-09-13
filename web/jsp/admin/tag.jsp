@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-<title>标签管理</title>
+<title>EboyAdmin - 标签管理</title>
 <link rel="icon" type="image/png" href="images/favicon.ico" />
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
 <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png" />
@@ -33,31 +33,6 @@
                 if (field.defaultValue == field.value) field.value = '';
                 else if (field.value == '') field.value = field.defaultValue;
             }
-        </script>
-
-        <script type="text/javascript">
-
-            ddsmoothmenu.init({
-                mainmenuid: "top_nav", //menu DIV id
-                orientation: 'h', //Horizontal or vertical menu: Set to "h" or "v"
-                classname: 'ddsmoothmenu', //class added to menu's outer DIV
-                //customtheme: ["#1c5a80", "#18374a"],
-                contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
-            });
-
-        </script>
-        
-        <script type="text/javascript">
-            $(document).ready(function() {
-                $(".carousel").dualSlider({
-                    auto: true,
-                    autoDelay: 6000,
-                    easingCarousel: "swing",
-                    easingDetails: "easeOutBack",
-                    durationCarousel: 1000,
-                    durationDetails: 600
-                });
-            });
         </script>
         
          <script>
@@ -116,7 +91,7 @@
 <body>
 <div class="wraper">
  <header class="header">
-  <a class="logo" href="index.html">construct</a>
+  <a class="logo" href="login.jsp">EboyAdmin</a>
   <nav>
   <!-- top menu -->
    <ul>
@@ -141,6 +116,9 @@
       <li><a href="delivery.jsp">物流管理</a>
    </ul>
   <!-- /top menu -->
+      <div style="float:right; margin-top: 12px;">
+      <strong><s:action name="getAdmin" executeResult="true"/></strong> | <a href="logOut.action">退出登录</a>
+  </div>
   </nav>
  </header>
 </div> 
@@ -149,17 +127,14 @@
  <!-- top_title -->
  <div class="top_title">
   <div class="wraper">
-   <h2>Eboy Admin<span></span></h2>
+   <h2>标签管理<span></span></h2>
     <s:include value="searchForm.jsp"/>
-   <ul>
-    <li><s:action name="getAdmin" executeResult="true"/> | <a href="logOut.action">退出登录</a></li>
 
-   </ul>
   </div>
  </div>
  <!-- /top_title -->
  <div id="content" class="wraper">
-         <h1>标签管理</h1>
+
          <table id="tagTable" style="font-size: 13px;">
                  <tr>
                          <th width="200" align="center">序号</th>
@@ -170,7 +145,8 @@
          </table>
 
  </div>
- <div class="cleaner"></div>
+<br/>
+<br/>
 
 <!-- copyright -->
 <div class="copyright">

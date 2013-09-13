@@ -190,10 +190,6 @@
                                     <td align='right'><s:property value="#item.itemQuantity"/></td>
                                 </tr>
                                 <tr>
-                                    <td height="30">评分:</td>
-                                    <td align='right'>5.0</td>
-                                </tr>
-                                <tr>
                                     <td height="30" width="160">运输包装费:</td>
                                     <td align='right'><s:property value="#item.itemPackageCost"/>元</td>
                                 </tr>

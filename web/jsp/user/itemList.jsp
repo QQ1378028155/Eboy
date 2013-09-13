@@ -33,18 +33,14 @@
         }
 </script>
 
-
-
-
-
 <div class="portfolio_sidebar portfolio_sidebar_right">
 
         <a href="" onclick="showNew();
-                return false;">按时间排序</a>|
+                return false;">按时间排序</a> |
         <a href="" onclick="showRate();
-                return false;">按得分排序</a>|
+                return false;">按得分排序</a> |
         <a href="" onclick="showSale();
-                return false;">按销售量排序</a>|
+                return false;">按销售量排序</a> |
         <a href="" onclick="showPrice();
                 return false;">按价格排序</a><br/><br/>
 
@@ -53,7 +49,7 @@
                         <li>
                                 <div class="img" >                    
                                         <a href="loadItemInfo.action?itemId=<s:property value="itemId"/>">
-                                                <div align='center' >
+                                                <div align='center' style="height:150px;width:200px;overflow:hidden;">
                                                         <img src="<s:property value="itemThumbnailImageUrl"/>" width="0" height="0" onload="AutoResizeImage(200,150,this)" alt=""/>
                                                 </div> 
                                         </a>
@@ -73,7 +69,7 @@
                         <li>
                                 <div class="img" >                    
                                         <a href="loadItemInfo.action?itemId=<s:property value="itemId"/>">
-                                                <div align='center'>
+                                                <div align='center' style="height:150px;width:200px;overflow:hidden;">
                                                         <img src="<s:property value="itemThumbnailImageUrl"/>" width="0" height="0" onload="AutoResizeImage(200,150,this)" alt=""/>
                                                 </div> 
                                         </a>
@@ -93,7 +89,7 @@
                         <li>
                                 <div class="img" >                    
                                         <a href="loadItemInfo.action?itemId=<s:property value="itemId"/>">
-                                                <div align='center'>
+                                                <div align='center' style="height:150px;width:200px;overflow:hidden;">
                                                         <img src="<s:property value="itemThumbnailImageUrl"/>" width="0" height="0" onload="AutoResizeImage(200,150,this)" alt=""/>
                                                 </div> 
                                         </a>
@@ -113,7 +109,7 @@
                         <li>
                                 <div class="img" >                    
                                         <a href="loadItemInfo.action?itemId=<s:property value="itemId"/>">
-                                                <div align='center'>
+                                                <div align='center  style="height:150px;width:200px;overflow:hidden;"'>
                                                         <img src="<s:property value="itemThumbnailImageUrl"/>" width="0" height="0" onload="AutoResizeImage(200,150,this)" alt=""/>
                                                 </div> 
                                         </a>

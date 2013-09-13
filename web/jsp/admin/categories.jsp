@@ -52,7 +52,8 @@
         }
 </script>
 
-<input type="button" value=" 显示表格 " id="categoryinfobutton" class="btn" style="width:120px;" onclick="categoryInfoSwitch()"/>
+<input type="button" value=" 显示表格 " id="categoryinfobutton" class="btn_m" style="width:120px;float:right;" onclick="categoryInfoSwitch()"/>
+<br/><br/>
 <div id="piechart" style="width: 900px; height: 500px; display: none"></div>
 <s:iterator value="#categoryList" status="u">
         <tr>

@@ -48,7 +48,7 @@
                 </script>
 
 
-<input type="button" value=" 显示表格 " id="rateinfobutton" class="btn" style="width:120px;" onclick="rateInfoSwitch()"/>
+<input type="button" value=" 显示表格 " id="rateinfobutton" class="btn_m" style="width:120px;" onclick="rateInfoSwitch()"/>
 <div id="piechart" style="width: 900px; height: 500px; display: none"></div>
 
 <s:iterator value="#comments" status="u">
@@ -71,4 +71,5 @@
                 </table>
                 <div>
                 </s:iterator>
+                  
 

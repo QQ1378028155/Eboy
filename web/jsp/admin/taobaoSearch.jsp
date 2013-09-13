@@ -9,25 +9,21 @@
 
 <style type="text/css">
 
-a:link {
-        color: #000000;
+#taobaoSearch a:link {
+        color: #fff;
 }
-a:visited {
-        color: #66CCFF;
+#taobaoSearch a:visited {
+        color: #00ff99;
 }
-a:hover {
-        color: #FF0000;
+#taobaoSearch a:hover {
+        color: #FF0099;
 }
-a:active {
-        color: #0033FF;
+#taobaoSearch a:active {
+        color: #99ff00;
 }
 </style>
-<div>
+<div id="taobaoSearch">
      <s:iterator value="#hotList" status="hl">
-         <a href="<s:url value="adminFetchFilter.action">
-            <s:param name="method">ebaykeyword</s:param>
-            <s:param name="value"><s:property value="#engHotList[#hl.index]"/></s:param>
-        </s:url>
-        "><s:property value="#hotList[#hl.index]"/></a>&nbsp;&nbsp;
+         <a href="<s:url value="adminFetchFilter.action"><s:param name="method">ebaykeyword</s:param><s:param name="value"><s:property value="#engHotList[#hl.index]"/></s:param></s:url>"><s:property value="#hotList[#hl.index]"/></a>&nbsp;&nbsp;
      </s:iterator>
 </div>

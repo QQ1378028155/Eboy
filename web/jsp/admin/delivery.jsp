@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-<title>评价管理</title>
+<title>EboyAdmin - 物流管理</title>
 <link rel="icon" type="image/png" href="images/favicon.ico" />
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
 <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png" />
@@ -144,7 +144,7 @@
 <body>
 <div class="wraper">
  <header class="header">
-  <a class="logo" href="index.html">construct</a>
+  <a class="logo" href="login.jsp">EboyAdmin</a>
   <nav>
   <!-- top menu -->
    <ul>
@@ -169,6 +169,9 @@
       <li><a href="delivery.jsp">物流管理</a>
    </ul>
   <!-- /top menu -->
+      <div style="float:right; margin-top: 12px;">
+      <strong><s:action name="getAdmin" executeResult="true"/></strong> | <a href="logOut.action">退出登录</a>
+  </div>
   </nav>
  </header>
 </div> 
@@ -177,24 +180,22 @@
  <!-- top_title -->
  <div class="top_title">
   <div class="wraper">
-   <h2>Eboy ADmin<span></span></h2> <s:include value="searchForm.jsp"/>
-   <ul>
-    <li><s:action name="getAdmin" executeResult="true"/> | <a href="logOut.action">退出登录</a></li>
+   <h2>物流管理<span></span></h2> <s:include value="searchForm.jsp"/>
 
-   </ul>
   </div>
  </div>
  <!-- /top_title -->
  <div class="wraper">
-<h4 class="bord">物流管理</h4>
+     <div align="center">
      <form action="/Eboy/jsp/admin/adminLookUpDelivery.action">
                                                 订单号:
-                                                <input type="text"  style="width:300px;" id="orderId" name="orderId" />
+                                                <input type="text"  style="width:300px;" id="orderId" name="orderId" class="text_field"/>
                                                 <p style="display: none;" id="authOrderId"></p>
-                                                <input type="submit" value=" 查询订单 " name="CheckOrder"  alt="CheckOrder" id="checkorderbutton" title="查询订单" class="btn" style="width:100px;"  />
-                                                <input type="button" value=" 显示订单地图 " name="ShowOrderMap"  alt="ShowOrderMap" id="ordermapbutton" title="显示订单地图" class="btn" style="width:120px;" onclick="OrderMapSwitch()"/>
+                                                <input type="submit" value=" 查询订单 " name="CheckOrder"  alt="CheckOrder" id="checkorderbutton" title="查询订单" class="btn_m"   />
+                                                <input type="button" value=" 显示订单地图 " name="ShowOrderMap"  alt="ShowOrderMap" id="ordermapbutton" title="显示订单地图" class="btn_m" onclick="OrderMapSwitch()"/>
                                         </form>
-
+     </div>
+<br/>
                                         <div id="ordermapdiv" style="display: none">
                                                 <s:action name="orderMap" executeResult="true" />
                                         </div>
@@ -215,12 +216,16 @@
                                                         <td align="center" id="orderStatus"><s:property value="#order.orderStatus"/></td>
                                                 </tr>
                                         </table>
+<br/>
 
                                         <h4>收货信息</h4>
                                         <p>  收货人: <s:property value="#order.orderReceiver"/></p>
                                         <p>收货地址: <s:property value="#order.orderAddress"/></p>
                                         <p>联系电话: <s:property value="#order.orderPhone"/></p>
                                         <div class="cleaner h10"></div>
+ 
+   <br/>
+  
                                         <h4>物流信息</h4>
                                         <table id="deliveryTable">
                                                 <tr>
@@ -252,8 +257,10 @@
                         document.getElementById("deliveryTime").value = datetime;
                                                 </script>
                                         </table>
+                                   
 
-
+<br/>
+<br/>
 </div></div>
 
 <!-- copyright -->

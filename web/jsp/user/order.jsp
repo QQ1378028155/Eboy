@@ -225,7 +225,7 @@
                                                                 itemThumbnailImageUrlImg.height = 150;
                                                                 itemTitleTd.innerText = itemTitle;
                                                                 orderQuantityTd.innerText = orderQuantity;
-                                                                orderPriceTd.innerText = "RMB " + orderPrice;
+                                                                orderPriceTd.innerText = orderPrice + " 元";
                                                                 orderStatusTd.innerText = orderStatus;
 
                                                                 var confirmOrder = document.getElementById('confirmOrder');
@@ -279,6 +279,37 @@
                                 xmlHttp.send();
                         }
                                         </script>
+        <script type="text/javascript">
+        function AutoResizeImage(maxWidth, maxHeight, objImg) {
+                var img = new Image();
+                img.src = objImg.src;
+                var hRatio;
+                var wRatio;
+                var Ratio = 1;
+                var w = img.width;
+                var h = img.height;
+                wRatio = maxWidth / w;
+                hRatio = maxHeight / h;
+                if (maxWidth == 0 && maxHeight == 0) {
+                        Ratio = 1;
+                } else if (maxWidth == 0) {//
+                        if (hRatio < 1)
+                                Ratio = hRatio;
+                } else if (maxHeight == 0) {
+                        if (wRatio < 1)
+                                Ratio = wRatio;
+                } else if (wRatio < 1 || hRatio < 1) {
+                        Ratio = (wRatio <= hRatio ? wRatio : hRatio);
+                }
+                if (Ratio < 1) {
+                        w = w * Ratio;
+                        h = h * Ratio;
+                }
+                objImg.height = h;
+                objImg.width = w;
+        }
+</script>
+
     </head>
     <body>
         <div class="wraper">
@@ -355,7 +386,11 @@
                                     <th width="90"align="center">操作 </th>
                             </tr>
                             <tr>
-                                    <td><img  id="itemThumbnailImageUrl" /></td>
+                                    <td>
+                                        <div align='center' style="height:150px;width:200px;overflow:hidden;">
+                                            <img id="itemThumbnailImageUrl" width="0" height="0" onload="AutoResizeImage(200,150,this)" alt=""/>
+                                        </div>
+                                    </td>
                                     <td id="itemTitle"></td> 
                                     <td align="center" id="orderQuantity" ></td>
                                     <td align="right" id="orderPrice"></td> 

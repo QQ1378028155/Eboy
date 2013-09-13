@@ -279,6 +279,38 @@
                                 xmlHttp.send();
                         }
                                         </script>
+        
+        <script type="text/javascript">
+        function AutoResizeImage(maxWidth, maxHeight, objImg) {
+                var img = new Image();
+                img.src = objImg.src;
+                var hRatio;
+                var wRatio;
+                var Ratio = 1;
+                var w = img.width;
+                var h = img.height;
+                wRatio = maxWidth / w;
+                hRatio = maxHeight / h;
+                if (maxWidth == 0 && maxHeight == 0) {
+                        Ratio = 1;
+                } else if (maxWidth == 0) {//
+                        if (hRatio < 1)
+                                Ratio = hRatio;
+                } else if (maxHeight == 0) {
+                        if (wRatio < 1)
+                                Ratio = wRatio;
+                } else if (wRatio < 1 || hRatio < 1) {
+                        Ratio = (wRatio <= hRatio ? wRatio : hRatio);
+                }
+                if (Ratio < 1) {
+                        w = w * Ratio;
+                        h = h * Ratio;
+                }
+                objImg.height = h;
+                objImg.width = w;
+        }
+</script>
+        
     </head>
     <body>
         <div class="wraper">
@@ -310,29 +342,9 @@
             </div>
             <!-- /top_title -->
             <div class="wraper">
-                <!-- sidebar -->
-                <div class="sidebar">
-                    <!-- acc tabs -->
-                    <div class="acc_tabs">
-                        <div id="tabs">
-                            <ul class="tab_select">
-                                <li><a href="#tab-1">类别</a></li>
-                                <li><a href="#tab-2">标签</a></li>
-                            </ul>
-                            <s:action name="getCategories" executeResult="true"/>
-                            <s:action name="getTags" executeResult="true"/>
-                            
-                        </div>
-                    </div>
-                    <!-- /acc tabs -->
-                    <!-- most popular -->
-                    <s:action name="userHotList" executeResult="true" />
-                    
-                    <!-- /most popular -->
-                </div>
-                <!-- /sidebar -->
+
                 <!-- main -->
-                <div style='padding: 0 0 0 20px;width:690px;float:right;'>
+                <div style='padding: 0 0 20px 20px;width:690px;>
                     <div align='center'>
 
                         <table width="680px" cellspacing="0" cellpadding="5">
@@ -345,12 +357,16 @@
                                     <th width="90"align="center">操作 </th>
                             </tr>
                             <tr>
-                                    <td><img  id="itemThumbnailImageUrl" /></td>
-                                    <td id="itemTitle"></td> 
-                                    <td align="center" id="orderQuantity" ></td>
-                                    <td align="right" id="orderPrice"></td> 
-                                    <td align="right" id="orderStatus"></td>
-                                    <td align="center"> <a href="#" onclick="confirmOrder();return false;" id="confirmOrder"></a><br/><a id="findGoogleMap"></a></td>
+                                <td>
+                                    <div align='center' style="height:150px;width:200px;overflow:hidden;">
+                                            <img id="itemThumbnailImageUrl" src="<s:property value="#order.item.itemThumbnailImageUrl"/>" width="0" height="0" onload="AutoResizeImage(200,150,this)" alt=""/>
+                                    </div>
+                                </td>
+                                <td id="itemTitle"><s:property value="#order.item.itemTitle"/></td> 
+                                <td align="center" id="orderQuantity" ><s:property value="#order.orderQuantity"/></td>
+                                <td align="right" id="orderPrice"><s:property value="#order.orderPrice"/></td> 
+                                <td align="right" id="orderStatus"><s:property value="#order.orderStatus"/></td>
+                                <td align="center"> <a href="#" onclick="confirmOrder();return false;" id="confirmOrder"></a><br/><a id="findGoogleMap"></a></td>
                             </tr>
                         </table>
                     </div>

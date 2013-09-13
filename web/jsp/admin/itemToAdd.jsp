@@ -43,7 +43,8 @@
                 </table>
                 <div  class="cleaner h20"></div>
                 <div align="center">
-                        <input type="submit" class="btn" style="width:150px;" value="保存并加入仓库" />
+                        <input type="submit" class="btn_m"  value="加入仓库" />
                 </div>
         </s:form>
+                <br/>
 </div>

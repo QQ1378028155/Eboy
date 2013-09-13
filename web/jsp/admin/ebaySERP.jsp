@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-<title>EbayApiErorr</title>
+<title>EboyAdmin - eBay搜索结果</title>
 <link rel="icon" type="image/png" href="images/favicon.ico" />
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
 <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png" />
@@ -91,7 +91,7 @@
 <body>
 <div class="wraper">
  <header class="header">
-  <a class="logo" href="index.html">construct</a>
+  <a class="logo" href="login.jsp">EboyAdmin</a>
   <nav>
   <!-- top menu -->
    <ul>
@@ -116,6 +116,9 @@
       <li><a href="delivery.jsp">物流管理</a>
    </ul>
   <!-- /top menu -->
+      <div style="float:right; margin-top: 12px;">
+      <strong><s:action name="getAdmin" executeResult="true"/></strong> | <a href="logOut.action">退出登录</a>
+  </div>
   </nav>
  </header>
 </div> 
@@ -124,16 +127,13 @@
  <!-- top_title -->
  <div class="top_title">
   <div class="wraper">
-   <h2>Ebay Admin<span></span></h2> <s:include value="searchForm.jsp"/>
-   <ul>
-    <li><s:action name="getAdmin" executeResult="true"/> | <a href="logOut.action">退出登录</a></li>
+   <h2>eBay搜索结果<span></span></h2> <s:include value="searchForm.jsp"/>
 
-   </ul>
   </div>
  </div>
  <!-- /top_title -->
  <div class="wraper">     
- <h4 class="bord">eBay搜索结果</h4>
+
  <div id="content" class="float_r">
                
                     <s:action name="adminGetEbayItems" executeResult="true">

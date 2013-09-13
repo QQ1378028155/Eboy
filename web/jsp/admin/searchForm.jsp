@@ -31,12 +31,13 @@
                         field.value = '';
         }
 </script>
-
+<div style="float:right;">
 <form id="searchform" action="#" method="get">
-        <input type="text" value="请输入关键字" name="value" id="keywords" title="关键字" onfocus="newClearText(this)" onblur="newClearText(this)" class="txt_field" x-webkit-speech/>
+        <input type="text" value="请输入关键字" name="value" id="keywords" title="关键字" onfocus="newClearText(this)" onblur="newClearText(this)" class="text_field" x-webkit-speech/>
         <input type="hidden" id="method" name="method" value=""/>
-        <input type="button" onclick="searchstorage();" value=" 搜索仓库 " name="Search"  alt="Search" id="searchstoragebutton" title="搜索仓库商品" class="sub_btn"  />
-        <input type="button" onclick="searchebay();" value=" 搜索eBay " name="Search"  alt="Search" id="searchebaybutton" title="搜索eBay商品" class="sub_btn"  />
+        <input type="button" onclick="searchstorage();" value=" 搜索仓库 " name="Search"  alt="Search" id="searchstoragebutton" title="搜索仓库商品" class="btn_m"  />
+        <input type="button" onclick="searchebay();" value=" 搜索eBay " name="Search"  alt="Search" id="searchebaybutton" title="搜索eBay商品" class="btn_m"  />
 </form>
-
-<s:action name="getHotList" executeResult="true"/>
+    
+    <s:action name="getHotList" executeResult="true"/>
+</div>

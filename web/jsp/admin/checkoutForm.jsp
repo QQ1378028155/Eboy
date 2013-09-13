@@ -21,4 +21,5 @@
         </s:iterator>
 </table>
 <div style=" text-align: center;">
-        <input type="button" onclick="window.location.href='deliverOrder.action';" class="btn" value="发货"/></div>
+        <input type="button" onclick="window.location.href='deliverOrder.action';" class="btn_m" value="发货"/></div>
+        <br/>

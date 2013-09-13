@@ -103,10 +103,7 @@
             function addCategory(){
                 var num=document.getElementById("categoryNum");
                 var name=document.getElementById("categoryName");
-                var tr="<tr><td align='center'>"+num.value+"</td><td align='center'>"+name.value+"</td><td align=center>"+
-                        "<a href='javascript:void(0);' onclick='modifyCategoryName(this);' style='display:block;'>修改类型名称</a>"+
-                        "<input type='button' class='btn' onclick='confirmCategoryName(this);' style='display:none;width:100px;height:25px;background-color: #0099ff;'value='确认类型名称' />"+
-                        "</td></tr>";
+                var tr="<tr><td align='center'>"+num.value+"</td><td align='center'>"+name.value+"</td><td align=center></td></tr>";
                 document.getElementById("trInput").insertAdjacentHTML("beforeBegin",tr);
                 var xmlHttp;
                 if (window.ActiveXObject) {
@@ -123,7 +120,7 @@
 <body>
 <div class="wraper">
  <header class="header">
-  <a class="logo" href="index.html">construct</a>
+  <a class="logo" href="login.jsp">EboyAdmin</a>
   <nav>
   <!-- top menu -->
    <ul>
@@ -148,6 +145,9 @@
       <li><a href="delivery.jsp">物流管理</a>
    </ul>
   <!-- /top menu -->
+    <div style="float:right; margin-top: 12px;">
+      <strong><s:action name="getAdmin" executeResult="true"/></strong> | <a href="logOut.action">退出登录</a>
+  </div>
   </nav>
  </header>
 </div> 
@@ -156,12 +156,9 @@
  <!-- top_title -->
  <div class="top_title">
   <div class="wraper">
-   <h2>Eboy Admin<span></span></h2>
+   <h2>类型管理<span></span></h2>
     <s:include value="searchForm.jsp"/>
-   <ul>
-    <li><s:action name="getAdmin" executeResult="true"/> | <a href="logOut.action">退出登录</a></li>
 
-   </ul>
   </div>
  </div>
  <!-- /top_title -->
@@ -180,6 +177,7 @@
                             <td align="center"> <a class="btn_col" href="javascript:void(0);" onclick="addCategory();">添加</a></td>
                         </tr>
                     </table>
+                        <br/>
 
  </div>
 </div></div>

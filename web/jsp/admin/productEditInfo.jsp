@@ -64,7 +64,7 @@
 <body>
 <div class="wraper">
  <header class="header">
-  <a class="logo" href="index.html">construct</a>
+  <a class="logo" href="login.jsp">EboyAdmin</a>
   <nav>
   <!-- top menu -->
    <ul>
@@ -89,6 +89,9 @@
       <li><a href="delivery.jsp">物流管理</a>
    </ul>
   <!-- /top menu -->
+      <div style="float:right; margin-top: 12px;">
+      <strong><s:action name="getAdmin" executeResult="true"/></strong> | <a href="logOut.action">退出登录</a>
+  </div>
   </nav>
  </header>
 </div> 
@@ -97,22 +100,19 @@
  <!-- top_title -->
  <div class="top_title">
   <div class="wraper">
-   <h2>Eboy Admin<span></span></h2>
+      <h2>修改商品信息<span></span></h2>
     <s:include value="searchForm.jsp"/>
-   <ul>
-    <li><s:action name="getAdmin" executeResult="true"/> | <a href="logOut.action">退出登录</a></li>
 
-   </ul>
   </div>
  </div>
  <!-- /top_title -->
   <div id="content" class="wraper">
-                    <h1>修改商品信息</h1>
+
                     <div align="center">
                         <a  rel="lightbox[portfolio]" href="<s:property value="#item.itemThumbnailImageUrl"/>"><img src="<s:property value="#item.itemThumbnailImageUrl"/>" width="300" /></a>
                         <br></br>
                     </div>
-                    <div class="content_half float_l">
+                    <div style="float:left">
                         <h3>eBay商品信息</h3>
                         <table>
                             <tr>
@@ -131,7 +131,7 @@
                         </table>
 
                     </div>
-                    <div class="content_half float_r">
+                    <div style="float:right">
                         <h3>仓库商品信息</h3>
                         <form action="confirmEditItem.action" method="post">     
                             <table>
@@ -156,12 +156,13 @@
                             </table>
                             <div  class="cleaner h20"></div>
                             <div align="center">
-                                <input type="submit" class="btn" style="width:150px;" value="保存修改" />
+                                <input type="submit" class="btn_m" value="保存修改" />
                             </div>
                         </form>
                     </div>
                 </div>
-                <div class="cleaner"></div>
+               <br/>
+               <br/>
 </div>
 
 <!-- copyright -->
